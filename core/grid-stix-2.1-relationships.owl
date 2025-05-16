@@ -1,0 +1,106 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix stix: <http://stixschema.org/v21#> .
+@prefix grid: <http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#> .
+
+# ------------------------------------------------------------------
+# Grid-STIX 2.1 Relationships Module
+# IRI: http://www.anl.gov/sss/grid-stix-2.1-relationships.owl
+# ------------------------------------------------------------------
+
+<http://www.anl.gov/sss/grid-stix-2.1-relationships.owl>
+    a owl:Ontology ;
+    rdfs:comment "Grid-STIX 2.1: Relationship classes extending STIX Relationship" ;
+    owl:imports <http://stixschema.org/v21#Relationship> .
+
+################################################################################
+# Base Relationship Class
+################################################################################
+
+grid:GridRelationship
+    a owl:Class ;
+    rdfs:subClassOf stix:Relationship ;
+    rdfs:comment "Base class for all grid-specific relationships." .
+
+################################################################################
+# Specialized Relationship Subclasses
+################################################################################
+
+# Monitors Relationship
+grid:MonitorsRelationship
+    a owl:Class ;
+    rdfs:subClassOf grid:GridRelationship , [
+        a owl:Restriction ;
+        owl:onProperty stix:relationship_type ;
+        owl:hasValue "monitors"^^xsd:string
+    ] ;
+    rdfs:label "monitors" ;
+    rdfs:comment "Relationship where an OTDevice monitors a GridComponent." .
+
+# Controls Relationship
+grid:ControlsRelationship
+    a owl:Class ;
+    rdfs:subClassOf grid:GridRelationship , [
+        a owl:Restriction ;
+        owl:onProperty stix:relationship_type ;
+        owl:hasValue "controls"^^xsd:string
+    ] ;
+    rdfs:label "controls" ;
+    rdfs:comment "Relationship where an OTDevice controls a GridComponent." .
+
+# Connects-to Relationship
+grid:ConnectsToRelationship
+    a owl:Class ;
+    rdfs:subClassOf grid:GridRelationship , [
+        a owl:Restriction ;
+        owl:onProperty stix:relationship_type ;
+        owl:hasValue "connects-to"^^xsd:string
+    ] ;
+    rdfs:label "connects-to" ;
+    rdfs:comment "Relationship connecting two grid assets or components." .
+
+# Feeds Relationship
+grid:FeedsRelationship
+    a owl:Class ;
+    rdfs:subClassOf grid:GridRelationship , [
+        a owl:Restriction ;
+        owl:onProperty stix:relationship_type ;
+        owl:hasValue "feeds"^^xsd:string
+    ] ;
+    rdfs:label "feeds" ;
+    rdfs:comment "Relationship indicating power or data feeds between components." .
+
+# Operates-in Relationship
+grid:OperatesInRelationship
+    a owl:Class ;
+    rdfs:subClassOf grid:GridRelationship , [
+        a owl:Restriction ;
+        owl:onProperty stix:relationship_type ;
+        owl:hasValue "operates-in"^^xsd:string
+    ] ;
+    rdfs:label "operates-in" ;
+    rdfs:comment "Relationship linking a component to its operational context." .
+
+# Authenticates-to Relationship
+grid:AuthenticatesToRelationship
+    a owl:Class ;
+    rdfs:subClassOf grid:GridRelationship , [
+        a owl:Restriction ;
+        owl:onProperty stix:relationship_type ;
+        owl:hasValue "authenticates-to"^^xsd:string
+    ] ;
+    rdfs:label "authenticates-to" ;
+    rdfs:comment "Relationship between an identity and a device for authentication." .
+
+# Affects-operation-of Relationship
+grid:AffectsOperationOfRelationship
+    a owl:Class ;
+    rdfs:subClassOf grid:GridRelationship , [
+        a owl:Restriction ;
+        owl:onProperty stix:relationship_type ;
+        owl:hasValue "affects-operation-of"^^xsd:string
+    ] ;
+    rdfs:label "affects-operation-of" ;
+    rdfs:comment "Relationship where a context affects operation of a component." .
+

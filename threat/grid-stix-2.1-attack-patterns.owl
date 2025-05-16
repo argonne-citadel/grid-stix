@@ -1,0 +1,90 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix stix: <http://stixschema.org/v21#> .
+@prefix grid: <http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#> .
+@prefix gridv: <http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#> .
+
+# ------------------------------------------------------------------
+# Grid-STIX 2.1 Attack Patterns Module
+# IRI: http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl
+# ------------------------------------------------------------------
+
+<http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl>
+    a owl:Ontology ;
+    rdfs:comment "Grid-STIX 2.1: Grid-specific attack patterns and mitigations extending STIX" ;
+    owl:imports <http://stixschema.org/v21#AttackPattern>,
+                <http://stixschema.org/v21#CourseOfAction>,
+                <http://www.anl.gov/sss/grid-stix-2.1-vocab.owl> .
+
+################################################################################
+# Classes
+################################################################################
+
+# GridAttackPattern: Attack techniques tailored to grid environments
+grid:GridAttackPattern
+    a owl:Class ;
+    rdfs:subClassOf stix:AttackPattern ;
+    rdfs:comment "Attack techniques specific to grid environments, e.g., firmware manipulation or protocol fuzzing." .
+
+# GridMitigation: Mitigations specific to grid attack patterns
+grid:GridMitigation
+    a owl:Class ;
+    rdfs:subClassOf stix:CourseOfAction ;
+    rdfs:comment "Grid-specific mitigation courses of action, e.g., firmware patch deployment or network segmentation." .
+
+################################################################################
+# Datatype Properties
+################################################################################
+
+# affected_grid_components: Components targeted by the attack
+grid:affected_grid_components
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:GridAttackPattern ;
+    rdfs:range gridv:grid_component_ov ;
+    rdfs:comment "Grid components affected by the attack." .
+
+# affected_protocols: Protocols targeted by the attack
+grid:affected_protocols
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:GridAttackPattern ;
+    rdfs:range gridv:grid_protocol_ov ;
+    rdfs:comment "Grid protocols affected by the attack." .
+
+# impact_type: Expected impact type of the attack
+grid:impact_type
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:GridAttackPattern ;
+    rdfs:range gridv:impact_type_ov ;
+    rdfs:comment "Potential impact resulting from the attack, e.g., denial of service." .
+
+# detection_methods: Detection approaches for identifying the attack
+grid:detection_methods
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:GridAttackPattern ;
+    rdfs:range gridv:detection_method_ov ;
+    rdfs:comment "Detection methods for the attack pattern, e.g., signature, anomaly-based." .
+
+################################################################################
+# Object Properties
+################################################################################
+
+# mitigations: References to courses of action or grid mitigations
+grid:mitigations
+    a owl:ObjectProperty ;
+    rdfs:domain grid:GridAttackPattern ;
+    rdfs:range [ owl:Class ; owl:unionOf (stix:CourseOfAction grid:GridMitigation) ] ;
+    rdfs:comment "Mitigations or courses of action for the attack pattern." .
+
+# capec_refs: External CAPEC references
+grid:capec_refs
+    a owl:ObjectProperty ;
+    rdfs:domain grid:GridAttackPattern ;
+    rdfs:range stix:ExternalReference ;
+    rdfs:comment "CAPEC or other external references for the attack pattern." .
+
+################################################################################
+# Note
+################################################################################
+# Additional inherited properties (e.g., name, description) are defined in STIX AttackPattern.
+

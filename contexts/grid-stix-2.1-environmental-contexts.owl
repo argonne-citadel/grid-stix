@@ -1,0 +1,171 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix stix: <http://stixschema.org/v21#> .
+@prefix gridc: <http://www.anl.gov/sss/grid-stix-2.1-environmental-contexts.owl#> .
+@prefix gridv: <http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#> .
+
+# ------------------------------------------------------------------
+# Grid-STIX 2.1 Environmental Contexts Module
+# IRI: http://www.anl.gov/sss/grid-stix-2.1-environmental-contexts.owl
+# ------------------------------------------------------------------
+
+<http://www.anl.gov/sss/grid-stix-2.1-environmental-contexts.owl>
+    a owl:Ontology ;
+    rdfs:comment "Environmental context definitions for Grid-STIX 2.1" ;
+    owl:imports <http://stixschema.org/v21#ObservedData>,
+                <http://stixschema.org/v21#Incident>,
+                <http://www.anl.gov/sss/grid-stix-2.1-vocab.owl> .
+
+################################################################################
+# WeatherContext
+################################################################################
+
+gridc:WeatherContext
+    a owl:Class ;
+    rdfs:subClassOf stix:ObservedData ;
+    rdfs:comment "Represents weather conditions that may affect grid operations." .
+
+# Datatype Properties for WeatherContext
+
+gridc:weather_type
+    a owl:DatatypeProperty ;
+    rdfs:domain gridc:WeatherContext ;
+    rdfs:range gridv:weather_type_ov ;
+    rdfs:comment "Type of weather, e.g., rain, snow, wind." .
+
+gridc:severity
+    a owl:DatatypeProperty ;
+    rdfs:domain gridc:WeatherContext ;
+    rdfs:range xsd:integer ;
+    rdfs:comment "Severity level of weather on a scale of 1-5." .
+
+gridc:current_temperature
+    a owl:DatatypeProperty ;
+    rdfs:domain gridc:WeatherContext ;
+    rdfs:range xsd:float ;
+    rdfs:comment "Measured current temperature in Celsius." .
+
+gridc:wind_speed
+    a owl:DatatypeProperty ;
+    rdfs:domain gridc:WeatherContext ;
+    rdfs:range xsd:float ;
+    rdfs:comment "Wind speed in meters per second." .
+
+gridc:precipitation_rate
+    a owl:DatatypeProperty ;
+    rdfs:domain gridc:WeatherContext ;
+    rdfs:range xsd:float ;
+    rdfs:comment "Precipitation rate in mm per hour." .
+
+gridc:lightning_strike_proximity
+    a owl:DatatypeProperty ;
+    rdfs:domain gridc:WeatherContext ;
+    rdfs:range xsd:float ;
+    rdfs:comment "Proximity of nearest lightning strike in kilometers." .
+
+# Object Properties for WeatherContext
+
+gridc:forecast_refs
+    a owl:ObjectProperty ;
+    rdfs:domain gridc:WeatherContext ;
+    rdfs:range stix:Observable ;
+    rdfs:comment "References to weather forecast Observables." .
+
+# Shared properties
+gridc:potential_impact
+    a owl:DatatypeProperty ;
+    rdfs:domain gridc:WeatherContext ;
+    rdfs:range gridv:potential_impact_ov ;
+    rdfs:comment "Potential impact of the weather event on grid." .
+
+gridc:source
+    a owl:DatatypeProperty ;
+    rdfs:domain gridc:WeatherContext ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Source of the weather data." .
+
+################################################################################
+# NaturalDisasterContext
+################################################################################
+
+gridc:NaturalDisasterContext
+    a owl:Class ;
+    rdfs:subClassOf stix:Incident ;
+    rdfs:comment "Represents natural disaster events affecting the grid." .
+
+# Datatype and Object Properties for NaturalDisasterContext
+
+gridc:disaster_type
+    a owl:DatatypeProperty ;
+    rdfs:domain gridc:NaturalDisasterContext ;
+    rdfs:range gridv:disaster_type_ov ;
+    rdfs:comment "Type of disaster, e.g., flood, earthquake." .
+
+gridc:severity
+    a owl:DatatypeProperty ;
+    rdfs:domain gridc:NaturalDisasterContext ;
+    rdfs:range xsd:integer ;
+    rdfs:comment "Severity level of disaster on a scale of 1-5." .
+
+# Regions affected by disaster
+gridc:affected_region_refs
+    a owl:ObjectProperty ;
+    rdfs:domain gridc:NaturalDisasterContext ;
+    rdfs:range stix:Location ;
+    rdfs:comment "References to locations affected by the disaster." .
+
+gridc:disaster_declaration_level
+    a owl:DatatypeProperty ;
+    rdfs:domain gridc:NaturalDisasterContext ;
+    rdfs:range gridv:disaster_declaration_level_ov ;
+    rdfs:comment "Official disaster declaration level." .
+
+gridc:declaring_authority
+    a owl:ObjectProperty ;
+    rdfs:domain gridc:NaturalDisasterContext ;
+    rdfs:range stix:Identity ;
+    rdfs:comment "Authority declaring the disaster." .
+
+gridc:projected_end_time
+    a owl:DatatypeProperty ;
+    rdfs:domain gridc:NaturalDisasterContext ;
+    rdfs:range xsd:dateTime ;
+    rdfs:comment "Projected end time of the disaster event." .
+
+gridc:recovery_phase
+    a owl:DatatypeProperty ;
+    rdfs:domain gridc:NaturalDisasterContext ;
+    rdfs:range gridv:recovery_phase_ov ;
+    rdfs:comment "Recovery phase of the disaster response." .
+
+gridc:evacuation_zones_refs
+    a owl:ObjectProperty ;
+    rdfs:domain gridc:NaturalDisasterContext ;
+    rdfs:range stix:Location ;
+    rdfs:comment "Locations of evacuation zones." .
+
+gridc:communications_status
+    a owl:DatatypeProperty ;
+    rdfs:domain gridc:NaturalDisasterContext ;
+    rdfs:range gridv:communications_status_ov ;
+    rdfs:comment "Communications status during the disaster." .
+
+gridc:transportation_status
+    a owl:DatatypeProperty ;
+    rdfs:domain gridc:NaturalDisasterContext ;
+    rdfs:range gridv:transportation_status_ov ;
+    rdfs:comment "Transportation status during the disaster." .
+
+# Shared properties
+gridc:object_marking_refs
+    a owl:ObjectProperty ;
+    rdfs:domain gridc:NaturalDisasterContext ;
+    rdfs:range stix:MarkingDefinition ;
+    rdfs:comment "Marking definitions applied to the disaster context." .
+
+################################################################################
+# Note
+################################################################################
+# Inherited properties such as created, modified, description come from STIX ObservedData and Incident.
+

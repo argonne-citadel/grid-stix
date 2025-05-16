@@ -1,0 +1,55 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix stix: <http://stixschema.org/v21#> .
+@prefix grid: <http://www.anl.gov/sss/grid-stix-2.1-assets.owl#> .
+
+# ------------------------------------------------------------------
+# Grid-STIX 2.1 Assets Module
+# IRI: http://www.anl.gov/sss/grid-stix-2.1-assets.owl
+# ------------------------------------------------------------------
+
+<http://www.anl.gov/sss/grid-stix-2.1-assets.owl>
+    a owl:Ontology ;
+    rdfs:comment "Grid-STIX 2.1: Asset classes extending STIX Infrastructure, Location, and Software" ;
+    owl:imports <http://stixschema.org/v21#Infrastructure>,
+                <http://stixschema.org/v21#Location>,
+                <http://stixschema.org/v21#Software> .
+
+################################################################################
+# Classes
+################################################################################
+
+# PhysicalAsset: Represents tangible infrastructure elements in a distribution grid
+grid:PhysicalAsset
+    a owl:Class ;
+    rdfs:subClassOf stix:Infrastructure ;
+    rdfs:comment "A physical asset in the distribution grid, e.g., poles, transformers, substations." .
+
+# GridComponent: Specialized infrastructure component within the grid
+grid:GridComponent
+    a owl:Class ;
+    rdfs:subClassOf stix:Infrastructure ;
+    rdfs:comment "A grid component such as circuit breakers, switches, or relays." .
+
+# SecurityZone: A logical or physical security boundary within grid facilities
+grid:SecurityZone
+    a owl:Class ;
+    rdfs:subClassOf stix:Location ;
+    rdfs:comment "A security zone within the grid, e.g., substation perimeter or fenced area." .
+
+# OTDevice: Represents software/firmware for operational technology devices
+grid:OTDevice
+    a owl:Class ;
+    rdfs:subClassOf stix:Software ;
+    rdfs:comment "An OT device’s software or firmware component, e.g., PLC or SCADA module." .
+
+################################################################################
+# Individuals (Examples)
+################################################################################
+# Optionally define example individuals for clarity:
+# grid:SubstationAlpha a grid:PhysicalAsset ; rdfs:label "Substation Alpha" .
+# grid:CircuitBreaker1 a grid:GridComponent ; rdfs:label "CB-12" .
+# grid:PerimeterFence a grid:SecurityZone ; rdfs:label "Substation Perimeter Fence" .
+# grid:PLC_Firmware_v1 a grid:OTDevice ; rdfs:label "PLC Firmware v1.0" .
+

@@ -1,0 +1,75 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix stix: <http://stixschema.org/v21#> .
+@prefix grid: <http://www.anl.gov/sss/grid-stix-2.1-components.owl#> .
+@prefix gridv: <http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#> .
+
+# ------------------------------------------------------------------
+# Grid-STIX 2.1 Components Module
+# IRI: http://www.anl.gov/sss/grid-stix-2.1-components.owl
+# ------------------------------------------------------------------
+
+<http://www.anl.gov/sss/grid-stix-2.1-components.owl>
+    a owl:Ontology ;
+    rdfs:comment "Definitions of grid component classes and their properties" ;
+    owl:imports <http://www.anl.gov/sss/grid-stix-2.1-assets.owl>,
+                <http://www.anl.gov/sss/grid-stix-2.1-vocab.owl> .
+
+################################################################################
+# Classes
+################################################################################
+
+# GridComponent: Specialized infrastructure component within the grid
+grid:GridComponent
+    a owl:Class ;
+    rdfs:subClassOf grid:GridComponent ;  # imported from assets module
+    rdfs:comment "A grid component such as circuit breakers, switches, relays, etc." .
+
+# SecurityZone: A logical or physical security boundary within grid facilities
+grid:SecurityZone
+    a owl:Class ;
+    rdfs:subClassOf grid:SecurityZone ;  # imported from assets
+    rdfs:comment "Defines security zones and trust boundaries in a grid environment." .
+
+# OTDevice: Operational technology device software/firmware
+grid:OTDevice
+    a owl:Class ;
+    rdfs:subClassOf grid:OTDevice ;     # imported from assets
+    rdfs:comment "An OT device’s software or firmware component, e.g., PLC or SCADA module." .
+
+################################################################################
+# Datatype Properties
+################################################################################
+
+# component_type: Type of grid component (open vocab)
+grid:component_type
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:GridComponent ;
+    rdfs:range gridv:grid_component_ov ;
+    rdfs:comment "Type of grid component, e.g., substation, transformer." .
+
+# zone_type: Type of security zone (open vocab)
+grid:zone_type
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:SecurityZone ;
+    rdfs:range gridv:security_zone_type_ov ;
+    rdfs:comment "Type of security zone, e.g., OT, IT, substation." .
+
+# ot_device_type: Type of OT device (open vocab)
+grid:ot_device_type
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:OTDevice ;
+    rdfs:range gridv:ot_device_type_ov ;
+    rdfs:comment "Type of OT device, e.g., PLC, SCADA-server." .
+
+# vendor: Manufacturer of the device
+# model: Model identifier; version: Version string
+# serial_number: Serial number; manufacture_date: Timestamp; end_of_support: Timestamp
+grid:vendor a owl:DatatypeProperty ; rdfs:domain grid:OTDevice ; rdfs:range xsd:string ; rdfs:comment "Vendor or manufacturer." .
+grid:model a owl:DatatypeProperty ; rdfs:domain grid:OTDevice ; rdfs:range xsd:string ; rdfs:comment "Device model name or number." .
+grid:version a owl:DatatypeProperty ; rdfs:domain grid:OTDevice ; rdfs:range xsd:string ; rdfs:comment "Version of firmware or software." .
+grid:serial_number a owl:DatatypeProperty ; rdfs:domain grid:OTDevice ; rdfs:range xsd:string ; rdfs:comment "Device serial number." .
+grid:manufacture_date a owl:DatatypeProperty ; rdfs:domain grid:OTDevice ; rdfs:range xsd:dateTime ; rdfs:comment "Date of manufacture." .
+grid:end_of_support a owl:DatatypeProperty ; rdfs:domain grid:OTDevice ; rdfs:range xsd:dateTime ; rdfs:comment "End of support date." .
+

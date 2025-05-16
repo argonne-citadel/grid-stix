@@ -1,0 +1,57 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix gridv: <http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#> .
+
+# ------------------------------------------------------------------
+# Grid-STIX 2.1 Open Vocabularies Module
+# IRI: http://www.anl.gov/sss/grid-stix-2.1-vocab.owl
+# ------------------------------------------------------------------
+
+<http://www.anl.gov/sss/grid-stix-2.1-vocab.owl>
+    a owl:Ontology ;
+    rdfs:comment "Open vocabularies for Grid-STIX 2.1 extensions" .
+
+################################################################################
+# Open Vocabulary Classes
+################################################################################
+
+gridv:alert_level_ov                    a owl:Class ; rdfs:comment "Open vocabulary for alert levels" .
+gridv:authentication_factor_ov          a owl:Class ; rdfs:comment "Open vocabulary for authentication factors" .
+gridv:authentication_requirement_ov    a owl:Class ; rdfs:comment "Open vocabulary for authentication requirements" .
+gridv:authentication_result_ov         a owl:Class ; rdfs:comment "Open vocabulary for authentication results" .
+gridv:communications_status_ov         a owl:Class ; rdfs:comment "Open vocabulary for communications statuses" .
+gridv:defensive_posture_ov             a owl:Class ; rdfs:comment "Open vocabulary for defensive postures" .
+gridv:detection_method_ov              a owl:Class ; rdfs:comment "Open vocabulary for detection methods" .
+gridv:disaster_declaration_level_ov    a owl:Class ; rdfs:comment "Open vocabulary for disaster declaration levels" .
+gridv:disaster_type_ov                 a owl:Class ; rdfs:comment "Open vocabulary for disaster types" .
+gridv:emergency_status_ov              a owl:Class ; rdfs:comment "Open vocabulary for emergency statuses" .
+gridv:emergency_type_ov                a owl:Class ; rdfs:comment "Open vocabulary for emergency types" .
+gridv:grid_component_ov                a owl:Class ; rdfs:comment "Open vocabulary for grid component types" .
+gridv:grid_operating_condition_ov      a owl:Class ; rdfs:comment "Open vocabulary for grid operating conditions" .
+gridv:grid_protocol_ov                 a owl:Class ; rdfs:comment "Open vocabulary for grid protocols" .
+gridv:impact_type_ov                   a owl:Class ; rdfs:comment "Open vocabulary for impact types" .
+gridv:incident_response_status_ov      a owl:Class ; rdfs:comment "Open vocabulary for incident response statuses" .
+gridv:maintenance_status_ov            a owl:Class ; rdfs:comment "Open vocabulary for maintenance statuses" .
+gridv:maintenance_type_ov              a owl:Class ; rdfs:comment "Open vocabulary for maintenance types" .
+gridv:monitoring_level_ov              a owl:Class ; rdfs:comment "Open vocabulary for monitoring levels" .
+gridv:operational_status_ov            a owl:Class ; rdfs:comment "Open vocabulary for operational statuses" .
+gridv:ot_device_type_ov                a owl:Class ; rdfs:comment "Open vocabulary for OT device types" .
+gridv:outage_cause_ov                  a owl:Class ; rdfs:comment "Open vocabulary for outage causes" .
+gridv:outage_type_ov                   a owl:Class ; rdfs:comment "Open vocabulary for outage types" .
+gridv:potential_impact_ov              a owl:Class ; rdfs:comment "Open vocabulary for potential impacts" .
+gridv:response_level_ov                a owl:Class ; rdfs:comment "Open vocabulary for response levels" .
+gridv:response_status_ov               a owl:Class ; rdfs:comment "Open vocabulary for response statuses" .
+gridv:security_event_type_ov           a owl:Class ; rdfs:comment "Open vocabulary for security event types" .
+gridv:security_zone_type_ov            a owl:Class ; rdfs:comment "Open vocabulary for security zone types" .
+gridv:storm_type_ov                    a owl:Class ; rdfs:comment "Open vocabulary for storm types" .
+gridv:sensor_type_ov                   a owl:Class ; rdfs:comment "Open vocabulary for sensor types" .
+gridv:transportation_status_ov         a owl:Class ; rdfs:comment "Open vocabulary for transportation statuses" .
+gridv:trust_level_ov                   a owl:Class ; rdfs:comment "Open vocabulary for trust levels" .
+gridv:voltage_status_ov                a owl:Class ; rdfs:comment "Open vocabulary for voltage statuses" .
+gridv:weather_type_ov                  a owl:Class ; rdfs:comment "Open vocabulary for weather types" .
+
+################################################################################
+# Individuals (Allowed Terms)
+################################################################################
+
