@@ -1,90 +1,686 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix stix: <http://stixschema.org/v21#> .
-@prefix grid: <http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#> .
-@prefix gridv: <http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#> .
-
-# ------------------------------------------------------------------
-# Grid-STIX 2.1 Attack Patterns Module
-# IRI: http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl
-# ------------------------------------------------------------------
-
-<http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl>
-    a owl:Ontology ;
-    rdfs:comment "Grid-STIX 2.1: Grid-specific attack patterns and mitigations extending STIX" ;
-    owl:imports <http://stixschema.org/v21#AttackPattern>,
-                <http://stixschema.org/v21#CourseOfAction>,
-                <http://www.anl.gov/sss/grid-stix-2.1-vocab.owl> .
-
-################################################################################
-# Classes
-################################################################################
-
-# GridAttackPattern: Attack techniques tailored to grid environments
-grid:GridAttackPattern
-    a owl:Class ;
-    rdfs:subClassOf stix:AttackPattern ;
-    rdfs:comment "Attack techniques specific to grid environments, e.g., firmware manipulation or protocol fuzzing." .
-
-# GridMitigation: Mitigations specific to grid attack patterns
-grid:GridMitigation
-    a owl:Class ;
-    rdfs:subClassOf stix:CourseOfAction ;
-    rdfs:comment "Grid-specific mitigation courses of action, e.g., firmware patch deployment or network segmentation." .
-
-################################################################################
-# Datatype Properties
-################################################################################
-
-# affected_grid_components: Components targeted by the attack
-grid:affected_grid_components
-    a owl:DatatypeProperty ;
-    rdfs:domain grid:GridAttackPattern ;
-    rdfs:range gridv:grid_component_ov ;
-    rdfs:comment "Grid components affected by the attack." .
-
-# affected_protocols: Protocols targeted by the attack
-grid:affected_protocols
-    a owl:DatatypeProperty ;
-    rdfs:domain grid:GridAttackPattern ;
-    rdfs:range gridv:grid_protocol_ov ;
-    rdfs:comment "Grid protocols affected by the attack." .
-
-# impact_type: Expected impact type of the attack
-grid:impact_type
-    a owl:DatatypeProperty ;
-    rdfs:domain grid:GridAttackPattern ;
-    rdfs:range gridv:impact_type_ov ;
-    rdfs:comment "Potential impact resulting from the attack, e.g., denial of service." .
-
-# detection_methods: Detection approaches for identifying the attack
-grid:detection_methods
-    a owl:DatatypeProperty ;
-    rdfs:domain grid:GridAttackPattern ;
-    rdfs:range gridv:detection_method_ov ;
-    rdfs:comment "Detection methods for the attack pattern, e.g., signature, anomaly-based." .
-
-################################################################################
-# Object Properties
-################################################################################
-
-# mitigations: References to courses of action or grid mitigations
-grid:mitigations
-    a owl:ObjectProperty ;
-    rdfs:domain grid:GridAttackPattern ;
-    rdfs:range [ owl:Class ; owl:unionOf (stix:CourseOfAction grid:GridMitigation) ] ;
-    rdfs:comment "Mitigations or courses of action for the attack pattern." .
-
-# capec_refs: External CAPEC references
-grid:capec_refs
-    a owl:ObjectProperty ;
-    rdfs:domain grid:GridAttackPattern ;
-    rdfs:range stix:ExternalReference ;
-    rdfs:comment "CAPEC or other external references for the attack pattern." .
-
-################################################################################
-# Note
-################################################################################
-# Additional inherited properties (e.g., name, description) are defined in STIX AttackPattern.
-
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:ns4="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xml:base="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl"
+  >
+  <owl:Ontology
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl"
+    >
+    <owl:imports
+        rdf:resource="http://docs.oasis-open.org/ns/cti/stix/attack-pattern"
+    />
+    <owl:imports
+        rdf:resource="http://docs.oasis-open.org/ns/cti/stix/course-of-action"
+    />
+    <owl:imports
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl"
+    />
+    <owl:imports
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl"
+    />
+    <owl:imports
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl"
+    />
+    <rdfs:label
+      >gridstix_attack_patterns</rdfs:label
+    >
+    <rdfs:comment
+      >Attack patterns specific to electric grid infrastructure and operations.</rdfs:comment
+    >
+    <owl:versionInfo
+      >1.0.0</owl:versionInfo
+    >
+    <dc:creator
+      >Argonne National Laboratory</dc:creator
+    >
+  </owl:Ontology
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#phase_in_kill_chain"
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+    <rdfs:range
+        rdf:resource="http://stixschema.org/v21#KillChainPhase"
+    />
+    <rdfs:comment
+      >Specifies which phase of the kill chain an attack pattern belongs to</rdfs:comment
+    >
+    <rdfs:label
+      >phase_in_kill_chain</rdfs:label
+    >
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#affectsGridComponent"
+    >
+    <rdfs:label
+      >affects_grid_component</rdfs:label
+    >
+    <rdfs:comment
+      >Reference to a grid component affected by this attack pattern.</rdfs:comment
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"
+    />
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#affectsOTDevice"
+    >
+    <rdfs:label
+      >affects_ot_device</rdfs:label
+    >
+    <rdfs:comment
+      >Reference to an OT device affected by this attack pattern.</rdfs:comment
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"
+    />
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#affectsProtocol"
+    >
+    <rdfs:label
+      >affects_protocol</rdfs:label
+    >
+    <rdfs:comment
+      >Reference to a grid protocol affected by this attack pattern.</rdfs:comment
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#grid_protocol_ov"
+    />
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#hasImpactType"
+    >
+    <rdfs:label
+      >has_impact_type</rdfs:label
+    >
+    <rdfs:comment
+      >Reference to the type of impact caused by this attack pattern.</rdfs:comment
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#ImpactType"
+    />
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#hasDetectionMethod"
+    >
+    <rdfs:label
+      >has_detection_method</rdfs:label
+    >
+    <rdfs:comment
+      >Reference to a method for detecting this attack pattern.</rdfs:comment
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#detection_method_ov"
+    />
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#hasMitigation"
+    >
+    <rdfs:label
+      >has_mitigation</rdfs:label
+    >
+    <rdfs:comment
+      >Reference to a mitigation for this attack pattern.</rdfs:comment
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridMitigation"
+    />
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#indicatedBy"
+    >
+    <rdfs:label
+      >indicated_by</rdfs:label
+    >
+    <rdfs:comment
+      >Reference to observable events that may indicate this attack pattern.</rdfs:comment
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
+    />
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#targetsZone"
+    >
+    <rdfs:label
+      >targets_zone</rdfs:label
+    >
+    <rdfs:comment
+      >Reference to security zones targeted by this attack pattern.</rdfs:comment
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#SecurityZone"
+    />
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#relatedTo"
+    >
+    <rdfs:label
+      >related_to</rdfs:label
+    >
+    <rdfs:comment
+      >Reference to other attack patterns related to this one.</rdfs:comment
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+  </owl:ObjectProperty
+  >
+  <owl:DatatypeProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#capecID"
+    >
+    <rdfs:label
+      >capec_id</rdfs:label
+    >
+    <rdfs:comment
+      >CAPEC identifier related to this attack pattern.</rdfs:comment
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+    <rdfs:range
+        rdf:resource="http://www.w3.org/2001/XMLSchema#string"
+    />
+  </owl:DatatypeProperty
+  >
+  <owl:DatatypeProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#cweID"
+    >
+    <rdfs:label
+      >cwe_id</rdfs:label
+    >
+    <rdfs:comment
+      >CWE identifier related to this attack pattern.</rdfs:comment
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+    <rdfs:range
+        rdf:resource="http://www.w3.org/2001/XMLSchema#string"
+    />
+  </owl:DatatypeProperty
+  >
+  <owl:DatatypeProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#attackID"
+    >
+    <rdfs:label
+      >attck_id</rdfs:label
+    >
+    <rdfs:comment
+      >MITRE ATT&amp;CK identifier related to this attack pattern.</rdfs:comment
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+    <rdfs:range
+        rdf:resource="http://www.w3.org/2001/XMLSchema#string"
+    />
+  </owl:DatatypeProperty
+  >
+  <owl:DatatypeProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#d3fendID"
+    >
+    <rdfs:label
+      >d3fend_id</rdfs:label
+    >
+    <rdfs:comment
+      >MITRE D3FEND identifier related to this attack pattern.</rdfs:comment
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+    <rdfs:range
+        rdf:resource="http://www.w3.org/2001/XMLSchema#string"
+    />
+  </owl:DatatypeProperty
+  >
+  <owl:DatatypeProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#severity"
+    >
+    <rdfs:label
+      >severity</rdfs:label
+    >
+    <rdfs:comment
+      >Severity level of this attack pattern (1-5).</rdfs:comment
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+    <rdfs:range
+        rdf:resource="http://www.w3.org/2001/XMLSchema#integer"
+    />
+  </owl:DatatypeProperty
+  >
+  <owl:DatatypeProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#likelihoodOfSuccess"
+    >
+    <rdfs:label
+      >likelihood_of_success</rdfs:label
+    >
+    <rdfs:comment
+      >Likelihood of a successful attack using this pattern (0.0-1.0).</rdfs:comment
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+    <rdfs:range
+        rdf:resource="http://www.w3.org/2001/XMLSchema#float"
+    />
+  </owl:DatatypeProperty
+  >
+  <owl:DatatypeProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#skillLevelRequired"
+    >
+    <rdfs:label
+      >skill_level_required</rdfs:label
+    >
+    <rdfs:comment
+      >Skill level required to execute this attack (1-5).</rdfs:comment
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+    <rdfs:range
+        rdf:resource="http://www.w3.org/2001/XMLSchema#integer"
+    />
+  </owl:DatatypeProperty
+  >
+  <owl:DatatypeProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#name"
+    >
+    <rdfs:label
+      >name</rdfs:label
+    >
+    <rdfs:comment
+      >The name of the attack pattern.</rdfs:comment
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+    <rdfs:range
+        rdf:resource="http://www.w3.org/2001/XMLSchema#string"
+    />
+  </owl:DatatypeProperty
+  >
+  <owl:DatatypeProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#description"
+    >
+    <rdfs:label
+      >description</rdfs:label
+    >
+    <rdfs:comment
+      >Detailed description of the attack pattern.</rdfs:comment
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+    <rdfs:range
+        rdf:resource="http://www.w3.org/2001/XMLSchema#string"
+    />
+  </owl:DatatypeProperty
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    >
+    <rdfs:subClassOf
+        rdf:resource="http://docs.oasis-open.org/ns/cti/stix/attack-pattern"
+    />
+    <rdfs:label
+      >grid_attack_pattern</rdfs:label
+    >
+    <rdfs:comment
+      >Represents attack techniques specific to grid environments.</rdfs:comment
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#name"
+        />
+        <owl:qualifiedCardinality
+            rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+          >1</owl:qualifiedCardinality
+        >
+        <owl:onDataRange
+            rdf:resource="http://www.w3.org/2001/XMLSchema#string"
+        />
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+  </owl:Class
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#PhysicalAttackPattern"
+    >
+    <rdfs:subClassOf
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+    <rdfs:label
+      >physical_attack_pattern</rdfs:label
+    >
+    <rdfs:comment
+      >Represents physical attacks against grid infrastructure.</rdfs:comment
+    >
+  </owl:Class
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#CyberAttackPattern"
+    >
+    <rdfs:subClassOf
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+    <rdfs:label
+      >cyber_attack_pattern</rdfs:label
+    >
+    <rdfs:comment
+      >Represents cyber attacks against grid systems.</rdfs:comment
+    >
+  </owl:Class
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#SocialEngineeringAttackPattern"
+    >
+    <rdfs:subClassOf
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+    <rdfs:label
+      >social_engineering_attack_pattern</rdfs:label
+    >
+    <rdfs:comment
+      >Represents social engineering attacks targeting grid personnel.</rdfs:comment
+    >
+  </owl:Class
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#ProtocolAttackPattern"
+    >
+    <rdfs:subClassOf
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#CyberAttackPattern"
+    />
+    <rdfs:label
+      >protocol_attack_pattern</rdfs:label
+    >
+    <rdfs:comment
+      >Represents attacks against grid communication protocols.</rdfs:comment
+    >
+  </owl:Class
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#FirmwareAttackPattern"
+    >
+    <rdfs:subClassOf
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#CyberAttackPattern"
+    />
+    <rdfs:label
+      >firmware_attack_pattern</rdfs:label
+    >
+    <rdfs:comment
+      >Represents attacks targeting device firmware.</rdfs:comment
+    >
+  </owl:Class
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridMitigation"
+    >
+    <rdfs:subClassOf
+        rdf:resource="http://docs.oasis-open.org/ns/cti/stix/course-of-action"
+    />
+    <rdfs:label
+      >grid_mitigation</rdfs:label
+    >
+    <rdfs:comment
+      >Represents mitigation techniques specific to grid attack patterns.</rdfs:comment
+    >
+  </owl:Class
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#ImpactType"
+    >
+    <rdfs:label
+      >impact_type</rdfs:label
+    >
+    <rdfs:comment
+      >Types of impacts on grid components.</rdfs:comment
+    >
+  </owl:Class
+  >
+  <owl:NamedIndividual
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#DenialOfService"
+    >
+    <rdf:type
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#ImpactType"
+    />
+    <rdfs:label
+      >denial_of_service</rdfs:label
+    >
+  </owl:NamedIndividual
+  >
+  <owl:NamedIndividual
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#DataIntegrity"
+    >
+    <rdf:type
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#ImpactType"
+    />
+    <rdfs:label
+      >data_integrity</rdfs:label
+    >
+  </owl:NamedIndividual
+  >
+  <owl:NamedIndividual
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#Reconnaissance"
+    >
+    <rdf:type
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#ImpactType"
+    />
+    <rdfs:label
+      >reconnaissance</rdfs:label
+    >
+  </owl:NamedIndividual
+  >
+  <owl:NamedIndividual
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#PhysicalDamage"
+    >
+    <rdf:type
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#ImpactType"
+    />
+    <rdfs:label
+      >physical_damage</rdfs:label
+    >
+  </owl:NamedIndividual
+  >
+  <owl:NamedIndividual
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#Safety"
+    >
+    <rdf:type
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#ImpactType"
+    />
+    <rdfs:label
+      >safety</rdfs:label
+    >
+  </owl:NamedIndividual
+  >
+  <owl:NamedIndividual
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#Outage"
+    >
+    <rdf:type
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#ImpactType"
+    />
+    <rdfs:label
+      >outage</rdfs:label
+    >
+  </owl:NamedIndividual
+  >
+  <owl:NamedIndividual
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#VoltageControl"
+    >
+    <rdf:type
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#ImpactType"
+    />
+    <rdfs:label
+      >voltage_control</rdfs:label
+    >
+  </owl:NamedIndividual
+  >
+  <owl:NamedIndividual
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#ConfigurationChange"
+    >
+    <rdf:type
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#ImpactType"
+    />
+    <rdfs:label
+      >configuration_change</rdfs:label
+    >
+  </owl:NamedIndividual
+  >
+  <owl:NamedIndividual
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#DNP3SpoofingAttack"
+    >
+    <rdf:type
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#ProtocolAttackPattern"
+    />
+    <ns4:name
+      >DNP3 Control Command Spoofing</ns4:name
+    >
+    <rdfs:label
+      >dnp3_control_command_spoofing</rdfs:label
+    >
+    <ns4:description
+      >Attackers send spoofed DNP3 control commands to RTUs or IEDs to manipulate grid operations.</ns4:description
+    >
+    <ns4:affectsProtocol
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#grid-protocol-dnp3"
+    />
+    <ns4:hasImpactType
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#DataIntegrity"
+    />
+    <ns4:hasImpactType
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#Outage"
+    />
+    <ns4:severity
+        rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >4</ns4:severity
+    >
+    <ns4:likelihoodOfSuccess
+        rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+      >0.7</ns4:likelihoodOfSuccess
+    >
+    <ns4:skillLevelRequired
+        rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >3</ns4:skillLevelRequired
+    >
+    <ns4:capecID
+      >CAPEC-94</ns4:capecID
+    >
+    <ns4:attackID
+      >T0802</ns4:attackID
+    >
+  </owl:NamedIndividual
+  >
+  <owl:NamedIndividual
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#FirmwareModificationAttack"
+    >
+    <rdf:type
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#FirmwareAttackPattern"
+    />
+    <ns4:name
+      >IED Firmware Modification</ns4:name
+    >
+    <rdfs:label
+      >ied_firmware_modification</rdfs:label
+    >
+    <ns4:description
+      >Attackers modify firmware on Intelligent Electronic Devices to introduce malicious behavior or backdoors.</ns4:description
+    >
+    <ns4:affectsOTDevice
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#IED"
+    />
+    <ns4:hasImpactType
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#DataIntegrity"
+    />
+    <ns4:hasImpactType
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#ConfigurationChange"
+    />
+    <ns4:severity
+        rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >5</ns4:severity
+    >
+    <ns4:likelihoodOfSuccess
+        rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+      >0.4</ns4:likelihoodOfSuccess
+    >
+    <ns4:skillLevelRequired
+        rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >5</ns4:skillLevelRequired
+    >
+    <ns4:capecID
+      >CAPEC-440</ns4:capecID
+    >
+    <ns4:attackID
+      >T0857</ns4:attackID
+    >
+  </owl:NamedIndividual
+  >
+  <owl:NamedIndividual
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#DNP3AuthenticationMitigation"
+    >
+    <rdf:type
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridMitigation"
+    />
+    <ns4:name
+      >DNP3 Secure Authentication</ns4:name
+    >
+    <rdfs:label
+      >dnp3_secure_authentication</rdfs:label
+    >
+    <ns4:description
+      >Implement DNP3 Secure Authentication (IEEE 1815) to prevent unauthorized control commands.</ns4:description
+    >
+  </owl:NamedIndividual
+  >
+</rdf:RDF
+>

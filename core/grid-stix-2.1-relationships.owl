@@ -1,106 +1,1465 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix stix: <http://stixschema.org/v21#> .
-@prefix grid: <http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#> .
-
-# ------------------------------------------------------------------
-# Grid-STIX 2.1 Relationships Module
-# IRI: http://www.anl.gov/sss/grid-stix-2.1-relationships.owl
-# ------------------------------------------------------------------
-
-<http://www.anl.gov/sss/grid-stix-2.1-relationships.owl>
-    a owl:Ontology ;
-    rdfs:comment "Grid-STIX 2.1: Relationship classes extending STIX Relationship" ;
-    owl:imports <http://stixschema.org/v21#Relationship> .
-
-################################################################################
-# Base Relationship Class
-################################################################################
-
-grid:GridRelationship
-    a owl:Class ;
-    rdfs:subClassOf stix:Relationship ;
-    rdfs:comment "Base class for all grid-specific relationships." .
-
-################################################################################
-# Specialized Relationship Subclasses
-################################################################################
-
-# Monitors Relationship
-grid:MonitorsRelationship
-    a owl:Class ;
-    rdfs:subClassOf grid:GridRelationship , [
-        a owl:Restriction ;
-        owl:onProperty stix:relationship_type ;
-        owl:hasValue "monitors"^^xsd:string
-    ] ;
-    rdfs:label "monitors" ;
-    rdfs:comment "Relationship where an OTDevice monitors a GridComponent." .
-
-# Controls Relationship
-grid:ControlsRelationship
-    a owl:Class ;
-    rdfs:subClassOf grid:GridRelationship , [
-        a owl:Restriction ;
-        owl:onProperty stix:relationship_type ;
-        owl:hasValue "controls"^^xsd:string
-    ] ;
-    rdfs:label "controls" ;
-    rdfs:comment "Relationship where an OTDevice controls a GridComponent." .
-
-# Connects-to Relationship
-grid:ConnectsToRelationship
-    a owl:Class ;
-    rdfs:subClassOf grid:GridRelationship , [
-        a owl:Restriction ;
-        owl:onProperty stix:relationship_type ;
-        owl:hasValue "connects-to"^^xsd:string
-    ] ;
-    rdfs:label "connects-to" ;
-    rdfs:comment "Relationship connecting two grid assets or components." .
-
-# Feeds Relationship
-grid:FeedsRelationship
-    a owl:Class ;
-    rdfs:subClassOf grid:GridRelationship , [
-        a owl:Restriction ;
-        owl:onProperty stix:relationship_type ;
-        owl:hasValue "feeds"^^xsd:string
-    ] ;
-    rdfs:label "feeds" ;
-    rdfs:comment "Relationship indicating power or data feeds between components." .
-
-# Operates-in Relationship
-grid:OperatesInRelationship
-    a owl:Class ;
-    rdfs:subClassOf grid:GridRelationship , [
-        a owl:Restriction ;
-        owl:onProperty stix:relationship_type ;
-        owl:hasValue "operates-in"^^xsd:string
-    ] ;
-    rdfs:label "operates-in" ;
-    rdfs:comment "Relationship linking a component to its operational context." .
-
-# Authenticates-to Relationship
-grid:AuthenticatesToRelationship
-    a owl:Class ;
-    rdfs:subClassOf grid:GridRelationship , [
-        a owl:Restriction ;
-        owl:onProperty stix:relationship_type ;
-        owl:hasValue "authenticates-to"^^xsd:string
-    ] ;
-    rdfs:label "authenticates-to" ;
-    rdfs:comment "Relationship between an identity and a device for authentication." .
-
-# Affects-operation-of Relationship
-grid:AffectsOperationOfRelationship
-    a owl:Class ;
-    rdfs:subClassOf grid:GridRelationship , [
-        a owl:Restriction ;
-        owl:onProperty stix:relationship_type ;
-        owl:hasValue "affects-operation-of"^^xsd:string
-    ] ;
-    rdfs:label "affects-operation-of" ;
-    rdfs:comment "Relationship where a context affects operation of a component." .
-
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  >
+  <owl:Ontology
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl"
+    >
+    <owl:imports
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl"
+    />
+    <owl:imports
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl"
+    />
+    <owl:imports
+        rdf:resource="http://docs.oasis-open.org/ns/cti/stix/relationship"
+    />
+    <rdfs:comment
+      >Grid-STIX 2.1: Relationship classes extending STIX Relationship</rdfs:comment
+    >
+  </owl:Ontology
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#Union_AllAssets"
+    >
+    <rdfs:label
+      >union_all_assets</rdfs:label
+    >
+    <rdfs:comment
+      >Union of all asset types: PhysicalAsset, GridComponent, and OTDevice</rdfs:comment
+    >
+    <owl:unionOf
+        rdf:parseType="Collection"
+      >
+      <owl:Class
+          rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"
+      />
+      <owl:Class
+          rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"
+      />
+      <owl:Class
+          rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"
+      />
+    </owl:unionOf
+    >
+  </owl:Class
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#Union_PhysicalAsset_GridComponent"
+    >
+    <rdfs:label
+      >physical_asset_or_grid_component</rdfs:label
+    >
+    <rdfs:comment
+      >Union of PhysicalAsset and GridComponent</rdfs:comment
+    >
+    <owl:unionOf
+        rdf:parseType="Collection"
+      >
+      <owl:Class
+          rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"
+      />
+      <owl:Class
+          rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"
+      />
+    </owl:unionOf
+    >
+  </owl:Class
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#Union_PhysicalAsset_OTDevice"
+    >
+    <rdfs:label
+      >physical_asset_or_ot_device</rdfs:label
+    >
+    <rdfs:comment
+      >Union of PhysicalAsset and OTDevice</rdfs:comment
+    >
+    <owl:unionOf
+        rdf:parseType="Collection"
+      >
+      <owl:Class
+          rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"
+      />
+      <owl:Class
+          rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"
+      />
+    </owl:unionOf
+    >
+  </owl:Class
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#Union_OTDevice_GridComponent"
+    >
+    <rdfs:label
+      >ot_device_or_grid_component</rdfs:label
+    >
+    <rdfs:comment
+      >Union of OTDevice and GridComponent</rdfs:comment
+    >
+    <owl:unionOf
+        rdf:parseType="Collection"
+      >
+      <owl:Class
+          rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"
+      />
+      <owl:Class
+          rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"
+      />
+    </owl:unionOf
+    >
+  </owl:Class
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#Union_SecurityZone_OTDevice_CourseOfAction"
+    >
+    <rdfs:label
+      >security_zone_ot_device_or_course_of_action</rdfs:label
+    >
+    <rdfs:comment
+      >Union of SecurityZone, OTDevice, and CourseOfAction</rdfs:comment
+    >
+    <owl:unionOf
+        rdf:parseType="Collection"
+      >
+      <owl:Class
+          rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#SecurityZone"
+      />
+      <owl:Class
+          rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"
+      />
+      <owl:Class
+          rdf:about="http://stixschema.org/v21#CourseOfAction"
+      />
+    </owl:unionOf
+    >
+  </owl:Class
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#Union_SecurityZone_Location"
+    >
+    <rdfs:label
+      >security_zone_or_location</rdfs:label
+    >
+    <rdfs:comment
+      >Union of SecurityZone and Location</rdfs:comment
+    >
+    <owl:unionOf
+        rdf:parseType="Collection"
+      >
+      <owl:Class
+          rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#SecurityZone"
+      />
+      <owl:Class
+          rdf:about="http://docs.oasis-open.org/ns/cti/stix/location"
+      />
+    </owl:unionOf
+    >
+  </owl:Class
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#Union_OTDevice_Identity"
+    >
+    <rdfs:label
+      >ot_device_or_identity</rdfs:label
+    >
+    <rdfs:comment
+      >Union of OTDevice and Identity</rdfs:comment
+    >
+    <owl:unionOf
+        rdf:parseType="Collection"
+      >
+      <owl:Class
+          rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"
+      />
+      <owl:Class
+          rdf:about="http://docs.oasis-open.org/ns/cti/stix/identity"
+      />
+    </owl:unionOf
+    >
+  </owl:Class
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#GridRelationship"
+    >
+    <rdfs:label
+      >grid_relationship</rdfs:label
+    >
+    <rdfs:comment
+      >Base class for all grid-specific relationships.</rdfs:comment
+    >
+    <rdfs:subClassOf
+        rdf:resource="http://docs.oasis-open.org/ns/cti/stix/relationship"
+    />
+  </owl:Class
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#ContainsRelationship"
+    >
+    <rdfs:subClassOf
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#GridRelationship"
+    />
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#source_ref"
+        />
+        <owl:allValuesFrom
+            rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"
+        />
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#target_ref"
+        />
+        <owl:allValuesFrom
+            rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#Union_AllAssets"
+        />
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#relationship_type"
+        />
+        <owl:hasValue
+          >contains</owl:hasValue
+        >
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:label
+      >contains</rdfs:label
+    >
+    <rdfs:comment
+      >Relationship where one physical asset physically contains another asset or component.</rdfs:comment
+    >
+  </owl:Class
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#MonitorsRelationship"
+    >
+    <rdfs:subClassOf
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#GridRelationship"
+    />
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#source_ref"
+        />
+        <owl:allValuesFrom
+            rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"
+        />
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#target_ref"
+        />
+        <owl:allValuesFrom
+            rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"
+        />
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#relationship_type"
+        />
+        <owl:hasValue
+          >monitors</owl:hasValue
+        >
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:label
+      >monitors</rdfs:label
+    >
+    <rdfs:comment
+      >Relationship where an OTDevice monitors a GridComponent.</rdfs:comment
+    >
+  </owl:Class
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#ControlsRelationship"
+    >
+    <rdfs:subClassOf
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#GridRelationship"
+    />
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#source_ref"
+        />
+        <owl:allValuesFrom
+            rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"
+        />
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#target_ref"
+        />
+        <owl:allValuesFrom
+            rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#Union_PhysicalAsset_GridComponent"
+        />
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#relationship_type"
+        />
+        <owl:hasValue
+          >controls</owl:hasValue
+        >
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:label
+      >controls</rdfs:label
+    >
+    <rdfs:comment
+      >Relationship where an OTDevice controls a GridComponent.</rdfs:comment
+    >
+  </owl:Class
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#DependsOnRelationship"
+    >
+    <rdfs:subClassOf
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#GridRelationship"
+    />
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#source_ref"
+        />
+        <owl:allValuesFrom
+            rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#Union_AllAssets"
+        />
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#target_ref"
+        />
+        <owl:allValuesFrom
+            rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#Union_AllAssets"
+        />
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#relationship_type"
+        />
+        <owl:hasValue
+          >depends-on</owl:hasValue
+        >
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:label
+      >depends_on</rdfs:label
+    >
+    <rdfs:comment
+      >Relationship indicating a dependency between components or assets.</rdfs:comment
+    >
+  </owl:Class
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#LocatedAtRelationship"
+    >
+    <rdfs:subClassOf
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#GridRelationship"
+    />
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#source_ref"
+        />
+        <owl:allValuesFrom
+            rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#Union_AllAssets"
+        />
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#target_ref"
+        />
+        <owl:allValuesFrom
+            rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#Union_SecurityZone_Location"
+        />
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#relationship_type"
+        />
+        <owl:hasValue
+          >located-at</owl:hasValue
+        >
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:label
+      >located_at</rdfs:label
+    >
+    <rdfs:comment
+      >Relationship indicating the physical location of an asset or component.</rdfs:comment
+    >
+  </owl:Class
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#ProtectsRelationship"
+    >
+    <rdfs:subClassOf
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#GridRelationship"
+    />
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#source_ref"
+        />
+        <owl:allValuesFrom
+            rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#Union_SecurityZone_OTDevice_CourseOfAction"
+        />
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#target_ref"
+        />
+        <owl:allValuesFrom
+            rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#Union_AllAssets"
+        />
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#relationship_type"
+        />
+        <owl:hasValue
+          >protects</owl:hasValue
+        >
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:label
+      >protects</rdfs:label
+    >
+    <rdfs:comment
+      >Relationship indicating that one entity provides protection for another.</rdfs:comment
+    >
+  </owl:Class
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#HasVulnerabilityRelationship"
+    >
+    <rdfs:subClassOf
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#GridRelationship"
+    />
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#source_ref"
+        />
+        <owl:allValuesFrom
+            rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#Union_AllAssets"
+        />
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#target_ref"
+        />
+        <owl:allValuesFrom
+            rdf:resource="http://docs.oasis-open.org/ns/cti/stix/vulnerability"
+        />
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#relationship_type"
+        />
+        <owl:hasValue
+          >has-vulnerability</owl:hasValue
+        >
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:label
+      >has_vulnerability</rdfs:label
+    >
+    <rdfs:comment
+      >Relationship indicating that an asset or component has a specific vulnerability.</rdfs:comment
+    >
+  </owl:Class
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#AuthenticatesToRelationship"
+    >
+    <rdfs:subClassOf
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#GridRelationship"
+    />
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#source_ref"
+        />
+        <owl:allValuesFrom
+            rdf:resource="http://docs.oasis-open.org/ns/cti/stix/identity"
+        />
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#target_ref"
+        />
+        <owl:allValuesFrom
+            rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"
+        />
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#relationship_type"
+        />
+        <owl:hasValue
+          >authenticates-to</owl:hasValue
+        >
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:label
+      >authenticates_to</rdfs:label
+    >
+    <rdfs:comment
+      >Relationship between an identity and a device for authentication.</rdfs:comment
+    >
+  </owl:Class
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#WithinSecurityZoneRelationship"
+    >
+    <rdfs:subClassOf
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#GridRelationship"
+    />
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#source_ref"
+        />
+        <owl:allValuesFrom
+            rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#Union_AllAssets"
+        />
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#target_ref"
+        />
+        <owl:allValuesFrom
+            rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#SecurityZone"
+        />
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#relationship_type"
+        />
+        <owl:hasValue
+          >within-security-zone</owl:hasValue
+        >
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:label
+      >within_security_zone</rdfs:label
+    >
+    <rdfs:comment
+      >Relationship indicating that an asset or component is within a specific security zone.</rdfs:comment
+    >
+  </owl:Class
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#TriggersRelationship"
+    >
+    <rdfs:subClassOf
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#GridRelationship"
+    />
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#source_ref"
+        />
+        <owl:allValuesFrom
+            rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
+        />
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#target_ref"
+        />
+        <owl:allValuesFrom
+            rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
+        />
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#relationship_type"
+        />
+        <owl:hasValue
+          >triggers</owl:hasValue
+        >
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:label
+      >triggers</rdfs:label
+    >
+    <rdfs:comment
+      >Relationship indicating that one event or condition triggers another.</rdfs:comment
+    >
+  </owl:Class
+  >
+  <owl:DatatypeProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#trigger_probability"
+    >
+    <rdfs:label
+      >trigger_probability</rdfs:label
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#TriggersRelationship"
+    />
+    <rdfs:range
+        rdf:resource="http://www.w3.org/2001/XMLSchema#float"
+    />
+    <rdfs:comment
+      >Probability that the trigger will occur given the source condition (0.0-1.0).</rdfs:comment
+    >
+  </owl:DatatypeProperty
+  >
+  <owl:DatatypeProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#reliability"
+    >
+    <rdfs:label
+      >reliability</rdfs:label
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#GridRelationship"
+    />
+    <rdfs:range
+        rdf:resource="http://www.w3.org/2001/XMLSchema#float"
+    />
+    <rdfs:comment
+      >Reliability score for the relationship (0.0-1.0).</rdfs:comment
+    >
+  </owl:DatatypeProperty
+  >
+  <owl:DatatypeProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#start_date"
+    >
+    <rdfs:label
+      >start_date</rdfs:label
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#GridRelationship"
+    />
+    <rdfs:range
+        rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"
+    />
+    <rdfs:comment
+      >Date when the relationship began.</rdfs:comment
+    >
+  </owl:DatatypeProperty
+  >
+  <owl:DatatypeProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#end_date"
+    >
+    <rdfs:label
+      >end_date</rdfs:label
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#GridRelationship"
+    />
+    <rdfs:range
+        rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"
+    />
+    <rdfs:comment
+      >Date when the relationship ended or is expected to end.</rdfs:comment
+    >
+  </owl:DatatypeProperty
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#ConnectsToRelationship"
+    >
+    <rdfs:subClassOf
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#GridRelationship"
+    />
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#source_ref"
+        />
+        <owl:allValuesFrom
+            rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#GridComponent"
+        />
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#target_ref"
+        />
+        <owl:allValuesFrom
+            rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#GridComponent"
+        />
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#relationship_type"
+        />
+        <owl:hasValue
+          >connects-to</owl:hasValue
+        >
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:label
+      >connects_to</rdfs:label
+    >
+    <rdfs:comment
+      >Relationship indicating a physical or logical connection between components.</rdfs:comment
+    >
+  </owl:Class
+  >
+  <owl:DatatypeProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#connection_type"
+    >
+    <rdfs:label
+      >connection_type</rdfs:label
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#ConnectsToRelationship"
+    />
+    <rdfs:range
+        rdf:resource="http://www.w3.org/2001/XMLSchema#string"
+    />
+    <rdfs:comment
+      >Type of connection between components (e.g., "physical", "logical", "wireless").</rdfs:comment
+    >
+  </owl:DatatypeProperty
+  >
+  <owl:DatatypeProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#protection_effectiveness"
+    >
+    <rdfs:label
+      >protection_effectiveness</rdfs:label
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#ProtectsRelationship"
+    />
+    <rdfs:range
+        rdf:resource="http://www.w3.org/2001/XMLSchema#float"
+    />
+    <rdfs:comment
+      >Effectiveness score for the protection (0.0-1.0).</rdfs:comment
+    >
+  </owl:DatatypeProperty
+  >
+  <owl:DatatypeProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#vulnerability_severity"
+    >
+    <rdfs:label
+      >vulnerability_severity</rdfs:label
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#HasVulnerabilityRelationship"
+    />
+    <rdfs:range
+        rdf:resource="http://www.w3.org/2001/XMLSchema#float"
+    />
+    <rdfs:comment
+      >Severity score for the vulnerability in this specific asset context (0.0-10.0, using CVSS scale).</rdfs:comment
+    >
+  </owl:DatatypeProperty
+  >
+  <owl:DatatypeProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#control_protocol"
+    >
+    <rdfs:label
+      >control_protocol</rdfs:label
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#ControlsRelationship"
+    />
+    <rdfs:range
+        rdf:resource="http://www.w3.org/2001/XMLSchema#string"
+    />
+    <rdfs:comment
+      >Protocol used for control communications (e.g., "DNP3", "Modbus", "IEC61850").</rdfs:comment
+    >
+  </owl:DatatypeProperty
+  >
+  <owl:DatatypeProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#dependency_criticality"
+    >
+    <rdfs:label
+      >dependency_criticality</rdfs:label
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#DependsOnRelationship"
+    />
+    <rdfs:range
+        rdf:resource="http://www.w3.org/2001/XMLSchema#integer"
+    />
+    <rdfs:comment
+      >Criticality level of the dependency on a scale of 1-5, where 5 is most critical.</rdfs:comment
+    >
+  </owl:DatatypeProperty
+  >
+  <owl:DatatypeProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#failover_capability"
+    >
+    <rdfs:label
+      >failover_capability</rdfs:label
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#DependsOnRelationship"
+    />
+    <rdfs:range
+        rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"
+    />
+    <rdfs:comment
+      >Indicates whether failover capability exists for this dependency.</rdfs:comment
+    >
+  </owl:DatatypeProperty
+  >
+  <owl:DatatypeProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#authentication_success_rate"
+    >
+    <rdfs:label
+      >authentication_success_rate</rdfs:label
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#AuthenticatesToRelationship"
+    />
+    <rdfs:range
+        rdf:resource="http://www.w3.org/2001/XMLSchema#float"
+    />
+    <rdfs:comment
+      >Rate of successful authentication attempts (0.0-1.0).</rdfs:comment
+    >
+  </owl:DatatypeProperty
+  >
+  <owl:DatatypeProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#feed_type"
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#FeedsRelationship"
+    />
+    <rdfs:range
+        rdf:resource="http://www.w3.org/2001/XMLSchema#string"
+    />
+    <rdfs:comment
+      >Type of feed (e.g., "power", "data", "telemetry").</rdfs:comment
+    >
+    <rdfs:label
+      >feed_type</rdfs:label
+    >
+  </owl:DatatypeProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#component_of"
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#GridComponent"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"
+    />
+    <rdfs:label
+      >component_of</rdfs:label
+    >
+    <rdfs:comment
+      >Indicates that a Component is part of an Asset</rdfs:comment
+    >
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#feeds"
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#GridComponent"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#GridComponent"
+    />
+    <rdfs:label
+      >feeds</rdfs:label
+    >
+    <rdfs:comment
+      >Power or data feed relationship between components.</rdfs:comment
+    >
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#monitors"
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"
+    />
+    <rdfs:label
+      >monitors</rdfs:label
+    >
+    <rdfs:comment
+      >Relationship where an OTDevice monitors a GridComponent.</rdfs:comment
+    >
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#connects_to"
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#GridComponent"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#GridComponent"
+    />
+    <rdfs:label
+      >connects_to</rdfs:label
+    >
+    <rdfs:comment
+      >Relationship connecting two grid components.</rdfs:comment
+    >
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#has_vulnerability"
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#GridComponent"
+    />
+    <rdfs:range
+        rdf:resource="http://docs.oasis-open.org/ns/cti/stix/vulnerability"
+    />
+    <rdfs:label
+      >has_vulnerability</rdfs:label
+    >
+    <rdfs:comment
+      >Indicates that a Component has an associated Vulnerability.</rdfs:comment
+    >
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#provides_service_to"
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#GridComponent"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#GridComponent"
+    />
+    <rdfs:label
+      >provides_service_to</rdfs:label
+    >
+    <rdfs:comment
+      >Relationship indicating a service provision between assets or components.</rdfs:comment
+    >
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#monitoring_level"
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#MonitorsRelationship"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#monitoring_level_ov"
+    />
+    <rdfs:label
+      >monitoring_level</rdfs:label
+    >
+    <rdfs:comment
+      >Level of monitoring from controlled vocabulary.</rdfs:comment
+    >
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#authentication_requirement"
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#AuthenticatesToRelationship"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#authentication_requirement_ov"
+    />
+    <rdfs:label
+      >authentication_requirement</rdfs:label
+    >
+    <rdfs:comment
+      >Type of authentication requirement from controlled vocabulary.</rdfs:comment
+    >
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#impact_type"
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#AffectsOperationOfRelationship"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#impact_type_ov"
+    />
+    <rdfs:label
+      >impact_type</rdfs:label
+    >
+    <rdfs:comment
+      >Type of impact on operations from controlled vocabulary.</rdfs:comment
+    >
+  </owl:ObjectProperty
+  >
+  <owl:Class
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#AffectsOperationOfRelationship"
+    >
+    <rdfs:subClassOf
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#GridRelationship"
+    />
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#source_ref"
+        />
+        <owl:allValuesFrom
+          >
+          <owl:Class
+            >
+            <owl:unionOf
+                rdf:parseType="Collection"
+              >
+              <owl:Class
+                  rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#OperationalContext"
+              />
+              <owl:Class
+                  rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
+              />
+            </owl:unionOf
+            >
+          </owl:Class
+          >
+        </owl:allValuesFrom
+        >
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#target_ref"
+        />
+        <owl:allValuesFrom
+            rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#GridComponent"
+        />
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:subClassOf
+      >
+      <owl:Restriction
+        >
+        <owl:onProperty
+            rdf:resource="http://stixschema.org/v21#relationship_type"
+        />
+        <owl:hasValue
+          >affects-operation-of</owl:hasValue
+        >
+      </owl:Restriction
+      >
+    </rdfs:subClassOf
+    >
+    <rdfs:label
+      >affects_operation_of</rdfs:label
+    >
+    <rdfs:comment
+      >Indicates that an operational context or event affects the operation of a grid component.</rdfs:comment
+    >
+  </owl:Class
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#impact_type"
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#AffectsOperationOfRelationship"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#impact_type_ov"
+    />
+    <rdfs:comment
+      >Type of impact on operations from controlled vocabulary.</rdfs:comment
+    >
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#createsAlertFor"
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#AlarmEvent"
+    />
+    <rdfs:label
+      >creates_alert_for</rdfs:label
+    >
+    <rdfs:comment
+      >Indicates that one type of grid event triggers or generates an alarm event in monitoring systems.</rdfs:comment
+    >
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#leadsTo"
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
+    />
+    <rdfs:label
+      >leads_to</rdfs:label
+    >
+    <rdfs:comment
+      >Establishes a causal connection between events, indicating that one event typically leads to or causes another event.</rdfs:comment
+    >
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#mitigatesAttack"
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridMitigation"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+    <rdfs:label
+      >mitigates_attack</rdfs:label
+    >
+    <rdfs:comment
+      >Explicitly connects mitigations to the specific attack patterns they are designed to counter.</rdfs:comment
+    >
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#attributedTo"
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridAttackPattern"
+    />
+    <rdfs:range
+        rdf:resource="http://docs.oasis-open.org/ns/cti/stix/adversary"
+    />
+    <rdfs:label
+      >attributed_to</rdfs:label
+    >
+    <rdfs:comment
+      >Indicates that an attack pattern or technique is attributed to a specific threat actor or group.</rdfs:comment
+    >
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#requiresResponse"
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#EmergencyResponseContext"
+    />
+    <rdfs:label
+      >requires_response</rdfs:label
+    >
+    <rdfs:comment
+      >Indicates that a specific type of grid event requires activation of emergency response procedures.</rdfs:comment
+    >
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#triggersPolicy"
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#Policy"
+    />
+    <rdfs:label
+      >triggers_policy</rdfs:label
+    >
+    <rdfs:comment
+      >Indicates that a particular type of grid event should trigger the application of a specific security policy.</rdfs:comment
+    >
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#hasCascadingImpactOn"
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#Union_PhysicalAsset_GridComponent"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#Union_PhysicalAsset_GridComponent"
+    />
+    <rdfs:label
+      >has_cascading_impact_on</rdfs:label
+    >
+    <rdfs:comment
+      >Indicates that a failure or compromise of one component would have downstream cascading impacts on another component or asset.</rdfs:comment
+    >
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#compromisesPhysicalSecurity"
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#CybersecurityPosture"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-physical-contexts.owl#PhysicalSecurityContext"
+    />
+    <rdfs:label
+      >compromises_physical_security</rdfs:label
+    >
+    <rdfs:comment
+      >Indicates that a cyber context or attack has consequences for physical security systems or controls.</rdfs:comment
+    >
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#exploitsConfiguration"
+    >
+    <rdfs:domain
+        rdf:resource="http://docs.oasis-open.org/ns/cti/stix/vulnerability"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#Union_AllAssets"
+    />
+    <rdfs:label
+      >exploits_configuration</rdfs:label
+    >
+    <rdfs:comment
+      >Indicates that a vulnerability specifically exploits a particular configuration or state of an asset.</rdfs:comment
+    >
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#implementsDefense"
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#CybersecurityPosture"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl#GridMitigation"
+    />
+    <rdfs:label
+      >implements_defense</rdfs:label
+    >
+    <rdfs:comment
+      >Connects a cybersecurity posture to specific defensive measures or mitigations that are implemented as part of that posture.</rdfs:comment
+    >
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#indicatesCompromise"
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#AnomalyEvent"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#Union_AllAssets"
+    />
+    <rdfs:label
+      >indicates_compromise</rdfs:label
+    >
+    <rdfs:comment
+      >Indicates that an anomaly event suggests potential compromise of a specific asset or component.</rdfs:comment
+    >
+  </owl:ObjectProperty
+  >
+  <owl:ObjectProperty
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#influencesOperationalContext"
+    >
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-environmental-contexts.owl#WeatherContext"
+    />
+    <rdfs:domain
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-environmental-contexts.owl#NaturalDisasterContext"
+    />
+    <rdfs:range
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#GridOperatingConditionContext"
+    />
+    <rdfs:label
+      >influences_operational_context</rdfs:label
+    >
+    <rdfs:comment
+      >Indicates that a weather or environmental context directly influences grid operating conditions.</rdfs:comment
+    >
+  </owl:ObjectProperty
+  >
+</rdf:RDF
+>
