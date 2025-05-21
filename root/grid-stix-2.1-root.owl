@@ -1,23 +1,55 @@
 <?xml version="1.0"?>
 <rdf:RDF
     xmlns="http://www.anl.gov/sss/grid-stix-2.1#"
-    xml:base="http://www.anl.gov/sss/grid-stix-2.1"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xml:base="http://www.anl.gov/sss/grid-stix-2.1"
+  >
 
-  <owl:Ontology rdf:about="http://www.anl.gov/sss/grid-stix-2.1">
-    <rdfs:comment>Root ontology for Grid-STIX 2.1, importing all modules</rdfs:comment>
-    <owl:imports rdf:resource="../vocabularies/grid-stix-2.1-vocab.owl"/>
-    <owl:imports rdf:resource="../core/grid-stix-2.1-assets.owl"/>
-    <owl:imports rdf:resource="../core/grid-stix-2.1-components.owl"/>
-    <owl:imports rdf:resource="../core/grid-stix-2.1-relationships.owl"/>
-    <owl:imports rdf:resource="../threat/grid-stix-2.1-attack-patterns.owl"/>
-    <owl:imports rdf:resource="../policy/grid-stix-2.1-policies.owl"/>
-    <owl:imports rdf:resource="../contexts/grid-stix-2.1-environmental-contexts.owl"/>
-    <owl:imports rdf:resource="../contexts/grid-stix-2.1-operational-contexts.owl"/>
-    <owl:imports rdf:resource="../contexts/grid-stix-2.1-security-contexts.owl"/>
-    <owl:imports rdf:resource="../observables/grid-stix-2.1-events-observables.owl"/>
-  </owl:Ontology>
+  <owl:Ontology
+      rdf:about="http://www.anl.gov/sss/grid-stix-2.1"
+    >
+    <rdfs:comment
+      >Root ontology for Grid-STIX 2.1, importing all modules</rdfs:comment
+    >
 
-</rdf:RDF>
+    <!-- Absolute IRIs that line up with catalog.xml -->
+    <owl:imports
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl"
+    />
+    <owl:imports
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl"
+    />
+    <owl:imports
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl"
+    />
+    <owl:imports
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl"
+    />
+    <owl:imports
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl"
+    />
+    <owl:imports
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl"
+    />
+    <owl:imports
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-environmental-contexts.owl"
+    />
+    <owl:imports
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl"
+    />
+    <owl:imports
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-physical-contexts.owl"
+    />
+    <owl:imports
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl"
+    />
+    <owl:imports
+        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl"
+    />
+  </owl:Ontology
+  >
+
+</rdf:RDF
+>
