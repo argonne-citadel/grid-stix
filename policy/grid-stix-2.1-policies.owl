@@ -1,0 +1,105 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix stix: <http://stixschema.org/v21#> .
+@prefix grid: <http://www.anl.gov/sss/grid-stix-2.1-policies.owl#> .
+@prefix gridv: <http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#> .
+
+# ------------------------------------------------------------------
+# Grid-STIX 2.1 Policies Module
+# IRI: http://www.anl.gov/sss/grid-stix-2.1-policies.owl
+# ------------------------------------------------------------------
+
+<http://www.anl.gov/sss/grid-stix-2.1-policies.owl>
+    a owl:Ontology ;
+    rdfs:comment "Grid-STIX 2.1: Policy definitions extending STIX CourseOfAction" ;
+    owl:imports <http://stixschema.org/v21#CourseOfAction>,
+                <http://www.anl.gov/sss/grid-stix-2.1-vocab.owl> .
+
+################################################################################
+# Classes
+################################################################################
+
+# AccessPolicy: OPA access control policy for grid components
+grid:AccessPolicy
+    a owl:Class ;
+    rdfs:subClassOf stix:CourseOfAction ;
+    rdfs:comment "Represents an access policy (e.g., OPA policy) applied to grid components or zones." .
+
+################################################################################
+# Datatype Properties
+################################################################################
+
+# policy_language: Language used in the policy (e.g., Rego)
+grid:policy_language
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:AccessPolicy ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Language in which the policy is written (e.g., Rego)." .
+
+# policy_rule: The rule or expression text
+grid:policy_rule
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:AccessPolicy ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The policy rule or expression text." .
+
+# enforcement_action: Action taken upon policy violation
+grid:enforcement_action
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:AccessPolicy ;
+    rdfs:range gridv:action_ov ;
+    rdfs:comment "Action enforced when policy conditions are met (e.g., deny, alert)." .
+
+# enforcement_level: Severity or level of enforcement
+grid:enforcement_level
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:AccessPolicy ;
+    rdfs:range gridv:response_level_ov ;
+    rdfs:comment "Enforcement level or severity of policy action." .
+
+################################################################################
+
+# Additional properties from Python AccessPolicy
+
+# subject_type: Type of subject the policy applies to (e.g., user, device, group)
+grid:subject_type a owl:DatatypeProperty ;
+    rdfs:domain grid:AccessPolicy ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Type of subject the policy applies to, e.g., user or device." .
+
+# resource_type: Type of resource the policy controls
+grid:resource_type a owl:DatatypeProperty ;
+    rdfs:domain grid:AccessPolicy ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Type of resource the policy controls, e.g., grid component or zone." .
+
+# condition_expression: Logical expression defining the policy condition
+grid:condition_expression a owl:DatatypeProperty ;
+    rdfs:domain grid:AccessPolicy ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Expression defining policy condition (e.g., Rego rule)." .
+
+# priority: Policy evaluation priority order
+grid:priority a owl:DatatypeProperty ;
+    rdfs:domain grid:AccessPolicy ;
+    rdfs:range xsd:integer ;
+    rdfs:comment "Priority order for policy evaluation." .
+
+# action: Outcome action when condition matches (e.g., allow, deny)
+grid:action a owl:DatatypeProperty ;
+    rdfs:domain grid:AccessPolicy ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Action enforced when policy matches, e.g., allow or deny." .
+
+# object_marking_refs: References to marking definitions for policy classification
+grid:object_marking_refs a owl:ObjectProperty ;
+    rdfs:domain grid:AccessPolicy ;
+    rdfs:range stix:MarkingDefinition ;
+    rdfs:comment "References to marking definitions for policy classification." .
+
+# Note
+
+################################################################################
+# Additional properties (e.g., applies_to) can be added to link policies to grid components or zones.
+

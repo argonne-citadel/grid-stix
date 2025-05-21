@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <rewriteURI rewritePrefix="file:tac-ontology/stix-spec/stix-spec.owl#" uriStartString="http://stixschema.org/v21#"/>
+    <group id="STIX Spec Modules" prefer="public" xml:base="tac-ontology/stix-spec/">
+        <uri name="http://docs.oasis-open.org/ns/cti" uri="cti/cti-core.owl"/>
+        <uri name="http://docs.oasis-open.org/ns/cti/context" uri="cti/cti-core-context.owl"/>
+        <uri name="http://docs.oasis-open.org/ns/cti/stix" uri="stix.owl"/>
+        <uri name="http://docs.oasis-open.org/ns/cti/stix/core" uri="core/stix-core.owl"/>
+        <uri name="http://docs.oasis-open.org/ns/cti/stix/core/context" uri="core/stix-core-context.owl"/>
+        <uri name="http://docs.oasis-open.org/ns/cti/stix/observed-data" uri="core/observed-data.owl"/>
+        <uri name="http://docs.oasis-open.org/ns/cti/stix/observed-data/context" uri="core/observed-data-context.owl"/>
+        <uri name="http://docs.oasis-open.org/ns/cti/stix/incident" uri="threat-intel/incident.owl"/>
+        <uri name="http://docs.oasis-open.org/ns/cti/stix/incident/context" uri="threat-intel/incident-context.owl"/>
+        <uri name="http://docs.oasis-open.org/ns/cti/stix/attack-pattern" uri="threat-intel/attack-pattern.owl"/>
+        <uri name="http://docs.oasis-open.org/ns/cti/stix/course-of-action" uri="threat-intel/course-of-action.owl"/>
+        <uri name="http://docs.oasis-open.org/ns/cti/stix/infrastructure" uri="threat-intel/infrastructure.owl"/>
+        <uri name="http://docs.oasis-open.org/ns/cti/stix/relationship" uri="relationships/relationship.owl"/>
+        <uri name="http://docs.oasis-open.org/ns/cti/stix/artifact" uri="cyber-observables/artifact.owl"/>
+        <uri name="http://docs.oasis-open.org/ns/cti/stix/file" uri="cyber-observables/file.owl"/>
+        <uri name="http://docs.oasis-open.org/ns/cti/stix/network-traffic" uri="cyber-observables/network-traffic.owl"/>
+        <uri name="http://docs.oasis-open.org/ns/cti/stix/ip-address" uri="cyber-observables/ip-address.owl"/>
+        <uri name="http://docs.oasis-open.org/ns/cti/stix/user-account" uri="cyber-observables/user-account.owl"/>
+        <uri name="http://docs.oasis-open.org/ns/cti/stix/software" uri="cyber-observables/software.owl"/>
+        <uri name="http://docs.oasis-open.org/ns/cti/stix/vocabulary" uri="vocabularies/vocab.owl"/>
+        <uri name="http://docs.oasis-open.org/ns/cti/stix/vocabulary-user-defs" uri="vocabularies/vocabulary-user-defs.owl"/>
+        <uri name="http://docs.oasis-open.org/ns/cti/data-marking" uri="markings/marking.owl"/>
+    </group>
+    <group id="Grid-STIX 2.1 Modules" prefer="public">
+        <uri name="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl" uri="vocabularies/grid-stix-2.1-vocab.owl"/>
+        <uri name="http://www.anl.gov/sss/grid-stix-2.1-assets.owl" uri="core/grid-stix-2.1-assets.owl"/>
+        <uri name="http://www.anl.gov/sss/grid-stix-2.1-components.owl" uri="core/grid-stix-2.1-components.owl"/>
+        <uri name="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl" uri="core/grid-stix-2.1-relationships.owl"/>
+        <uri name="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl" uri="threat/grid-stix-2.1-attack-patterns.owl"/>
+        <uri name="http://www.anl.gov/sss/grid-stix-2.1-policies.owl" uri="policy/grid-stix-2.1-policies.owl"/>
+        <uri name="http://www.anl.gov/sss/grid-stix-2.1-environmental-contexts.owl" uri="contexts/grid-stix-2.1-environmental-contexts.owl"/>
+        <uri name="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl" uri="contexts/grid-stix-2.1-operational-contexts.owl"/>
+        <uri name="http://www.anl.gov/sss/grid-stix-2.1-security-contexts.owl" uri="contexts/grid-stix-2.1-security-contexts.owl"/>
+        <uri name="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl" uri="observables/grid-stix-2.1-events-observables.owl"/>
+        <uri name="http://www.anl.gov/sss/grid-stix-2.1-root.owl" uri="root/grid-stix-2.1-root.owl"/>
+    </group>
+</catalog>

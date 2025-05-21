@@ -1,0 +1,158 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix stix: <http://stixschema.org/v21#> .
+@prefix grid: <http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#> .
+@prefix gridv: <http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#> .
+
+# ------------------------------------------------------------------
+# Grid-STIX 2.1 Events & Observables Module
+# IRI: http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl
+# ------------------------------------------------------------------
+
+<http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl>
+    a owl:Ontology ;
+    rdfs:comment "Grid-STIX 2.1: Event and observable definitions" ;
+    owl:imports <http://stixschema.org/v21#ObservedData>,
+                <http://www.anl.gov/sss/grid-stix-2.1-vocab.owl> .
+
+################################################################################
+# GridTelemetry: Periodic metric measurements from grid components
+################################################################################
+
+grid:GridTelemetry
+    a owl:Class ;
+    rdfs:subClassOf stix:ObservedData ;
+    rdfs:comment "Observed telemetry measurements such as voltage, current, or temperature." .
+
+# Properties for GridTelemetry
+
+grid:component_ref
+    a owl:ObjectProperty ;
+    rdfs:domain grid:GridTelemetry ;
+    rdfs:range grid:GridComponent ;
+    rdfs:comment "Reference to the grid component generating the telemetry." .
+
+grid:metric_type
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:GridTelemetry ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Type of metric, e.g., voltage, current, temperature." .
+
+grid:metric_value
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:GridTelemetry ;
+    rdfs:range xsd:float ;
+    rdfs:comment "Numeric value of the metric." .
+
+grid:metric_unit
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:GridTelemetry ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Unit of measurement, e.g., V, A, °C." .
+
+grid:timestamp
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:GridTelemetry ;
+    rdfs:range xsd:dateTime ;
+    rdfs:comment "Timestamp of the telemetry measurement." .
+
+################################################################################
+# GridProtocolTraffic: Network traffic events in grid
+################################################################################
+
+grid:GridProtocolTraffic
+    a owl:Class ;
+    rdfs:subClassOf stix:ObservedData ;
+    rdfs:comment "Observed network traffic specific to grid protocols." .
+
+# Properties for GridProtocolTraffic
+
+grid:source_ip
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:GridProtocolTraffic ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Source IP address of the traffic." .
+
+grid:destination_ip
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:GridProtocolTraffic ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Destination IP address of the traffic." .
+
+grid:protocol
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:GridProtocolTraffic ;
+    rdfs:range gridv:grid_protocol_ov ;
+    rdfs:comment "Protocol used, e.g., DNP3, Modbus." .
+
+grid:packet_count
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:GridProtocolTraffic ;
+    rdfs:range xsd:integer ;
+    rdfs:comment "Number of packets observed." .
+
+grid:byte_count
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:GridProtocolTraffic ;
+    rdfs:range xsd:integer ;
+    rdfs:comment "Number of bytes observed." .
+
+grid:timestamp
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:GridProtocolTraffic ;
+    rdfs:range xsd:dateTime ;
+    rdfs:comment "Timestamp of the traffic observation." .
+
+################################################################################
+# AuthenticationEvent: Authentication attempts on devices
+################################################################################
+
+grid:AuthenticationEvent
+    a owl:Class ;
+    rdfs:subClassOf stix:ObservedData ;
+    rdfs:comment "Observed authentication attempts by users or devices." .
+
+# Properties for AuthenticationEvent
+
+grid:user_ref
+    a owl:ObjectProperty ;
+    rdfs:domain grid:AuthenticationEvent ;
+    rdfs:range stix:Identity ;
+    rdfs:comment "Identity of the user or entity attempting authentication." .
+
+grid:device_ref
+    a owl:ObjectProperty ;
+    rdfs:domain grid:AuthenticationEvent ;
+    rdfs:range grid:OTDevice ;
+    rdfs:comment "OT device targeted by the authentication attempt." .
+
+grid:authentication_result
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:AuthenticationEvent ;
+    rdfs:range gridv:authentication_result_ov ;
+    rdfs:comment "Result of the authentication attempt, e.g., success, failure." .
+
+grid:authentication_factor
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:AuthenticationEvent ;
+    rdfs:range gridv:authentication_factor_ov ;
+    rdfs:comment "Authentication factor used, e.g., password, token." .
+
+grid:authentication_requirement
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:AuthenticationEvent ;
+    rdfs:range gridv:authentication_requirement_ov ;
+    rdfs:comment "Requirement level for authentication, e.g., MFA." .
+
+grid:timestamp
+    a owl:DatatypeProperty ;
+    rdfs:domain grid:AuthenticationEvent ;
+    rdfs:range xsd:dateTime ;
+    rdfs:comment "Timestamp of the authentication event." .
+
+################################################################################
+# Note
+################################################################################
+# Inherited STIX properties like first_observed, last_observed come from ObservedData.
+
