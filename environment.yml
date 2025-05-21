@@ -1,0 +1,14 @@
+---
+name: grid-stix 
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - bandit=1.8
+  - black=25.1
+  - networkx=3.4
+  - numpy=2.2
+  - plotly=6.1
+  - pygraphviz=1.14
+  - rdflib=7.1
+  - scipy=1.15

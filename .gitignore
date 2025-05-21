@@ -1,0 +1,7 @@
+*-full.owl
+*.dot
+*.html
+*.pdf
+*.pyc
+*.swp
+__pycache__
