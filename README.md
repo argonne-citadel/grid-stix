@@ -55,6 +55,12 @@ This will create a conda/micromamba environment with all required dependencies.
 To format code and OWL files:
 
 ```bash
+make format 
+```
+
+or to check only:
+
+```bash
 make lint
 ```
 
