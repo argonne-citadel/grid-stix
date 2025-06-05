@@ -1,627 +1,223 @@
 <?xml version="1.0"?>
-<rdf:RDF
-    xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-    xml:base="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl"
-  >
-  <owl:Ontology
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl"
-    >
-    <owl:imports
-        rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data"
-    />
-    <owl:imports
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl"
-    />
-    <owl:imports
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl"
-    />
-    <rdfs:comment
-      >Grid-STIX 2.1: Event and observable definitions for grid security monitoring</rdfs:comment
-    >
-  </owl:Ontology
-  >
-  <owl:ObjectProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#authentication_factor"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#AuthenticationEvent"
-    />
-    <rdfs:range
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#authentication_factor_ov"
-    />
-    <rdfs:comment
-      >Authentication factor used, e.g., password, token.</rdfs:comment
-    >
-    <rdfs:label
-      >authentication_factor</rdfs:label
-    >
-  </owl:ObjectProperty
-  >
-  <owl:ObjectProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#authentication_requirement"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#AuthenticationEvent"
-    />
-    <rdfs:range
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#authentication_requirement_ov"
-    />
-    <rdfs:comment
-      >Requirement level for authentication, e.g., MFA.</rdfs:comment
-    >
-    <rdfs:label
-      >authentication_requirement</rdfs:label
-    >
-  </owl:ObjectProperty
-  >
-  <owl:ObjectProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#authentication_result"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#AuthenticationEvent"
-    />
-    <rdfs:range
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#authentication_result_ov"
-    />
-    <rdfs:comment
-      >Result of the authentication attempt, e.g., success, failure.</rdfs:comment
-    >
-    <rdfs:label
-      >authentication_result</rdfs:label
-    >
-  </owl:ObjectProperty
-  >
-  <owl:ObjectProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#component_ref"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
-    />
-    <rdfs:range
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"
-    />
-    <rdfs:comment
-      >Reference to the grid component associated with the event.</rdfs:comment
-    >
-    <rdfs:label
-      >component_ref</rdfs:label
-    >
-  </owl:ObjectProperty
-  >
-  <owl:ObjectProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#device_ref"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
-    />
-    <rdfs:range
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"
-    />
-    <rdfs:comment
-      >OT device associated with the event.</rdfs:comment
-    >
-    <rdfs:label
-      >device_ref</rdfs:label
-    >
-  </owl:ObjectProperty
-  >
-  <owl:ObjectProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#protocol"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridProtocolTraffic"
-    />
-    <rdfs:range
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#grid_protocol_ov"
-    />
-    <rdfs:comment
-      >Protocol used, e.g., DNP3, Modbus.</rdfs:comment
-    >
-    <rdfs:label
-      >protocol</rdfs:label
-    >
-  </owl:ObjectProperty
-  >
-  <owl:ObjectProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#user_ref"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#AuthenticationEvent"
-    />
-    <rdfs:range
-        rdf:resource="http://docs.oasis-open.org/ns/cti/stix/identity"
-    />
-    <rdfs:comment
-      >Identity of the user or entity attempting authentication.</rdfs:comment
-    >
-    <rdfs:label
-      >user_ref</rdfs:label
-    >
-  </owl:ObjectProperty
-  >
-  <owl:ObjectProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#sensor_ref"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
-    />
-    <rdfs:range
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"
-    />
-    <rdfs:comment
-      >Reference to the sensor that detected or generated the event.</rdfs:comment
-    >
-    <rdfs:label
-      >sensor_ref</rdfs:label
-    >
-  </owl:ObjectProperty
-  >
-  <owl:ObjectProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#detection_method"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
-    />
-    <rdfs:range
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#detection_method_ov"
-    />
-    <rdfs:comment
-      >Method used to detect the event.</rdfs:comment
-    >
-    <rdfs:label
-      >detection_method</rdfs:label
-    >
-  </owl:ObjectProperty
-  >
-  <owl:ObjectProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#zone_ref"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
-    />
-    <rdfs:range
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#SecurityZone"
-    />
-    <rdfs:comment
-      >Security zone where the event occurred.</rdfs:comment
-    >
-    <rdfs:label
-      >zone_ref</rdfs:label
-    >
-  </owl:ObjectProperty
-  >
-  <owl:ObjectProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#related_to"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
-    />
-    <rdfs:range
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
-    />
-    <rdfs:comment
-      >Relationship to another event (e.g., part of same sequence).</rdfs:comment
-    >
-    <rdfs:label
-      >related_to</rdfs:label
-    >
-  </owl:ObjectProperty
-  >
-  <owl:DatatypeProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#byte_count"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridProtocolTraffic"
-    />
-    <rdfs:range
-        rdf:resource="http://www.w3.org/2001/XMLSchema#integer"
-    />
-    <rdfs:comment
-      >Number of bytes observed.</rdfs:comment
-    >
-    <rdfs:label
-      >byte_count</rdfs:label
-    >
-  </owl:DatatypeProperty
-  >
-  <owl:DatatypeProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#destination_ip"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridProtocolTraffic"
-    />
-    <rdfs:range
-        rdf:resource="http://www.w3.org/2001/XMLSchema#string"
-    />
-    <rdfs:comment
-      >Destination IP address of the traffic.</rdfs:comment
-    >
-    <rdfs:label
-      >destination_ip</rdfs:label
-    >
-  </owl:DatatypeProperty
-  >
-  <owl:DatatypeProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#metric_type"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridTelemetry"
-    />
-    <rdfs:range
-        rdf:resource="http://www.w3.org/2001/XMLSchema#string"
-    />
-    <rdfs:comment
-      >Type of metric, e.g., voltage, current, temperature.</rdfs:comment
-    >
-    <rdfs:label
-      >metric_type</rdfs:label
-    >
-  </owl:DatatypeProperty
-  >
-  <owl:DatatypeProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#metric_unit"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridTelemetry"
-    />
-    <rdfs:range
-        rdf:resource="http://www.w3.org/2001/XMLSchema#string"
-    />
-    <rdfs:comment
-      >Unit of measurement, e.g., V, A, &#xB0;C.</rdfs:comment
-    >
-    <rdfs:label
-      >metric_unit</rdfs:label
-    >
-  </owl:DatatypeProperty
-  >
-  <owl:DatatypeProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#metric_value"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridTelemetry"
-    />
-    <rdfs:range
-        rdf:resource="http://www.w3.org/2001/XMLSchema#float"
-    />
-    <rdfs:comment
-      >Numeric value of the metric.</rdfs:comment
-    >
-    <rdfs:label
-      >metric_value</rdfs:label
-    >
-  </owl:DatatypeProperty
-  >
-  <owl:DatatypeProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#packet_count"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridProtocolTraffic"
-    />
-    <rdfs:range
-        rdf:resource="http://www.w3.org/2001/XMLSchema#integer"
-    />
-    <rdfs:comment
-      >Number of packets observed.</rdfs:comment
-    >
-    <rdfs:label
-      >packet_count</rdfs:label
-    >
-  </owl:DatatypeProperty
-  >
-  <owl:DatatypeProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#source_ip"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridProtocolTraffic"
-    />
-    <rdfs:range
-        rdf:resource="http://www.w3.org/2001/XMLSchema#string"
-    />
-    <rdfs:comment
-      >Source IP address of the traffic.</rdfs:comment
-    >
-    <rdfs:label
-      >source_ip</rdfs:label
-    >
-  </owl:DatatypeProperty
-  >
-  <owl:DatatypeProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#timestamp"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
-    />
-    <rdfs:range
-        rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"
-    />
-    <rdfs:comment
-      >Timestamp when the event occurred or was observed.</rdfs:comment
-    >
-    <rdfs:label
-      >timestamp</rdfs:label
-    >
-  </owl:DatatypeProperty
-  >
-  <owl:DatatypeProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#event_id"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
-    />
-    <rdfs:range
-        rdf:resource="http://www.w3.org/2001/XMLSchema#string"
-    />
-    <rdfs:comment
-      >Unique identifier for the event.</rdfs:comment
-    >
-    <rdfs:label
-      >event_id</rdfs:label
-    >
-  </owl:DatatypeProperty
-  >
-  <owl:DatatypeProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#severity"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
-    />
-    <rdfs:range
-        rdf:resource="http://www.w3.org/2001/XMLSchema#integer"
-    />
-    <rdfs:comment
-      >Severity level of the event (1-5).</rdfs:comment
-    >
-    <rdfs:label
-      >severity</rdfs:label
-    >
-  </owl:DatatypeProperty
-  >
-  <owl:DatatypeProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#description"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
-    />
-    <rdfs:range
-        rdf:resource="http://www.w3.org/2001/XMLSchema#string"
-    />
-    <rdfs:comment
-      >Textual description of the event.</rdfs:comment
-    >
-    <rdfs:label
-      >description</rdfs:label
-    >
-  </owl:DatatypeProperty
-  >
-  <owl:DatatypeProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#message_content"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridProtocolTraffic"
-    />
-    <rdfs:range
-        rdf:resource="http://www.w3.org/2001/XMLSchema#string"
-    />
-    <rdfs:comment
-      >Contents of the protocol message (hexadecimal or parsed form).</rdfs:comment
-    >
-    <rdfs:label
-      >message_content</rdfs:label
-    >
-  </owl:DatatypeProperty
-  >
-  <owl:DatatypeProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#command_type"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#ControlActionEvent"
-    />
-    <rdfs:range
-        rdf:resource="http://www.w3.org/2001/XMLSchema#string"
-    />
-    <rdfs:comment
-      >Type of control command issued.</rdfs:comment
-    >
-    <rdfs:label
-      >command_type</rdfs:label
-    >
-  </owl:DatatypeProperty
-  >
-  <owl:DatatypeProperty
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#command_parameters"
-    >
-    <rdfs:domain
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#ControlActionEvent"
-    />
-    <rdfs:range
-        rdf:resource="http://www.w3.org/2001/XMLSchema#string"
-    />
-    <rdfs:comment
-      >Parameters associated with the control command.</rdfs:comment
-    >
-    <rdfs:label
-      >command_parameters</rdfs:label
-    >
-  </owl:DatatypeProperty
-  >
-  <owl:Class
-      rdf:about="http://docs.oasis-open.org/ns/cti/stix/observed-data"
-    >
-    <rdfs:label
-      >observed_data</rdfs:label
-    >
-  </owl:Class
-  >
-  <owl:Class
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
-    >
-    <rdfs:subClassOf
-        rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data"
-    />
-    <rdfs:comment
-      >Base class for all grid-related events and observables.</rdfs:comment
-    >
-    <rdfs:label
-      >grid_event</rdfs:label
-    >
-  </owl:Class
-  >
-  <owl:Class
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#AuthenticationEvent"
-    >
-    <rdfs:subClassOf
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
-    />
-    <rdfs:comment
-      >Observed authentication attempts by users or devices.</rdfs:comment
-    >
-    <rdfs:label
-      >authentication_event</rdfs:label
-    >
-  </owl:Class
-  >
-  <owl:Class
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridProtocolTraffic"
-    >
-    <rdfs:subClassOf
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
-    />
-    <rdfs:comment
-      >Observed network traffic specific to grid protocols.</rdfs:comment
-    >
-    <rdfs:label
-      >grid_protocol_traffic</rdfs:label
-    >
-  </owl:Class
-  >
-  <owl:Class
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridTelemetry"
-    >
-    <rdfs:subClassOf
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
-    />
-    <rdfs:comment
-      >Observed telemetry measurements such as voltage, current, or temperature.</rdfs:comment
-    >
-    <rdfs:label
-      >grid_telemetry</rdfs:label
-    >
-  </owl:Class
-  >
-  <owl:Class
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#ControlActionEvent"
-    >
-    <rdfs:subClassOf
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
-    />
-    <rdfs:comment
-      >Observed control actions or commands issued to grid components.</rdfs:comment
-    >
-    <rdfs:label
-      >control_action_event</rdfs:label
-    >
-  </owl:Class
-  >
-  <owl:Class
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#AlarmEvent"
-    >
-    <rdfs:subClassOf
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
-    />
-    <rdfs:comment
-      >System-generated alarms or warnings.</rdfs:comment
-    >
-    <rdfs:label
-      >alarm_event</rdfs:label
-    >
-  </owl:Class
-  >
-  <owl:Class
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#StateChangeEvent"
-    >
-    <rdfs:subClassOf
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
-    />
-    <rdfs:comment
-      >Changes in operational state of grid components.</rdfs:comment
-    >
-    <rdfs:label
-      >state_change_event</rdfs:label
-    >
-  </owl:Class
-  >
-  <owl:Class
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#AnomalyEvent"
-    >
-    <rdfs:subClassOf
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
-    />
-    <rdfs:comment
-      >Detected anomalies in grid behavior or patterns.</rdfs:comment
-    >
-    <rdfs:label
-      >anomaly_event</rdfs:label
-    >
-  </owl:Class
-  >
-  <owl:Class
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#FirmwareEvent"
-    >
-    <rdfs:subClassOf
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
-    />
-    <rdfs:comment
-      >Firmware updates, changes, or integrity checks.</rdfs:comment
-    >
-    <rdfs:label
-      >firmware_event</rdfs:label
-    >
-  </owl:Class
-  >
-  <owl:Class
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#ConfigurationEvent"
-    >
-    <rdfs:subClassOf
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
-    />
-    <rdfs:comment
-      >Configuration changes to grid components or systems.</rdfs:comment
-    >
-    <rdfs:label
-      >configuration_event</rdfs:label
-    >
-  </owl:Class
-  >
-  <owl:Class
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#MaintenanceEvent"
-    >
-    <rdfs:subClassOf
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
-    />
-    <rdfs:comment
-      >Scheduled or unscheduled maintenance activities.</rdfs:comment
-    >
-    <rdfs:label
-      >maintenance_event</rdfs:label
-    >
-  </owl:Class
-  >
-  <owl:Class
-      rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#PhysicalAccessEvent"
-    >
-    <rdfs:subClassOf
-        rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"
-    />
-    <rdfs:comment
-      >Physical access to secure areas or components.</rdfs:comment
-    >
-    <rdfs:label
-      >physical_access_event</rdfs:label
-    >
-  </owl:Class
-  >
-</rdf:RDF
->
+<rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xml:base="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl">
+  <owl:Ontology rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl">
+    <owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data"/>
+    <owl:imports rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl"/>
+    <owl:imports rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl"/>
+    <rdfs:label>grid_stix_2_1_events_observables</rdfs:label>
+    <rdfs:comment>Grid-STIX 2.1: Event and observable definitions for grid security monitoring</rdfs:comment>
+  </owl:Ontology>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#authentication_factor">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#AuthenticationEvent"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#authentication_factor_ov"/>
+    <rdfs:comment>Authentication factor used, e.g., password, token.</rdfs:comment>
+    <rdfs:label>authentication_factor</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#authentication_requirement">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#AuthenticationEvent"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#authentication_requirement_ov"/>
+    <rdfs:comment>Requirement level for authentication, e.g., MFA.</rdfs:comment>
+    <rdfs:label>authentication_requirement</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#authentication_result">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#AuthenticationEvent"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#authentication_result_ov"/>
+    <rdfs:comment>Result of the authentication attempt, e.g., success, failure.</rdfs:comment>
+    <rdfs:label>authentication_result</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#component_ref">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
+    <rdfs:comment>Reference to the grid component associated with the event.</rdfs:comment>
+    <rdfs:label>component_ref</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#device_ref">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"/>
+    <rdfs:comment>OT device associated with the event.</rdfs:comment>
+    <rdfs:label>device_ref</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#protocol">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridProtocolTraffic"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#grid_protocol_ov"/>
+    <rdfs:comment>Protocol used, e.g., DNP3, Modbus.</rdfs:comment>
+    <rdfs:label>protocol</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#user_ref">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#AuthenticationEvent"/>
+    <rdfs:range rdf:resource="http://docs.oasis-open.org/ns/cti/stix/identity"/>
+    <rdfs:comment>Identity of the user or entity attempting authentication.</rdfs:comment>
+    <rdfs:label>user_ref</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#sensor_ref">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"/>
+    <rdfs:comment>Reference to the sensor that detected or generated the event.</rdfs:comment>
+    <rdfs:label>sensor_ref</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#detection_method">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#detection_method_ov"/>
+    <rdfs:comment>Method used to detect the event.</rdfs:comment>
+    <rdfs:label>detection_method</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#zone_ref">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#SecurityZone"/>
+    <rdfs:comment>Security zone where the event occurred.</rdfs:comment>
+    <rdfs:label>zone_ref</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#related_to">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"/>
+    <rdfs:comment>Relationship to another event (e.g., part of same sequence).</rdfs:comment>
+    <rdfs:label>related_to</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#byte_count">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridProtocolTraffic"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>Number of bytes observed.</rdfs:comment>
+    <rdfs:label>byte_count</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#destination_ip">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridProtocolTraffic"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Destination IP address of the traffic.</rdfs:comment>
+    <rdfs:label>destination_ip</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#metric_type">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridTelemetry"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Type of metric, e.g., voltage, current, temperature.</rdfs:comment>
+    <rdfs:label>metric_type</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#metric_unit">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridTelemetry"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Unit of measurement, e.g., V, A, &#xB0;C.</rdfs:comment>
+    <rdfs:label>metric_unit</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#metric_value">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridTelemetry"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Numeric value of the metric.</rdfs:comment>
+    <rdfs:label>metric_value</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#packet_count">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridProtocolTraffic"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>Number of packets observed.</rdfs:comment>
+    <rdfs:label>packet_count</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#source_ip">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridProtocolTraffic"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Source IP address of the traffic.</rdfs:comment>
+    <rdfs:label>source_ip</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#timestamp">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Timestamp when the event occurred or was observed.</rdfs:comment>
+    <rdfs:label>timestamp</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#event_id">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Unique identifier for the event.</rdfs:comment>
+    <rdfs:label>event_id</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#severity">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>Severity level of the event (1-5).</rdfs:comment>
+    <rdfs:label>severity</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#description">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Textual description of the event.</rdfs:comment>
+    <rdfs:label>description</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#message_content">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridProtocolTraffic"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Contents of the protocol message (hexadecimal or parsed form).</rdfs:comment>
+    <rdfs:label>message_content</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#command_type">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#ControlActionEvent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Type of control command issued.</rdfs:comment>
+    <rdfs:label>command_type</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#command_parameters">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#ControlActionEvent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Parameters associated with the control command.</rdfs:comment>
+    <rdfs:label>command_parameters</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:Class rdf:about="http://docs.oasis-open.org/ns/cti/stix/observed-data">
+    <rdfs:label>observed_data</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core#CyberObservable"/>
+    <rdfs:comment>Base class for all grid-related events and observables.</rdfs:comment>
+    <rdfs:label>grid_event</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#AuthenticationEvent">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"/>
+    <rdfs:comment>Observed authentication attempts by users or devices.</rdfs:comment>
+    <rdfs:label>authentication_event</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridProtocolTraffic">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"/>
+    <rdfs:comment>Observed network traffic specific to grid protocols.</rdfs:comment>
+    <rdfs:label>grid_protocol_traffic</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridTelemetry">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"/>
+    <rdfs:comment>Observed telemetry measurements such as voltage, current, or temperature.</rdfs:comment>
+    <rdfs:label>grid_telemetry</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#ControlActionEvent">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"/>
+    <rdfs:comment>Observed control actions or commands issued to grid components.</rdfs:comment>
+    <rdfs:label>control_action_event</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#AlarmEvent">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"/>
+    <rdfs:comment>System-generated alarms or warnings.</rdfs:comment>
+    <rdfs:label>alarm_event</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#StateChangeEvent">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"/>
+    <rdfs:comment>Changes in operational state of grid components.</rdfs:comment>
+    <rdfs:label>state_change_event</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#AnomalyEvent">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"/>
+    <rdfs:comment>Detected anomalies in grid behavior or patterns.</rdfs:comment>
+    <rdfs:label>anomaly_event</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#FirmwareEvent">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"/>
+    <rdfs:comment>Firmware updates, changes, or integrity checks.</rdfs:comment>
+    <rdfs:label>firmware_event</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#ConfigurationEvent">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"/>
+    <rdfs:comment>Configuration changes to grid components or systems.</rdfs:comment>
+    <rdfs:label>configuration_event</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#MaintenanceEvent">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"/>
+    <rdfs:comment>Scheduled or unscheduled maintenance activities.</rdfs:comment>
+    <rdfs:label>maintenance_event</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#PhysicalAccessEvent">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#GridEvent"/>
+    <rdfs:comment>Physical access to secure areas or components.</rdfs:comment>
+    <rdfs:label>physical_access_event</rdfs:label>
+  </owl:Class>
+</rdf:RDF>

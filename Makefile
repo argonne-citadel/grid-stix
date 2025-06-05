@@ -10,16 +10,34 @@ COLOR_GREEN := $(ESC)[32m
 COLOR_RED := $(ESC)[31m
 COLOR_YELLOW := $(ESC)[33m
 
+MICROMAMBA_DEV := $(MAMBA_EXE) run -n grid-stix
+
 init: environment.yml
 	@echo "$(COLOR_BOLD)Creating development environment...$(COLOR_RESET)"
 	@$(MAMBA_EXE) create -yf environment.yml
 	@echo "$(COLOR_GREEN)Development environment created successfully!$(COLOR_RESET)"
 
+format:
+	@echo "Formatting code..."
+	@${MAMBA_DEV} black -q . 
+	@find . -type f -iname "*.owl" -not -path "./tac-ontology/*" -exec xmllint --format --output {} {} \;
+	@echo "$(COLOR_GREEN)Code formatting complete$(COLOR_RESET)"
+
 lint:
 	@echo "$(COLOR_BOLD)Running code quality checks...$(COLOR_RESET)"
 	@${MICROMAMBA_DEV} black -q . 
-	@find . -type f -iname "*.owl" -exec xmllint --format --output {} {} \;
+	@find . -type f -iname "*.owl" -not -path "./tac-ontology/*" -exec xmllint --noout {} \;
 	@echo "$(COLOR_GREEN)Code quality checks passed!$(COLOR_RESET)"
+
+security:
+	@echo "Running security checks..."
+	@${MAMBA_DEV} bandit -q -ll -ii -r --skip B108 --skip B104 $(SRC_DIR)/
+	@echo "$(COLOR_GREEN)Security precheck complete$(COLOR_RESET)"
+	@echo "Checking dependencies for security issues..."
+	@${MAMBA} pip freeze | ${MAMBA_DEV} safety check --stdin --json 
+	@$(MICROMAMBA_BIN) list -n $(ENV_NAME) -q --json | \
+		${MAMBA_DEV} jake ddt -t CONDA_JSON \
+	@echo "$(COLOR_GREEN)Security postcheck complete$(COLOR_RESET)"
 
 merge:
 	@echo "$(COLOR_BOLD)Merging ontologies...$(COLOR_RESET)"

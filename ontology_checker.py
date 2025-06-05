@@ -9,7 +9,7 @@ import argparse
 import xml.etree.ElementTree as ET
 
 logging.basicConfig(
-    level=logging.DEBUG,
+    level=logging.WARNING,
     format="%(asctime)s - %(levelname)s - %(message)s",
 )
 
@@ -47,7 +47,7 @@ SKIP_CHECKS = args.skip_checks
 # Define common STIX namespaces
 STIX_NAMESPACES = [
     "http://docs.oasis-open.org/cti/ns/stix/",  # Covers STIX general namespace
-    "http://stixschema.org/v21"  # Covers STIX 2.1 objects often imported with this base
+    "http://stixschema.org/v21",  # Covers STIX 2.1 objects often imported with this base
 ]
 
 # ---- LOAD CATALOG ----
@@ -238,9 +238,7 @@ namespaces = set()
 for s, p, o in g:
     if isinstance(s, URIRef):
         ns_uri = (
-            str(s).split("#")[0]
-            if "#" in str(s)
-            else str(s).rsplit("/", 1)[0] + "/"
+            str(s).split("#")[0] if "#" in str(s) else str(s).rsplit("/", 1)[0] + "/"
         )
         namespaces.add(ns_uri)
 for ns in sorted(namespaces):
@@ -342,7 +340,8 @@ def check_unreachable_classes(graph):
         for s in graph.subjects(RDF.type, OWL.Class)
         if in_namespace(s)
         and not str(s).endswith("_ov")
-        and "Union_" not in str(s) # Corrected line: was `and not str(s).startswith("Union_")`
+        and "Union_"
+        not in str(s)  # Corrected line: was `and not str(s).startswith("Union_")`
     )  # in_namespace defaults to include_imports=False
 
     logging.info(
