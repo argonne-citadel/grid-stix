@@ -60,6 +60,66 @@
     <rdfs:label>grid_protocol_ov</rdfs:label>
     <rdfs:comment>Open vocabulary for grid protocols</rdfs:comment>
   </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel_type_ov">
+    <rdfs:label>fuel_type_ov</rdfs:label>
+    <rdfs:comment>Open vocabulary for fuel types used by generation assets</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#generation_profile_ov">
+    <rdfs:label>generation_profile_ov</rdfs:label>
+    <rdfs:comment>Open vocabulary for generation operational profiles</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#environmental_impact_category_ov">
+    <rdfs:label>environmental_impact_category_ov</rdfs:label>
+    <rdfs:comment>Open vocabulary for environmental impact categories</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#regulatory_classification_ov">
+    <rdfs:label>regulatory_classification_ov</rdfs:label>
+    <rdfs:comment>Open vocabulary for regulatory classifications and oversight bodies</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#interconnection_level_ov">
+    <rdfs:label>interconnection_level_ov</rdfs:label>
+    <rdfs:comment>Open vocabulary for grid interconnection levels</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#renewable_type_ov">
+    <rdfs:label>renewable_type_ov</rdfs:label>
+    <rdfs:comment>Open vocabulary for renewable energy types</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#inspection_type_ov">
+    <rdfs:label>inspection_type_ov</rdfs:label>
+    <rdfs:comment>Open vocabulary for inspection and audit types</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#safeguard_mechanism_ov">
+    <rdfs:label>safeguard_mechanism_ov</rdfs:label>
+    <rdfs:comment>Open vocabulary for safeguard and security mechanisms</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#compliance_framework_ov">
+    <rdfs:label>compliance_framework_ov</rdfs:label>
+    <rdfs:comment>Open vocabulary for regulatory compliance frameworks</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear_facility_type_ov">
+    <rdfs:label>nuclear_facility_type_ov</rdfs:label>
+    <rdfs:comment>Open vocabulary for nuclear facility types</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#safeguards_agreement_type_ov">
+    <rdfs:label>safeguards_agreement_type_ov</rdfs:label>
+    <rdfs:comment>Open vocabulary for safeguards agreement types</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear_material_type_ov">
+    <rdfs:label>nuclear_material_type_ov</rdfs:label>
+    <rdfs:comment>Open vocabulary for nuclear material types</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#enrichment_level_ov">
+    <rdfs:label>enrichment_level_ov</rdfs:label>
+    <rdfs:comment>Open vocabulary for nuclear material enrichment levels</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#radiation_detection_method_ov">
+    <rdfs:label>radiation_detection_method_ov</rdfs:label>
+    <rdfs:comment>Open vocabulary for radiation detection methods</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#safeguards_anomaly_type_ov">
+    <rdfs:label>safeguards_anomaly_type_ov</rdfs:label>
+    <rdfs:comment>Open vocabulary for safeguards anomaly types</rdfs:comment>
+  </owl:Class>
   <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#impact_type_ov">
     <rdfs:label>impact_type_ov</rdfs:label>
     <rdfs:comment>Open vocabulary for impact types</rdfs:comment>
@@ -307,7 +367,7 @@
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#detect-method-third-party">
     <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#detection_method_ov"/>
-    <rdfs:label>thirdparty_notification</rdfs:label>
+    <rdfs:label>third_party_notification</rdfs:label>
     <rdfs:comment>Detection via notification from external party or agency.</rdfs:comment>
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#disaster-decl-watch">
@@ -529,6 +589,36 @@
     <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#grid_protocol_ov"/>
     <rdfs:label>iec_62351</rdfs:label>
     <rdfs:comment>IEC 62351 security standards for power systems communication protocols.</rdfs:comment>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#grid-protocol-profinet">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#grid_protocol_ov"/>
+    <rdfs:label>profinet</rdfs:label>
+    <rdfs:comment>PROFINET industrial Ethernet automation protocol.</rdfs:comment>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#grid-protocol-bacnet">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#grid_protocol_ov"/>
+    <rdfs:label>bacnet</rdfs:label>
+    <rdfs:comment>Building Automation and Control networks protocol (ISO 16484-5).</rdfs:comment>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#grid-protocol-hart">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#grid_protocol_ov"/>
+    <rdfs:label>hart</rdfs:label>
+    <rdfs:comment>Highway Addressable Remote Transducer protocol for process automation.</rdfs:comment>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#grid-protocol-ethernet-ip">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#grid_protocol_ov"/>
+    <rdfs:label>ethernet_ip</rdfs:label>
+    <rdfs:comment>Ethernet/IP industrial protocol for manufacturing automation.</rdfs:comment>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#grid-protocol-powerlink">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#grid_protocol_ov"/>
+    <rdfs:label>powerlink</rdfs:label>
+    <rdfs:comment>POWERLINK real-time Ethernet protocol for industrial automation.</rdfs:comment>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#grid-protocol-sercos">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#grid_protocol_ov"/>
+    <rdfs:label>sercos</rdfs:label>
+    <rdfs:comment>Serial Real-time Communication System for motion control applications.</rdfs:comment>
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#impact-type-service-disruption">
     <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#impact_type_ov"/>
@@ -988,5 +1078,659 @@
     <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#supply_chain_risk_type_ov"/>
     <rdfs:label>nation_state_influence</rdfs:label>
     <rdfs:comment>Risk of nation-state influence or control over suppliers or supply chains.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <!-- Generation Asset Open Vocabularies -->
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel_type_ov">
+    <rdfs:label>fuel_type_ov</rdfs:label>
+    <rdfs:comment>Open vocabulary for fuel and energy source types used by generation assets</rdfs:comment>
+  </owl:Class>
+  
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#generation_profile_ov">
+    <rdfs:label>generation_profile_ov</rdfs:label>
+    <rdfs:comment>Open vocabulary for generation operational profiles</rdfs:comment>
+  </owl:Class>
+  
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#environmental_impact_category_ov">
+    <rdfs:label>environmental_impact_category_ov</rdfs:label>
+    <rdfs:comment>Open vocabulary for environmental impact categories</rdfs:comment>
+  </owl:Class>
+  
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#regulatory_classification_ov">
+    <rdfs:label>regulatory_classification_ov</rdfs:label>
+    <rdfs:comment>Open vocabulary for regulatory classification systems</rdfs:comment>
+  </owl:Class>
+  
+  <!-- DER-specific Open Vocabularies -->
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#renewable_type_ov">
+    <rdfs:label>renewable_type_ov</rdfs:label>
+    <rdfs:comment>Open vocabulary for types of renewable energy sources</rdfs:comment>
+  </owl:Class>
+  
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#interconnection_level_ov">
+    <rdfs:label>interconnection_level_ov</rdfs:label>
+    <rdfs:comment>Open vocabulary for grid interconnection levels</rdfs:comment>
+  </owl:Class>
+  
+  <!-- Renewable Energy Types -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#renewable-solar">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#renewable_type_ov"/>
+    <rdfs:label>solar</rdfs:label>
+    <rdfs:comment>Solar photovoltaic energy conversion from sunlight.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#renewable-wind">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#renewable_type_ov"/>
+    <rdfs:label>wind</rdfs:label>
+    <rdfs:comment>Wind energy conversion from kinetic wind energy.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#renewable-hydro">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#renewable_type_ov"/>
+    <rdfs:label>hydro</rdfs:label>
+    <rdfs:comment>Hydroelectric energy from flowing or falling water.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#renewable-biomass">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#renewable_type_ov"/>
+    <rdfs:label>biomass</rdfs:label>
+    <rdfs:comment>Energy from organic materials and waste products.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#renewable-geothermal">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#renewable_type_ov"/>
+    <rdfs:label>geothermal</rdfs:label>
+    <rdfs:comment>Energy from heat stored beneath the Earth's surface.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#renewable-hydrogen">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#renewable_type_ov"/>
+    <rdfs:label>hydrogen</rdfs:label>
+    <rdfs:comment>Hydrogen fuel cell energy conversion from hydrogen and oxygen.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <!-- Grid Interconnection Levels -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#interconnection-transmission">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#interconnection_level_ov"/>
+    <rdfs:label>transmission</rdfs:label>
+    <rdfs:comment>Connected at transmission level (typically 69kV and above).</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#interconnection-distribution">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#interconnection_level_ov"/>
+    <rdfs:label>distribution</rdfs:label>
+    <rdfs:comment>Connected at distribution level (typically 4kV to 35kV).</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#interconnection-customer">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#interconnection_level_ov"/>
+    <rdfs:label>customer</rdfs:label>
+    <rdfs:comment>Connected at customer level (typically 120V to 480V).</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#interconnection-subtransmission">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#interconnection_level_ov"/>
+    <rdfs:label>subtransmission</rdfs:label>
+    <rdfs:comment>Connected at subtransmission level (typically 35kV to 69kV).</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <!-- Operational Status Vocabulary -->
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#operational_status_ov">
+    <rdfs:label>operational_status_ov</rdfs:label>
+    <rdfs:comment>Open vocabulary for operational status of DER systems</rdfs:comment>
+  </owl:Class>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#status-online">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#operational_status_ov"/>
+    <rdfs:label>online</rdfs:label>
+    <rdfs:comment>DER system is online and operational.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#status-offline">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#operational_status_ov"/>
+    <rdfs:label>offline</rdfs:label>
+    <rdfs:comment>DER system is offline and not generating power.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#status-maintenance">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#operational_status_ov"/>
+    <rdfs:label>maintenance</rdfs:label>
+    <rdfs:comment>DER system is under maintenance or repair.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#status-standby">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#operational_status_ov"/>
+    <rdfs:label>standby</rdfs:label>
+    <rdfs:comment>DER system is on standby, ready to operate when needed.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <!-- Storm Type Individuals -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#storm-hurricane">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#storm_type_ov"/>
+    <rdfs:label>hurricane</rdfs:label>
+    <rdfs:comment>Severe tropical cyclone with sustained winds over 74 mph.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#storm-tornado">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#storm_type_ov"/>
+    <rdfs:label>tornado</rdfs:label>
+    <rdfs:comment>Violently rotating column of air extending from thunderstorm to ground.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#storm-thunderstorm">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#storm_type_ov"/>
+    <rdfs:label>thunderstorm</rdfs:label>
+    <rdfs:comment>Storm characterized by lightning, thunder, and strong winds.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#storm-ice-storm">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#storm_type_ov"/>
+    <rdfs:label>ice_storm</rdfs:label>
+    <rdfs:comment>Storm producing freezing rain that coats surfaces with ice.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <!-- Transportation Status Individuals -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#transport-normal">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#transportation_status_ov"/>
+    <rdfs:label>normal</rdfs:label>
+    <rdfs:comment>Transportation systems operating normally.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#transport-disrupted">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#transportation_status_ov"/>
+    <rdfs:label>disrupted</rdfs:label>
+    <rdfs:comment>Transportation systems experiencing significant disruptions.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#transport-suspended">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#transportation_status_ov"/>
+    <rdfs:label>suspended</rdfs:label>
+    <rdfs:comment>Transportation services temporarily suspended.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <!-- Trust Level Individuals -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#trust-high">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#trust_level_ov"/>
+    <rdfs:label>high</rdfs:label>
+    <rdfs:comment>High level of trust and confidence.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#trust-medium">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#trust_level_ov"/>
+    <rdfs:label>medium</rdfs:label>
+    <rdfs:comment>Moderate level of trust requiring verification.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#trust-low">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#trust_level_ov"/>
+    <rdfs:label>low</rdfs:label>
+    <rdfs:comment>Low level of trust requiring additional validation.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <!-- Voltage Status Individuals -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#voltage-normal">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#voltage_status_ov"/>
+    <rdfs:label>normal</rdfs:label>
+    <rdfs:comment>Voltage levels within normal operating range.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#voltage-high">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#voltage_status_ov"/>
+    <rdfs:label>high</rdfs:label>
+    <rdfs:comment>Voltage levels above normal operating range.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#voltage-low">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#voltage_status_ov"/>
+    <rdfs:label>low</rdfs:label>
+    <rdfs:comment>Voltage levels below normal operating range.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <!-- Weather Type Individuals -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#weather-clear">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#weather_type_ov"/>
+    <rdfs:label>clear</rdfs:label>
+    <rdfs:comment>Clear weather conditions with minimal cloud cover.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#weather-cloudy">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#weather_type_ov"/>
+    <rdfs:label>cloudy</rdfs:label>
+    <rdfs:comment>Overcast or cloudy weather conditions.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#weather-precipitation">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#weather_type_ov"/>
+    <rdfs:label>precipitation</rdfs:label>
+    <rdfs:comment>Weather involving rain, snow, sleet, or hail.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#weather-extreme">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#weather_type_ov"/>
+    <rdfs:label>extreme</rdfs:label>
+    <rdfs:comment>Extreme weather conditions requiring heightened awareness.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <!-- Fuel Type Individuals -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel-nuclear">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel_type_ov"/>
+    <rdfs:label>nuclear</rdfs:label>
+    <rdfs:comment>Nuclear fission fuel including uranium and plutonium.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel-coal">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel_type_ov"/>
+    <rdfs:label>coal</rdfs:label>
+    <rdfs:comment>Coal-based thermal generation.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel-natural-gas">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel_type_ov"/>
+    <rdfs:label>natural_gas</rdfs:label>
+    <rdfs:comment>Natural gas combustion turbines and combined cycle plants.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel-renewable">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel_type_ov"/>
+    <rdfs:label>renewable</rdfs:label>
+    <rdfs:comment>Renewable energy sources including solar, wind, hydro.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel-oil">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel_type_ov"/>
+    <rdfs:label>oil</rdfs:label>
+    <rdfs:comment>Petroleum-based fuel oil generation.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel-biomass">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel_type_ov"/>
+    <rdfs:label>biomass</rdfs:label>
+    <rdfs:comment>Biomass and waste-to-energy generation.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <!-- Generation Profile Individuals -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#profile-baseload">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#generation_profile_ov"/>
+    <rdfs:label>baseload</rdfs:label>
+    <rdfs:comment>Continuous, steady generation providing minimum electrical demand.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#profile-peaking">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#generation_profile_ov"/>
+    <rdfs:label>peaking</rdfs:label>
+    <rdfs:comment>Generation used to meet peak electrical demand periods.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#profile-intermittent">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#generation_profile_ov"/>
+    <rdfs:label>intermittent</rdfs:label>
+    <rdfs:comment>Variable generation dependent on weather or natural conditions.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#profile-dispatchable">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#generation_profile_ov"/>
+    <rdfs:label>dispatchable</rdfs:label>
+    <rdfs:comment>Generation that can be controlled and scheduled by grid operators.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#profile-load-following">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#generation_profile_ov"/>
+    <rdfs:label>load_following</rdfs:label>
+    <rdfs:comment>Generation that adjusts output to follow changes in electrical demand.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <!-- Environmental Impact Category Individuals -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#impact-carbon-emissions">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#environmental_impact_category_ov"/>
+    <rdfs:label>carbon_emissions</rdfs:label>
+    <rdfs:comment>Greenhouse gas emissions including CO2, methane, and other GHGs.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#impact-air-quality">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#environmental_impact_category_ov"/>
+    <rdfs:label>air_quality</rdfs:label>
+    <rdfs:comment>Air pollutants including NOx, SO2, particulates, and other emissions.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#impact-water-usage">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#environmental_impact_category_ov"/>
+    <rdfs:label>water_usage</rdfs:label>
+    <rdfs:comment>Water consumption and thermal discharge impacts.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#impact-land-use">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#environmental_impact_category_ov"/>
+    <rdfs:label>land_use</rdfs:label>
+    <rdfs:comment>Land area requirements and habitat impacts.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#impact-waste-generation">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#environmental_impact_category_ov"/>
+    <rdfs:label>waste_generation</rdfs:label>
+    <rdfs:comment>Solid waste, radioactive waste, and byproduct disposal requirements.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <!-- Regulatory Classification Individuals -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#regulatory-nerc">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#regulatory_classification_ov"/>
+    <rdfs:label>nerc</rdfs:label>
+    <rdfs:comment>North American Electric Reliability Corporation standards and oversight.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#regulatory-nrc">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#regulatory_classification_ov"/>
+    <rdfs:label>nrc</rdfs:label>
+    <rdfs:comment>Nuclear Regulatory Commission oversight for nuclear facilities.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#regulatory-ferc">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#regulatory_classification_ov"/>
+    <rdfs:label>ferc</rdfs:label>
+    <rdfs:comment>Federal Energy Regulatory Commission jurisdiction.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#regulatory-state-puc">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#regulatory_classification_ov"/>
+    <rdfs:label>state_puc</rdfs:label>
+    <rdfs:comment>State public utility commission oversight.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#regulatory-epa">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#regulatory_classification_ov"/>
+    <rdfs:label>epa</rdfs:label>
+    <rdfs:comment>Environmental Protection Agency environmental standards.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <!-- Fuel Type Vocabulary Individuals -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel-nuclear">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel_type_ov"/>
+    <rdfs:label>nuclear</rdfs:label>
+    <rdfs:comment>Nuclear fuel for nuclear power generation.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel-coal">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel_type_ov"/>
+    <rdfs:label>coal</rdfs:label>
+    <rdfs:comment>Coal fuel for thermal power generation.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel-natural-gas">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel_type_ov"/>
+    <rdfs:label>natural_gas</rdfs:label>
+    <rdfs:comment>Natural gas fuel for gas turbine power generation.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel-renewable">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel_type_ov"/>
+    <rdfs:label>renewable</rdfs:label>
+    <rdfs:comment>Renewable energy sources like solar, wind, hydro.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel-oil">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel_type_ov"/>
+    <rdfs:label>oil</rdfs:label>
+    <rdfs:comment>Oil fuel for thermal power generation.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel-biomass">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel_type_ov"/>
+    <rdfs:label>biomass</rdfs:label>
+    <rdfs:comment>Biomass fuel for renewable thermal power generation.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <!-- Generation Profile Vocabulary Individuals -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#gen-profile-baseload">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#generation_profile_ov"/>
+    <rdfs:label>baseload</rdfs:label>
+    <rdfs:comment>Continuous power generation providing minimum grid load.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#gen-profile-peaking">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#generation_profile_ov"/>
+    <rdfs:label>peaking</rdfs:label>
+    <rdfs:comment>Power generation activated during peak demand periods.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#gen-profile-intermittent">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#generation_profile_ov"/>
+    <rdfs:label>intermittent</rdfs:label>
+    <rdfs:comment>Variable power generation dependent on weather conditions.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#gen-profile-dispatchable">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#generation_profile_ov"/>
+    <rdfs:label>dispatchable</rdfs:label>
+    <rdfs:comment>Power generation that can be controlled and scheduled by grid operators.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#gen-profile-load-following">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#generation_profile_ov"/>
+    <rdfs:label>load_following</rdfs:label>
+    <rdfs:comment>Power generation that adjusts output to match varying electricity demand.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <!-- Inspection Type Vocabulary Individuals -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#inspection-regulatory">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#inspection_type_ov"/>
+    <rdfs:label>regulatory_inspection</rdfs:label>
+    <rdfs:comment>Formal regulatory inspection by oversight authority.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#inspection-security">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#inspection_type_ov"/>
+    <rdfs:label>security_inspection</rdfs:label>
+    <rdfs:comment>Physical and cybersecurity inspection and assessment.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#inspection-safety">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#inspection_type_ov"/>
+    <rdfs:label>safety_inspection</rdfs:label>
+    <rdfs:comment>Safety systems and procedures inspection.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#inspection-environmental">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#inspection_type_ov"/>
+    <rdfs:label>environmental_inspection</rdfs:label>
+    <rdfs:comment>Environmental compliance and impact inspection.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <!-- Safeguard Mechanism Vocabulary Individuals -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#safeguard-physical-barriers">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#safeguard_mechanism_ov"/>
+    <rdfs:label>physical_barriers</rdfs:label>
+    <rdfs:comment>Physical barriers and access controls for critical areas.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#safeguard-surveillance">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#safeguard_mechanism_ov"/>
+    <rdfs:label>surveillance_systems</rdfs:label>
+    <rdfs:comment>Electronic surveillance and monitoring systems.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#safeguard-cyber-controls">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#safeguard_mechanism_ov"/>
+    <rdfs:label>cyber_controls</rdfs:label>
+    <rdfs:comment>Cybersecurity controls and protective measures.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#safeguard-detection-systems">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#safeguard_mechanism_ov"/>
+    <rdfs:label>detection_systems</rdfs:label>
+    <rdfs:comment>Intrusion detection and anomaly detection systems.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <!-- Compliance Framework Vocabulary Individuals -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#compliance-nerc-cip">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#compliance_framework_ov"/>
+    <rdfs:label>nerc_cip</rdfs:label>
+    <rdfs:comment>NERC Critical Infrastructure Protection standards compliance.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#compliance-nrc-regulations">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#compliance_framework_ov"/>
+    <rdfs:label>nrc_regulations</rdfs:label>
+    <rdfs:comment>Nuclear Regulatory Commission regulations compliance.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#compliance-ferc">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#compliance_framework_ov"/>
+    <rdfs:label>ferc</rdfs:label>
+    <rdfs:comment>Federal Energy Regulatory Commission requirements compliance.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#compliance-iaea-safeguards">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#compliance_framework_ov"/>
+    <rdfs:label>iaea_safeguards</rdfs:label>
+    <rdfs:comment>International Atomic Energy Agency safeguards compliance.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <!-- Nuclear Facility Type Vocabulary Individuals -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear-facility-power-reactor">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear_facility_type_ov"/>
+    <rdfs:label>power_reactor</rdfs:label>
+    <rdfs:comment>Nuclear power reactor for electricity generation.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear-facility-research-reactor">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear_facility_type_ov"/>
+    <rdfs:label>research_reactor</rdfs:label>
+    <rdfs:comment>Research reactor for scientific and educational purposes.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear-facility-enrichment">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear_facility_type_ov"/>
+    <rdfs:label>enrichment_facility</rdfs:label>
+    <rdfs:comment>Uranium enrichment facility.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear-facility-reprocessing">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear_facility_type_ov"/>
+    <rdfs:label>reprocessing_facility</rdfs:label>
+    <rdfs:comment>Nuclear fuel reprocessing facility.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear-facility-fuel-fabrication">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear_facility_type_ov"/>
+    <rdfs:label>fuel_fabrication_facility</rdfs:label>
+    <rdfs:comment>Nuclear fuel fabrication facility.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear-facility-waste-storage">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear_facility_type_ov"/>
+    <rdfs:label>waste_storage_facility</rdfs:label>
+    <rdfs:comment>Nuclear waste storage and disposal facility.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <!-- Safeguards Agreement Type Vocabulary Individuals -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#safeguards-agreement-comprehensive">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#safeguards_agreement_type_ov"/>
+    <rdfs:label>comprehensive_safeguards_agreement</rdfs:label>
+    <rdfs:comment>IAEA Comprehensive Safeguards Agreement under NPT Article III.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#safeguards-agreement-additional-protocol">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#safeguards_agreement_type_ov"/>
+    <rdfs:label>additional_protocol</rdfs:label>
+    <rdfs:comment>IAEA Additional Protocol providing expanded inspection authority.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#safeguards-agreement-voluntary-offer">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#safeguards_agreement_type_ov"/>
+    <rdfs:label>voluntary_offer_agreement</rdfs:label>
+    <rdfs:comment>Voluntary offer safeguards agreement by nuclear weapon states.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <!-- Nuclear Material Type Vocabulary Individuals -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear-material-natural-uranium">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear_material_type_ov"/>
+    <rdfs:label>natural_uranium</rdfs:label>
+    <rdfs:comment>Natural uranium with 0.711% U-235 content.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear-material-low-enriched-uranium">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear_material_type_ov"/>
+    <rdfs:label>low_enriched_uranium</rdfs:label>
+    <rdfs:comment>Low enriched uranium with less than 20% U-235 content.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear-material-highly-enriched-uranium">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear_material_type_ov"/>
+    <rdfs:label>highly_enriched_uranium</rdfs:label>
+    <rdfs:comment>Highly enriched uranium with 20% or greater U-235 content.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear-material-plutonium">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear_material_type_ov"/>
+    <rdfs:label>plutonium</rdfs:label>
+    <rdfs:comment>Plutonium material from reactor operations or reprocessing.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear-material-spent-fuel">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear_material_type_ov"/>
+    <rdfs:label>spent_nuclear_fuel</rdfs:label>
+    <rdfs:comment>Irradiated nuclear fuel removed from reactor core.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <!-- Enrichment Level Vocabulary Individuals -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#enrichment-natural">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#enrichment_level_ov"/>
+    <rdfs:label>natural_enrichment</rdfs:label>
+    <rdfs:comment>Natural uranium enrichment level (0.711% U-235).</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#enrichment-reactor-grade">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#enrichment_level_ov"/>
+    <rdfs:label>reactor_grade</rdfs:label>
+    <rdfs:comment>Reactor-grade enrichment (3-5% U-235) for power reactors.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#enrichment-weapons-grade">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#enrichment_level_ov"/>
+    <rdfs:label>weapons_grade</rdfs:label>
+    <rdfs:comment>Weapons-grade enrichment (90% or higher U-235).</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <!-- Radiation Detection Method Vocabulary Individuals -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#detection-gamma-spectroscopy">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#radiation_detection_method_ov"/>
+    <rdfs:label>gamma_spectroscopy</rdfs:label>
+    <rdfs:comment>Gamma ray spectroscopy for isotopic analysis.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#detection-neutron-monitoring">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#radiation_detection_method_ov"/>
+    <rdfs:label>neutron_monitoring</rdfs:label>
+    <rdfs:comment>Neutron detection and monitoring systems.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#detection-radiation-portal">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#radiation_detection_method_ov"/>
+    <rdfs:label>radiation_portal_monitor</rdfs:label>
+    <rdfs:comment>Radiation portal monitors for material movement detection.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <!-- Safeguards Anomaly Type Vocabulary Individuals -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#anomaly-material-unaccounted">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#safeguards_anomaly_type_ov"/>
+    <rdfs:label>material_unaccounted_for</rdfs:label>
+    <rdfs:comment>Nuclear material unaccounted for in inventory reconciliation.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#anomaly-containment-breach">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#safeguards_anomaly_type_ov"/>
+    <rdfs:label>containment_breach</rdfs:label>
+    <rdfs:comment>Breach of containment and surveillance measures.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#anomaly-undeclared-activity">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#safeguards_anomaly_type_ov"/>
+    <rdfs:label>undeclared_nuclear_activity</rdfs:label>
+    <rdfs:comment>Evidence of undeclared nuclear activities or materials.</rdfs:comment>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#anomaly-measurement-discrepancy">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#safeguards_anomaly_type_ov"/>
+    <rdfs:label>measurement_discrepancy</rdfs:label>
+    <rdfs:comment>Significant discrepancy in nuclear material measurements.</rdfs:comment>
   </owl:NamedIndividual>
 </rdf:RDF>
