@@ -4,5 +4,6 @@
 *.pdf
 *.pyc
 *.swp
+.DS_Store
 .claude
 __pycache__
