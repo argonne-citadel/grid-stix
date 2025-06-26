@@ -137,5 +137,9 @@
       name="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl"
       uri="file:observables/grid-stix-2.1-events-observables.owl"
   />
+  <uri
+      name="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl"
+      uri="file:nuclear/grid-stix-2.1-nuclear-safeguards.owl"
+  />
 </catalog
 >

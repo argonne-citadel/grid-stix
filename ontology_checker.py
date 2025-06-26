@@ -46,8 +46,16 @@ SKIP_CHECKS = args.skip_checks
 
 # Define common STIX namespaces
 STIX_NAMESPACES = [
-    "http://docs.oasis-open.org/cti/ns/stix/",  # Covers STIX general namespace
-    "http://stixschema.org/v21",  # Covers STIX 2.1 objects often imported with this base
+    "http://docs.oasis-open.org/ns/cti/stix",  # STIX 2.1 namespace
+    "http://docs.oasis-open.org/cti/ns/stix/",  # Alternative STIX namespace
+    "http://stixschema.org/v21",  # STIX 2.1 objects schema
+]
+
+# Define correct STIX class patterns
+STIX_CORE_CLASSES = [
+    "Infrastructure", "Software", "Location", "Identity", "Relationship", 
+    "DomainObject", "CyberObservable", "CourseOfAction", "AttackPattern",
+    "Vulnerability", "Malware", "Tool", "Indicator", "Campaign"
 ]
 
 # ---- LOAD CATALOG ----
@@ -274,6 +282,191 @@ def in_namespace(uri, include_imports=False):
                 return True
 
     return False
+
+
+# ---- STIX 2.1 SPECIFIC CHECK FUNCTIONS ----
+
+def check_stix_inheritance_compliance(graph):
+    """Check that all custom classes properly inherit from STIX base classes"""
+    non_compliant_classes = []
+    
+    # Get all classes in our namespace
+    custom_classes = set(
+        s for s in graph.subjects(RDF.type, OWL.Class) 
+        if in_namespace(s) and not str(s).endswith("_ov") and "Union_" not in str(s)
+    )
+    
+    for cls in custom_classes:
+        # Check if this class has proper STIX inheritance
+        has_stix_ancestor = False
+        visited = set()
+        
+        def check_stix_lineage(current_class):
+            if current_class in visited:
+                return False
+            visited.add(current_class)
+            
+            # Check if current class is a STIX class
+            cls_str = str(current_class)
+            for stix_ns in STIX_NAMESPACES:
+                if cls_str.startswith(stix_ns):
+                    return True
+            
+            # Check if inherits from owl:Thing (acceptable for some cases)
+            if current_class == OWL.Thing:
+                return True
+                
+            # Traverse up the inheritance hierarchy
+            for super_class in graph.objects(current_class, RDFS.subClassOf):
+                if isinstance(super_class, URIRef):
+                    if check_stix_lineage(super_class):
+                        return True
+            return False
+        
+        if not check_stix_lineage(cls):
+            non_compliant_classes.append(str(cls))
+    
+    return non_compliant_classes
+
+
+def check_stix_namespace_consistency(graph):
+    """Check that STIX references use correct namespace format"""
+    incorrect_references = []
+    
+    # Look for incorrect STIX namespace patterns
+    # The current STIX namespace format is correct: http://docs.oasis-open.org/ns/cti/stix/infrastructure
+    # We're looking for patterns that don't follow the standard STIX 2.1 format
+    for s, p, o in graph:
+        for obj in [s, o]:
+            if isinstance(obj, URIRef):
+                obj_str = str(obj)
+                # Check for malformed STIX namespace patterns
+                # Current format is correct, so this check should be very restrictive
+                # Only flag truly malformed patterns
+                if "stix" in obj_str.lower() and obj_str.startswith("http://docs.oasis-open.org/ns/cti/"):
+                    # Check for specific malformed patterns that would be problematic
+                    if "/stix/stix/" in obj_str or obj_str.endswith("/stix/"):
+                        incorrect_references.append(obj_str)
+    
+    return list(set(incorrect_references))
+
+
+def check_stix_property_patterns(graph):
+    """Check that custom properties follow STIX naming conventions"""
+    non_compliant_properties = []
+    
+    for prop_type in [OWL.ObjectProperty, OWL.DatatypeProperty]:
+        for prop in graph.subjects(RDF.type, prop_type):
+            if in_namespace(prop):
+                prop_str = str(prop)
+                # Extract property name from URI
+                if "#" in prop_str:
+                    prop_name = prop_str.split("#")[-1]
+                elif "/" in prop_str:
+                    prop_name = prop_str.split("/")[-1]
+                else:
+                    continue
+                
+                # Check naming convention (should be snake_case for Grid-STIX)
+                if not re.match(r'^[a-z][a-z0-9_]*$', prop_name):
+                    non_compliant_properties.append(prop_str)
+    
+    return non_compliant_properties
+
+
+def check_stix_relationship_compliance(graph):
+    """Check that custom relationships properly inherit from stix:Relationship"""
+    non_compliant_relationships = []
+    
+    # Find all relationship classes in our namespace
+    for cls in graph.subjects(RDF.type, OWL.Class):
+        if in_namespace(cls) and "Relationship" in str(cls):
+            # Check if it inherits from STIX Relationship
+            has_stix_relationship_ancestor = False
+            visited = set()
+            
+            def check_relationship_lineage(current_class):
+                if current_class in visited:
+                    return False
+                visited.add(current_class)
+                
+                cls_str = str(current_class)
+                if "stix" in cls_str.lower() and "relationship" in cls_str.lower():
+                    return True
+                
+                for super_class in graph.objects(current_class, RDFS.subClassOf):
+                    if isinstance(super_class, URIRef):
+                        if check_relationship_lineage(super_class):
+                            return True
+                return False
+            
+            if not check_relationship_lineage(cls):
+                non_compliant_relationships.append(str(cls))
+    
+    return non_compliant_relationships
+
+
+def check_stix_vocabulary_compliance(graph):
+    """Check that vocabularies follow STIX patterns"""
+    non_compliant_vocabularies = []
+    
+    # Check for vocabulary classes
+    for cls in graph.subjects(RDF.type, OWL.Class):
+        if in_namespace(cls):
+            cls_str = str(cls)
+            # Extract class name
+            if "#" in cls_str:
+                cls_name = cls_str.split("#")[-1]
+            elif "/" in cls_str:
+                cls_name = cls_str.split("/")[-1]
+            else:
+                continue
+            
+            # Check if it's a vocabulary class
+            if cls_name.endswith("_ov"):
+                # Check that it has proper vocabulary individuals
+                has_individuals = False
+                for individual in graph.subjects(RDF.type, cls):
+                    if isinstance(individual, URIRef):
+                        has_individuals = True
+                        break
+                
+                if not has_individuals:
+                    non_compliant_vocabularies.append(f"{cls_str} (no individuals found)")
+    
+    return non_compliant_vocabularies
+
+
+def check_stix_required_properties(graph):
+    """Check that STIX relationships have required source_ref and target_ref restrictions"""
+    missing_restrictions = []
+    
+    # Check relationship classes for proper restrictions
+    for cls in graph.subjects(RDF.type, OWL.Class):
+        if in_namespace(cls) and "Relationship" in str(cls):
+            cls_str = str(cls)
+            
+            # Check for source_ref and target_ref restrictions
+            has_source_ref = False
+            has_target_ref = False
+            
+            # Look for restriction patterns
+            for restriction in graph.objects(cls, RDFS.subClassOf):
+                if isinstance(restriction, BNode):
+                    # Check if this is a restriction on source_ref or target_ref
+                    for prop in graph.objects(restriction, OWL.onProperty):
+                        prop_str = str(prop)
+                        if "source_ref" in prop_str:
+                            has_source_ref = True
+                        elif "target_ref" in prop_str:
+                            has_target_ref = True
+            
+            if not has_source_ref:
+                missing_restrictions.append(f"{cls_str} (missing source_ref restriction)")
+            if not has_target_ref:
+                missing_restrictions.append(f"{cls_str} (missing target_ref restriction)")
+    
+    return missing_restrictions
 
 
 # ---- CHECK FUNCTIONS ----
@@ -577,6 +770,37 @@ if "non_snake_labels" not in SKIP_CHECKS:
 else:
     check_results["non_snake_labels"] = []
 
+# STIX 2.1 compliance checks
+if "stix_inheritance" not in SKIP_CHECKS:
+    check_results["stix_inheritance"] = check_stix_inheritance_compliance(g)
+else:
+    check_results["stix_inheritance"] = []
+
+if "stix_namespace" not in SKIP_CHECKS:
+    check_results["stix_namespace"] = check_stix_namespace_consistency(g)
+else:
+    check_results["stix_namespace"] = []
+
+if "stix_properties" not in SKIP_CHECKS:
+    check_results["stix_properties"] = check_stix_property_patterns(g)
+else:
+    check_results["stix_properties"] = []
+
+if "stix_relationships" not in SKIP_CHECKS:
+    check_results["stix_relationships"] = check_stix_relationship_compliance(g)
+else:
+    check_results["stix_relationships"] = []
+
+if "stix_vocabularies" not in SKIP_CHECKS:
+    check_results["stix_vocabularies"] = check_stix_vocabulary_compliance(g)
+else:
+    check_results["stix_vocabularies"] = []
+
+if "stix_required_properties" not in SKIP_CHECKS:
+    check_results["stix_required_properties"] = check_stix_required_properties(g)
+else:
+    check_results["stix_required_properties"] = []
+
 # ---- PRINT ONLY ISSUES THAT EXIST ----
 issues_found = False
 
@@ -670,6 +894,55 @@ if check_results["non_snake_labels"]:
         "These ontology entities have rdfs:label values that are not snake_case. Update them for consistency."
     )
     logging.warning("\n".join(check_results["non_snake_labels"]))
+
+# STIX 2.1 compliance issue reporting
+if check_results["stix_inheritance"]:
+    issues_found = True
+    logging.warning("=== STIX INHERITANCE NON-COMPLIANCE ===")
+    logging.warning(
+        "These classes do not properly inherit from STIX base classes. Ensure all Grid-STIX classes inherit from appropriate STIX classes."
+    )
+    logging.warning("\n".join(check_results["stix_inheritance"]))
+
+if check_results["stix_namespace"]:
+    issues_found = True
+    logging.warning("=== STIX NAMESPACE INCONSISTENCY ===")
+    logging.warning(
+        "These references use incorrect STIX namespace formats. Update to use proper STIX 2.1 namespace patterns."
+    )
+    logging.warning("\n".join(check_results["stix_namespace"]))
+
+if check_results["stix_properties"]:
+    issues_found = True
+    logging.warning("=== STIX PROPERTY NAMING NON-COMPLIANCE ===")
+    logging.warning(
+        "These properties do not follow STIX naming conventions. Use snake_case for Grid-STIX property names."
+    )
+    logging.warning("\n".join(check_results["stix_properties"]))
+
+if check_results["stix_relationships"]:
+    issues_found = True
+    logging.warning("=== STIX RELATIONSHIP NON-COMPLIANCE ===")
+    logging.warning(
+        "These relationship classes do not properly inherit from STIX Relationship base class."
+    )
+    logging.warning("\n".join(check_results["stix_relationships"]))
+
+if check_results["stix_vocabularies"]:
+    issues_found = True
+    logging.warning("=== STIX VOCABULARY NON-COMPLIANCE ===")
+    logging.warning(
+        "These vocabulary classes have issues with their STIX vocabulary patterns."
+    )
+    logging.warning("\n".join(check_results["stix_vocabularies"]))
+
+if check_results["stix_required_properties"]:
+    issues_found = True
+    logging.warning("=== STIX REQUIRED PROPERTIES MISSING ===")
+    logging.warning(
+        "These relationship classes are missing required source_ref or target_ref restrictions."
+    )
+    logging.warning("\n".join(check_results["stix_required_properties"]))
 
 if not issues_found:
     logging.info("No issues found in the ontology.")
