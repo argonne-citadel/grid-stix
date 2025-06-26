@@ -4,4 +4,5 @@
 *.pdf
 *.pyc
 *.swp
+.claude
 __pycache__

@@ -4,34 +4,23 @@
     <owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/infrastructure"/>
     <owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/location"/>
     <owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/software"/>
+    <owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/identity"/>
     <owl:imports rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl"/>
     <rdfs:label>grid_stix_2_1_assets</rdfs:label>
-    <rdfs:comment>Grid-STIX 2.1: Asset classes extending STIX Infrastructure, Location, and Software</rdfs:comment>
+    <rdfs:comment>Grid-STIX 2.1: Asset classes extending STIX Infrastructure, Location, Software, and Identity SDOs</rdfs:comment>
   </owl:Ontology>
-  <owl:Class rdf:about="http://docs.oasis-open.org/ns/cti/stix/infrastructure">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdfs:label>infrastructure</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="http://docs.oasis-open.org/ns/cti/stix/location">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdfs:label>location</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="http://docs.oasis-open.org/ns/cti/stix/software">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdfs:label>software</rdfs:label>
-  </owl:Class>
   <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent">
-    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/infrastructure"/>
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix#Infrastructure"/>
     <rdfs:comment>A grid component such as circuit breakers, switches, or relays.</rdfs:comment>
     <rdfs:label>grid_component</rdfs:label>
   </owl:Class>
   <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice">
-    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/software"/>
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix#Software"/>
     <rdfs:comment>An OT device's software or firmware component, e.g., PLC or SCADA module.</rdfs:comment>
     <rdfs:label>ot_device</rdfs:label>
   </owl:Class>
   <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset">
-    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/infrastructure"/>
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix#Infrastructure"/>
     <rdfs:comment>A physical asset in the distribution grid, e.g., poles, transformers, substations.</rdfs:comment>
     <rdfs:label>physical_asset</rdfs:label>
   </owl:Class>
@@ -66,7 +55,7 @@
     <rdfs:label>control_center</rdfs:label>
   </owl:Class>
   <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#SecurityZone">
-    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/location"/>
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix#Location"/>
     <rdfs:comment>A security zone within the grid, e.g., substation perimeter or fenced area.</rdfs:comment>
     <rdfs:label>security_zone</rdfs:label>
   </owl:Class>
@@ -91,7 +80,7 @@
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
-    <rdfs:range rdf:resource="http://docs.oasis-open.org/ns/cti/stix/location"/>
+    <rdfs:range rdf:resource="http://docs.oasis-open.org/ns/cti/stix#Location"/>
     <rdfs:comment>Location where the physical asset is situated.</rdfs:comment>
     <rdfs:label>located_at</rdfs:label>
   </owl:ObjectProperty>
@@ -419,12 +408,12 @@
     <rdfs:label>mac_address</rdfs:label>
   </owl:DatatypeProperty>
   <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#Supplier">
-    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/identity"/>
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix#Identity"/>
     <rdfs:comment>Organization that supplies, manufactures, or provides grid assets, components, or services.</rdfs:comment>
     <rdfs:label>supplier</rdfs:label>
   </owl:Class>
   <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#SupplyChainRisk">
-    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core#DomainObject"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:comment>Represents potential risks in the supply chain for grid assets and components.</rdfs:comment>
     <rdfs:label>supply_chain_risk</rdfs:label>
   </owl:Class>
@@ -489,4 +478,39 @@
     <rdfs:comment>Date when supply chain verification was last performed for the asset or component.</rdfs:comment>
     <rdfs:label>supply_chain_verification_date</rdfs:label>
   </owl:DatatypeProperty>
+  
+  <!-- Physical vs Operational Asset Separation -->
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalGridAsset">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
+    <rdfs:comment>Physical infrastructure components of the electrical grid including buildings, equipment, and structures.</rdfs:comment>
+    <rdfs:label>physical_grid_asset</rdfs:label>
+  </owl:Class>
+  
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OperationalGridEntity">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
+    <rdfs:comment>Operational characteristics and control systems associated with grid infrastructure, potentially separate from physical assets.</rdfs:comment>
+    <rdfs:label>operational_grid_entity</rdfs:label>
+  </owl:Class>
+  
+  <!-- Extension Point Properties -->
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#specialized_properties">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:comment>Extension point for component-specific attributes that are not covered by standard properties.</rdfs:comment>
+    <rdfs:label>specialized_properties</rdfs:label>
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#regulatory_requirements">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#regulatory_classification_ov"/>
+    <rdfs:comment>Regulatory classification and compliance requirements for the grid component.</rdfs:comment>
+    <rdfs:label>regulatory_requirements</rdfs:label>
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#environmental_characteristics">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#environmental_impact_category_ov"/>
+    <rdfs:comment>Environmental impact characteristics and mitigation requirements.</rdfs:comment>
+    <rdfs:label>environmental_characteristics</rdfs:label>
+  </owl:ObjectProperty>
 </rdf:RDF>

@@ -52,6 +52,7 @@ merge:
 		--input observables/grid-stix-2.1-events-observables.owl \
 		--input threat/grid-stix-2.1-attack-patterns.owl \
 		--input policy/grid-stix-2.1-policies.owl \
+		--input nuclear/grid-stix-2.1-nuclear-safeguards.owl \
 		--input root/grid-stix-2.1-root.owl \
 		--output grid-stix-2.1-full.owl
 	@echo "$(COLOR_GREEN)Ontologies merged successfully!$(COLOR_RESET)"
