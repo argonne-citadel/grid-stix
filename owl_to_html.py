@@ -3,6 +3,7 @@ import networkx as nx
 import networkx.drawing.nx_agraph as nx_agraph
 import os
 import plotly.graph_objects as go
+from typing import Any, Union
 
 from rdflib import BNode, Graph, RDF, RDFS, OWL
 
@@ -14,75 +15,69 @@ GRID_BASE = "http://www.anl.gov/sss/"
 # Enhanced color scheme for electrical grid cybersecurity ontology
 COLOR_SCHEME = {
     # Core Grid Infrastructure
-    "Asset": "#4A90E2",        # Blue - physical infrastructure 
-    "Component": "#7ED321",    # Green - grid components
-    "OTDevice": "#F5A623",     # Orange - operational technology
-    "GridComponent": "#50E3C2", # Teal - electrical components
-    
+    "Asset": "#4A90E2",  # Blue - physical infrastructure
+    "Component": "#7ED321",  # Green - grid components
+    "OTDevice": "#F5A623",  # Orange - operational technology
+    "GridComponent": "#50E3C2",  # Teal - electrical components
     # Security & Operations
-    "Event": "#D0021B",        # Red - security events
-    "Context": "#F8E71C",      # Yellow - operational contexts
-    "Relationship": "#9013FE", # Purple - relationships
-    "Policy": "#00BCD4",       # Cyan - policies & procedures
-    "Attack": "#B71C1C",       # Dark red - attack patterns
-    "Mitigation": "#4CAF50",   # Green - mitigations
-    "Vulnerability": "#FF5722", # Orange-red - vulnerabilities
-    
+    "Event": "#D0021B",  # Red - security events
+    "Context": "#F8E71C",  # Yellow - operational contexts
+    "Relationship": "#9013FE",  # Purple - relationships
+    "Policy": "#00BCD4",  # Cyan - policies & procedures
+    "Attack": "#B71C1C",  # Dark red - attack patterns
+    "Mitigation": "#4CAF50",  # Green - mitigations
+    "Vulnerability": "#FF5722",  # Orange-red - vulnerabilities
     # Supply Chain & Protocols
-    "Supplier": "#795548",     # Brown - supply chain entities
-    "Protocol": "#607D8B",     # Blue-grey - communication protocols
-    "SupplyChainRisk": "#E91E63", # Pink - supply chain risks
-    
+    "Supplier": "#795548",  # Brown - supply chain entities
+    "Protocol": "#607D8B",  # Blue-grey - communication protocols
+    "SupplyChainRisk": "#E91E63",  # Pink - supply chain risks
     # Observables & Monitoring
-    "Observable": "#673AB7",   # Deep purple - cyber observables
-    "Sensor": "#009688",       # Teal - sensor devices
-    "Telemetry": "#3F51B5",    # Indigo - telemetry data
-    
+    "Observable": "#673AB7",  # Deep purple - cyber observables
+    "Sensor": "#009688",  # Teal - sensor devices
+    "Telemetry": "#3F51B5",  # Indigo - telemetry data
     # STIX Framework
-    "STIX": "#2E7D32",         # Dark green - STIX core
-    "CTI": "#66BB6A",          # Light green - CTI framework
-    
+    "STIX": "#2E7D32",  # Dark green - STIX core
+    "CTI": "#66BB6A",  # Light green - CTI framework
     # Power System Specific
-    "PowerFlow": "#FF6F00",    # Amber - power flow relationships
-    "Protection": "#1976D2",   # Blue - protective devices
-    "Control": "#8BC34A",      # Light green - control systems
-    
+    "PowerFlow": "#FF6F00",  # Amber - power flow relationships
+    "Protection": "#1976D2",  # Blue - protective devices
+    "Control": "#8BC34A",  # Light green - control systems
     # Default
-    "Other": "#424242",        # Grey - uncategorized
+    "Other": "#424242",  # Grey - uncategorized
 }
 
 DEFAULT_NODE_COLOR = "black"
 
 
-def get_label(uri) -> str:
+def get_label(uri: Union[str, BNode, Any]) -> str:
     """Extract a human-readable label from a URI."""
     if isinstance(uri, BNode):
         return f"_anon_{str(uri)[:8]}"
     uri = str(uri)
     if "#" in uri:
-        return uri.split("#")[-1]
+        return str(uri.split("#")[-1])
     elif "/" in uri:
-        return uri.rstrip("/").split("/")[-1]
+        return str(uri.rstrip("/").split("/")[-1])
     else:
-        return uri[:12]
+        return str(uri[:12])
 
 
-def is_stix(uri) -> bool:
+def is_stix(uri: Union[str, BNode, Any]) -> bool:
     """Check if a URI is from the STIX namespace."""
     return str(uri).startswith(STIX_BASE)
 
 
-def is_cti(uri) -> bool:
+def is_cti(uri: Union[str, BNode, Any]) -> bool:
     """Check if a URI is from the CTI namespace."""
     return str(uri).startswith(CTI_BASE)
 
 
-def is_grid(uri) -> bool:
+def is_grid(uri: Union[str, BNode, Any]) -> bool:
     """Check if a URI is from the Grid-STIX namespace."""
     return str(uri).startswith(GRID_BASE)
 
 
-def get_node_type(label, g, uri) -> str:
+def get_node_type(label: str, g: Graph, uri: Union[str, BNode, Any]) -> str:
     """Determine the type of a node based on its label or properties with Grid-STIX specific categorization."""
     if isinstance(uri, BNode):
         return "Anonymous"
@@ -91,16 +86,33 @@ def get_node_type(label, g, uri) -> str:
     uri_str = str(uri).lower()
 
     # Grid-STIX specific type detection
-    
+
     # Supply Chain Security
     if "supplier" in label or "supply_chain" in label:
         return "Supplier" if "risk" not in label else "SupplyChainRisk"
-    
+
     # Grid Infrastructure - More specific categorization
-    if "ot_device" in label or "otdevice" in label or any(x in label for x in ["rtu", "plc", "ied", "hmi", "smart_meter"]):
+    if (
+        "ot_device" in label
+        or "otdevice" in label
+        or any(x in label for x in ["rtu", "plc", "ied", "hmi", "smart_meter"])
+    ):
         return "OTDevice"
-    elif "grid_component" in label or "gridcomponent" in label or any(x in label for x in 
-        ["transformer", "capacitor", "voltage_regulator", "circuit_breaker", "recloser", "sectionalizer"]):
+    elif (
+        "grid_component" in label
+        or "gridcomponent" in label
+        or any(
+            x in label
+            for x in [
+                "transformer",
+                "capacitor",
+                "voltage_regulator",
+                "circuit_breaker",
+                "recloser",
+                "sectionalizer",
+            ]
+        )
+    ):
         return "GridComponent"
     elif "sensor" in label:
         return "Sensor"
@@ -108,13 +120,13 @@ def get_node_type(label, g, uri) -> str:
         return "Asset"
     elif "component" in label:
         return "Component"
-    
+
     # Security & Threats
     elif "attack" in label or "pattern" in label or "mitigation" in label:
         return "Mitigation" if "mitigation" in label else "Attack"
     elif "vulnerability" in label:
         return "Vulnerability"
-    
+
     # Operations & Monitoring
     elif "event" in label:
         return "Event"
@@ -124,17 +136,19 @@ def get_node_type(label, g, uri) -> str:
         return "Observable"
     elif "telemetry" in label or "monitoring" in label:
         return "Telemetry"
-    
+
     # Relationships & Policies
     elif "relationship" in label:
         return "Relationship"
     elif "policy" in label:
         return "Policy"
-    
+
     # Protocols
-    elif "protocol" in label or any(x in label for x in ["dnp3", "modbus", "iec", "opc", "ieee"]):
+    elif "protocol" in label or any(
+        x in label for x in ["dnp3", "modbus", "iec", "opc", "ieee"]
+    ):
         return "Protocol"
-    
+
     # Power System Specific
     elif any(x in label for x in ["feeds_power", "power_flow", "electrical"]):
         return "PowerFlow"
@@ -174,7 +188,9 @@ def get_node_type(label, g, uri) -> str:
     return "Other"
 
 
-def convert_to_plotly_html(owl_path, output_path, args):
+def convert_to_plotly_html(
+    owl_path: str, output_path: str, args: argparse.Namespace
+) -> None:
     """Convert an OWL ontology to a Plotly HTML network visualization."""
     g = Graph()
     g.parse(owl_path)
@@ -204,27 +220,46 @@ def convert_to_plotly_html(owl_path, output_path, args):
     # Add nodes to nxg from the comprehensive set of URIs with Grid-STIX filtering
     for node_uri in all_node_uris:  # Iterate over the new comprehensive set
         label = get_label(node_uri)
-        
+
         # Apply prefix exclusion filter
         if args.exclude_prefix and any(
             label.startswith(prefix) for prefix in args.exclude_prefix.split(",")
         ):
             continue
-        
+
         # Apply Grid-STIX specific filters
-        if args.grid_only and (is_stix(node_uri) or is_cti(node_uri)) and not is_grid(node_uri):
+        if (
+            args.grid_only
+            and (is_stix(node_uri) or is_cti(node_uri))
+            and not is_grid(node_uri)
+        ):
             continue  # Skip base STIX/CTI classes when showing grid-only
-            
+
         node_type = get_node_type(label, g, node_uri)
-        
+
         # Apply focus filters
-        if args.focus_infrastructure and node_type not in ["Asset", "Component", "OTDevice", "GridComponent", "Sensor"]:
+        if args.focus_infrastructure and node_type not in [
+            "Asset",
+            "Component",
+            "OTDevice",
+            "GridComponent",
+            "Sensor",
+        ]:
             continue
-        elif args.focus_security and node_type not in ["Attack", "Vulnerability", "Mitigation", "Event", "Policy"]:
+        elif args.focus_security and node_type not in [
+            "Attack",
+            "Vulnerability",
+            "Mitigation",
+            "Event",
+            "Policy",
+        ]:
             continue
-        elif args.focus_supply_chain and node_type not in ["Supplier", "SupplyChainRisk"]:
+        elif args.focus_supply_chain and node_type not in [
+            "Supplier",
+            "SupplyChainRisk",
+        ]:
             continue
-            
+
         color = COLOR_SCHEME.get(node_type, DEFAULT_NODE_COLOR)
         nxg.add_node(
             label, color=color, node_type=node_type
@@ -285,15 +320,21 @@ def convert_to_plotly_html(owl_path, output_path, args):
     nxg.remove_nodes_from(zero_degree_nodes)
 
     # Build Plotly edge and node traces with improved layout for electrical grid visualization
-    
+
     # Try to find a good root node for the layout - prefer grid infrastructure
-    root_candidates = ["PhysicalAsset", "GridComponent", "OTDevice", "GridEvent", "grid_stix_2_1"]
+    root_candidates = [
+        "PhysicalAsset",
+        "GridComponent",
+        "OTDevice",
+        "GridEvent",
+        "grid_stix_2_1",
+    ]
     root_node = None
     for candidate in root_candidates:
         if candidate in nxg:
             root_node = candidate
             break
-    
+
     # Use user-specified layout for electrical grid visualization
     try:
         if args.layout == "spring":
@@ -370,7 +411,7 @@ def convert_to_plotly_html(owl_path, output_path, args):
             hover_info = f"<b>{node}</b><br>"
             hover_info += f"Type: {node_type}<br>"
             hover_info += f"Connections: {deg}<br>"
-            
+
             # Add Grid-STIX specific context
             if node_type == "OTDevice":
                 hover_info += "Category: Operational Technology<br>"
@@ -386,7 +427,7 @@ def convert_to_plotly_html(owl_path, output_path, args):
                 hover_info += "Category: Electrical Flow<br>"
             elif node_type == "Protocol":
                 hover_info += "Category: Communication Protocol<br>"
-            
+
             hovertexts.append(hover_info)
             colors.append(COLOR_SCHEME.get(node_type, DEFAULT_NODE_COLOR))
             sizes.append(10 + deg)
@@ -434,15 +475,15 @@ def convert_to_plotly_html(owl_path, output_path, args):
     # Create comprehensive title and annotations for Grid-STIX
     title_text = "Grid-STIX 2.1 Electrical Grid Cybersecurity Ontology"
     subtitle = "Interactive visualization of grid assets, threats, and relationships"
-    
+
     fig = go.Figure(
         data=edge_traces + [edge_label_trace] + node_traces,
         layout=go.Layout(
             title={
-                "text": f"<b>{title_text}</b><br><sub>{subtitle}</sub>", 
+                "text": f"<b>{title_text}</b><br><sub>{subtitle}</sub>",
                 "font": {"size": 20},
                 "x": 0.5,
-                "xanchor": "center"
+                "xanchor": "center",
             },
             showlegend=True,
             hovermode="closest",
@@ -455,12 +496,12 @@ def convert_to_plotly_html(owl_path, output_path, args):
                 x=0.5,
                 bgcolor="rgba(255,255,255,0.8)",
                 bordercolor="rgba(0,0,0,0.2)",
-                borderwidth=1
+                borderwidth=1,
             ),
             annotations=[
                 dict(
-                    text="<b>Legend:</b> Solid lines = relationships | Dashed lines = inheritance (subClassOf)<br>" +
-                         "<b>Node size</b> indicates connectivity | <b>Colors</b> represent functional categories",
+                    text="<b>Legend:</b> Solid lines = relationships | Dashed lines = inheritance (subClassOf)<br>"
+                    + "<b>Node size</b> indicates connectivity | <b>Colors</b> represent functional categories",
                     showarrow=False,
                     xref="paper",
                     yref="paper",
@@ -470,7 +511,7 @@ def convert_to_plotly_html(owl_path, output_path, args):
                     font=dict(size=12),
                     bgcolor="rgba(255,255,255,0.8)",
                     bordercolor="rgba(0,0,0,0.2)",
-                    borderwidth=1
+                    borderwidth=1,
                 )
             ],
             xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
@@ -513,16 +554,24 @@ if __name__ == "__main__":
 
     # Grid-STIX specific filtering options
     parser.add_argument(
-        "--grid-only", action="store_true", help="Show only Grid-STIX specific classes (exclude base STIX/CTI)"
+        "--grid-only",
+        action="store_true",
+        help="Show only Grid-STIX specific classes (exclude base STIX/CTI)",
     )
     parser.add_argument(
-        "--focus-infrastructure", action="store_true", help="Focus on grid infrastructure (assets, components, devices)"
+        "--focus-infrastructure",
+        action="store_true",
+        help="Focus on grid infrastructure (assets, components, devices)",
     )
     parser.add_argument(
-        "--focus-security", action="store_true", help="Focus on security concepts (attacks, vulnerabilities, mitigations)"
+        "--focus-security",
+        action="store_true",
+        help="Focus on security concepts (attacks, vulnerabilities, mitigations)",
     )
     parser.add_argument(
-        "--focus-supply-chain", action="store_true", help="Focus on supply chain security concepts"
+        "--focus-supply-chain",
+        action="store_true",
+        help="Focus on supply chain security concepts",
     )
 
     # Visualization options
@@ -530,8 +579,10 @@ if __name__ == "__main__":
         "--show-data-properties", action="store_true", help="Show data properties"
     )
     parser.add_argument(
-        "--layout", choices=["dot", "twopi", "neato", "circo", "spring"], 
-        default="dot", help="Graph layout algorithm (default: dot)"
+        "--layout",
+        choices=["dot", "twopi", "neato", "circo", "spring"],
+        default="dot",
+        help="Graph layout algorithm (default: dot)",
     )
 
     args = parser.parse_args()

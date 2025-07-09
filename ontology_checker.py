@@ -7,6 +7,7 @@ import sys
 import os
 import argparse
 import xml.etree.ElementTree as ET
+from typing import Any, Dict, List, Optional, Set, Tuple, Union
 
 logging.basicConfig(
     level=logging.WARNING,
@@ -53,9 +54,20 @@ STIX_NAMESPACES = [
 
 # Define correct STIX class patterns
 STIX_CORE_CLASSES = [
-    "Infrastructure", "Software", "Location", "Identity", "Relationship", 
-    "DomainObject", "CyberObservable", "CourseOfAction", "AttackPattern",
-    "Vulnerability", "Malware", "Tool", "Indicator", "Campaign"
+    "Infrastructure",
+    "Software",
+    "Location",
+    "Identity",
+    "Relationship",
+    "DomainObject",
+    "CyberObservable",
+    "CourseOfAction",
+    "AttackPattern",
+    "Vulnerability",
+    "Malware",
+    "Tool",
+    "Indicator",
+    "Campaign",
 ]
 
 # ---- LOAD CATALOG ----
@@ -63,7 +75,9 @@ import_mappings = {}
 if os.path.exists(CATALOG_FILE):
     try:
         logging.info(f"Loading import mappings from catalog: {CATALOG_FILE}")
-        catalog_tree = ET.parse(CATALOG_FILE)
+        catalog_tree = ET.parse(
+            CATALOG_FILE
+        )  # nosec B314 - parsing trusted local catalog.xml file
         catalog_root = catalog_tree.getroot()
 
         # Get the namespace for the catalog XML
@@ -242,19 +256,19 @@ for s in g.subjects(RDFS.subClassOf, OWL.Thing):
     logging.debug(f"  {s}")
 
 logging.debug("Namespaces in graph:")
-namespaces = set()
+namespaces: Set[str] = set()
 for s, p, o in g:
     if isinstance(s, URIRef):
         ns_uri = (
             str(s).split("#")[0] if "#" in str(s) else str(s).rsplit("/", 1)[0] + "/"
         )
         namespaces.add(ns_uri)
-for ns in sorted(namespaces):
-    logging.debug(f"  {ns}")
+for namespace in sorted(namespaces):
+    logging.debug(f"  {namespace}")
 
 
 # ---- FILTER FUNCTION ----
-def in_namespace(uri, include_imports=False):
+def in_namespace(uri: Union[URIRef, str], include_imports: bool = False) -> bool:
     """Check if URI is in the ontology's namespace or other included namespaces
 
     Args:
@@ -286,53 +300,55 @@ def in_namespace(uri, include_imports=False):
 
 # ---- STIX 2.1 SPECIFIC CHECK FUNCTIONS ----
 
-def check_stix_inheritance_compliance(graph):
+
+def check_stix_inheritance_compliance(graph: Graph) -> List[str]:
     """Check that all custom classes properly inherit from STIX base classes"""
     non_compliant_classes = []
-    
+
     # Get all classes in our namespace
     custom_classes = set(
-        s for s in graph.subjects(RDF.type, OWL.Class) 
+        s
+        for s in graph.subjects(RDF.type, OWL.Class)
         if in_namespace(s) and not str(s).endswith("_ov") and "Union_" not in str(s)
     )
-    
+
     for cls in custom_classes:
         # Check if this class has proper STIX inheritance
         has_stix_ancestor = False
         visited = set()
-        
-        def check_stix_lineage(current_class):
+
+        def check_stix_lineage(current_class: URIRef) -> bool:
             if current_class in visited:
                 return False
             visited.add(current_class)
-            
+
             # Check if current class is a STIX class
             cls_str = str(current_class)
             for stix_ns in STIX_NAMESPACES:
                 if cls_str.startswith(stix_ns):
                     return True
-            
+
             # Check if inherits from owl:Thing (acceptable for some cases)
             if current_class == OWL.Thing:
                 return True
-                
+
             # Traverse up the inheritance hierarchy
             for super_class in graph.objects(current_class, RDFS.subClassOf):
                 if isinstance(super_class, URIRef):
                     if check_stix_lineage(super_class):
                         return True
             return False
-        
+
         if not check_stix_lineage(cls):
             non_compliant_classes.append(str(cls))
-    
+
     return non_compliant_classes
 
 
-def check_stix_namespace_consistency(graph):
+def check_stix_namespace_consistency(graph: Graph) -> List[str]:
     """Check that STIX references use correct namespace format"""
     incorrect_references = []
-    
+
     # Look for incorrect STIX namespace patterns
     # The current STIX namespace format is correct: http://docs.oasis-open.org/ns/cti/stix/infrastructure
     # We're looking for patterns that don't follow the standard STIX 2.1 format
@@ -343,18 +359,20 @@ def check_stix_namespace_consistency(graph):
                 # Check for malformed STIX namespace patterns
                 # Current format is correct, so this check should be very restrictive
                 # Only flag truly malformed patterns
-                if "stix" in obj_str.lower() and obj_str.startswith("http://docs.oasis-open.org/ns/cti/"):
+                if "stix" in obj_str.lower() and obj_str.startswith(
+                    "http://docs.oasis-open.org/ns/cti/"
+                ):
                     # Check for specific malformed patterns that would be problematic
                     if "/stix/stix/" in obj_str or obj_str.endswith("/stix/"):
                         incorrect_references.append(obj_str)
-    
+
     return list(set(incorrect_references))
 
 
-def check_stix_property_patterns(graph):
+def check_stix_property_patterns(graph: Graph) -> List[str]:
     """Check that custom properties follow STIX naming conventions"""
     non_compliant_properties = []
-    
+
     for prop_type in [OWL.ObjectProperty, OWL.DatatypeProperty]:
         for prop in graph.subjects(RDF.type, prop_type):
             if in_namespace(prop):
@@ -366,50 +384,50 @@ def check_stix_property_patterns(graph):
                     prop_name = prop_str.split("/")[-1]
                 else:
                     continue
-                
+
                 # Check naming convention (should be snake_case for Grid-STIX)
-                if not re.match(r'^[a-z][a-z0-9_]*$', prop_name):
+                if not re.match(r"^[a-z][a-z0-9_]*$", prop_name):
                     non_compliant_properties.append(prop_str)
-    
+
     return non_compliant_properties
 
 
-def check_stix_relationship_compliance(graph):
+def check_stix_relationship_compliance(graph: Graph) -> List[str]:
     """Check that custom relationships properly inherit from stix:Relationship"""
     non_compliant_relationships = []
-    
+
     # Find all relationship classes in our namespace
     for cls in graph.subjects(RDF.type, OWL.Class):
         if in_namespace(cls) and "Relationship" in str(cls):
             # Check if it inherits from STIX Relationship
             has_stix_relationship_ancestor = False
             visited = set()
-            
-            def check_relationship_lineage(current_class):
+
+            def check_relationship_lineage(current_class: URIRef) -> bool:
                 if current_class in visited:
                     return False
                 visited.add(current_class)
-                
+
                 cls_str = str(current_class)
                 if "stix" in cls_str.lower() and "relationship" in cls_str.lower():
                     return True
-                
+
                 for super_class in graph.objects(current_class, RDFS.subClassOf):
                     if isinstance(super_class, URIRef):
                         if check_relationship_lineage(super_class):
                             return True
                 return False
-            
+
             if not check_relationship_lineage(cls):
                 non_compliant_relationships.append(str(cls))
-    
+
     return non_compliant_relationships
 
 
-def check_stix_vocabulary_compliance(graph):
+def check_stix_vocabulary_compliance(graph: Graph) -> List[str]:
     """Check that vocabularies follow STIX patterns"""
     non_compliant_vocabularies = []
-    
+
     # Check for vocabulary classes
     for cls in graph.subjects(RDF.type, OWL.Class):
         if in_namespace(cls):
@@ -421,7 +439,7 @@ def check_stix_vocabulary_compliance(graph):
                 cls_name = cls_str.split("/")[-1]
             else:
                 continue
-            
+
             # Check if it's a vocabulary class
             if cls_name.endswith("_ov"):
                 # Check that it has proper vocabulary individuals
@@ -430,26 +448,28 @@ def check_stix_vocabulary_compliance(graph):
                     if isinstance(individual, URIRef):
                         has_individuals = True
                         break
-                
+
                 if not has_individuals:
-                    non_compliant_vocabularies.append(f"{cls_str} (no individuals found)")
-    
+                    non_compliant_vocabularies.append(
+                        f"{cls_str} (no individuals found)"
+                    )
+
     return non_compliant_vocabularies
 
 
-def check_stix_required_properties(graph):
+def check_stix_required_properties(graph: Graph) -> List[str]:
     """Check that STIX relationships have required source_ref and target_ref restrictions"""
     missing_restrictions = []
-    
+
     # Check relationship classes for proper restrictions
     for cls in graph.subjects(RDF.type, OWL.Class):
         if in_namespace(cls) and "Relationship" in str(cls):
             cls_str = str(cls)
-            
+
             # Check for source_ref and target_ref restrictions
             has_source_ref = False
             has_target_ref = False
-            
+
             # Look for restriction patterns
             for restriction in graph.objects(cls, RDFS.subClassOf):
                 if isinstance(restriction, BNode):
@@ -460,17 +480,21 @@ def check_stix_required_properties(graph):
                             has_source_ref = True
                         elif "target_ref" in prop_str:
                             has_target_ref = True
-            
+
             if not has_source_ref:
-                missing_restrictions.append(f"{cls_str} (missing source_ref restriction)")
+                missing_restrictions.append(
+                    f"{cls_str} (missing source_ref restriction)"
+                )
             if not has_target_ref:
-                missing_restrictions.append(f"{cls_str} (missing target_ref restriction)")
-    
+                missing_restrictions.append(
+                    f"{cls_str} (missing target_ref restriction)"
+                )
+
     return missing_restrictions
 
 
 # ---- CHECK FUNCTIONS ----
-def find_properties_missing_domain_range(graph):
+def find_properties_missing_domain_range(graph: Graph) -> Tuple[List[str], List[str]]:
     """Find properties that lack domain or range declarations"""
     missing_domain, missing_range = [], []
     for prop_type in [OWL.ObjectProperty, OWL.DatatypeProperty]:
@@ -484,7 +508,7 @@ def find_properties_missing_domain_range(graph):
     return missing_domain, missing_range
 
 
-def find_incomplete_unionOf_lists(graph):
+def find_incomplete_unionOf_lists(graph: Graph) -> List[Tuple[str, str]]:
     """Find broken or incomplete unionOf list structures"""
     broken_unions = []
     for subj, union_node in graph.subject_objects(OWL.unionOf):
@@ -497,7 +521,7 @@ def find_incomplete_unionOf_lists(graph):
     return broken_unions
 
 
-def find_isolated_classes(graph):
+def find_isolated_classes(graph: Graph) -> List[str]:
     """Find classes that aren't connected to properties or other classes"""
     # Only check classes in our primary namespace
     declared_classes = set(
@@ -511,7 +535,7 @@ def find_isolated_classes(graph):
     return sorted(str(cls) for cls in (declared_classes - connected))
 
 
-def find_missing_inverse_properties(graph):
+def find_missing_inverse_properties(graph: Graph) -> List[str]:
     """Find object properties that lack inverse property declarations"""
     # Only check properties in our primary namespace
     properties = set(
@@ -523,7 +547,7 @@ def find_missing_inverse_properties(graph):
     return sorted(str(p) for p in (properties - all_with_inverse))
 
 
-def check_unreachable_classes(graph):
+def check_unreachable_classes(graph: Graph) -> List[str]:
     """Find classes in the primary namespace that are not reachable from owl:Thing
     and do not have a STIX class as an ancestor."""
 
@@ -545,7 +569,7 @@ def check_unreachable_classes(graph):
     reachable_descendants_of_owl_thing = set()
     visited_for_owl_dfs = set()
 
-    def dfs_from_owl_thing(cls_node):
+    def dfs_from_owl_thing(cls_node: URIRef) -> None:
         if cls_node in visited_for_owl_dfs:
             return
         visited_for_owl_dfs.add(cls_node)
@@ -582,7 +606,11 @@ def check_unreachable_classes(graph):
     truly_unreachable_classes = set()
 
     # Helper function to check for STIX ancestors (traverses upwards via rdfs:subClassOf)
-    def has_stix_ancestor(cls_uri, current_graph, visited_ancestor_nodes):
+    def has_stix_ancestor(
+        cls_uri: Union[URIRef, BNode],
+        current_graph: Graph,
+        visited_ancestor_nodes: Set[Union[URIRef, BNode]],
+    ) -> bool:
         if cls_uri in visited_ancestor_nodes:
             return False  # Cycle detected or path already checked
         visited_ancestor_nodes.add(cls_uri)
@@ -610,7 +638,7 @@ def check_unreachable_classes(graph):
         )
 
     for cls_candidate in candidates_for_stix_check:
-        visited_for_this_stix_check = (
+        visited_for_this_stix_check: Set[Union[URIRef, BNode]] = (
             set()
         )  # Fresh set for each candidate's upward search
         if not has_stix_ancestor(cls_candidate, graph, visited_for_this_stix_check):
@@ -636,7 +664,7 @@ def check_unreachable_classes(graph):
     return sorted(str(c) for c in truly_unreachable_classes)
 
 
-def check_subclass_cycles(graph):
+def check_subclass_cycles(graph: Graph) -> List[List[str]]:
     """Find cycles in the subClassOf hierarchy"""
     g_sub = DiGraph()
     for s, o in graph.subject_objects(RDFS.subClassOf):
@@ -651,7 +679,7 @@ def check_subclass_cycles(graph):
     return cycles
 
 
-def check_undeclared_properties(graph):
+def check_undeclared_properties(graph: Graph) -> List[str]:
     """Find properties used but not declared with a specific property type"""
     # Only check properties in our primary namespace
     used_props = set(p for s, p, o in graph if in_namespace(p))
@@ -664,7 +692,7 @@ def check_undeclared_properties(graph):
     return sorted(str(p) for p in undeclared)
 
 
-def check_disjoint_violations(graph):
+def check_disjoint_violations(graph: Graph) -> List[Tuple[str, str, str]]:
     """Find instances that belong to disjoint classes"""
     # Only check for disjoint violations in our primary namespace
     disjoints = [
@@ -684,7 +712,7 @@ def check_disjoint_violations(graph):
     return violations
 
 
-def check_missing_labels(graph):
+def check_missing_labels(graph: Graph) -> List[str]:
     """Find entities that lack rdfs:label annotations"""
     # Only check for missing labels in our primary namespace
     return sorted(
@@ -694,12 +722,12 @@ def check_missing_labels(graph):
     )
 
 
-def is_snake_case(label):
+def is_snake_case(label: str) -> bool:
     """Check if a label follows snake_case convention"""
     return bool(re.fullmatch(r"[a-z0-9_]+", label))
 
 
-def check_non_snake_case_labels(graph):
+def check_non_snake_case_labels(graph: Graph) -> List[str]:
     """Find entities with labels that aren't in snake_case format"""
     non_snake = []
     # Only check for non-snake_case labels in our primary namespace
@@ -715,7 +743,7 @@ def check_non_snake_case_labels(graph):
 
 
 # ---- RUN CHECKS ----
-check_results = {}
+check_results: Dict[str, Any] = {}
 
 # Only run checks that aren't skipped
 if "missing_domain_range" not in SKIP_CHECKS:
