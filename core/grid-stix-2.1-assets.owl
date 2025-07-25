@@ -9,64 +9,64 @@
     <rdfs:label>grid_stix_2_1_assets</rdfs:label>
     <rdfs:comment>Grid-STIX 2.1: Asset classes extending STIX Infrastructure, Location, Software, and Identity SDOs</rdfs:comment>
   </owl:Ontology>
-  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent">
-    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix#Infrastructure"/>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/infrastructure"/>
     <rdfs:comment>A grid component such as circuit breakers, switches, or relays.</rdfs:comment>
     <rdfs:label>grid_component</rdfs:label>
   </owl:Class>
-  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice">
-    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix#Software"/>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/software"/>
     <rdfs:comment>An OT device's software or firmware component, e.g., PLC or SCADA module.</rdfs:comment>
     <rdfs:label>ot_device</rdfs:label>
   </owl:Class>
-  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset">
-    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix#Infrastructure"/>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/infrastructure"/>
     <rdfs:comment>A physical asset in the distribution grid, e.g., poles, transformers, substations.</rdfs:comment>
     <rdfs:label>physical_asset</rdfs:label>
   </owl:Class>
-  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#Substation">
-    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#substation">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
     <rdfs:comment>A facility that contains equipment for switching and transforming electricity between different voltage levels.</rdfs:comment>
     <rdfs:label>substation</rdfs:label>
   </owl:Class>
-  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#Transformer">
-    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#transformer">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
     <rdfs:comment>An electrical device that transfers electrical energy between two or more circuits through electromagnetic induction.</rdfs:comment>
     <rdfs:label>transformer</rdfs:label>
   </owl:Class>
-  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#TransmissionLine">
-    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#transmission-line">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
     <rdfs:comment>A high-voltage power line that transfers bulk electrical energy from generating plants to substations.</rdfs:comment>
     <rdfs:label>transmission_line</rdfs:label>
   </owl:Class>
-  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#DistributionLine">
-    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#distribution-line">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
     <rdfs:comment>A medium or low-voltage power line that carries electricity from substations to consumers.</rdfs:comment>
     <rdfs:label>distribution_line</rdfs:label>
   </owl:Class>
-  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#Generator">
-    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#generator">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
     <rdfs:comment>A device that converts mechanical energy to electrical energy for use in an external circuit.</rdfs:comment>
     <rdfs:label>generator</rdfs:label>
   </owl:Class>
-  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ControlCenter">
-    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#control-center">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
     <rdfs:comment>A facility used to monitor and control the grid, typically housing SCADA systems and other control equipment.</rdfs:comment>
     <rdfs:label>control_center</rdfs:label>
   </owl:Class>
-  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#SecurityZone">
-    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix#Location"/>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#security-zone">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/location"/>
     <rdfs:comment>A security zone within the grid, e.g., substation perimeter or fenced area.</rdfs:comment>
     <rdfs:label>security_zone</rdfs:label>
   </owl:Class>
   <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#device_type">
-    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"/>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
     <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#ot_device_type_ov"/>
     <rdfs:comment>Type of OT device from controlled vocabulary.</rdfs:comment>
     <rdfs:label>device_type</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#security_zone_type">
-    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#SecurityZone"/>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#security-zone"/>
     <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#security_zone_type_ov"/>
     <rdfs:comment>Type of security zone from controlled vocabulary.</rdfs:comment>
     <rdfs:label>security_zone_type</rdfs:label>
@@ -75,22 +75,22 @@
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
-    <rdfs:range rdf:resource="http://docs.oasis-open.org/ns/cti/stix#Location"/>
+    <rdfs:range rdf:resource="http://docs.oasis-open.org/ns/cti/stix/location"/>
     <rdfs:comment>Location where the physical asset is situated.</rdfs:comment>
     <rdfs:label>located_at</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#contains_asset">
-    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
     <rdfs:range>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:range>
@@ -101,16 +101,16 @@
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
     <rdfs:range>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:range>
@@ -121,12 +121,12 @@
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
-    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
     <rdfs:comment>Indicates that this asset is controlled by a specific OT device.</rdfs:comment>
     <rdfs:label>controlled_by</rdfs:label>
   </owl:ObjectProperty>
@@ -134,9 +134,9 @@
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
@@ -148,13 +148,13 @@
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
-    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#SecurityZone"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#security-zone"/>
     <rdfs:comment>Indicates that this asset is within a specific security zone.</rdfs:comment>
     <rdfs:label>within_security_zone</rdfs:label>
   </owl:ObjectProperty>
@@ -162,9 +162,9 @@
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
@@ -176,10 +176,10 @@
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#SecurityZone"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#security-zone"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
@@ -191,10 +191,10 @@
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#SecurityZone"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#security-zone"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
@@ -206,9 +206,9 @@
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
@@ -220,9 +220,9 @@
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
@@ -231,13 +231,13 @@
     <rdfs:label>model_number</rdfs:label>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#firmware_version">
-    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"/>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:comment>Current firmware version installed on the OT device.</rdfs:comment>
     <rdfs:label>firmware_version</rdfs:label>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ip_address">
-    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"/>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:comment>IP address of the OT device on the network.</rdfs:comment>
     <rdfs:label>ip_address</rdfs:label>
@@ -246,9 +246,9 @@
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
@@ -260,8 +260,8 @@
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
@@ -273,8 +273,8 @@
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
@@ -286,8 +286,8 @@
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#Generator"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#Transformer"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#generator"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#transformer"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
@@ -299,8 +299,8 @@
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
@@ -312,8 +312,8 @@
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
@@ -325,9 +325,9 @@
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
@@ -339,8 +339,8 @@
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#SecurityZone"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#security-zone"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
@@ -349,25 +349,25 @@
     <rdfs:label>gps_coordinates</rdfs:label>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#protocol">
-    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"/>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:comment>Communication protocol used by the OT device (e.g., DNP3, Modbus, IEC61850).</rdfs:comment>
     <rdfs:label>protocol</rdfs:label>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#authentication_required">
-    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"/>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     <rdfs:comment>Indicates whether authentication is required to access the device.</rdfs:comment>
     <rdfs:label>authentication_required</rdfs:label>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical_access_controls">
-    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#SecurityZone"/>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#security-zone"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:comment>Description of physical access controls for the security zone (e.g., badge readers, biometrics).</rdfs:comment>
     <rdfs:label>physical_access_controls</rdfs:label>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#perimeter_monitoring">
-    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#SecurityZone"/>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#security-zone"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:comment>Description of perimeter monitoring for the security zone (e.g., cameras, motion sensors).</rdfs:comment>
     <rdfs:label>perimeter_monitoring</rdfs:label>
@@ -376,10 +376,10 @@
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#SecurityZone"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#security-zone"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
@@ -391,9 +391,9 @@
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
@@ -402,17 +402,17 @@
     <rdfs:label>serial_number</rdfs:label>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#mac_address">
-    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"/>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:comment>MAC address of the OT device.</rdfs:comment>
     <rdfs:label>mac_address</rdfs:label>
   </owl:DatatypeProperty>
-  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#Supplier">
-    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix#Identity"/>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#supplier">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/identity"/>
     <rdfs:comment>Organization that supplies, manufactures, or provides grid assets, components, or services.</rdfs:comment>
     <rdfs:label>supplier</rdfs:label>
   </owl:Class>
-  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#SupplyChainRisk">
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#supply-chain-risk">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:comment>Represents potential risks in the supply chain for grid assets and components.</rdfs:comment>
     <rdfs:label>supply_chain_risk</rdfs:label>
@@ -421,24 +421,24 @@
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
-    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#Supplier"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#supplier"/>
     <rdfs:comment>Indicates which supplier provided or manufactured the asset or component.</rdfs:comment>
     <rdfs:label>supplied_by</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#has_supply_chain_risk">
-    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#Supplier"/>
-    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#SupplyChainRisk"/>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#supplier"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#supply-chain-risk"/>
     <rdfs:comment>Indicates supply chain risks associated with a supplier.</rdfs:comment>
     <rdfs:label>has_supply_chain_risk</rdfs:label>
   </owl:ObjectProperty>
   <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#supplier_risk_level">
-    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#Supplier"/>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#supplier"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
     <rdfs:comment>Risk level of the supplier on a scale of 1-5, where 5 is highest risk.</rdfs:comment>
     <rdfs:label>supplier_risk_level</rdfs:label>
@@ -447,10 +447,10 @@
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#Supplier"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#supplier"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
@@ -459,7 +459,7 @@
     <rdfs:label>country_of_origin</rdfs:label>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#security_clearance_required">
-    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#Supplier"/>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#supplier"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     <rdfs:comment>Indicates whether security clearance is required for the supplier to access certain assets or facilities.</rdfs:comment>
     <rdfs:label>security_clearance_required</rdfs:label>
@@ -468,9 +468,9 @@
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
-          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OTDevice"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+          <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
@@ -480,35 +480,35 @@
   </owl:DatatypeProperty>
   
   <!-- Physical vs Operational Asset Separation -->
-  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalGridAsset">
-    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-grid-asset">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
     <rdfs:comment>Physical infrastructure components of the electrical grid including buildings, equipment, and structures.</rdfs:comment>
     <rdfs:label>physical_grid_asset</rdfs:label>
   </owl:Class>
   
-  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#OperationalGridEntity">
-    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#operational-grid-entity">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
     <rdfs:comment>Operational characteristics and control systems associated with grid infrastructure, potentially separate from physical assets.</rdfs:comment>
     <rdfs:label>operational_grid_entity</rdfs:label>
   </owl:Class>
   
   <!-- Extension Point Properties -->
   <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#specialized_properties">
-    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
     <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:comment>Extension point for component-specific attributes that are not covered by standard properties.</rdfs:comment>
     <rdfs:label>specialized_properties</rdfs:label>
   </owl:ObjectProperty>
   
   <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#regulatory_requirements">
-    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
     <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#regulatory_classification_ov"/>
     <rdfs:comment>Regulatory classification and compliance requirements for the grid component.</rdfs:comment>
     <rdfs:label>regulatory_requirements</rdfs:label>
   </owl:ObjectProperty>
   
   <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#environmental_characteristics">
-    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
     <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#environmental_impact_category_ov"/>
     <rdfs:comment>Environmental impact characteristics and mitigation requirements.</rdfs:comment>
     <rdfs:label>environmental_characteristics</rdfs:label>

@@ -53,9 +53,20 @@ STIX_NAMESPACES = [
 
 # Define correct STIX class patterns
 STIX_CORE_CLASSES = [
-    "Infrastructure", "Software", "Location", "Identity", "Relationship", 
-    "DomainObject", "CyberObservable", "CourseOfAction", "AttackPattern",
-    "Vulnerability", "Malware", "Tool", "Indicator", "Campaign"
+    "Infrastructure",
+    "Software",
+    "Location",
+    "Identity",
+    "Relationship",
+    "DomainObject",
+    "CyberObservable",
+    "CourseOfAction",
+    "AttackPattern",
+    "Vulnerability",
+    "Malware",
+    "Tool",
+    "Indicator",
+    "Campaign",
 ]
 
 # ---- LOAD CATALOG ----
@@ -286,53 +297,55 @@ def in_namespace(uri, include_imports=False):
 
 # ---- STIX 2.1 SPECIFIC CHECK FUNCTIONS ----
 
+
 def check_stix_inheritance_compliance(graph):
     """Check that all custom classes properly inherit from STIX base classes"""
     non_compliant_classes = []
-    
+
     # Get all classes in our namespace
     custom_classes = set(
-        s for s in graph.subjects(RDF.type, OWL.Class) 
+        s
+        for s in graph.subjects(RDF.type, OWL.Class)
         if in_namespace(s) and not str(s).endswith("_ov") and "Union_" not in str(s)
     )
-    
+
     for cls in custom_classes:
         # Check if this class has proper STIX inheritance
         has_stix_ancestor = False
         visited = set()
-        
+
         def check_stix_lineage(current_class):
             if current_class in visited:
                 return False
             visited.add(current_class)
-            
+
             # Check if current class is a STIX class
             cls_str = str(current_class)
             for stix_ns in STIX_NAMESPACES:
                 if cls_str.startswith(stix_ns):
                     return True
-            
+
             # Check if inherits from owl:Thing (acceptable for some cases)
             if current_class == OWL.Thing:
                 return True
-                
+
             # Traverse up the inheritance hierarchy
             for super_class in graph.objects(current_class, RDFS.subClassOf):
                 if isinstance(super_class, URIRef):
                     if check_stix_lineage(super_class):
                         return True
             return False
-        
+
         if not check_stix_lineage(cls):
             non_compliant_classes.append(str(cls))
-    
+
     return non_compliant_classes
 
 
 def check_stix_namespace_consistency(graph):
     """Check that STIX references use correct namespace format"""
     incorrect_references = []
-    
+
     # Look for incorrect STIX namespace patterns
     # The current STIX namespace format is correct: http://docs.oasis-open.org/ns/cti/stix/infrastructure
     # We're looking for patterns that don't follow the standard STIX 2.1 format
@@ -343,18 +356,20 @@ def check_stix_namespace_consistency(graph):
                 # Check for malformed STIX namespace patterns
                 # Current format is correct, so this check should be very restrictive
                 # Only flag truly malformed patterns
-                if "stix" in obj_str.lower() and obj_str.startswith("http://docs.oasis-open.org/ns/cti/"):
+                if "stix" in obj_str.lower() and obj_str.startswith(
+                    "http://docs.oasis-open.org/ns/cti/"
+                ):
                     # Check for specific malformed patterns that would be problematic
                     if "/stix/stix/" in obj_str or obj_str.endswith("/stix/"):
                         incorrect_references.append(obj_str)
-    
+
     return list(set(incorrect_references))
 
 
 def check_stix_property_patterns(graph):
     """Check that custom properties follow STIX naming conventions"""
     non_compliant_properties = []
-    
+
     for prop_type in [OWL.ObjectProperty, OWL.DatatypeProperty]:
         for prop in graph.subjects(RDF.type, prop_type):
             if in_namespace(prop):
@@ -366,50 +381,50 @@ def check_stix_property_patterns(graph):
                     prop_name = prop_str.split("/")[-1]
                 else:
                     continue
-                
+
                 # Check naming convention (should be snake_case for Grid-STIX)
-                if not re.match(r'^[a-z][a-z0-9_]*$', prop_name):
+                if not re.match(r"^[a-z][a-z0-9_]*$", prop_name):
                     non_compliant_properties.append(prop_str)
-    
+
     return non_compliant_properties
 
 
 def check_stix_relationship_compliance(graph):
     """Check that custom relationships properly inherit from stix:Relationship"""
     non_compliant_relationships = []
-    
+
     # Find all relationship classes in our namespace
     for cls in graph.subjects(RDF.type, OWL.Class):
         if in_namespace(cls) and "Relationship" in str(cls):
             # Check if it inherits from STIX Relationship
             has_stix_relationship_ancestor = False
             visited = set()
-            
+
             def check_relationship_lineage(current_class):
                 if current_class in visited:
                     return False
                 visited.add(current_class)
-                
+
                 cls_str = str(current_class)
                 if "stix" in cls_str.lower() and "relationship" in cls_str.lower():
                     return True
-                
+
                 for super_class in graph.objects(current_class, RDFS.subClassOf):
                     if isinstance(super_class, URIRef):
                         if check_relationship_lineage(super_class):
                             return True
                 return False
-            
+
             if not check_relationship_lineage(cls):
                 non_compliant_relationships.append(str(cls))
-    
+
     return non_compliant_relationships
 
 
 def check_stix_vocabulary_compliance(graph):
     """Check that vocabularies follow STIX patterns"""
     non_compliant_vocabularies = []
-    
+
     # Check for vocabulary classes
     for cls in graph.subjects(RDF.type, OWL.Class):
         if in_namespace(cls):
@@ -421,7 +436,7 @@ def check_stix_vocabulary_compliance(graph):
                 cls_name = cls_str.split("/")[-1]
             else:
                 continue
-            
+
             # Check if it's a vocabulary class
             if cls_name.endswith("_ov"):
                 # Check that it has proper vocabulary individuals
@@ -430,26 +445,28 @@ def check_stix_vocabulary_compliance(graph):
                     if isinstance(individual, URIRef):
                         has_individuals = True
                         break
-                
+
                 if not has_individuals:
-                    non_compliant_vocabularies.append(f"{cls_str} (no individuals found)")
-    
+                    non_compliant_vocabularies.append(
+                        f"{cls_str} (no individuals found)"
+                    )
+
     return non_compliant_vocabularies
 
 
 def check_stix_required_properties(graph):
     """Check that STIX relationships have required source_ref and target_ref restrictions"""
     missing_restrictions = []
-    
+
     # Check relationship classes for proper restrictions
     for cls in graph.subjects(RDF.type, OWL.Class):
         if in_namespace(cls) and "Relationship" in str(cls):
             cls_str = str(cls)
-            
+
             # Check for source_ref and target_ref restrictions
             has_source_ref = False
             has_target_ref = False
-            
+
             # Look for restriction patterns
             for restriction in graph.objects(cls, RDFS.subClassOf):
                 if isinstance(restriction, BNode):
@@ -460,12 +477,16 @@ def check_stix_required_properties(graph):
                             has_source_ref = True
                         elif "target_ref" in prop_str:
                             has_target_ref = True
-            
+
             if not has_source_ref:
-                missing_restrictions.append(f"{cls_str} (missing source_ref restriction)")
+                missing_restrictions.append(
+                    f"{cls_str} (missing source_ref restriction)"
+                )
             if not has_target_ref:
-                missing_restrictions.append(f"{cls_str} (missing target_ref restriction)")
-    
+                missing_restrictions.append(
+                    f"{cls_str} (missing target_ref restriction)"
+                )
+
     return missing_restrictions
 
 
