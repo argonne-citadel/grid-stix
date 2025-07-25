@@ -6,4 +6,8 @@
 *.swp
 .DS_Store
 .claude
+<<<<<<< HEAD
 __pycache__
+=======
+__pycache__
+>>>>>>> 0fd8f9a1158f9bd4708e1273695a4d80a29eb251

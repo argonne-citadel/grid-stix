@@ -23,10 +23,14 @@ format:
 	@find . -type f -iname "*.owl" -not -path "./tac-ontology/*" -exec xmllint --format --output {} {} \;
 	@echo "$(COLOR_GREEN)Code formatting complete$(COLOR_RESET)"
 
+black:
+	@echo "$(COLOR_BOLD)Formatting Python code...$(COLOR_RESET)"
+	@${MICROMAMBA_DEV} black -q src/ python/ 
+	@echo "$(COLOR_GREEN)Formatting complete!$(COLOR_RESET)"
+
 lint:
 	@echo "$(COLOR_BOLD)Running code quality checks...$(COLOR_RESET)"
-	@${MICROMAMBA_DEV} black -q . 
-	@find . -type f -iname "*.owl" -not -path "./tac-ontology/*" -exec xmllint --noout {} \;
+	@${MICROMAMBA_DEV} black --check --diff -q src/ python/ 
 	@echo "$(COLOR_GREEN)Code quality checks passed!$(COLOR_RESET)"
 
 security:
@@ -59,8 +63,15 @@ merge:
 
 check: merge
 	@echo "$(COLOR_BOLD)Checking ontology...$(COLOR_RESET)"
-	@${MAMBA_EXE} run -n grid-stix python ontology_checker.py
+	@${MAMBA_EXE} run -n grid-stix python src/ontology_checker.py
 	@echo "$(COLOR_GREEN)Ontology check complete$(COLOR_RESET)"
 
 html: merge
-	@${MAMBA_EXE} run -n grid-stix python owl_to_html.py grid-stix-2.1-full.owl grid-stix.html
+	@echo "$(COLOR_BOLD)Generating HTML graph...$(COLOR_RESET)"
+	@${MAMBA_EXE} run -n grid-stix python src/owl_to_html.py grid-stix-2.1-full.owl grid-stix.html
+
+generate: merge
+	@echo "$(COLOR_BOLD)Generating Python code...$(COLOR_RESET)"
+	@rm -Rf python/*
+	@${MAMBA_EXE} run -n grid-stix python src/generate_python.py grid-stix-2.1-full.owl
+
