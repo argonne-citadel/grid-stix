@@ -181,12 +181,17 @@
     <rdfs:comment>A system that captures electrical energy and stores it for later use, including batteries, flywheels, and other storage technologies.</rdfs:comment>
     <rdfs:label>energy_storage_system</rdfs:label>
   </owl:Class>
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0fd8f9a1158f9bd4708e1273695a4d80a29eb251
   <!-- Generation Asset Hierarchy -->
   <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#generation-asset">
     <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
     <rdfs:comment>Abstract base class for all electrical power generation assets, from distributed resources to utility-scale facilities.</rdfs:comment>
     <rdfs:label>generation_asset</rdfs:label>
   </owl:Class>
+<<<<<<< HEAD
   <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#CentralizedGenerationFacility">
     <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#GenerationAsset"/>
     <rdfs:comment>Large-scale centralized power generation facilities that supply electricity to the transmission grid.</rdfs:comment>
@@ -207,30 +212,73 @@
     <rdfs:comment>Nuclear power generation facilities using nuclear fission to produce electricity.</rdfs:comment>
     <rdfs:label>nuclear_power_plant</rdfs:label>
   </owl:Class>
+=======
+  
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#centralized-generation-facility">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#generation-asset"/>
+    <rdfs:comment>Large-scale centralized power generation facilities that supply electricity to the transmission grid.</rdfs:comment>
+    <rdfs:label>centralized_generation_facility</rdfs:label>
+  </owl:Class>
+  
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#renewable-generation-facility">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#centralized-generation-facility"/>
+    <rdfs:comment>Utility-scale renewable energy generation facilities such as wind farms and solar installations.</rdfs:comment>
+    <rdfs:label>renewable_generation_facility</rdfs:label>
+  </owl:Class>
+  
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#fossil-fuel-plant">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#centralized-generation-facility"/>
+    <rdfs:comment>Power generation facilities that burn fossil fuels such as coal, natural gas, or oil.</rdfs:comment>
+    <rdfs:label>fossil_fuel_plant</rdfs:label>
+  </owl:Class>
+  
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#nuclear-power-plant">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#centralized-generation-facility"/>
+    <rdfs:comment>Nuclear power generation facilities using nuclear fission to produce electricity.</rdfs:comment>
+    <rdfs:label>nuclear_power_plant</rdfs:label>
+  </owl:Class>
+  
+>>>>>>> 0fd8f9a1158f9bd4708e1273695a4d80a29eb251
   <!-- Transmission Asset Hierarchy -->
   <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#transmission-asset">
     <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
     <rdfs:comment>Components that transport electrical energy over long distances at high voltages.</rdfs:comment>
     <rdfs:label>transmission_asset</rdfs:label>
   </owl:Class>
+<<<<<<< HEAD
   <!-- Distribution Asset Hierarchy -->
   <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#DistributionAsset">
     <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
     <rdfs:comment>Components that distribute electrical energy from transmission systems to end users.</rdfs:comment>
     <rdfs:label>distribution_asset</rdfs:label>
   </owl:Class>
+=======
+  
+  <!-- Distribution Asset Hierarchy -->  
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#distribution-asset">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:comment>Components that distribute electrical energy from transmission systems to end users.</rdfs:comment>
+    <rdfs:label>distribution_asset</rdfs:label>
+  </owl:Class>
+  
+>>>>>>> 0fd8f9a1158f9bd4708e1273695a4d80a29eb251
   <!-- Consumption Asset Hierarchy -->
   <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#consumption-asset">
     <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
     <rdfs:comment>Components that consume electrical energy including loads and energy storage systems.</rdfs:comment>
     <rdfs:label>consumption_asset</rdfs:label>
   </owl:Class>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0fd8f9a1158f9bd4708e1273695a4d80a29eb251
   <!-- Distributed Energy Resources (DER) and Microgrids -->
   <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#distributed-energy-resource">
     <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#generation-asset"/>
     <rdfs:comment>A distributed energy resource that generates electricity at or near the point of use, including renewable and non-renewable sources.</rdfs:comment>
     <rdfs:label>distributed_energy_resource</rdfs:label>
   </owl:Class>
+<<<<<<< HEAD
   <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#SolarPVSystem">
     <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#DistributedEnergyResource"/>
     <rdfs:comment>Photovoltaic solar panels that convert sunlight directly into electricity using semiconductor materials.</rdfs:comment>
@@ -256,6 +304,39 @@
     <rdfs:comment>Local energy grid that can disconnect from the main transmission grid and operate autonomously using distributed energy resources.</rdfs:comment>
     <rdfs:label>microgrid</rdfs:label>
   </owl:Class>
+=======
+  
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#solar-pv-system">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#distributed-energy-resource"/>
+    <rdfs:comment>Photovoltaic solar panels that convert sunlight directly into electricity using semiconductor materials.</rdfs:comment>
+    <rdfs:label>solar_pv_system</rdfs:label>
+  </owl:Class>
+  
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#wind-turbine">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#distributed-energy-resource"/>
+    <rdfs:comment>Wind-powered generator that converts kinetic wind energy into electrical energy through rotating blades.</rdfs:comment>
+    <rdfs:label>wind_turbine</rdfs:label>
+  </owl:Class>
+  
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#fuel-cell">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#distributed-energy-resource"/>
+    <rdfs:comment>Electrochemical device that converts hydrogen and oxygen into electricity with water and heat as byproducts.</rdfs:comment>
+    <rdfs:label>fuel_cell</rdfs:label>
+  </owl:Class>
+  
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#inverter">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:comment>Power electronic device that converts direct current (DC) to alternating current (AC) for grid integration of DER systems.</rdfs:comment>
+    <rdfs:label>inverter</rdfs:label>
+  </owl:Class>
+  
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#microgrid">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+    <rdfs:comment>Local energy grid that can disconnect from the main transmission grid and operate autonomously using distributed energy resources.</rdfs:comment>
+    <rdfs:label>microgrid</rdfs:label>
+  </owl:Class>
+  
+>>>>>>> 0fd8f9a1158f9bd4708e1273695a4d80a29eb251
   <!-- Common Generation Asset Properties -->
   <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#generation_capacity_kw">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#generation-asset"/>
@@ -263,43 +344,74 @@
     <rdfs:comment>Maximum power generation capacity in kilowatts.</rdfs:comment>
     <rdfs:label>generation_capacity_kw</rdfs:label>
   </owl:DatatypeProperty>
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0fd8f9a1158f9bd4708e1273695a4d80a29eb251
   <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#installation_date">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#generation-asset"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
     <rdfs:comment>Date when the generation asset was installed and commissioned.</rdfs:comment>
     <rdfs:label>installation_date</rdfs:label>
   </owl:DatatypeProperty>
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0fd8f9a1158f9bd4708e1273695a4d80a29eb251
   <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#operational_status">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#generation-asset"/>
     <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#operational_status_ov"/>
     <rdfs:comment>Current operational status of the generation asset.</rdfs:comment>
     <rdfs:label>operational_status</rdfs:label>
   </owl:ObjectProperty>
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0fd8f9a1158f9bd4708e1273695a4d80a29eb251
   <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#fuel_type">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#generation-asset"/>
     <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#fuel_type_ov"/>
     <rdfs:comment>Primary fuel or energy source used by the generation asset.</rdfs:comment>
     <rdfs:label>fuel_type</rdfs:label>
   </owl:ObjectProperty>
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0fd8f9a1158f9bd4708e1273695a4d80a29eb251
   <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#generation_profile">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#generation-asset"/>
     <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#generation_profile_ov"/>
     <rdfs:comment>Operational profile of the generation asset (baseload, peaking, intermittent, dispatchable).</rdfs:comment>
     <rdfs:label>generation_profile</rdfs:label>
   </owl:ObjectProperty>
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0fd8f9a1158f9bd4708e1273695a4d80a29eb251
   <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#interconnection_level">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#generation-asset"/>
     <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#interconnection_level_ov"/>
     <rdfs:comment>Grid interconnection level where the generation asset is connected.</rdfs:comment>
     <rdfs:label>interconnection_level</rdfs:label>
   </owl:ObjectProperty>
+<<<<<<< HEAD
   <!-- DER-Specific Properties -->
+=======
+  
+  <!-- DER-Specific Properties -->
+  
+>>>>>>> 0fd8f9a1158f9bd4708e1273695a4d80a29eb251
   <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#renewable_type">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#distributed-energy-resource"/>
     <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#renewable_type_ov"/>
     <rdfs:comment>Type of renewable energy source used by the DER system.</rdfs:comment>
     <rdfs:label>renewable_type</rdfs:label>
   </owl:ObjectProperty>
+<<<<<<< HEAD
+=======
+  
+  
+>>>>>>> 0fd8f9a1158f9bd4708e1273695a4d80a29eb251
   <!-- Inverter Properties -->
   <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#power_rating_kw">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#inverter"/>
@@ -307,18 +419,30 @@
     <rdfs:comment>Maximum continuous power rating of the inverter in kilowatts.</rdfs:comment>
     <rdfs:label>power_rating_kw</rdfs:label>
   </owl:DatatypeProperty>
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0fd8f9a1158f9bd4708e1273695a4d80a29eb251
   <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#efficiency_percent">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#inverter"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
     <rdfs:comment>Power conversion efficiency of the inverter as a percentage.</rdfs:comment>
     <rdfs:label>efficiency_percent</rdfs:label>
   </owl:DatatypeProperty>
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0fd8f9a1158f9bd4708e1273695a4d80a29eb251
   <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#grid_forming_capability">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#inverter"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     <rdfs:comment>Whether the inverter can operate in grid-forming mode to establish voltage and frequency references.</rdfs:comment>
     <rdfs:label>grid_forming_capability</rdfs:label>
   </owl:DatatypeProperty>
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0fd8f9a1158f9bd4708e1273695a4d80a29eb251
   <!-- Microgrid Properties -->
   <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#islanding_capability">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#microgrid"/>
@@ -326,19 +450,33 @@
     <rdfs:comment>Whether the microgrid can disconnect from the main grid and operate autonomously.</rdfs:comment>
     <rdfs:label>islanding_capability</rdfs:label>
   </owl:DatatypeProperty>
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0fd8f9a1158f9bd4708e1273695a4d80a29eb251
   <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#capacity_kw">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#microgrid"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
     <rdfs:comment>Total generation and load capacity of the microgrid in kilowatts.</rdfs:comment>
     <rdfs:label>capacity_kw</rdfs:label>
   </owl:DatatypeProperty>
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0fd8f9a1158f9bd4708e1273695a4d80a29eb251
   <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#critical_loads_kw">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#microgrid"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
     <rdfs:comment>Critical load capacity that must be maintained during islanded operation in kilowatts.</rdfs:comment>
     <rdfs:label>critical_loads_kw</rdfs:label>
   </owl:DatatypeProperty>
+<<<<<<< HEAD
   <!-- Additional DER Properties (common properties now inherited from GenerationAsset) -->
+=======
+  
+  <!-- Additional DER Properties (common properties now inherited from generation-asset) -->
+  
+>>>>>>> 0fd8f9a1158f9bd4708e1273695a4d80a29eb251
   <!-- Microgrid-DER Relationship -->
   <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#contains_der">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#microgrid"/>
@@ -346,6 +484,7 @@
     <rdfs:comment>Indicates that a microgrid contains a specific DER system.</rdfs:comment>
     <rdfs:label>contains_der</rdfs:label>
   </owl:ObjectProperty>
+<<<<<<< HEAD
 <!-- DER Definitions-->
   <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#DER_System">
     <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#"/>
@@ -624,4 +763,43 @@
 </owl:ObjectProperty>
 
   <!-- TODO: Add Advanced Distribution Management Systems (ADMS) : THIS SECTION IS OMITED BEING BEYOND THE SCOPE OF THIS PROJECT-->
+=======
+  
+  <!-- TODO: Add Smart Grid Demand Response Features
+       The student should add demand response capabilities:
+       
+       1. DemandResponseProgram class (subclass of stix:CourseOfAction)
+          - Properties: program_type, incentive_structure, response_time
+       
+       2. SmartAppliance class (subclass of OTDevice)
+          - Properties: controllable_load, response_capability
+       
+       3. LoadControlDevice class (subclass of OTDevice)
+          - For direct load control programs
+       
+       4. Add relationships:
+          - participates_in (devices/loads in DR programs)
+          - curtails_load (demand response actions)
+          - shifts_load (time-based demand response)
+  -->
+  
+  <!-- TODO: Add Advanced Distribution Management Systems (ADMS)
+       The student should add ADMS components:
+       
+       1. ADMS class (subclass of OTDevice)
+          - Properties: optimization_capability, real_time_analytics
+       
+       2. DistributionAutomationDevice class (subclass of OTDevice)
+          - Automated switches, reclosers with communication
+       
+       3. GridOptimizationFunction class (subclass of stix:CourseOfAction)
+          - Volt/VAR optimization, fault location, restoration
+       
+       4. Add relationships:
+          - optimizes (ADMS optimizing grid operations)
+          - automates (automated grid functions)
+          - coordinates (coordination between devices)
+  -->
+  
+>>>>>>> 0fd8f9a1158f9bd4708e1273695a4d80a29eb251
 </rdf:RDF>
