@@ -10,111 +10,64 @@ from __future__ import annotations
 from typing import Optional, Any, Dict, List
 from uuid import uuid4
 
+from collections import OrderedDict
+
 from stix2.v21 import _DomainObject, _RelationshipObject, _Observable  # type: ignore[import-untyped]
+from stix2.properties import (  # type: ignore[import-untyped]
+    StringProperty, IntegerProperty, BooleanProperty, FloatProperty,
+    ListProperty, DictionaryProperty, TimestampProperty, IDProperty, TypeProperty
+)
+from stix2.utils import NOW  # type: ignore[import-untyped]
 
 
 class GridSTIXDomainObject(_DomainObject):  # type: ignore[misc]
     """
     Base class for Grid-STIX Domain Objects extending STIX 2.1 SDOs.
     
-    Provides grid-specific properties and validation while maintaining
-    full STIX 2.1 compatibility.
+    This is an abstract base class. Concrete Grid-STIX classes should define
+    their own _type and extend _properties appropriately.
     """
     
-    # Grid-STIX specific extension properties
-    _STIX_CUSTOM_PROPERTIES = {
-        'x_grid_context': {
-            'type': 'dict',
-            'required': False,
-        },
-        'x_operational_status': {
-            'type': 'string', 
-            'required': False,
-        },
-        'x_compliance_framework': {
-            'type': 'list',
-            'required': False,
-        },
-        'x_grid_component_type': {
-            'type': 'string',
-            'required': False,
-        },
-        'x_criticality_level': {
-            'type': 'integer',
-            'required': False,
-        },
-    }
-    
-    def __init__(self, **kwargs: Any) -> None:
-        """Initialize with Grid-STIX identifier if not provided."""
-        if 'id' not in kwargs:
-            kwargs['id'] = f"grid-stix--{uuid4()}"
-        super().__init__(**kwargs)
+    # Base properties that all Grid-STIX domain objects should have
+    # Concrete classes will extend this with their own _type and specific properties
+    _base_properties = OrderedDict([
+        ('x_grid_context', DictionaryProperty()),
+        ('x_operational_status', StringProperty()),
+        ('x_compliance_framework', ListProperty(StringProperty)),
+        ('x_grid_component_type', StringProperty()),
+        ('x_criticality_level', IntegerProperty()),
+    ])
 
 
 class GridSTIXRelationshipObject(_RelationshipObject):  # type: ignore[misc]
     """
     Base class for Grid-STIX Relationship Objects extending STIX 2.1 SROs.
     
-    Handles grid-specific relationships while maintaining STIX 2.1 compatibility.
+    This is an abstract base class. Concrete Grid-STIX relationship classes
+    should define their own _type and extend _properties appropriately.
     """
     
-    # Grid-STIX specific extension properties for relationships
-    _STIX_CUSTOM_PROPERTIES = {
-        'x_grid_relationship_context': {
-            'type': 'dict',
-            'required': False,
-        },
-        'x_physical_connection': {
-            'type': 'boolean',
-            'required': False,
-        },
-        'x_logical_connection': {
-            'type': 'boolean', 
-            'required': False,
-        },
-        'x_power_flow_direction': {
-            'type': 'string',
-            'required': False,
-        },
-    }
-    
-    def __init__(self, **kwargs: Any) -> None:
-        """Initialize with Grid-STIX identifier if not provided."""
-        if 'id' not in kwargs:
-            kwargs['id'] = f"grid-stix--{uuid4()}"
-        super().__init__(**kwargs)
+    # Base properties that all Grid-STIX relationship objects should have
+    _base_properties = OrderedDict([
+        ('x_grid_relationship_context', DictionaryProperty()),
+        ('x_physical_connection', BooleanProperty()),
+        ('x_logical_connection', BooleanProperty()),
+        ('x_power_flow_direction', StringProperty()),
+    ])
 
 
 class GridSTIXObservableObject(_Observable):  # type: ignore[misc]
     """
     Base class for Grid-STIX Cyber Observable Objects extending STIX 2.1 SCOs.
     
-    Handles grid-specific observables like telemetry and events.
+    This is an abstract base class. Concrete Grid-STIX observable classes
+    should define their own _type and extend _properties appropriately.
     """
     
-    # Grid-STIX specific extension properties for observables
-    _STIX_CUSTOM_PROPERTIES = {
-        'x_grid_measurement_type': {
-            'type': 'string',
-            'required': False,
-        },
-        'x_sensor_location': {
-            'type': 'string', 
-            'required': False,
-        },
-        'x_measurement_unit': {
-            'type': 'string',
-            'required': False,
-        },
-        'x_sampling_rate': {
-            'type': 'float',
-            'required': False,
-        },
-    }
-    
-    def __init__(self, **kwargs: Any) -> None:
-        """Initialize with Grid-STIX identifier if not provided.""" 
-        if 'id' not in kwargs:
-            kwargs['id'] = f"grid-stix--{uuid4()}"
-        super().__init__(**kwargs)
+    # Base properties that all Grid-STIX observable objects should have
+    _base_properties = OrderedDict([
+        ('x_grid_measurement_type', StringProperty()),
+        ('x_sensor_location', StringProperty()),
+        ('x_measurement_unit', StringProperty()),
+        ('x_sampling_rate', FloatProperty()),
+    ])

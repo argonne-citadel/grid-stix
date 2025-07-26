@@ -348,4 +348,705 @@
 </owl:ObjectProperty>
 
   <!-- TODO: Add Advanced Distribution Management Systems (ADMS) : THIS SECTION IS OMITED BEING BEYOND THE SCOPE OF THIS PROJECT-->
+
+  <!-- ================================================================== -->
+  <!-- DATATYPE PROPERTIES FOR GRID CYBERSECURITY                       -->
+  <!-- ================================================================== -->
+
+  <!-- ================================================================== -->
+  <!-- COMMON PROPERTIES FOR ALL GRID COMPONENTS                         -->
+  <!-- ================================================================== -->
+
+  <!-- Hardware and Physical Properties -->
+  <owl:DatatypeProperty rdf:about="#manufacturer">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Equipment manufacturer name, critical for identifying vendor-specific vulnerabilities and security patches.</rdfs:comment>
+    <rdfs:label>manufacturer</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#model_number">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Specific equipment model identifier used for vulnerability assessment and patch management.</rdfs:comment>
+    <rdfs:label>model_number</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#serial_number">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Unique equipment serial number for asset tracking and incident correlation.</rdfs:comment>
+    <rdfs:label>serial_number</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#installation_date">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Date when equipment was installed and commissioned, relevant for security lifecycle management.</rdfs:comment>
+    <rdfs:label>installation_date</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#last_maintenance_date">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Most recent maintenance or service date, important for tracking physical access opportunities.</rdfs:comment>
+    <rdfs:label>last_maintenance_date</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- Firmware and Software Properties -->
+  <owl:DatatypeProperty rdf:about="#firmware_version">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Current firmware version installed on the device, critical for vulnerability management.</rdfs:comment>
+    <rdfs:label>firmware_version</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#firmware_update_available">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Indicates whether a firmware update is available, important for patch management.</rdfs:comment>
+    <rdfs:label>firmware_update_available</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#last_firmware_update">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Date of most recent firmware update, used to assess exposure to known vulnerabilities.</rdfs:comment>
+    <rdfs:label>last_firmware_update</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#boot_loader_version">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Boot loader version, often targeted for persistent firmware attacks and rootkits.</rdfs:comment>
+    <rdfs:label>boot_loader_version</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- Network and Communication Properties -->
+  <owl:DatatypeProperty rdf:about="#ip_address">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Network IP address of the device, critical for network security monitoring and incident response.</rdfs:comment>
+    <rdfs:label>ip_address</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#mac_address">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Physical MAC address for network interface identification and traffic correlation.</rdfs:comment>
+    <rdfs:label>mac_address</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#network_protocol">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Primary network communication protocol used (TCP/IP, Ethernet, Wi-Fi, cellular, etc.).</rdfs:comment>
+    <rdfs:label>network_protocol</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#communication_encrypted">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether communications are encrypted, critical security control for preventing eavesdropping.</rdfs:comment>
+    <rdfs:label>communication_encrypted</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#encryption_protocol">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Encryption protocol used for secure communications (TLS 1.2, TLS 1.3, IPSec, etc.).</rdfs:comment>
+    <rdfs:label>encryption_protocol</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- Security and Authentication Properties -->
+  <owl:DatatypeProperty rdf:about="#authentication_enabled">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether device requires authentication for access, fundamental security control.</rdfs:comment>
+    <rdfs:label>authentication_enabled</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#authentication_method">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Authentication method used (password, certificate, biometric, multi-factor, etc.).</rdfs:comment>
+    <rdfs:label>authentication_method</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#certificate_expiry_date">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Certificate expiration date for PKI-based authentication and encryption.</rdfs:comment>
+    <rdfs:label>certificate_expiry_date</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#default_credentials_changed">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether default factory credentials have been changed, critical security hardening measure.</rdfs:comment>
+    <rdfs:label>default_credentials_changed</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- Operational Status Properties -->
+  <owl:DatatypeProperty rdf:about="#operational_status">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Current operational state (online, offline, maintenance, fault, etc.).</rdfs:comment>
+    <rdfs:label>operational_status</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#last_communication_time">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Timestamp of last successful communication, used for detecting communication disruptions.</rdfs:comment>
+    <rdfs:label>last_communication_time</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- ================================================================== -->
+  <!-- GENERATION ASSET PROPERTIES                                       -->
+  <!-- ================================================================== -->
+
+  <owl:DatatypeProperty rdf:about="#rated_power_output">
+    <rdfs:domain rdf:resource="#GenerationAsset"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Maximum rated power output in megawatts (MW), critical for understanding impact of cyberattacks.</rdfs:comment>
+    <rdfs:label>rated_power_output</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#current_power_output">
+    <rdfs:domain rdf:resource="#GenerationAsset"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Current power output in megawatts (MW), used for monitoring generation tampering.</rdfs:comment>
+    <rdfs:label>current_power_output</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#voltage_level">
+    <rdfs:domain rdf:resource="#GenerationAsset"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Operating voltage level in kilovolts (kV), important for understanding grid impact.</rdfs:comment>
+    <rdfs:label>voltage_level</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#frequency_setpoint">
+    <rdfs:domain rdf:resource="#GenerationAsset"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Target frequency setpoint in Hz, critical parameter for grid stability attacks.</rdfs:comment>
+    <rdfs:label>frequency_setpoint</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#ieee_1547_compliant">
+    <rdfs:domain rdf:resource="#GenerationAsset"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether the asset complies with IEEE 1547 interconnection standards.</rdfs:comment>
+    <rdfs:label>ieee_1547_compliant</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- ================================================================== -->
+  <!-- DER DEVICE PROPERTIES                                            -->
+  <!-- ================================================================== -->
+
+  <owl:DatatypeProperty rdf:about="#nameplate_capacity">
+    <rdfs:domain rdf:resource="#DER_Device"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Nameplate capacity in kilowatts (kW), fundamental parameter for DER resource planning.</rdfs:comment>
+    <rdfs:label>nameplate_capacity</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#inverter_type">
+    <rdfs:domain rdf:resource="#DER_Device"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Type of inverter (string, central, microinverter, power optimizer), affects vulnerability profile.</rdfs:comment>
+    <rdfs:label>inverter_type</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#der_function_capability">
+    <rdfs:domain rdf:resource="#DER_Device"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>DER functional capabilities (generation only, storage, demand response, microgrid forming).</rdfs:comment>
+    <rdfs:label>der_function_capability</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#reactive_power_capability">
+    <rdfs:domain rdf:resource="#DER_Device"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Reactive power capability in kilovolt-amperes reactive (kVAR), important for voltage support.</rdfs:comment>
+    <rdfs:label>reactive_power_capability</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#grid_support_functions">
+    <rdfs:domain rdf:resource="#DER_Device"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Grid support functions available (voltage regulation, frequency response, ride-through).</rdfs:comment>
+    <rdfs:label>grid_support_functions</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- ================================================================== -->
+  <!-- SMART INVERTER PROPERTIES                                         -->
+  <!-- ================================================================== -->
+
+  <owl:DatatypeProperty rdf:about="#smart_inverter_functions">
+    <rdfs:domain rdf:resource="#Smart_Inverter"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Advanced smart inverter functions enabled (volt-var, freq-watt, dynamic volt-var).</rdfs:comment>
+    <rdfs:label>smart_inverter_functions</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#volt_var_mode">
+    <rdfs:domain rdf:resource="#Smart_Inverter"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Volt-var control mode configuration, can be manipulated to cause voltage instability.</rdfs:comment>
+    <rdfs:label>volt_var_mode</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#frequency_watt_enabled">
+    <rdfs:domain rdf:resource="#Smart_Inverter"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether frequency-watt control is enabled for grid frequency support.</rdfs:comment>
+    <rdfs:label>frequency_watt_enabled</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#anti_islanding_enabled">
+    <rdfs:domain rdf:resource="#Smart_Inverter"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether anti-islanding protection is active, critical safety function that can be compromised.</rdfs:comment>
+    <rdfs:label>anti_islanding_enabled</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#ride_through_settings">
+    <rdfs:domain rdf:resource="#Smart_Inverter"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Voltage and frequency ride-through settings, manipulation can cause unnecessary trips.</rdfs:comment>
+    <rdfs:label>ride_through_settings</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- ================================================================== -->
+  <!-- BATTERY ENERGY STORAGE SYSTEM PROPERTIES                         -->
+  <!-- ================================================================== -->
+
+  <owl:DatatypeProperty rdf:about="#battery_capacity_kwh">
+    <rdfs:domain rdf:resource="#Battery_Energy_Storage_System"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Total battery energy capacity in kilowatt-hours (kWh).</rdfs:comment>
+    <rdfs:label>battery_capacity_kwh</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#state_of_charge">
+    <rdfs:domain rdf:resource="#Battery_Energy_Storage_System"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Current state of charge as percentage (0-100%), critical for energy management attacks.</rdfs:comment>
+    <rdfs:label>state_of_charge</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#battery_chemistry">
+    <rdfs:domain rdf:resource="#Battery_Energy_Storage_System"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Battery chemistry type (Li-ion, LiFePO4, lead-acid), affects safety and performance characteristics.</rdfs:comment>
+    <rdfs:label>battery_chemistry</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#charge_discharge_rate">
+    <rdfs:domain rdf:resource="#Battery_Energy_Storage_System"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Maximum charge/discharge rate in kilowatts (kW), important for grid stability impacts.</rdfs:comment>
+    <rdfs:label>charge_discharge_rate</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#thermal_management_active">
+    <rdfs:domain rdf:resource="#Battery_Energy_Storage_System"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether thermal management system is active, critical for preventing thermal runaway.</rdfs:comment>
+    <rdfs:label>thermal_management_active</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#battery_temperature">
+    <rdfs:domain rdf:resource="#Battery_Energy_Storage_System"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Current battery temperature in Celsius, monitored for safety and performance.</rdfs:comment>
+    <rdfs:label>battery_temperature</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- ================================================================== -->
+  <!-- PHOTOVOLTAIC SYSTEM PROPERTIES                                   -->
+  <!-- ================================================================== -->
+
+  <owl:DatatypeProperty rdf:about="#panel_type">
+    <rdfs:domain rdf:resource="#Photovoltaic_System"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Type of solar panels (monocrystalline, polycrystalline, thin-film).</rdfs:comment>
+    <rdfs:label>panel_type</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#current_irradiance">
+    <rdfs:domain rdf:resource="#Photovoltaic_System"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Current solar irradiance in watts per square meter (W/m²), affects generation output.</rdfs:comment>
+    <rdfs:label>current_irradiance</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#panel_efficiency">
+    <rdfs:domain rdf:resource="#Photovoltaic_System"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Solar panel efficiency percentage, used for performance monitoring and fault detection.</rdfs:comment>
+    <rdfs:label>panel_efficiency</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#tracking_system_type">
+    <rdfs:domain rdf:resource="#Photovoltaic_System"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Solar tracking system type (fixed, single-axis, dual-axis), affects control complexity.</rdfs:comment>
+    <rdfs:label>tracking_system_type</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- ================================================================== -->
+  <!-- ELECTRIC VEHICLE SUPPLY EQUIPMENT PROPERTIES                     -->
+  <!-- ================================================================== -->
+
+  <owl:DatatypeProperty rdf:about="#charging_level">
+    <rdfs:domain rdf:resource="#Electric_Vehicle_Supply_Equipment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Charging level (Level 1, Level 2, Level 3/DC Fast), determines power delivery and control complexity.</rdfs:comment>
+    <rdfs:label>charging_level</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#maximum_current">
+    <rdfs:domain rdf:resource="#Electric_Vehicle_Supply_Equipment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Maximum charging current in amperes, important for electrical safety and load management.</rdfs:comment>
+    <rdfs:label>maximum_current</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#connector_type">
+    <rdfs:domain rdf:resource="#Electric_Vehicle_Supply_Equipment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Physical connector type (J1772, CCS, CHAdeMO, Tesla), affects interoperability and security.</rdfs:comment>
+    <rdfs:label>connector_type</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#network_connected">
+    <rdfs:domain rdf:resource="#Electric_Vehicle_Supply_Equipment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether EVSE is connected to a management network, increases cyber attack surface.</rdfs:comment>
+    <rdfs:label>network_connected</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#load_management_enabled">
+    <rdfs:domain rdf:resource="#Electric_Vehicle_Supply_Equipment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether load management features are enabled for demand response participation.</rdfs:comment>
+    <rdfs:label>load_management_enabled</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- ================================================================== -->
+  <!-- ELECTRIC VEHICLE PROPERTIES                                       -->
+  <!-- ================================================================== -->
+
+  <owl:DatatypeProperty rdf:about="#battery_capacity_vehicle">
+    <rdfs:domain rdf:resource="#Electric_Vehicle"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Vehicle battery capacity in kilowatt-hours (kWh) for V2G energy potential assessment.</rdfs:comment>
+    <rdfs:label>battery_capacity_vehicle</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#v2g_capable">
+    <rdfs:domain rdf:resource="#Electric_Vehicle"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether vehicle supports vehicle-to-grid energy export capabilities.</rdfs:comment>
+    <rdfs:label>v2g_capable</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#charging_profile">
+    <rdfs:domain rdf:resource="#Electric_Vehicle"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Charging profile preferences (fast, standard, eco), affects grid impact and scheduling.</rdfs:comment>
+    <rdfs:label>charging_profile</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- ================================================================== -->
+  <!-- COMMUNICATION INTERFACE PROPERTIES                                -->
+  <!-- ================================================================== -->
+
+  <owl:DatatypeProperty rdf:about="#protocol_version">
+    <rdfs:domain rdf:resource="#DER_Communication_Interface"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Version of communication protocol implemented, critical for vulnerability assessment.</rdfs:comment>
+    <rdfs:label>protocol_version</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#security_features_enabled">
+    <rdfs:domain rdf:resource="#DER_Communication_Interface"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Security features enabled in protocol (authentication, encryption, message integrity).</rdfs:comment>
+    <rdfs:label>security_features_enabled</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#message_frequency">
+    <rdfs:domain rdf:resource="#DER_Communication_Interface"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Communication message frequency in seconds, used for monitoring communication disruptions.</rdfs:comment>
+    <rdfs:label>message_frequency</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#port_number">
+    <rdfs:domain rdf:resource="#DER_Communication_Interface"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:comment>Network port number used for communication, important for firewall and security configuration.</rdfs:comment>
+    <rdfs:label>port_number</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- ================================================================== -->
+  <!-- SENSOR PROPERTIES                                                -->
+  <!-- ================================================================== -->
+
+  <owl:DatatypeProperty rdf:about="#sensor_type">
+    <rdfs:domain rdf:resource="#Sensor_Inputs"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Type of sensor (voltage, current, frequency, temperature, irradiance, etc.).</rdfs:comment>
+    <rdfs:label>sensor_type</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#measurement_accuracy">
+    <rdfs:domain rdf:resource="#Sensor_Inputs"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Sensor measurement accuracy as percentage, important for detecting spoofed sensor data.</rdfs:comment>
+    <rdfs:label>measurement_accuracy</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#calibration_date">
+    <rdfs:domain rdf:resource="#Sensor_Inputs"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Date of last sensor calibration, affects data reliability and anomaly detection.</rdfs:comment>
+    <rdfs:label>calibration_date</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#current_reading">
+    <rdfs:domain rdf:resource="#Sensor_Inputs"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Current sensor reading value for real-time monitoring and anomaly detection.</rdfs:comment>
+    <rdfs:label>current_reading</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- ================================================================== -->
+  <!-- MANAGEMENT SYSTEM PROPERTIES                                      -->
+  <!-- ================================================================== -->
+
+  <owl:DatatypeProperty rdf:about="#managed_der_count">
+    <rdfs:domain rdf:resource="#DERMS"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:comment>Number of DER devices managed by this DERMS instance, indicates system scope and impact.</rdfs:comment>
+    <rdfs:label>managed_der_count</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#control_strategy">
+    <rdfs:domain rdf:resource="#DERMS"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Control strategy implemented (centralized, distributed, autonomous), affects cyber attack vectors.</rdfs:comment>
+    <rdfs:label>control_strategy</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#optimization_objective">
+    <rdfs:domain rdf:resource="#DERMS"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Primary optimization objective (cost, reliability, emissions), can be manipulated in attacks.</rdfs:comment>
+    <rdfs:label>optimization_objective</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#update_interval">
+    <rdfs:domain rdf:resource="#DERMS"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Control update interval in seconds, affects response time to grid conditions and attacks.</rdfs:comment>
+    <rdfs:label>update_interval</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- ================================================================== -->
+  <!-- SCADA SYSTEM PROPERTIES                                          -->
+  <!-- ================================================================== -->
+
+  <owl:DatatypeProperty rdf:about="#hmi_access_level">
+    <rdfs:domain rdf:resource="#DER_SCADA"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>HMI access level configuration (operator, engineer, administrator), critical for privilege escalation.</rdfs:comment>
+    <rdfs:label>hmi_access_level</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#data_historian_enabled">
+    <rdfs:domain rdf:resource="#DER_SCADA"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether data historian functionality is enabled for forensic analysis and trend monitoring.</rdfs:comment>
+    <rdfs:label>data_historian_enabled</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#alarm_management_active">
+    <rdfs:domain rdf:resource="#DER_SCADA"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether alarm management system is active for detecting anomalous conditions.</rdfs:comment>
+    <rdfs:label>alarm_management_active</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#remote_access_enabled">
+    <rdfs:domain rdf:resource="#DER_SCADA"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether remote access capabilities are enabled, increases attack surface significantly.</rdfs:comment>
+    <rdfs:label>remote_access_enabled</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- ================================================================== -->
+  <!-- HUMAN MACHINE INTERFACE PROPERTIES                               -->
+  <!-- ================================================================== -->
+
+  <owl:DatatypeProperty rdf:about="#interface_type">
+    <rdfs:domain rdf:resource="#Human_Machine_Interface"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Type of HMI interface (touchscreen, web-based, desktop application, mobile app).</rdfs:comment>
+    <rdfs:label>interface_type</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#session_timeout">
+    <rdfs:domain rdf:resource="#Human_Machine_Interface"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:comment>User session timeout in minutes, important security control for unattended access.</rdfs:comment>
+    <rdfs:label>session_timeout</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#multi_user_support">
+    <rdfs:domain rdf:resource="#Human_Machine_Interface"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether interface supports multiple concurrent users with role-based access control.</rdfs:comment>
+    <rdfs:label>multi_user_support</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- ================================================================== -->
+  <!-- FIRMWARE PROPERTIES                                              -->
+  <!-- ================================================================== -->
+
+  <owl:DatatypeProperty rdf:about="#code_signing_verified">
+    <rdfs:domain rdf:resource="#DER_Firmware"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether firmware code signing has been verified, critical for preventing malicious firmware.</rdfs:comment>
+    <rdfs:label>code_signing_verified</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#secure_boot_enabled">
+    <rdfs:domain rdf:resource="#DER_Firmware"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether secure boot is enabled to prevent unauthorized firmware execution.</rdfs:comment>
+    <rdfs:label>secure_boot_enabled</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#firmware_checksum">
+    <rdfs:domain rdf:resource="#DER_Firmware"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Cryptographic checksum of firmware for integrity verification and change detection.</rdfs:comment>
+    <rdfs:label>firmware_checksum</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#update_mechanism">
+    <rdfs:domain rdf:resource="#DER_Firmware"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Firmware update mechanism (OTA, local, removable media), affects update security.</rdfs:comment>
+    <rdfs:label>update_mechanism</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- ================================================================== -->
+  <!-- MAINTENANCE PORT PROPERTIES                                       -->
+  <!-- ================================================================== -->
+
+  <owl:DatatypeProperty rdf:about="#port_type">
+    <rdfs:domain rdf:resource="#Maintenance_Port"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Type of maintenance port (USB, serial, Ethernet, wireless), affects physical security requirements.</rdfs:comment>
+    <rdfs:label>port_type</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#physical_access_required">
+    <rdfs:domain rdf:resource="#Maintenance_Port"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether physical access to device is required to use maintenance port.</rdfs:comment>
+    <rdfs:label>physical_access_required</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#maintenance_mode_active">
+    <rdfs:domain rdf:resource="#Maintenance_Port"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether device is currently in maintenance mode, potentially bypassing normal security controls.</rdfs:comment>
+    <rdfs:label>maintenance_mode_active</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- ================================================================== -->
+  <!-- EDGE INTELLIGENT DEVICE PROPERTIES                               -->
+  <!-- ================================================================== -->
+
+  <owl:DatatypeProperty rdf:about="#ai_model_version">
+    <rdfs:domain rdf:resource="#Edge_Intelligent_Device"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Version of AI/ML model deployed on edge device, important for model poisoning detection.</rdfs:comment>
+    <rdfs:label>ai_model_version</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#processing_capability">
+    <rdfs:domain rdf:resource="#Edge_Intelligent_Device"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Processing capability description (CPU, GPU, TPU specifications) for performance assessment.</rdfs:comment>
+    <rdfs:label>processing_capability</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#anomaly_detection_enabled">
+    <rdfs:domain rdf:resource="#Edge_Intelligent_Device"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether AI-based anomaly detection is enabled for cybersecurity monitoring.</rdfs:comment>
+    <rdfs:label>anomaly_detection_enabled</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#local_decision_authority">
+    <rdfs:domain rdf:resource="#Edge_Intelligent_Device"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether device has authority to make local control decisions without central coordination.</rdfs:comment>
+    <rdfs:label>local_decision_authority</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- ================================================================== -->
+  <!-- ADDITIONAL OBJECT PROPERTIES FOR GRID CYBERSECURITY             -->
+  <!-- ================================================================== -->
+
+  <owl:ObjectProperty rdf:about="#has_vulnerability">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Links a grid component to known vulnerabilities (CVE IDs, vendor advisories).</rdfs:comment>
+    <rdfs:label>has_vulnerability</rdfs:label>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#protected_by">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:comment>Indicates security controls or protective devices that safeguard this component.</rdfs:comment>
+    <rdfs:label>protected_by</rdfs:label>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#depends_on">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:comment>Indicates operational dependency between grid components for impact analysis.</rdfs:comment>
+    <rdfs:label>depends_on</rdfs:label>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#shares_network_with">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:comment>Indicates shared network infrastructure for lateral movement analysis.</rdfs:comment>
+    <rdfs:label>shares_network_with</rdfs:label>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#reports_to">
+    <rdfs:domain rdf:resource="#DER_Device"/>
+    <rdfs:range rdf:resource="#DERMS"/>
+    <rdfs:comment>Indicates which DERMS system receives data and control commands from this DER device.</rdfs:comment>
+    <rdfs:label>reports_to</rdfs:label>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#backup_communication_path">
+    <rdfs:domain rdf:resource="#DER_Device"/>
+    <rdfs:range rdf:resource="#DER_Communication_Interface"/>
+    <rdfs:comment>Alternative communication path for redundancy and resilience planning.</rdfs:comment>
+    <rdfs:label>backup_communication_path</rdfs:label>
+  </owl:ObjectProperty>
+
 </rdf:RDF>
