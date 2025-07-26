@@ -14,6 +14,8 @@ logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s",
 )
 
+PASCAL_SNAKE_OR_SNAKE_CASE = r"^[A-Za-z][A-Za-z0-9]*(?:_[A-Za-z0-9]+)*$"
+
 # ---- ARGUMENT PARSING ----
 parser = argparse.ArgumentParser(
     description="Validate an OWL ontology for common issues."
@@ -385,8 +387,8 @@ def check_stix_property_patterns(graph: Graph) -> List[str]:
                 else:
                     continue
 
-                # Check naming convention (should be snake_case for Grid-STIX)
-                if not re.match(r"^[a-z][a-z0-9_]*$", prop_name):
+                # Check naming convention (should be Pascal_Snake or snake_case for Grid-STIX)
+                if not re.match(PASCAL_SNAKE_OR_SNAKE_CASE, prop_name):
                     non_compliant_properties.append(prop_str)
 
     return non_compliant_properties
@@ -724,7 +726,7 @@ def check_missing_labels(graph: Graph) -> List[str]:
 
 def is_snake_case(label: str) -> bool:
     """Check if a label follows snake_case convention"""
-    return bool(re.fullmatch(r"[a-z0-9_]+", label))
+    return bool(re.fullmatch(PASCAL_SNAKE_OR_SNAKE_CASE, label))
 
 
 def check_non_snake_case_labels(graph: Graph) -> List[str]:

@@ -1,0 +1,59 @@
+"""
+{{ class_def.description or "Generated class from Grid-STIX ontology." }}
+
+This class was automatically generated from the Grid-STIX ontology.
+{% if class_def.namespace_iri %}
+Namespace: {{ class_def.namespace_iri }}
+{% endif %}
+"""
+
+from __future__ import annotations
+
+from typing import Optional, Any, List, Dict
+
+{% if imports %}
+# External imports
+{% for import_line in imports %}
+{{ import_line }}
+{% endfor %}
+
+{% endif %}
+{% if forward_ref_classes %}
+# Forward references will be resolved after all classes are defined
+{% endif %}
+
+class {{ class_def.name }}({{ class_def.bases | join(', ') }}):
+    """
+    {{ class_def.description or "Grid-STIX class: " + class_def.name }}
+    {% if class_def.is_abstract %}
+    
+    This is an abstract class - it should not be instantiated directly.
+    {% endif %}
+    """
+{% if class_def.attrs %}
+    
+    # STIX Custom Properties for Grid-STIX extensions
+    _STIX_CUSTOM_PROPERTIES = {
+{% for attr in class_def.attrs %}
+        'x_{{ attr.name }}': {
+            'type': {% if attr.mult in ["+", "*"] %}'list'{% else %}'{% if attr.range == "str" %}string{% elif attr.range == "int" %}integer{% elif attr.range == "float" %}number{% elif attr.range == "bool" %}boolean{% else %}object{% endif %}'{% endif %},
+            'required': {% if attr.mult == "+" %}True{% else %}False{% endif %},
+{% if attr.description %}
+            'description': '{{ attr.description }}',
+{% endif %}
+        },
+{% endfor %}
+    }
+    
+    def __init__(self, **kwargs: Any) -> None:
+        """Initialize {{ class_def.name }} with Grid-STIX properties."""
+        # Set default values for Grid-STIX custom properties
+{% for attr in class_def.attrs %}
+        if 'x_{{ attr.name }}' not in kwargs:
+            kwargs['x_{{ attr.name }}'] = {% if attr.mult in ["?", "*"] %}None{% else %}[]{% endif %}
+{% endfor %}
+        
+        super().__init__(**kwargs)
+{% else %}
+    pass
+{% endif %}

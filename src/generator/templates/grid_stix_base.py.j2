@@ -1,0 +1,120 @@
+"""
+Grid-STIX Base Classes
+
+This module provides base classes for all Grid-STIX objects that properly extend
+the official STIX 2.1 library classes for grid-specific cybersecurity use cases.
+"""
+
+from __future__ import annotations
+
+from typing import Optional, Any, Dict, List
+from uuid import uuid4
+
+from stix2.v21 import _DomainObject, _RelationshipObject, _Observable  # type: ignore[import-untyped]
+
+
+class GridSTIXDomainObject(_DomainObject):  # type: ignore[misc]
+    """
+    Base class for Grid-STIX Domain Objects extending STIX 2.1 SDOs.
+    
+    Provides grid-specific properties and validation while maintaining
+    full STIX 2.1 compatibility.
+    """
+    
+    # Grid-STIX specific extension properties
+    _STIX_CUSTOM_PROPERTIES = {
+        'x_grid_context': {
+            'type': 'dict',
+            'required': False,
+        },
+        'x_operational_status': {
+            'type': 'string', 
+            'required': False,
+        },
+        'x_compliance_framework': {
+            'type': 'list',
+            'required': False,
+        },
+        'x_grid_component_type': {
+            'type': 'string',
+            'required': False,
+        },
+        'x_criticality_level': {
+            'type': 'integer',
+            'required': False,
+        },
+    }
+    
+    def __init__(self, **kwargs: Any) -> None:
+        """Initialize with Grid-STIX identifier if not provided."""
+        if 'id' not in kwargs:
+            kwargs['id'] = f"grid-stix--{uuid4()}"
+        super().__init__(**kwargs)
+
+
+class GridSTIXRelationshipObject(_RelationshipObject):  # type: ignore[misc]
+    """
+    Base class for Grid-STIX Relationship Objects extending STIX 2.1 SROs.
+    
+    Handles grid-specific relationships while maintaining STIX 2.1 compatibility.
+    """
+    
+    # Grid-STIX specific extension properties for relationships
+    _STIX_CUSTOM_PROPERTIES = {
+        'x_grid_relationship_context': {
+            'type': 'dict',
+            'required': False,
+        },
+        'x_physical_connection': {
+            'type': 'boolean',
+            'required': False,
+        },
+        'x_logical_connection': {
+            'type': 'boolean', 
+            'required': False,
+        },
+        'x_power_flow_direction': {
+            'type': 'string',
+            'required': False,
+        },
+    }
+    
+    def __init__(self, **kwargs: Any) -> None:
+        """Initialize with Grid-STIX identifier if not provided."""
+        if 'id' not in kwargs:
+            kwargs['id'] = f"grid-stix--{uuid4()}"
+        super().__init__(**kwargs)
+
+
+class GridSTIXObservableObject(_Observable):  # type: ignore[misc]
+    """
+    Base class for Grid-STIX Cyber Observable Objects extending STIX 2.1 SCOs.
+    
+    Handles grid-specific observables like telemetry and events.
+    """
+    
+    # Grid-STIX specific extension properties for observables
+    _STIX_CUSTOM_PROPERTIES = {
+        'x_grid_measurement_type': {
+            'type': 'string',
+            'required': False,
+        },
+        'x_sensor_location': {
+            'type': 'string', 
+            'required': False,
+        },
+        'x_measurement_unit': {
+            'type': 'string',
+            'required': False,
+        },
+        'x_sampling_rate': {
+            'type': 'float',
+            'required': False,
+        },
+    }
+    
+    def __init__(self, **kwargs: Any) -> None:
+        """Initialize with Grid-STIX identifier if not provided.""" 
+        if 'id' not in kwargs:
+            kwargs['id'] = f"grid-stix--{uuid4()}"
+        super().__init__(**kwargs)

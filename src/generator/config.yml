@@ -1,0 +1,19 @@
+namespaces:
+  "https://docs.oasis-open.org/cti/stix": stix2    # import, do not generate
+  "http://www.anl.gov/sss/grid-stix-2.1-assets.owl": grid_stix.assets
+  "http://www.anl.gov/sss/grid-stix-2.1-components.owl": grid_stix.components
+  "http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl": grid_stix.attack_patterns
+  "http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl": grid_stix.cyber_contexts
+  "http://www.anl.gov/sss/grid-stix-2.1-environmental-contexts.owl": grid_stix.environmental_contexts
+  "http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl": grid_stix.events_observables
+  "http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl": grid_stix.nuclear_safeguards
+  "http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl": grid_stix.operational_contexts
+  "http://www.anl.gov/sss/grid-stix-2.1-physical-contexts.owl": grid_stix.physical_contexts
+  "http://www.anl.gov/sss/grid-stix-2.1-policies.owl": grid_stix.policies
+  "http://www.anl.gov/sss/grid-stix-2.1-relationships.owl": grid_stix.relationships
+  "http://www.anl.gov/sss/grid-stix-2.1-vocab.owl": grid_stix.vocab
+
+special_classes:
+  "Union.*": generate_union_helper   # regex → handler
+
+reserved_suffix: "_cls"   # for Python keywords
