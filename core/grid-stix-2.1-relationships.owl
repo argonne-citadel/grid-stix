@@ -783,6 +783,288 @@
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
     <rdfs:comment>Power conversion efficiency percentage of the inverter for the specific DER.</rdfs:comment>
   </owl:DatatypeProperty>
+
+  <!-- Relationship Quality and Trust Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#confidence_level">
+    <rdfs:label>confidence_level</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Confidence level in the accuracy of this relationship (0.0-1.0).</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#validation_status">
+    <rdfs:label>validation_status</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Validation status of the relationship (Verified, Unverified, Disputed, Deprecated).</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#source_credibility">
+    <rdfs:label>source_credibility</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Credibility of the information source (High, Medium, Low, Unknown).</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#verification_method">
+    <rdfs:label>verification_method</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Method used to verify this relationship (Manual, Automated, Third-party).</rdfs:comment>
+  </owl:DatatypeProperty>
+
+  <!-- Temporal and Scheduling Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#frequency_hz">
+    <rdfs:label>frequency_hz</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Frequency of relationship activity or updates in Hz.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#duration_seconds">
+    <rdfs:label>duration_seconds</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>Expected or measured duration of relationship activity in seconds.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#schedule_pattern">
+    <rdfs:label>schedule_pattern</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Scheduling pattern for relationship activity (Continuous, Periodic, On-demand).</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#lifecycle_stage">
+    <rdfs:label>lifecycle_stage</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Current lifecycle stage of the relationship (Active, Inactive, Transitioning, Deprecated).</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#last_verified_date">
+    <rdfs:label>last_verified_date</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Date when the relationship was last verified or validated.</rdfs:comment>
+  </owl:DatatypeProperty>
+
+  <!-- Performance and Quality Metrics -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#bandwidth_mbps">
+    <rdfs:label>bandwidth_mbps</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#connects-to-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Available bandwidth for the connection in Mbps.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#latency_ms">
+    <rdfs:label>latency_ms</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#connects-to-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Network latency for the connection in milliseconds.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#throughput_mbps">
+    <rdfs:label>throughput_mbps</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#connects-to-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Actual measured throughput in Mbps.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#availability_percentage">
+    <rdfs:label>availability_percentage</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Availability percentage for the relationship (0.0-100.0).</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#quality_score">
+    <rdfs:label>quality_score</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Overall quality score for the relationship (0.0-10.0).</rdfs:comment>
+  </owl:DatatypeProperty>
+
+  <!-- Security and Risk Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#encryption_enabled">
+    <rdfs:label>encryption_enabled</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#connects-to-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether encryption is enabled for this connection.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#encryption_protocol">
+    <rdfs:label>encryption_protocol</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#connects-to-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Encryption protocol used (TLS, IPSec, etc.).</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#access_control_level">
+    <rdfs:label>access_control_level</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Access control level applied to the relationship (None, Basic, Strict, Maximum).</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#threat_level">
+    <rdfs:label>threat_level</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Current threat level assessment (Low, Medium, High, Critical).</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#risk_score">
+    <rdfs:label>risk_score</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Risk score for the relationship (0.0-10.0, higher is riskier).</rdfs:comment>
+  </owl:DatatypeProperty>
+
+  <!-- Operational Context Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#environmental_factor">
+    <rdfs:label>environmental_factor</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Environmental factors affecting the relationship (Temperature, Humidity, Weather).</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#load_condition">
+    <rdfs:label>load_condition</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Current load condition affecting the relationship (Light, Normal, Heavy, Peak).</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#maintenance_status">
+    <rdfs:label>maintenance_status</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Current maintenance status (Operational, Scheduled, In-progress, Offline).</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#operational_mode">
+    <rdfs:label>operational_mode</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Current operational mode (Normal, Emergency, Test, Maintenance).</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#redundancy_level">
+    <rdfs:label>redundancy_level</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Level of redundancy for the relationship (None, Backup, N+1, Full).</rdfs:comment>
+  </owl:DatatypeProperty>
+
+  <!-- Business and Compliance Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#cost_impact">
+    <rdfs:label>cost_impact</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Financial cost impact of the relationship in USD.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#regulatory_requirement">
+    <rdfs:label>regulatory_requirement</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Regulatory requirements applicable to this relationship.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#sla_requirement">
+    <rdfs:label>sla_requirement</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Service Level Agreement requirements for the relationship.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#compliance_status">
+    <rdfs:label>compliance_status</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Current compliance status (Compliant, Non-compliant, Under-review, Exempt).</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#business_criticality">
+    <rdfs:label>business_criticality</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Business criticality level (Low, Medium, High, Critical).</rdfs:comment>
+  </owl:DatatypeProperty>
+
+  <!-- Technical Implementation Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#protocol_version">
+    <rdfs:label>protocol_version</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#connects-to-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Version of the communication protocol being used.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#configuration_details">
+    <rdfs:label>configuration_details</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Technical configuration details for the relationship.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#troubleshooting_info">
+    <rdfs:label>troubleshooting_info</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Troubleshooting information and common issues.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#vendor_specific_data">
+    <rdfs:label>vendor_specific_data</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Vendor-specific implementation details or extensions.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#interface_specification">
+    <rdfs:label>interface_specification</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#connects-to-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Technical specification of the interface used for connection.</rdfs:comment>
+  </owl:DatatypeProperty>
+
+  <!-- Analytics and Intelligence Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#correlation_strength">
+    <rdfs:label>correlation_strength</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Statistical correlation strength for the relationship (0.0-1.0).</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#predictive_indicator">
+    <rdfs:label>predictive_indicator</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether this relationship can be used as a predictive indicator.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#historical_pattern">
+    <rdfs:label>historical_pattern</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Historical pattern or trend observed in the relationship.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#anomaly_score">
+    <rdfs:label>anomaly_score</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Current anomaly score for relationship behavior (0.0-10.0, higher is more anomalous).</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#learning_model_applied">
+    <rdfs:label>learning_model_applied</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Machine learning model applied to analyze this relationship.</rdfs:comment>
+  </owl:DatatypeProperty>
+
+  <!-- Grid-Specific Operational Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#voltage_level_kv">
+    <rdfs:label>voltage_level_kv</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#connects-to-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Operating voltage level for the connection in kilovolts.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#power_factor">
+    <rdfs:label>power_factor</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#feeds-power-to-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Power factor for the electrical connection (0.0-1.0).</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#frequency_regulation_capability">
+    <rdfs:label>frequency_regulation_capability</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether the relationship supports frequency regulation services.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#load_following_capability">
+    <rdfs:label>load_following_capability</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether the relationship supports load following services.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#stability_margin">
+    <rdfs:label>stability_margin</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#grid-relationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Stability margin for the relationship in the grid context.</rdfs:comment>
+  </owl:DatatypeProperty>
   
   <!-- Generation Relationship Patterns -->
   <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl#supplied-by-relationship">

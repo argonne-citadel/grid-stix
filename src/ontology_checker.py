@@ -14,7 +14,8 @@ logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s",
 )
 
-PASCAL_SNAKE_OR_SNAKE_CASE = r"^[A-Za-z][A-Za-z0-9]*(?:_[A-Za-z0-9]+)*$"
+# Allow technical terms like IEEE_2030_5, DER_System, etc.
+TECHNICAL_NAMING_PATTERN = r"^[A-Za-z][A-Za-z0-9]*(?:_[A-Za-z0-9]+)*$"
 
 # ---- ARGUMENT PARSING ----
 parser = argparse.ArgumentParser(
@@ -387,8 +388,8 @@ def check_stix_property_patterns(graph: Graph) -> List[str]:
                 else:
                     continue
 
-                # Check naming convention (should be Pascal_Snake or snake_case for Grid-STIX)
-                if not re.match(PASCAL_SNAKE_OR_SNAKE_CASE, prop_name):
+                # Check naming convention (should follow technical naming patterns for Grid-STIX)
+                if not re.match(TECHNICAL_NAMING_PATTERN, prop_name):
                     non_compliant_properties.append(prop_str)
 
     return non_compliant_properties
@@ -724,24 +725,24 @@ def check_missing_labels(graph: Graph) -> List[str]:
     )
 
 
-def is_snake_case(label: str) -> bool:
-    """Check if a label follows snake_case convention"""
-    return bool(re.fullmatch(PASCAL_SNAKE_OR_SNAKE_CASE, label))
+def is_valid_technical_name(label: str) -> bool:
+    """Check if a label follows acceptable technical naming conventions"""
+    return bool(re.fullmatch(TECHNICAL_NAMING_PATTERN, label))
 
 
-def check_non_snake_case_labels(graph: Graph) -> List[str]:
-    """Find entities with labels that aren't in snake_case format"""
-    non_snake = []
-    # Only check for non-snake_case labels in our primary namespace
+def check_invalid_technical_names(graph: Graph) -> List[str]:
+    """Find entities with labels that don't follow technical naming conventions"""
+    invalid_names = []
+    # Only check labels in our primary namespace
     for s, label in graph.subject_objects(RDFS.label):
         if in_namespace(s):
             if isinstance(label, str):
                 label_str = label
             else:
                 label_str = str(label)
-            if not is_snake_case(label_str):
-                non_snake.append(f"{s} -> '{label_str}'")
-    return non_snake
+            if not is_valid_technical_name(label_str):
+                invalid_names.append(f"{s} -> '{label_str}'")
+    return invalid_names
 
 
 # ---- RUN CHECKS ----
@@ -796,7 +797,7 @@ else:
     check_results["missing_labels"] = []
 
 if "non_snake_labels" not in SKIP_CHECKS:
-    check_results["non_snake_labels"] = check_non_snake_case_labels(g)
+    check_results["non_snake_labels"] = check_invalid_technical_names(g)
 else:
     check_results["non_snake_labels"] = []
 
@@ -919,9 +920,9 @@ if check_results["missing_labels"]:
 
 if check_results["non_snake_labels"]:
     issues_found = True
-    logging.warning("=== NON-SNAKE_CASE LABELS ===")
+    logging.warning("=== INVALID TECHNICAL NAMES ===")
     logging.warning(
-        "These ontology entities have rdfs:label values that are not snake_case. Update them for consistency."
+        "These ontology entities have rdfs:label values that don't follow technical naming conventions (allow letters, numbers, underscores)."
     )
     logging.warning("\n".join(check_results["non_snake_labels"]))
 
