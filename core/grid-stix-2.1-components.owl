@@ -6,6 +6,17 @@
     <rdfs:label>grid_stix_2_1_components</rdfs:label>
     <rdfs:comment>Definitions of grid component classes and their properties, extending the base asset classes</rdfs:comment>
   </owl:Ontology>
+  <!-- Generation Asset Hierarchy -->
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#GenerationAsset">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:comment>Base class for all electricity generation assets and facilities in the power grid.</rdfs:comment>
+    <rdfs:label>generation_asset</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#DistributedEnergyResource">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#GenerationAsset"/>
+    <rdfs:comment>Small-scale power generation and storage resources connected to the distribution grid.</rdfs:comment>
+    <rdfs:label>distributed_energy_resource</rdfs:label>
+  </owl:Class>
   <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#CentralizedGenerationFacility">
     <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#GenerationAsset"/>
     <rdfs:comment>Large-scale centralized power generation facilities that supply electricity to the transmission grid.</rdfs:comment>
@@ -28,7 +39,7 @@
   </owl:Class>
   <!-- Distribution Asset Hierarchy -->
   <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#DistributionAsset">
-    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
     <rdfs:comment>Components that distribute electrical energy from transmission systems to end users.</rdfs:comment>
     <rdfs:label>distribution_asset</rdfs:label>
   </owl:Class>
@@ -48,12 +59,12 @@
     <rdfs:label>fuel_cell</rdfs:label>
   </owl:Class>
   <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#Inverter">
-    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#GridComponent"/>
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
     <rdfs:comment>Power electronic device that converts direct current (DC) to alternating current (AC) for grid integration of DER systems.</rdfs:comment>
     <rdfs:label>inverter</rdfs:label>
   </owl:Class>
   <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#Microgrid">
-    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#PhysicalAsset"/>
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
     <rdfs:comment>Local energy grid that can disconnect from the main transmission grid and operate autonomously using distributed energy resources.</rdfs:comment>
     <rdfs:label>microgrid</rdfs:label>
   </owl:Class>
@@ -61,7 +72,7 @@
   <!-- Additional DER Properties (common properties now inherited from GenerationAsset) -->
 <!-- DER Definitions-->
   <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#DER_System">
-    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#"/>
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
     <rdfs:comment>DER system can be viewed as composed of two classes of components: physical hardware/firmware components and cyber controller components that manage the physical components</rdfs:comment>
     <rdfs:label>DER_System</rdfs:label>
   </owl:Class>
@@ -86,7 +97,7 @@
   <rdfs:label>DER_Operator</rdfs:label>
 </owl:Class>
   <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#DER_Device">
-    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#DER_System"/>
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#DER_System"/>
     <rdfs:comment>An individual DER device inside a group of DER that collectively form a system.</rdfs:comment>
     <rdfs:label>DER_Device</rdfs:label>
   </owl:Class>
@@ -165,7 +176,7 @@
 
 <!--DER Management-->
 <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#Distribution_Management_System">
-  <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#"/>
+  <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
   <rdfs:comment>Utility-side system that models the distribution network, forecasts DER output, and optimizes load flow with DER coordination.</rdfs:comment>
   <rdfs:label>Distribution_Management_System</rdfs:label>
 </owl:Class>
@@ -222,7 +233,7 @@
   <rdfs:label>DER_Communication_Interface</rdfs:label>
 </owl:Class>
 <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#IEEE_2030_5">
-  <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#DER_Communication_Interface"/>
+  <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#DER_Communication_Interface"/>
   <rdfs:comment>Application-layer protocol for DER control and monitoring, also known as Smart Energy Profile 2 (SEP2). Includes embedded security features.</rdfs:comment>
   <rdfs:label>IEEE_2030_5</rdfs:label>
 </owl:Class>
@@ -231,10 +242,10 @@
   <rdfs:comment>Distributed Network Protocol 3.0 (DNP3) used for SCADA-based DER telemetry and control.</rdfs:comment>
   <rdfs:label>IEEE_1815_DNP3</rdfs:label>
 </owl:Class>
-<owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#SunSpec_Modbus_TCP">
+<owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#Sunspec_Modbus_TCP">
   <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#DER_Communication_Interface"/>
   <rdfs:comment>SunSpec-defined Modbus profile over TCP/IP for DER monitoring and control.</rdfs:comment>
-  <rdfs:label>SunSpec_Modbus_TCP</rdfs:label>
+  <rdfs:label>Sunspec_Modbus_TCP</rdfs:label>
 </owl:Class>
 <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-components.owl#Interconnection_Device">
   <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#DER_Device"/>

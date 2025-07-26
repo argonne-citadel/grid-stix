@@ -73,5 +73,5 @@ html: merge
 generate: merge
 	@echo "$(COLOR_BOLD)Generating Python code...$(COLOR_RESET)"
 	@rm -Rf python/*
-	@${MAMBA_EXE} run -n grid-stix python src/generate_python.py grid-stix-2.1-full.owl
+	@${MAMBA_EXE} run -n grid-stix python -m src.generator grid-stix-2.1-full.owl python/ --log-level INFO 
 
