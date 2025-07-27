@@ -70,6 +70,12 @@ class ControlCenter(GridSTIXDomainObject):
             ("x_compliance_framework", ListProperty(StringProperty)),
             ("x_grid_component_type", StringProperty()),
             ("x_criticality_level", IntegerProperty()),
+            ("x_backup_systems", ListProperty(StringProperty())),
+            ("x_control_functions", ListProperty(StringProperty())),
+            ("x_geographic_coverage", ListProperty(StringProperty())),
+            ("x_operator_capacity", ListProperty(IntegerProperty())),
+            ("x_primary_protocols", ListProperty(StringProperty())),
+            ("x_wall_display_count", ListProperty(IntegerProperty())),
         ]
     )
 

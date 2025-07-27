@@ -1,5 +1,5 @@
 """
-Generated class from Grid-STIX ontology.
+Large-scale centralized power generation facilities that supply electricity to the transmission grid.
 
 This class was automatically generated from the Grid-STIX ontology.
 
@@ -33,7 +33,10 @@ from ..base import GridSTIXDomainObject
 
 class CentralizedGenerationFacility(GridSTIXDomainObject):
     """
-    Grid-STIX class: CentralizedGenerationFacility
+    Large-scale centralized power generation facilities that supply electricity to the transmission grid.
+
+
+    This is an abstract class - it should not be instantiated directly.
 
     """
 

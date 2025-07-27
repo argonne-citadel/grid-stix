@@ -1,5 +1,5 @@
 """
-Entity that aggregates multiple distributed energy resources (DERs) for optimized grid interaction, market bidding, and demand response. May act as an intermediary between prosumers and grid operators.
+Gateway device that manages mesh network communications for AMI deployments.
 
 This class was automatically generated from the Grid-STIX ontology.
 
@@ -30,17 +30,15 @@ from stix2.utils import NOW  # type: ignore[import-untyped]
 
 from ..base import GridSTIXDomainObject
 
-from .DerDevice import DerDevice
 
-
-class DerAggregator(GridSTIXDomainObject):
+class MeshNetworkGateway(GridSTIXDomainObject):
     """
-    Entity that aggregates multiple distributed energy resources (DERs) for optimized grid interaction, market bidding, and demand response. May act as an intermediary between prosumers and grid operators.
+    Gateway device that manages mesh network communications for AMI deployments.
 
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-deraggregator"
+    _type = "x-grid-meshnetworkgateway"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(
@@ -72,12 +70,17 @@ class DerAggregator(GridSTIXDomainObject):
             ("x_compliance_framework", ListProperty(StringProperty)),
             ("x_grid_component_type", StringProperty()),
             ("x_criticality_level", IntegerProperty()),
-            ("x_aggregates", ListProperty(StringProperty())),
+            ("x_backup_communication_available", ListProperty(BooleanProperty())),
+            ("x_connected_meters_count", ListProperty(IntegerProperty())),
+            ("x_gateway_health_status", ListProperty(StringProperty())),
+            ("x_gateway_id", ListProperty(StringProperty())),
+            ("x_mesh_routing_enabled", ListProperty(BooleanProperty())),
+            ("x_signal_strength_dbm", ListProperty(FloatProperty())),
         ]
     )
 
     def __init__(self, **kwargs: Any) -> None:
-        """Initialize DerAggregator with Grid-STIX properties."""
+        """Initialize MeshNetworkGateway with Grid-STIX properties."""
         # Set STIX type if not provided
         if "type" not in kwargs:
             kwargs["type"] = self._type

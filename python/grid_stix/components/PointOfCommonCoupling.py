@@ -1,5 +1,5 @@
 """
-Generated class from Grid-STIX ontology.
+Point where a distributed resource is electrically connected to the utility system.
 
 This class was automatically generated from the Grid-STIX ontology.
 
@@ -35,7 +35,7 @@ from .LocalElectricPowerSystem import LocalElectricPowerSystem
 
 class PointOfCommonCoupling(GridSTIXDomainObject):
     """
-    Grid-STIX class: PointOfCommonCoupling
+    Point where a distributed resource is electrically connected to the utility system.
 
     """
 

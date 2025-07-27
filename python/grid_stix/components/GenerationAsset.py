@@ -1,5 +1,5 @@
 """
-Generated class from Grid-STIX ontology.
+Base class for all electricity generation assets and facilities in the power grid.
 
 This class was automatically generated from the Grid-STIX ontology.
 
@@ -33,7 +33,10 @@ from ..base import GridSTIXDomainObject
 
 class GenerationAsset(GridSTIXDomainObject):
     """
-    Grid-STIX class: GenerationAsset
+    Base class for all electricity generation assets and facilities in the power grid.
+
+
+    This is an abstract class - it should not be instantiated directly.
 
     """
 
@@ -70,6 +73,11 @@ class GenerationAsset(GridSTIXDomainObject):
             ("x_compliance_framework", ListProperty(StringProperty)),
             ("x_grid_component_type", StringProperty()),
             ("x_criticality_level", IntegerProperty()),
+            ("x_current_power_output", ListProperty(FloatProperty())),
+            ("x_frequency_setpoint", ListProperty(FloatProperty())),
+            ("x_ieee_1547_compliant", ListProperty(BooleanProperty())),
+            ("x_rated_power_output", ListProperty(FloatProperty())),
+            ("x_voltage_level", ListProperty(FloatProperty())),
         ]
     )
 

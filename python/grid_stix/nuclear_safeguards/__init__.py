@@ -11,6 +11,12 @@ It contains Python classes corresponding to OWL classes in the ontology.
 from .ContainmentSurveillanceSystem import ContainmentSurveillanceSystem
 
 
+from .EnrichmentFacility import EnrichmentFacility
+
+
+from .FuelFabricationFacility import FuelFabricationFacility
+
+
 from .KeyMeasurementPoint import KeyMeasurementPoint
 
 
@@ -32,15 +38,26 @@ from .NuclearMaterial import NuclearMaterial
 from .RadiationDetectionSystem import RadiationDetectionSystem
 
 
+from .ReprocessingFacility import ReprocessingFacility
+
+
+from .ResearchReactor import ResearchReactor
+
+
 from .SafeguardsAnomaly import SafeguardsAnomaly
 
 
 from .SafeguardsSystem import SafeguardsSystem
 
 
+from .WasteStorageFacility import WasteStorageFacility
+
+
 # Public API
 __all__ = [
     "ContainmentSurveillanceSystem",
+    "EnrichmentFacility",
+    "FuelFabricationFacility",
     "KeyMeasurementPoint",
     "MaterialAccountingSystem",
     "MaterialBalanceArea",
@@ -48,6 +65,9 @@ __all__ = [
     "NuclearFacility",
     "NuclearMaterial",
     "RadiationDetectionSystem",
+    "ReprocessingFacility",
+    "ResearchReactor",
     "SafeguardsAnomaly",
     "SafeguardsSystem",
+    "WasteStorageFacility",
 ]

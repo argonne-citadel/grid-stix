@@ -8,6 +8,12 @@ It contains Python classes corresponding to OWL classes in the ontology.
 # Import all classes from this module
 
 
+from .AdvancedMeteringNetwork import AdvancedMeteringNetwork
+
+
+from .AmiHeadEndSystem import AmiHeadEndSystem
+
+
 from .BatteryEnergyStorageSystem import BatteryEnergyStorageSystem
 
 
@@ -15,12 +21,6 @@ from .CentralizedGenerationFacility import CentralizedGenerationFacility
 
 
 from .ChargingConnector import ChargingConnector
-
-
-from .DERMS import DERMS
-
-
-from .DerAggregator import DerAggregator
 
 
 from .DerCommunicationInterface import DerCommunicationInterface
@@ -51,6 +51,9 @@ from .DerSystem import DerSystem
 
 
 from .DerUser import DerUser
+
+
+from .Derms import Derms
 
 
 from .DistributedEnergyResource import DistributedEnergyResource
@@ -89,9 +92,6 @@ from .FuelCell import FuelCell
 from .GenerationAsset import GenerationAsset
 
 
-from .GridComponent import GridComponent
-
-
 from .HumanMachineInterface import HumanMachineInterface
 
 
@@ -114,6 +114,12 @@ from .LocalElectricPowerSystem import LocalElectricPowerSystem
 
 
 from .MaintenancePort import MaintenancePort
+
+
+from .MeshNetworkGateway import MeshNetworkGateway
+
+
+from .MeterDataManagementSystem import MeterDataManagementSystem
 
 
 from .Microgrid import Microgrid
@@ -146,9 +152,6 @@ from .SmartInverter import SmartInverter
 from .SmartMeter import SmartMeter
 
 
-from .SolarPVSystem import SolarPVSystem
-
-
 from .SunspecModbusTcp import SunspecModbusTcp
 
 
@@ -159,9 +162,6 @@ from .WindTurbine import WindTurbine
 
 
 # Resolve forward references
-
-
-GridComponent.model_rebuild()
 
 
 DerDevice.model_rebuild()
@@ -175,11 +175,11 @@ DerOwner.model_rebuild()
 
 # Public API
 __all__ = [
+    "AdvancedMeteringNetwork",
+    "AmiHeadEndSystem",
     "BatteryEnergyStorageSystem",
     "CentralizedGenerationFacility",
     "ChargingConnector",
-    "DERMS",
-    "DerAggregator",
     "DerCommunicationInterface",
     "DerController",
     "DerDevice",
@@ -190,6 +190,7 @@ __all__ = [
     "DerScada",
     "DerSystem",
     "DerUser",
+    "Derms",
     "DistributedEnergyResource",
     "DistributionAsset",
     "DistributionManagementSystem",
@@ -202,7 +203,6 @@ __all__ = [
     "FossilFuelPlant",
     "FuelCell",
     "GenerationAsset",
-    "GridComponent",
     "HumanMachineInterface",
     "Ieee1815Dnp3",
     "Ieee20305",
@@ -211,6 +211,8 @@ __all__ = [
     "Iso15118Protocol",
     "LocalElectricPowerSystem",
     "MaintenancePort",
+    "MeshNetworkGateway",
+    "MeterDataManagementSystem",
     "Microgrid",
     "NuclearPowerPlant",
     "OcppProtocol",
@@ -221,7 +223,6 @@ __all__ = [
     "SensorInputs",
     "SmartInverter",
     "SmartMeter",
-    "SolarPVSystem",
     "SunspecModbusTcp",
     "V2gCommunicationModule",
     "WindTurbine",

@@ -1,9 +1,9 @@
 """
-Photovoltaic solar panels that convert sunlight directly into electricity using semiconductor materials.
+Relationship indicating authority delegation from one entity to another for zero trust authorization decisions.
 
 This class was automatically generated from the Grid-STIX ontology.
 
-Namespace: http://www.anl.gov/sss/grid-stix-2.1-components.owl
+Namespace: http://www.anl.gov/sss/grid-stix-2.1-relationships.owl
 
 """
 
@@ -28,17 +28,17 @@ from stix2.utils import NOW  # type: ignore[import-untyped]
 
 # External imports
 
-from ..base import GridSTIXDomainObject
+from ..base import GridSTIXRelationshipObject
 
 
-class SolarPVSystem(GridSTIXDomainObject):
+class DelegatesAuthorityToRelationship(GridSTIXRelationshipObject):
     """
-    Photovoltaic solar panels that convert sunlight directly into electricity using semiconductor materials.
+    Relationship indicating authority delegation from one entity to another for zero trust authorization decisions.
 
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-solarpvsystem"
+    _type = "x-grid-delegatesauthoritytorelationship"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(
@@ -70,11 +70,19 @@ class SolarPVSystem(GridSTIXDomainObject):
             ("x_compliance_framework", ListProperty(StringProperty)),
             ("x_grid_component_type", StringProperty()),
             ("x_criticality_level", IntegerProperty()),
+            ("x_conditions", ListProperty(StringProperty())),
+            ("x_delegation_expiry", ListProperty(StringProperty())),
+            ("x_delegation_level", ListProperty(IntegerProperty())),
+            ("x_delegation_scope", ListProperty(StringProperty())),
+            ("x_revocable", ListProperty(BooleanProperty())),
+            ("x_source_ref", StringProperty()),
+            ("x_target_ref", StringProperty()),
+            ("x_relationship_type", StringProperty()),
         ]
     )
 
     def __init__(self, **kwargs: Any) -> None:
-        """Initialize SolarPVSystem with Grid-STIX properties."""
+        """Initialize DelegatesAuthorityToRelationship with Grid-STIX properties."""
         # Set STIX type if not provided
         if "type" not in kwargs:
             kwargs["type"] = self._type

@@ -70,6 +70,14 @@ class Generator(GridSTIXDomainObject):
             ("x_compliance_framework", ListProperty(StringProperty)),
             ("x_grid_component_type", StringProperty()),
             ("x_criticality_level", IntegerProperty()),
+            ("x_efficiency_percentage", ListProperty(FloatProperty())),
+            ("x_emission_rate_tons_mwh", ListProperty(FloatProperty())),
+            ("x_fuel_type", ListProperty(StringProperty())),
+            ("x_generator_technology", ListProperty(StringProperty())),
+            ("x_minimum_load_mw", ListProperty(FloatProperty())),
+            ("x_power_rating_mw", ListProperty(FloatProperty())),
+            ("x_ramp_rate_mw_min", ListProperty(FloatProperty())),
+            ("x_startup_time_minutes", ListProperty(IntegerProperty())),
         ]
     )
 

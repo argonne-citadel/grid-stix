@@ -1,5 +1,5 @@
 """
-Generated class from Grid-STIX ontology.
+Nuclear power generation facilities using nuclear fission to produce electricity.
 
 This class was automatically generated from the Grid-STIX ontology.
 
@@ -33,10 +33,7 @@ from ..base import GridSTIXDomainObject
 
 class NuclearPowerPlant(GridSTIXDomainObject):
     """
-    Grid-STIX class: NuclearPowerPlant
-
-
-    This is an abstract class - it should not be instantiated directly.
+    Nuclear power generation facilities using nuclear fission to produce electricity.
 
     """
 

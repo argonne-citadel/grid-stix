@@ -1,5 +1,5 @@
 """
-Generated class from Grid-STIX ontology.
+Relationship indicating that one component feeds or supplies another.
 
 This class was automatically generated from the Grid-STIX ontology.
 
@@ -33,7 +33,7 @@ from ..base import GridSTIXRelationshipObject
 
 class FeedsRelationship(GridSTIXRelationshipObject):
     """
-    Grid-STIX class: FeedsRelationship
+    Relationship indicating that one component feeds or supplies another.
 
     """
 

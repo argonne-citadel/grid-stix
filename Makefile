@@ -10,6 +10,7 @@ COLOR_GREEN := $(ESC)[32m
 COLOR_RED := $(ESC)[31m
 COLOR_YELLOW := $(ESC)[33m
 
+MAMBA_EXE ?= micromamba
 MICROMAMBA_DEV := $(MAMBA_EXE) run -n grid-stix
 
 init: environment.yml

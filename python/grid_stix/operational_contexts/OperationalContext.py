@@ -35,6 +35,9 @@ class OperationalContext(GridSTIXDomainObject):
     """
     Base class for operational contexts affecting grid operations.
 
+
+    This is an abstract class - it should not be instantiated directly.
+
     """
 
     # STIX type identifier for this Grid-STIX object

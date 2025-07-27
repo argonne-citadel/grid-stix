@@ -70,6 +70,14 @@ class Substation(GridSTIXDomainObject):
             ("x_compliance_framework", ListProperty(StringProperty)),
             ("x_grid_component_type", StringProperty()),
             ("x_criticality_level", IntegerProperty()),
+            ("x_control_building_present", ListProperty(BooleanProperty())),
+            ("x_high_voltage_level_kv", ListProperty(FloatProperty())),
+            ("x_installed_capacity_mva", ListProperty(FloatProperty())),
+            ("x_low_voltage_level_kv", ListProperty(FloatProperty())),
+            ("x_number_of_feeders", ListProperty(IntegerProperty())),
+            ("x_scada_connectivity", ListProperty(BooleanProperty())),
+            ("x_substation_type", ListProperty(StringProperty())),
+            ("x_switchgear_type", ListProperty(StringProperty())),
         ]
     )
 

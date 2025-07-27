@@ -17,6 +17,15 @@ from .AggregatesRelationship import AggregatesRelationship
 from .AuthenticatesToRelationship import AuthenticatesToRelationship
 
 
+from .AuthenticatesWithRelationship import AuthenticatesWithRelationship
+
+
+from .AuthorizesAccessToRelationship import AuthorizesAccessToRelationship
+
+
+from .CertifiedByRelationship import CertifiedByRelationship
+
+
 from .ConnectsToRelationship import ConnectsToRelationship
 
 
@@ -32,7 +41,13 @@ from .ControlsRelationship import ControlsRelationship
 from .ConvertsForRelationship import ConvertsForRelationship
 
 
+from .DelegatesAuthorityToRelationship import DelegatesAuthorityToRelationship
+
+
 from .DependsOnRelationship import DependsOnRelationship
+
+
+from .EnforcesPolicyOnRelationship import EnforcesPolicyOnRelationship
 
 
 from .FeedsPowerToRelationship import FeedsPowerToRelationship
@@ -64,6 +79,9 @@ from .MonitoredByEnvironmentalSensorRelationship import (
 from .MonitorsRelationship import MonitorsRelationship
 
 
+from .MonitorsTrustOfRelationship import MonitorsTrustOfRelationship
+
+
 from .ProducesWasteRelationship import ProducesWasteRelationship
 
 
@@ -77,6 +95,9 @@ from .SuppliedByRelationship import SuppliedByRelationship
 
 
 from .TriggersRelationship import TriggersRelationship
+
+
+from .TrustsRelationship import TrustsRelationship
 
 
 from .UnionAllAssets import UnionAllAssets
@@ -102,6 +123,9 @@ from .UnionSecurityZoneOTDeviceCourseOfAction import (
 )
 
 
+from .VerifiesIdentityOfRelationship import VerifiesIdentityOfRelationship
+
+
 from .WithinSecurityZoneRelationship import WithinSecurityZoneRelationship
 
 
@@ -119,12 +143,17 @@ __all__ = [
     "AffectsOperationOfRelationship",
     "AggregatesRelationship",
     "AuthenticatesToRelationship",
+    "AuthenticatesWithRelationship",
+    "AuthorizesAccessToRelationship",
+    "CertifiedByRelationship",
     "ConnectsToRelationship",
     "ContainedInFacilityRelationship",
     "ContainsRelationship",
     "ControlsRelationship",
     "ConvertsForRelationship",
+    "DelegatesAuthorityToRelationship",
     "DependsOnRelationship",
+    "EnforcesPolicyOnRelationship",
     "FeedsPowerToRelationship",
     "FeedsRelationship",
     "GeneratesPowerForRelationship",
@@ -134,11 +163,13 @@ __all__ = [
     "LocatedAtRelationship",
     "MonitoredByEnvironmentalSensorRelationship",
     "MonitorsRelationship",
+    "MonitorsTrustOfRelationship",
     "ProducesWasteRelationship",
     "ProtectsAssetRelationship",
     "ProtectsRelationship",
     "SuppliedByRelationship",
     "TriggersRelationship",
+    "TrustsRelationship",
     "UnionAllAssets",
     "UnionOTDeviceGridComponent",
     "UnionOTDeviceIdentity",
@@ -146,5 +177,6 @@ __all__ = [
     "UnionPhysicalAssetOTDevice",
     "UnionSecurityZoneLocation",
     "UnionSecurityZoneOTDeviceCourseOfAction",
+    "VerifiesIdentityOfRelationship",
     "WithinSecurityZoneRelationship",
 ]

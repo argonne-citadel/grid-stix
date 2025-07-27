@@ -30,7 +30,7 @@ from stix2.utils import NOW  # type: ignore[import-untyped]
 
 from ..base import GridSTIXDomainObject
 
-from ..components import GridComponent
+from ..assets import GridComponent
 
 from ..assets import OTDevice
 

@@ -30,7 +30,7 @@ from stix2.utils import NOW  # type: ignore[import-untyped]
 
 from ..base import GridSTIXDomainObject
 
-from .DERMS import DERMS
+from .Derms import Derms
 
 
 class DistributionManagementSystem(GridSTIXDomainObject):

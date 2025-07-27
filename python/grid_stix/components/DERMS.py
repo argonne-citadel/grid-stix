@@ -31,7 +31,7 @@ from stix2.utils import NOW  # type: ignore[import-untyped]
 from ..base import GridSTIXDomainObject
 
 
-class DERMS(GridSTIXDomainObject):
+class Derms(GridSTIXDomainObject):
     """
     Distributed Energy Resource Management System. Coordinates DER assets across a grid area by enforcing policy, optimization, and real-time response.
 
@@ -78,7 +78,7 @@ class DERMS(GridSTIXDomainObject):
     )
 
     def __init__(self, **kwargs: Any) -> None:
-        """Initialize DERMS with Grid-STIX properties."""
+        """Initialize Derms with Grid-STIX properties."""
         # Set STIX type if not provided
         if "type" not in kwargs:
             kwargs["type"] = self._type

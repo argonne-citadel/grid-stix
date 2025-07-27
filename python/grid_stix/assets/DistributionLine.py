@@ -70,6 +70,13 @@ class DistributionLine(GridSTIXDomainObject):
             ("x_compliance_framework", ListProperty(StringProperty)),
             ("x_grid_component_type", StringProperty()),
             ("x_criticality_level", IntegerProperty()),
+            ("x_circuit_count", ListProperty(IntegerProperty())),
+            ("x_conductor_type", ListProperty(StringProperty())),
+            ("x_current_capacity_amps", ListProperty(FloatProperty())),
+            ("x_impedance_ohms_km", ListProperty(FloatProperty())),
+            ("x_length_km", ListProperty(FloatProperty())),
+            ("x_line_configuration", ListProperty(StringProperty())),
+            ("x_voltage_level_kv", ListProperty(FloatProperty())),
         ]
     )
 
