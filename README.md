@@ -1,18 +1,21 @@
 # Grid-STIX 2.1 Electrical Grid Cybersecurity Ontology
 
-Grid-STIX is a comprehensive extension of the STIX (Structured Threat Information Expression) 2.1 ontology specifically designed for electrical distribution grid cybersecurity applications. This ontology provides a standardized, machine-readable framework for modeling grid assets, operational technology devices, threats, vulnerabilities, supply chain risks, and security relationships in electrical power systems.
+Grid-STIX is a comprehensive extension of the STIX (Structured Threat Information Expression) 2.1 ontology specifically designed for electrical grid cybersecurity applications. This ontology provides a standardized, machine-readable framework for modeling grid assets, operational technology devices, threats, vulnerabilities, supply chain risks, and security relationships in electrical power systems.
 
-## 🌟 Key Features
+## Key Features
 
 - **Comprehensive Grid Coverage**: Physical assets, OT devices, grid components, sensors, and energy storage systems
+- **Zero Trust Architecture**: Policy decision points, enforcement points, trust brokers, and continuous monitoring
+- **AMI Infrastructure**: Advanced metering networks, head-end systems, mesh gateways, and MDM systems
 - **Advanced Security Modeling**: Attack patterns, vulnerabilities, mitigations, and supply chain risks
 - **Critical Grid Relationships**: Power flow, protection, control, and synchronization relationships
 - **Supply Chain Security**: Supplier modeling, country of origin tracking, and risk assessment
 - **Protocol Support**: DNP3, Modbus, IEC 61850, IEC 60870-5-104, OPC-UA, and IEEE standards
+- **Python Code Generation**: Automated STIX-compliant Python class generation from ontologies
 - **Interactive Visualization**: Enhanced HTML network graphs with grid-specific categorization
 - **STIX 2.1 Compliance**: Full compatibility with STIX threat intelligence ecosystem
 
-## 📂 Repository Structure
+## Repository Structure
 
 ```
 grid-stix/
@@ -28,12 +31,18 @@ grid-stix/
 │   └── grid-stix-2.1-relationships.owl       # Power flow, protection, control
 ├── environment.yml                           # Conda/Mamba environment specification
 ├── Makefile                                  # Build automation and workflows
+├── nuclear/                                  # Nuclear safeguards and security
+│   └── grid-stix-2.1-nuclear-safeguards.owl  # Nuclear facility security
 ├── observables/                              # Observable events and monitoring
 │   └── grid-stix-2.1-events-observables.owl  # Grid events, alarms, anomalies
-├── ontology_checker.py                       # Comprehensive validation script
-├── owl_to_html.py                            # Enhanced visualization generator
 ├── policy/                                   # Security policies and procedures
 │   └── grid-stix-2.1-policies.owl            # Grid security policies
+├── python/                                   # Generated Python STIX classes
+│   └── grid_stix/                            # Python package structure
+├── src/                                      # Source code and tools
+│   ├── generator/                            # Python code generation system
+│   ├── ontology_checker.py                  # Comprehensive validation script
+│   └── owl_to_html.py                       # Enhanced visualization generator
 ├── root/                                     # Root ontology integration
 │   └── grid-stix-2.1-root.owl                # Master ontology file
 ├── tac-ontology/                             # STIX 2.1 base ontologies
@@ -43,7 +52,7 @@ grid-stix/
     └── grid-stix-2.1-vocab.owl               # Open vocabularies and protocols
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -101,6 +110,8 @@ make check
 Runs comprehensive validation including:
 - Class hierarchy connectivity
 - Missing domain/range declarations
+- Unresolved type references and broken property mappings
+- URI naming conventions (kebab-case for classes/properties)
 - Label format consistency (snake_case)
 - Property declaration validation
 - STIX compliance verification
@@ -112,57 +123,28 @@ make html
 ```
 Creates `grid-stix.html` with enhanced electrical grid visualization.
 
-## 🎨 Advanced Visualization
-
-The enhanced `owl_to_html.py` tool provides Grid-STIX specific visualization capabilities:
-
-### Basic Usage
+**Generate Python STIX classes:**
 ```bash
-python owl_to_html.py grid-stix-2.1-full.owl output.html
+make generate
+```
+Creates complete Python package in `python/grid_stix/` with STIX-compliant classes for all ontology entities.
+
+## Visualization
+
+Generate interactive HTML visualizations to explore the ontology:
+
+```bash
+make html
 ```
 
-### Grid-STIX Specific Options
-
-**Focus on grid infrastructure:**
-```bash
-python owl_to_html.py --focus-infrastructure grid-stix-2.1-full.owl grid-infrastructure.html
-```
-
-**Focus on security concepts:**
-```bash
-python owl_to_html.py --focus-security grid-stix-2.1-full.owl grid-security.html
-```
-
-**Focus on supply chain security:**
-```bash
-python owl_to_html.py --focus-supply-chain grid-stix-2.1-full.owl supply-chain.html
-```
-
-**Show only Grid-STIX classes (exclude base STIX):**
-```bash
-python owl_to_html.py --grid-only grid-stix-2.1-full.owl grid-only.html
-```
-
-**Choose layout algorithm:**
-```bash
-python owl_to_html.py --layout twopi grid-stix-2.1-full.owl radial-layout.html
-# Available layouts: dot, twopi, neato, circo, spring
-```
-
-**Advanced filtering:**
-```bash
-python owl_to_html.py --exclude-prefix "Union_,stix" --no-inheritance grid-stix-2.1-full.owl clean-view.html
-```
-
-### Visualization Features
+This creates `grid-stix.html` with enhanced electrical grid visualization featuring:
 
 - **Color-coded categories**: Infrastructure (blue), Security (red), Supply chain (brown)
-- **Interactive hover**: Detailed information about each concept
+- **Interactive hover**: Detailed information about each concept  
 - **Hierarchical layout**: Clear visualization of STIX inheritance
-- **Relationship types**: Solid lines for relationships, dashed for inheritance
 - **Professional presentation**: Publication-ready titles and legends
 
-## 🏗️ Ontology Architecture
+##  Ontology Architecture
 
 ### Core Components
 
@@ -222,42 +204,40 @@ The ontology includes structured TODO comments for additional work:
 - `DistributionAutomationDevice` intelligent switching
 - Grid optimization functions and coordination
 
-## 🔍 Validation & Quality Assurance
+## Validation & Quality Assurance
 
-The `ontology_checker.py` script provides comprehensive validation:
+Comprehensive ontology validation to ensure consistency and compliance:
 
 ```bash
-# Basic validation
-python ontology_checker.py
-
-# Advanced options
-python ontology_checker.py --owl-file custom.owl --skip-checks "labels,domains"
+make check
 ```
 
 **Validation Categories:**
 - **Structural**: Class hierarchy integrity, relationship consistency
-- **Semantic**: Domain/range validation, property inheritance
-- **Syntactic**: Naming conventions, label formatting
+- **Semantic**: Domain/range validation, property inheritance, unresolved type references
+- **Syntactic**: URI naming conventions (kebab-case), label formatting (snake_case)
 - **Grid-specific**: Power system relationship validation
 - **STIX compliance**: Proper inheritance from STIX base classes
 
-## 🤝 Contributing
+## Contributing
 
 When contributing to Grid-STIX:
 
 1. **Development Cycle:**
    ```bash
    # Make your changes to appropriate files
-   make lint          # Format and validate syntax
+   make format        # Format code and OWL files
    make check         # Comprehensive ontology validation
+   make generate      # Generate Python classes
    make html          # Generate updated visualization
    ```
 
 2. **Best Practices:**
-   - Follow snake_case naming for all labels
+   - Use kebab-case for class and property URIs (e.g., `der-device`)
+   - Use snake_case for rdfs:label values (e.g., `der_device`)
    - Maintain proper STIX inheritance patterns
    - Add comprehensive comments for new concepts
-   - Test with both `--grid-only` and full visualizations
+   - Run `make check` to ensure validation passes
 
 3. **File Organization:**
    - Assets & infrastructure → `core/grid-stix-2.1-assets.owl`
@@ -265,22 +245,20 @@ When contributing to Grid-STIX:
    - Relationships → `core/grid-stix-2.1-relationships.owl`
    - Vocabularies → `vocabularies/grid-stix-2.1-vocab.owl`
 
-## 📊 Current Ontology Status
+## Current Ontology Status
 
-- **Classes**: 50+ grid-specific classes with proper STIX inheritance
-- **Relationships**: 25+ critical grid relationships including power flow and protection
-- **Protocols**: Complete coverage of major ICS/SCADA protocols
+- **Classes**: 230+ comprehensive classes including grid assets, zero trust components, and AMI infrastructure
+- **Relationships**: 40+ critical grid relationships including power flow, protection, and trust verification
+- **Protocols**: Complete coverage of major ICS/SCADA protocols (DNP3, Modbus, IEC standards)
+- **Zero Trust**: Policy decision points, enforcement points, trust brokers, and continuous monitoring
+- **AMI Infrastructure**: Head-end systems, mesh networks, meter data management systems
 - **Supply Chain**: Comprehensive supplier risk and verification modeling
-- **Extensibility**: Clear extension points for additional features
+- **Python Generation**: Full STIX-compliant Python class generation with all properties
+- **Validation**: Clean ontology validation with comprehensive consistency checking
 
-## 📚 Documentation & Resources
+## Documentation & Resources
 
 - **Interactive Visualization**: Run `make html` to explore the complete ontology
 - **Validation Reports**: Run `make check` for detailed consistency analysis
 - **Grid-STIX Specification**: See inline comments and class definitions
 - **STIX 2.1 Reference**: [OASIS STIX 2.1 Specification](https://docs.oasis-open.org/cti/stix/v2.1/)
-
-
----
-
-*Grid-STIX 2.1 - Advancing electrical grid cybersecurity through standardized threat intelligence modeling*
