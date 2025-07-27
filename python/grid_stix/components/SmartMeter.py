@@ -1,5 +1,5 @@
 """
-Standalone smart meter used for residential or commercial DER tracking, billing, and control integration.
+Standalone smart meter used for residential or commercial energy measurement, monitoring, and billing integration.
 
 This class was automatically generated from the Grid-STIX ontology.
 
@@ -33,7 +33,7 @@ from ..base import GridSTIXDomainObject
 
 class SmartMeter(GridSTIXDomainObject):
     """
-    Standalone smart meter used for residential or commercial DER tracking, billing, and control integration.
+    Standalone smart meter used for residential or commercial energy measurement, monitoring, and billing integration.
 
     """
 

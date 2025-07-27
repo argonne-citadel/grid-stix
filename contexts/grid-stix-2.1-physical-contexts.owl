@@ -19,31 +19,31 @@
     <rdfs:comment>The physical border surrounding locations where critical cyber assets are housed.</rdfs:comment>
     <rdfs:label>physical_security_perimeter</rdfs:label>
   </owl:Class>
-  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-physical-contexts.owl#facility_refs">
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-physical-contexts.owl#facility-refs">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-physical-contexts.owl#physical-security-context"/>
     <rdfs:range rdf:resource="http://docs.oasis-open.org/ns/cti/stix/location"/>
     <rdfs:comment>References to locations/facilities where the security event occurred.</rdfs:comment>
     <rdfs:label>facility_refs</rdfs:label>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-physical-contexts.owl#security_event_type">
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-physical-contexts.owl#security-event-type">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-physical-contexts.owl#physical-security-context"/>
     <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#security_event_type_ov"/>
     <rdfs:comment>The type of physical security event that occurred.</rdfs:comment>
     <rdfs:label>security_event_type</rdfs:label>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-physical-contexts.owl#security_zone">
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-physical-contexts.owl#security-zone">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-physical-contexts.owl#physical-security-context"/>
     <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#security_zone_type_ov"/>
     <rdfs:comment>The type of security zone where the event occurred.</rdfs:comment>
     <rdfs:label>security_zone</rdfs:label>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-physical-contexts.owl#response_status">
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-physical-contexts.owl#response-status">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-physical-contexts.owl#physical-security-context"/>
     <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#response_status_ov"/>
     <rdfs:comment>The current status of the response to the physical security event.</rdfs:comment>
     <rdfs:label>response_status</rdfs:label>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-physical-contexts.owl#has_context_physical_security">
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-physical-contexts.owl#has-context-physical-security">
     <rdfs:domain rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data"/>
     <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-physical-contexts.owl#physical-security-context"/>
     <rdfs:comment>Links an observed data record to a physical security context.</rdfs:comment>
@@ -55,7 +55,7 @@
     <rdfs:comment>Severity level of the physical security event on a scale of 1-5.</rdfs:comment>
     <rdfs:label>severity</rdfs:label>
   </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-physical-contexts.owl#detection_time">
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-physical-contexts.owl#detection-time">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-physical-contexts.owl#physical-security-context"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
     <rdfs:comment>Time when the physical security event was detected.</rdfs:comment>

@@ -1,5 +1,5 @@
 """
-Generated class from Grid-STIX ontology.
+Power electronic device that converts direct current (DC) to alternating current (AC) for grid integration of DER systems.
 
 This class was automatically generated from the Grid-STIX ontology.
 
@@ -33,7 +33,7 @@ from ..base import GridSTIXDomainObject
 
 class Inverter(GridSTIXDomainObject):
     """
-    Grid-STIX class: Inverter
+    Power electronic device that converts direct current (DC) to alternating current (AC) for grid integration of DER systems.
 
     """
 

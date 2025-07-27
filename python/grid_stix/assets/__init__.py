@@ -20,6 +20,9 @@ from .ElectronicSecurityPerimeter import ElectronicSecurityPerimeter
 from .Generator import Generator
 
 
+from .GridComponent import GridComponent
+
+
 from .OTDevice import OTDevice
 
 
@@ -53,12 +56,19 @@ from .Transformer import Transformer
 from .TransmissionLine import TransmissionLine
 
 
+# Resolve forward references
+
+
+GridComponent.model_rebuild()
+
+
 # Public API
 __all__ = [
     "ControlCenter",
     "DistributionLine",
     "ElectronicSecurityPerimeter",
     "Generator",
+    "GridComponent",
     "OTDevice",
     "OperationalGridEntity",
     "PhysicalAsset",

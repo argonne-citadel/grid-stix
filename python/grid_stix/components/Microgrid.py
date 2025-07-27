@@ -1,5 +1,5 @@
 """
-Generated class from Grid-STIX ontology.
+Local energy grid that can disconnect from the main transmission grid and operate autonomously using distributed energy resources.
 
 This class was automatically generated from the Grid-STIX ontology.
 
@@ -33,7 +33,7 @@ from ..base import GridSTIXDomainObject
 
 class Microgrid(GridSTIXDomainObject):
     """
-    Grid-STIX class: Microgrid
+    Local energy grid that can disconnect from the main transmission grid and operate autonomously using distributed energy resources.
 
     """
 

@@ -8,6 +8,9 @@ It contains Python classes corresponding to OWL classes in the ontology.
 # Import all classes from this module
 
 
+from .DerOperationalContext import DerOperationalContext
+
+
 from .EmergencyResponseContext import EmergencyResponseContext
 
 
@@ -25,6 +28,7 @@ from .OutageContext import OutageContext
 
 # Public API
 __all__ = [
+    "DerOperationalContext",
     "EmergencyResponseContext",
     "GridOperatingConditionContext",
     "MaintenanceContext",

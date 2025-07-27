@@ -1,5 +1,5 @@
 """
-Generated class from Grid-STIX ontology.
+Small-scale power generation and storage resources connected to the distribution grid.
 
 This class was automatically generated from the Grid-STIX ontology.
 
@@ -33,7 +33,10 @@ from ..base import GridSTIXDomainObject
 
 class DistributedEnergyResource(GridSTIXDomainObject):
     """
-    Grid-STIX class: DistributedEnergyResource
+    Small-scale power generation and storage resources connected to the distribution grid.
+
+
+    This is an abstract class - it should not be instantiated directly.
 
     """
 

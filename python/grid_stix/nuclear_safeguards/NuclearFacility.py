@@ -39,6 +39,9 @@ class NuclearFacility(GridSTIXDomainObject):
     """
     Nuclear facility subject to safeguards oversight and non-proliferation monitoring.
 
+
+    This is an abstract class - it should not be instantiated directly.
+
     """
 
     # STIX type identifier for this Grid-STIX object

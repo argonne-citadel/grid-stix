@@ -32,7 +32,7 @@ from ..base import GridSTIXDomainObject
 
 from ..vocab import DetectionMethodOv
 
-from ..components import GridComponent
+from ..assets import GridComponent
 
 from ..events_observables import GridEvent
 

@@ -1,9 +1,9 @@
 """
-Generated class from Grid-STIX ontology.
+Context information about digital certificates for zero trust validation.
 
 This class was automatically generated from the Grid-STIX ontology.
 
-Namespace: http://www.anl.gov/sss/grid-stix-2.1-components.owl
+Namespace: http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl
 
 """
 
@@ -30,20 +30,15 @@ from stix2.utils import NOW  # type: ignore[import-untyped]
 
 from ..base import GridSTIXDomainObject
 
-from ..assets import PhysicalAsset
 
-
-# Forward references will be resolved after all classes are defined
-
-
-class GridComponent(GridSTIXDomainObject):
+class CertificateContext(GridSTIXDomainObject):
     """
-    Grid-STIX class: GridComponent
+    Context information about digital certificates for zero trust validation.
 
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-gridcomponent"
+    _type = "x-grid-certificatecontext"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(
@@ -75,16 +70,21 @@ class GridComponent(GridSTIXDomainObject):
             ("x_compliance_framework", ListProperty(StringProperty)),
             ("x_grid_component_type", StringProperty()),
             ("x_criticality_level", IntegerProperty()),
-            ("x_component_of", ListProperty(StringProperty())),
-            ("x_connects_to", ListProperty(StringProperty())),
-            ("x_feeds", ListProperty(StringProperty())),
-            ("x_has_vulnerability", ListProperty(StringProperty())),
-            ("x_provides_service_to", ListProperty(StringProperty())),
+            ("x_certificate_id", ListProperty(StringProperty())),
+            ("x_certificate_purpose", ListProperty(StringProperty())),
+            ("x_certificate_status", ListProperty(StringProperty())),
+            ("x_certificate_type", ListProperty(StringProperty())),
+            ("x_issuer_authority", ListProperty(StringProperty())),
+            ("x_last_validation_check", ListProperty(StringProperty())),
+            ("x_revocation_reason", ListProperty(StringProperty())),
+            ("x_trust_chain_valid", ListProperty(BooleanProperty())),
+            ("x_validity_period_end", ListProperty(StringProperty())),
+            ("x_validity_period_start", ListProperty(StringProperty())),
         ]
     )
 
     def __init__(self, **kwargs: Any) -> None:
-        """Initialize GridComponent with Grid-STIX properties."""
+        """Initialize CertificateContext with Grid-STIX properties."""
         # Set STIX type if not provided
         if "type" not in kwargs:
             kwargs["type"] = self._type

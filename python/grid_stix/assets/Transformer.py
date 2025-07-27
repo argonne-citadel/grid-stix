@@ -70,6 +70,14 @@ class Transformer(GridSTIXDomainObject):
             ("x_compliance_framework", ListProperty(StringProperty)),
             ("x_grid_component_type", StringProperty()),
             ("x_criticality_level", IntegerProperty()),
+            ("x_cooling_type", ListProperty(StringProperty())),
+            ("x_impedance_percentage", ListProperty(FloatProperty())),
+            ("x_power_rating_mva", ListProperty(FloatProperty())),
+            ("x_tap_changer_type", ListProperty(StringProperty())),
+            ("x_transformer_type", ListProperty(StringProperty())),
+            ("x_voltage_primary_kv", ListProperty(FloatProperty())),
+            ("x_voltage_secondary_kv", ListProperty(FloatProperty())),
+            ("x_winding_configuration", ListProperty(StringProperty())),
         ]
     )
 

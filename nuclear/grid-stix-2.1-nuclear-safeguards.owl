@@ -14,9 +14,39 @@
   <!-- =============================================== -->
   
   <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#nuclear-facility">
-    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-components.owl#nuclear-power-plant"/>
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
     <rdfs:comment>Nuclear facility subject to safeguards oversight and non-proliferation monitoring.</rdfs:comment>
     <rdfs:label>nuclear_facility</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#research-reactor">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#nuclear-facility"/>
+    <rdfs:comment>Research reactor for scientific and educational purposes.</rdfs:comment>
+    <rdfs:label>research_reactor</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#enrichment-facility">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#nuclear-facility"/>
+    <rdfs:comment>Uranium enrichment facility for nuclear fuel production.</rdfs:comment>
+    <rdfs:label>enrichment_facility</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#reprocessing-facility">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#nuclear-facility"/>
+    <rdfs:comment>Nuclear fuel reprocessing facility for recovering fissile materials.</rdfs:comment>
+    <rdfs:label>reprocessing_facility</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#fuel-fabrication-facility">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#nuclear-facility"/>
+    <rdfs:comment>Nuclear fuel fabrication facility for manufacturing reactor fuel assemblies.</rdfs:comment>
+    <rdfs:label>fuel_fabrication_facility</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#waste-storage-facility">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#nuclear-facility"/>
+    <rdfs:comment>Nuclear waste storage and disposal facility for radioactive materials.</rdfs:comment>
+    <rdfs:label>waste_storage_facility</rdfs:label>
   </owl:Class>
 
   <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#material-balance-area">
@@ -69,35 +99,35 @@
   <!-- NUCLEAR SAFEGUARDS PROPERTIES -->
   <!-- =============================================== -->
   
-  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#facility_type">
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#facility-type">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#nuclear-facility"/>
     <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear_facility_type_ov"/>
     <rdfs:comment>Type of nuclear facility from controlled vocabulary.</rdfs:comment>
     <rdfs:label>facility_type</rdfs:label>
   </owl:ObjectProperty>
 
-  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#safeguards_agreement">
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#safeguards-agreement">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#nuclear-facility"/>
     <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#safeguards_agreement_type_ov"/>
     <rdfs:comment>Type of safeguards agreement governing the facility.</rdfs:comment>
     <rdfs:label>safeguards_agreement</rdfs:label>
   </owl:ObjectProperty>
 
-  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#material_type">
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#material-type">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#nuclear-material"/>
     <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#nuclear_material_type_ov"/>
     <rdfs:comment>Type of nuclear material from controlled vocabulary.</rdfs:comment>
     <rdfs:label>material_type</rdfs:label>
   </owl:ObjectProperty>
 
-  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#enrichment_level">
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#enrichment-level">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#nuclear-material"/>
     <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#enrichment_level_ov"/>
     <rdfs:comment>Enrichment level category of fissile material.</rdfs:comment>
     <rdfs:label>enrichment_level</rdfs:label>
   </owl:ObjectProperty>
 
-  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#detection_method">
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#detection-method">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#radiation-detection-system"/>
     <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#radiation_detection_method_ov"/>
     <rdfs:comment>Method used for radiation detection and measurement.</rdfs:comment>
@@ -108,35 +138,35 @@
   <!-- MATERIAL CONTROL PROPERTIES -->
   <!-- =============================================== -->
   
-  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#material_quantity_kg">
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#material-quantity-kg">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#nuclear-material"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
     <rdfs:comment>Quantity of nuclear material in kilograms.</rdfs:comment>
     <rdfs:label>material_quantity_kg</rdfs:label>
   </owl:DatatypeProperty>
 
-  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#u235_content_percent">
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#u235-content-percent">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#nuclear-material"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
     <rdfs:comment>Uranium-235 content as percentage of total uranium.</rdfs:comment>
     <rdfs:label>u235_content_percent</rdfs:label>
   </owl:DatatypeProperty>
 
-  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#measurement_uncertainty">
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#measurement-uncertainty">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#key-measurement-point"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
     <rdfs:comment>Measurement uncertainty as percentage for material accounting.</rdfs:comment>
     <rdfs:label>measurement_uncertainty</rdfs:label>
   </owl:DatatypeProperty>
 
-  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#inspection_frequency_days">
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#inspection-frequency-days">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#nuclear-facility"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
     <rdfs:comment>Required inspection frequency in days for safeguards verification.</rdfs:comment>
     <rdfs:label>inspection_frequency_days</rdfs:label>
   </owl:DatatypeProperty>
 
-  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#significant_quantity_threshold">
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#significant-quantity-threshold">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#material-balance-area"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
     <rdfs:comment>Significant quantity threshold for nuclear material in this area.</rdfs:comment>
@@ -147,35 +177,35 @@
   <!-- SAFEGUARDS RELATIONSHIPS -->
   <!-- =============================================== -->
   
-  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#monitors_material">
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#monitors-material">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#safeguards-system"/>
     <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#nuclear-material"/>
     <rdfs:comment>Indicates that a safeguards system monitors specific nuclear material.</rdfs:comment>
     <rdfs:label>monitors_material</rdfs:label>
   </owl:ObjectProperty>
 
-  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#contains_material">
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#contains-material">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#material-balance-area"/>
     <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#nuclear-material"/>
     <rdfs:comment>Indicates that a material balance area contains specific nuclear material.</rdfs:comment>
     <rdfs:label>contains_material</rdfs:label>
   </owl:ObjectProperty>
 
-  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#measures_at_point">
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#measures-at-point">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#material-accounting-system"/>
     <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#key-measurement-point"/>
     <rdfs:comment>Indicates that an accounting system takes measurements at a specific key measurement point.</rdfs:comment>
     <rdfs:label>measures_at_point</rdfs:label>
   </owl:ObjectProperty>
 
-  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#provides_containment_for">
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#provides-containment-for">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#containment-surveillance-system"/>
     <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#material-balance-area"/>
     <rdfs:comment>Indicates that a containment surveillance system provides containment for a material balance area.</rdfs:comment>
     <rdfs:label>provides_containment_for</rdfs:label>
   </owl:ObjectProperty>
 
-  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#subject_to_inspection">
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#subject-to-inspection">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#nuclear-facility"/>
     <rdfs:range rdf:resource="http://docs.oasis-open.org/ns/cti/stix/identity"/>
     <rdfs:comment>Indicates that a nuclear facility is subject to inspection by a regulatory authority.</rdfs:comment>
@@ -198,25 +228,206 @@
     <rdfs:label>safeguards_anomaly</rdfs:label>
   </owl:Class>
 
-  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#anomaly_type">
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#anomaly-type">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#safeguards-anomaly"/>
     <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#safeguards_anomaly_type_ov"/>
     <rdfs:comment>Type of safeguards anomaly from controlled vocabulary.</rdfs:comment>
     <rdfs:label>anomaly_type</rdfs:label>
   </owl:ObjectProperty>
 
-  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#material_unaccounted_for_kg">
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#material-unaccounted-for-kg">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#safeguards-anomaly"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
     <rdfs:comment>Quantity of nuclear material unaccounted for in kilograms.</rdfs:comment>
     <rdfs:label>material_unaccounted_for_kg</rdfs:label>
   </owl:DatatypeProperty>
 
-  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#detection_confidence">
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#detection-confidence">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#material-diversion-indicator"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
     <rdfs:comment>Confidence level for material diversion detection (0.0-1.0).</rdfs:comment>
     <rdfs:label>detection_confidence</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- =============================================== -->
+  <!-- RESEARCH REACTOR PROPERTIES -->
+  <!-- =============================================== -->
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#reactor-type">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#research-reactor"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Type of research reactor (pool, tank, TRIGA, fast breeder, etc.).</rdfs:comment>
+    <rdfs:label>reactor_type</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#thermal-power-mw">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#research-reactor"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Thermal power rating in megawatts.</rdfs:comment>
+    <rdfs:label>thermal_power_mw</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#moderator-type">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#research-reactor"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Neutron moderator type (light water, heavy water, graphite, etc.).</rdfs:comment>
+    <rdfs:label>moderator_type</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#fuel-enrichment-percent">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#research-reactor"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Uranium-235 enrichment percentage in reactor fuel.</rdfs:comment>
+    <rdfs:label>fuel_enrichment_percent</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#research-purpose">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#research-reactor"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Primary research purpose (neutron activation, isotope production, training, etc.).</rdfs:comment>
+    <rdfs:label>research_purpose</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- =============================================== -->
+  <!-- ENRICHMENT FACILITY PROPERTIES -->
+  <!-- =============================================== -->
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#enrichment-method">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#enrichment-facility"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Uranium enrichment technology (gas centrifuge, gaseous diffusion, laser, etc.).</rdfs:comment>
+    <rdfs:label>enrichment_method</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#separative-work-units-swu-year">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#enrichment-facility"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Annual separative work capacity in SWU (Separative Work Units).</rdfs:comment>
+    <rdfs:label>separative_work_units_swu_year</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#maximum-enrichment-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#enrichment-facility"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Maximum designed uranium-235 enrichment capability as percentage.</rdfs:comment>
+    <rdfs:label>maximum_enrichment_level</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#cascade-stages">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#enrichment-facility"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>Number of enrichment cascade stages in the facility.</rdfs:comment>
+    <rdfs:label>cascade_stages</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- =============================================== -->
+  <!-- REPROCESSING FACILITY PROPERTIES -->
+  <!-- =============================================== -->
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#reprocessing-method">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#reprocessing-facility"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Fuel reprocessing technology (PUREX, pyroprocessing, THOREX, etc.).</rdfs:comment>
+    <rdfs:label>reprocessing_method</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#annual-throughput-tonnes">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#reprocessing-facility"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Annual spent fuel processing capacity in metric tonnes.</rdfs:comment>
+    <rdfs:label>annual_throughput_tonnes</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#plutonium-separation-capability">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#reprocessing-facility"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether the facility can separate weapons-usable plutonium.</rdfs:comment>
+    <rdfs:label>plutonium_separation_capability</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#hot-cell-count">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#reprocessing-facility"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>Number of hot cells for remote handling of radioactive materials.</rdfs:comment>
+    <rdfs:label>hot_cell_count</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- =============================================== -->
+  <!-- FUEL FABRICATION FACILITY PROPERTIES -->
+  <!-- =============================================== -->
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#fuel-type-manufactured">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#fuel-fabrication-facility"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Type of nuclear fuel manufactured (UO2, MOX, TRISO, metallic, etc.).</rdfs:comment>
+    <rdfs:label>fuel_type_manufactured</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#annual-production-capacity-tonnes">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#fuel-fabrication-facility"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Annual fuel production capacity in metric tonnes uranium.</rdfs:comment>
+    <rdfs:label>annual_production_capacity_tonnes</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#mox-fuel-capability">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#fuel-fabrication-facility"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether the facility can fabricate mixed oxide (MOX) fuel containing plutonium.</rdfs:comment>
+    <rdfs:label>mox_fuel_capability</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#powder-conversion-process">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#fuel-fabrication-facility"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Process for converting uranium compounds to fuel powder (ADU, AUC, IDR, etc.).</rdfs:comment>
+    <rdfs:label>powder_conversion_process</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- =============================================== -->
+  <!-- WASTE STORAGE FACILITY PROPERTIES -->
+  <!-- =============================================== -->
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#waste-category">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#waste-storage-facility"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Category of nuclear waste stored (low-level, intermediate, high-level, spent fuel).</rdfs:comment>
+    <rdfs:label>waste_category</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#storage-method">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#waste-storage-facility"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Storage technology (dry cask, wet pool, deep geological, surface vault, etc.).</rdfs:comment>
+    <rdfs:label>storage_method</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#storage-capacity-cubic-meters">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#waste-storage-facility"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Total waste storage capacity in cubic meters.</rdfs:comment>
+    <rdfs:label>storage_capacity_cubic_meters</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#geological-depth-meters">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#waste-storage-facility"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Depth below surface for geological storage facilities in meters.</rdfs:comment>
+    <rdfs:label>geological_depth_meters</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#containment-barrier-count">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#waste-storage-facility"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>Number of engineered containment barriers for waste isolation.</rdfs:comment>
+    <rdfs:label>containment_barrier_count</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#interim-or-permanent">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl#waste-storage-facility"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Whether storage is interim or permanent (interim, permanent, repository).</rdfs:comment>
+    <rdfs:label>interim_or_permanent</rdfs:label>
   </owl:DatatypeProperty>
 
 </rdf:RDF>

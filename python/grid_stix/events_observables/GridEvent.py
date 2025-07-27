@@ -36,7 +36,7 @@ from ..vocab import DetectionMethodOv
 
 from ..operational_contexts import EmergencyResponseContext
 
-from ..components import GridComponent
+from ..assets import GridComponent
 
 from ..assets import OTDevice
 
