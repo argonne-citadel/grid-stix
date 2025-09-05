@@ -1,0 +1,290 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xml:base="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl">
+  <owl:Ontology rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl">
+    <owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/incident"/>
+    <owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data"/>
+    <owl:imports rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl"/>
+    <rdfs:label>grid_stix_2_1_operational_contexts</rdfs:label>
+    <rdfs:comment>Operational context definitions for Grid-STIX 2.1</rdfs:comment>
+  </owl:Ontology>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#operational-context">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data"/>
+    <rdfs:comment>Base class for operational contexts affecting grid operations.</rdfs:comment>
+    <rdfs:label>operational_context</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#emergency-response-context">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/incident"/>
+    <rdfs:comment>Context describing emergency response actions for the grid.</rdfs:comment>
+    <rdfs:label>emergency_response_context</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#grid-operating-condition-context">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data"/>
+    <rdfs:comment>Context representing real-time operating conditions of the grid.</rdfs:comment>
+    <rdfs:label>grid_operating_condition_context</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#maintenance-context">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data"/>
+    <rdfs:comment>Context describing planned or unplanned maintenance activities.</rdfs:comment>
+    <rdfs:label>maintenance_context</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#outage-context">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/incident"/>
+    <rdfs:comment>Context describing grid outages and service interruptions.</rdfs:comment>
+    <rdfs:label>outage_context</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#emergency-status">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#emergency-response-context"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#emergency_status_ov"/>
+    <rdfs:comment>Status of emergency response, e.g., deployed, resolved.</rdfs:comment>
+    <rdfs:label>emergency_status</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#emergency-type">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#emergency-response-context"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#emergency_type_ov"/>
+    <rdfs:comment>Type of emergency, e.g., fire, security breach.</rdfs:comment>
+    <rdfs:label>emergency_type</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#grid-operating-condition">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#grid-operating-condition-context"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#grid_operating_condition_ov"/>
+    <rdfs:comment>Current operating condition of the grid, e.g., normal, peak load.</rdfs:comment>
+    <rdfs:label>grid_operating_condition</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#maintenance-status">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#maintenance-context"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#maintenance_status_ov"/>
+    <rdfs:comment>Status of maintenance, e.g., scheduled, in-progress, complete.</rdfs:comment>
+    <rdfs:label>maintenance_status</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#maintenance-type">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#maintenance-context"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#maintenance_type_ov"/>
+    <rdfs:comment>Type of maintenance, e.g., routine, corrective.</rdfs:comment>
+    <rdfs:label>maintenance_type</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#monitoring-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#grid-operating-condition-context"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#monitoring_level_ov"/>
+    <rdfs:comment>Level of system monitoring in effect.</rdfs:comment>
+    <rdfs:label>monitoring_level</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#outage-cause">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#outage-context"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#outage_cause_ov"/>
+    <rdfs:comment>Cause of outage, e.g., equipment failure, weather.</rdfs:comment>
+    <rdfs:label>outage_cause</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#outage-type">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#outage-context"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#outage_type_ov"/>
+    <rdfs:comment>Type of outage, e.g., planned, unplanned.</rdfs:comment>
+    <rdfs:label>outage_type</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#response-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#emergency-response-context"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#response_level_ov"/>
+    <rdfs:comment>Severity or level of response.</rdfs:comment>
+    <rdfs:label>response_level</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#response-team-refs">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#emergency-response-context"/>
+    <rdfs:range rdf:resource="http://docs.oasis-open.org/ns/cti/stix/identity"/>
+    <rdfs:comment>References to response team identities involved.</rdfs:comment>
+    <rdfs:label>response_team_refs</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#voltage-status">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#grid-operating-condition-context"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#voltage_status_ov"/>
+    <rdfs:comment>Voltage status of the grid.</rdfs:comment>
+    <rdfs:label>voltage_status</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#operational-status">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#grid-operating-condition-context"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#operational_status_ov"/>
+    <rdfs:comment>Overall operational status of the grid component or system.</rdfs:comment>
+    <rdfs:label>operational_status</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#has-context-grid-operating-condition">
+    <rdfs:domain rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#grid-operating-condition-context"/>
+    <rdfs:comment>Links observed data to a real-time operating condition of the grid.</rdfs:comment>
+    <rdfs:label>has_context_grid_operating_condition</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#has-context-maintenance">
+    <rdfs:domain rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#maintenance-context"/>
+    <rdfs:comment>Links observed data to a maintenance context relevant to grid operations.</rdfs:comment>
+    <rdfs:label>hascontext_maintenance</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#actual-restore-time">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#outage-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Actual time when service was restored.</rdfs:comment>
+    <rdfs:label>actual_restore_time</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#current-load">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#grid-operating-condition-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Current load on the grid in megawatts.</rdfs:comment>
+    <rdfs:label>current_load</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#estimated-restore-time">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#outage-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Estimated time when service will be restored.</rdfs:comment>
+    <rdfs:label>estimated_restore_time</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#frequency">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#grid-operating-condition-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Current frequency of the grid in Hertz.</rdfs:comment>
+    <rdfs:label>frequency</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#maintenance-end-time">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#maintenance-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>End time of maintenance activity.</rdfs:comment>
+    <rdfs:label>maintenance_end_time</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#maintenance-start-time">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#maintenance-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Start time of maintenance activity.</rdfs:comment>
+    <rdfs:label>maintenance_start_time</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#outage-start-time">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#outage-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Time when the outage began.</rdfs:comment>
+    <rdfs:label>outage_start_time</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#emergency-description">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#emergency-response-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Textual description of the emergency situation.</rdfs:comment>
+    <rdfs:label>emergency_description</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#affected-customers">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#outage-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>Number of customers affected by the outage.</rdfs:comment>
+    <rdfs:label>affected_customers</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- =============================================== -->
+  <!-- DER OPERATIONAL CONTEXT FOR ZERO TRUST -->
+  <!-- =============================================== -->
+
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#der-operational-context">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#operational-context"/>
+    <rdfs:comment>Operational context specific to DER resources for zero trust decision-making.</rdfs:comment>
+    <rdfs:label>der_operational_context</rdfs:label>
+  </owl:Class>
+
+  <!-- DER Operational Context Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#der-resource-id">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#der-operational-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Unique identifier for the DER resource being monitored.</rdfs:comment>
+    <rdfs:label>der_resource_id</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#operational-mode">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#der-operational-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Current operational mode (importing, exporting, standby, charging, discharging).</rdfs:comment>
+    <rdfs:label>operational_mode</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#current-power-output">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#der-operational-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Current power output in kW (positive for export, negative for import).</rdfs:comment>
+    <rdfs:label>current_power_output</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#capacity-factor">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#der-operational-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Current capacity factor as percentage of rated capacity (0.0-1.0).</rdfs:comment>
+    <rdfs:label>capacity_factor</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#availability-status">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#der-operational-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Availability status (available, unavailable, maintenance, fault).</rdfs:comment>
+    <rdfs:label>availability_status</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#response-time-to-commands">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#der-operational-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+    <rdfs:comment>Average response time to grid operator commands.</rdfs:comment>
+    <rdfs:label>response_time_to_commands</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#market-bidding-behavior">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#der-operational-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Recent market bidding patterns and behavior characteristics.</rdfs:comment>
+    <rdfs:label>market_bidding_behavior</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#grid-service-participation">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#der-operational-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Current grid services being provided (frequency regulation, voltage support, etc.).</rdfs:comment>
+    <rdfs:label>grid_service_participation</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#last-performance-metric">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#der-operational-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Most recent performance metric score (0.0-1.0).</rdfs:comment>
+    <rdfs:label>last_performance_metric</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#operational-anomalies">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#der-operational-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Detected operational anomalies or unusual behavior patterns.</rdfs:comment>
+    <rdfs:label>operational_anomalies</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#der-trust-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#der-operational-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Trust level based on operational behavior and performance history (0.0-1.0).</rdfs:comment>
+    <rdfs:label>der_trust_level</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#grid-code-compliance-status">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#der-operational-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Compliance status with grid codes and technical requirements.</rdfs:comment>
+    <rdfs:label>grid_code_compliance_status</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#forecasted-availability">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#der-operational-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+    <rdfs:comment>Forecasted availability period for grid services.</rdfs:comment>
+    <rdfs:label>forecasted_availability</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#reactive-power-capability">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#der-operational-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Current reactive power capability in kVAR.</rdfs:comment>
+    <rdfs:label>reactive_power_capability</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#has-context-der-operational">
+    <rdfs:domain rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl#der-operational-context"/>
+    <rdfs:comment>Links observed data to DER operational context for zero trust decision-making.</rdfs:comment>
+    <rdfs:label>has_context_der_operational</rdfs:label>
+  </owl:ObjectProperty>
+
+</rdf:RDF>

@@ -1,0 +1,450 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xml:base="http://www.anl.gov/sss/grid-stix-2.1-policies.owl">
+  <owl:Ontology rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl">
+    <owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core"/>
+    <owl:imports rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl"/>
+    <owl:imports rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl"/>
+    <rdfs:label>grid_stix_2_1_policies</rdfs:label>
+    <rdfs:comment>Grid-STIX 2.1: Policy definitions extending STIX CourseOfAction</rdfs:comment>
+  </owl:Ontology>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#enforcement-action">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy-action"/>
+    <rdfs:comment>Action enforced when policy conditions are met (e.g., deny, alert).</rdfs:comment>
+    <rdfs:label>enforcement_action</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#enforcement-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#response_level_ov"/>
+    <rdfs:comment>Enforcement level or severity of policy action.</rdfs:comment>
+    <rdfs:label>enforcement_level</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#object-marking-refs">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://docs.oasis-open.org/ns/cti/data-marking/marking-definition"/>
+    <rdfs:comment>References to marking definitions for policy classification.</rdfs:comment>
+    <rdfs:label>object_marking_refs</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#applies-to-component">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+    <rdfs:comment>Reference to grid component to which the policy applies.</rdfs:comment>
+    <rdfs:label>applies_to_component</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#applies-to-zone">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#security-zone"/>
+    <rdfs:comment>Reference to security zone to which the policy applies.</rdfs:comment>
+    <rdfs:label>applies_to_zone</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#created-by">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://docs.oasis-open.org/ns/cti/stix/identity"/>
+    <rdfs:comment>Reference to the identity that created this policy.</rdfs:comment>
+    <rdfs:label>created_by</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#authorized-by">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://docs.oasis-open.org/ns/cti/stix/identity"/>
+    <rdfs:comment>Reference to the identity that authorized this policy.</rdfs:comment>
+    <rdfs:label>authorized_by</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#applies-to-device">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
+    <rdfs:comment>Reference to OT device to which the policy applies.</rdfs:comment>
+    <rdfs:label>applies_to_device</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#condition-expression">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Expression defining policy condition (e.g., Rego rule).</rdfs:comment>
+    <rdfs:label>condition_expression</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy-language">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Language in which the policy is written (e.g., Rego).</rdfs:comment>
+    <rdfs:label>policy_language</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy-rule">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>The policy rule or expression text.</rdfs:comment>
+    <rdfs:label>policy_rule</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#priority">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>Priority order for policy evaluation.</rdfs:comment>
+    <rdfs:label>priority</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#resource-type">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Type of resource the policy controls, e.g., grid component or zone.</rdfs:comment>
+    <rdfs:label>resource_type</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#subject-type">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Type of subject the policy applies to, e.g., user or device.</rdfs:comment>
+    <rdfs:label>subject_type</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#effective-from">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Date and time when the policy becomes effective.</rdfs:comment>
+    <rdfs:label>effective_from</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#effective-until">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Date and time when the policy expires.</rdfs:comment>
+    <rdfs:label>effective_until</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy-id">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Unique identifier for the policy.</rdfs:comment>
+    <rdfs:label>policy_id</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#version">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Version of the policy.</rdfs:comment>
+    <rdfs:label>version</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- Policy Lifecycle Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#lifecycle-stage">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Current lifecycle stage (Draft, Review, Approved, Active, Deprecated).</rdfs:comment>
+    <rdfs:label>lifecycle_stage</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#development-phase">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Development phase (Requirements, Design, Implementation, Testing).</rdfs:comment>
+    <rdfs:label>development_phase</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#testing-status">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Testing status (Not Tested, In Progress, Passed, Failed).</rdfs:comment>
+    <rdfs:label>testing_status</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#deployment-status">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Deployment status (Not Deployed, Staged, Production, Rollback).</rdfs:comment>
+    <rdfs:label>deployment_status</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#maintenance-schedule">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Scheduled maintenance and review intervals.</rdfs:comment>
+    <rdfs:label>maintenance_schedule</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- Compliance and Governance Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#regulatory-mapping">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Mapping to regulatory requirements (NERC CIP, NIST, etc.).</rdfs:comment>
+    <rdfs:label>regulatory_mapping</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#audit-requirement">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether this policy requires audit logging.</rdfs:comment>
+    <rdfs:label>audit_requirement</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#approval-workflow">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Required approval workflow steps and authorities.</rdfs:comment>
+    <rdfs:label>approval_workflow</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#compliance-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Required compliance level (Mandatory, Recommended, Optional).</rdfs:comment>
+    <rdfs:label>compliance_level</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#governance-framework">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Governance framework under which this policy operates.</rdfs:comment>
+    <rdfs:label>governance_framework</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- Implementation and Technical Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#enforcement-mechanism">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Technical mechanism used for policy enforcement.</rdfs:comment>
+    <rdfs:label>enforcement_mechanism</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#validation-criteria">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Criteria used to validate policy compliance.</rdfs:comment>
+    <rdfs:label>validation_criteria</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#exception-handling">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>How policy exceptions and violations are handled.</rdfs:comment>
+    <rdfs:label>exception_handling</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#technology-stack">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Technology stack required for policy implementation.</rdfs:comment>
+    <rdfs:label>technology_stack</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#deployment-target">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Target environment for policy deployment.</rdfs:comment>
+    <rdfs:label>deployment_target</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- Operational Management Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy-group">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Policy group or category for management purposes.</rdfs:comment>
+    <rdfs:label>policy_group</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#dependencies">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Other policies or systems this policy depends on.</rdfs:comment>
+    <rdfs:label>dependencies</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#conflict-resolution">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Strategy for resolving conflicts with other policies.</rdfs:comment>
+    <rdfs:label>conflict_resolution</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#escalation-procedure">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Escalation procedure for policy violations.</rdfs:comment>
+    <rdfs:label>escalation_procedure</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#rollback-procedure">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Procedure for rolling back policy changes.</rdfs:comment>
+    <rdfs:label>rollback_procedure</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- Performance and Monitoring Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#execution-frequency">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>How frequently the policy is evaluated or enforced.</rdfs:comment>
+    <rdfs:label>execution_frequency</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#performance-impact">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Expected performance impact of policy enforcement.</rdfs:comment>
+    <rdfs:label>performance_impact</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#compliance-percentage">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Current compliance percentage for this policy.</rdfs:comment>
+    <rdfs:label>compliance_percentage</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#violation-count">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>Number of policy violations detected.</rdfs:comment>
+    <rdfs:label>violation_count</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#monitoring-interval">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>Interval for policy compliance monitoring (minutes).</rdfs:comment>
+    <rdfs:label>monitoring_interval</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- Risk and Impact Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#risk-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Risk level if policy is not enforced (Low, Medium, High, Critical).</rdfs:comment>
+    <rdfs:label>risk_level</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#impact-assessment">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Assessment of operational impact when policy is enforced.</rdfs:comment>
+    <rdfs:label>impact_assessment</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#business-justification">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Business justification for implementing this policy.</rdfs:comment>
+    <rdfs:label>business_justification</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#cost-benefit-analysis">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Cost-benefit analysis for policy implementation.</rdfs:comment>
+    <rdfs:label>cost_benefit_analysis</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- Organizational and Training Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#stakeholder-groups">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Stakeholder groups affected by or involved in this policy.</rdfs:comment>
+    <rdfs:label>stakeholder_groups</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#training-requirement">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether training is required for policy implementation.</rdfs:comment>
+    <rdfs:label>training_requirement</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#documentation-references">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>References to related documentation and procedures.</rdfs:comment>
+    <rdfs:label>documentation_references</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#communication-plan">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Plan for communicating policy changes to stakeholders.</rdfs:comment>
+    <rdfs:label>communication_plan</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- Technical Integration Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#integration-points">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>System integration points required for policy enforcement.</rdfs:comment>
+    <rdfs:label>integration_points</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#api-endpoints">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>API endpoints used for policy management and enforcement.</rdfs:comment>
+    <rdfs:label>api_endpoints</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#data-sources">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Data sources required for policy evaluation.</rdfs:comment>
+    <rdfs:label>data_sources</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#notification-channels">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Notification channels for policy alerts and violations.</rdfs:comment>
+    <rdfs:label>notification_channels</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- Grid-Specific Policy Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#grid-impact-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Level of impact on grid operations (None, Low, Medium, High, Critical).</rdfs:comment>
+    <rdfs:label>grid_impact_level</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#operational-window">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Operational time window when policy should be enforced.</rdfs:comment>
+    <rdfs:label>operational_window</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#emergency-override">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether policy can be overridden during emergencies.</rdfs:comment>
+    <rdfs:label>emergency_override</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#safety-considerations">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Safety considerations related to policy enforcement.</rdfs:comment>
+    <rdfs:label>safety_considerations</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#reliability-impact">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Impact on grid reliability and stability.</rdfs:comment>
+    <rdfs:label>reliability_impact</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:Class rdf:about="http://docs.oasis-open.org/ns/cti/stix/course-of-action">
+    <rdfs:label>course_of_action</rdfs:label>
+  </owl:Class>
+  <!-- External STIX class reference - MarkingDefinition -->
+  <owl:Class rdf:about="http://docs.oasis-open.org/ns/cti/stix/identity">
+    <rdfs:label>identity</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/course-of-action"/>
+    <rdfs:comment>Base class for all policy types applied in grid environments.</rdfs:comment>
+    <rdfs:label>policy</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#access-policy">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:comment>Represents an access control policy applied to grid components or zones.</rdfs:comment>
+    <rdfs:label>access_policy</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#security-policy">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:comment>Represents a security policy enforcing security requirements in grid environments.</rdfs:comment>
+    <rdfs:label>security_policy</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#configuration-policy">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:comment>Represents a configuration policy defining required settings for grid components.</rdfs:comment>
+    <rdfs:label>configuration_policy</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#monitoring-policy">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy"/>
+    <rdfs:comment>Represents a monitoring policy defining monitoring requirements for grid components.</rdfs:comment>
+    <rdfs:label>monitoring_policy</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy-action">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/course-of-action"/>
+    <rdfs:comment>Represents possible actions that can be enforced by policies, inheriting from STIX Course of Action.</rdfs:comment>
+    <rdfs:label>policy_action</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#allow-action">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy-action"/>
+    <rdfs:comment>Action to allow an operation or access.</rdfs:comment>
+    <rdfs:label>allow_action</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#deny-action">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy-action"/>
+    <rdfs:comment>Action to deny an operation or access.</rdfs:comment>
+    <rdfs:label>deny_action</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#alert-action">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy-action"/>
+    <rdfs:comment>Action to generate an alert for monitoring.</rdfs:comment>
+    <rdfs:label>alert_action</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#log-action">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy-action"/>
+    <rdfs:comment>Action to log an operation or access.</rdfs:comment>
+    <rdfs:label>log_action</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#quarantine-action">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-policies.owl#policy-action"/>
+    <rdfs:comment>Action to isolate or quarantine a component.</rdfs:comment>
+    <rdfs:label>quarantine_action</rdfs:label>
+  </owl:Class>
+</rdf:RDF>

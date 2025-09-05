@@ -1,0 +1,1090 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xml:base="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl">
+  <owl:Ontology rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl">
+    <owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data"/>
+    <owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/indicator"/>
+    <owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/identity"/>
+    <owl:imports rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl"/>
+    <rdfs:label>grid_stix_2_1_cyber_contexts</rdfs:label>
+    <rdfs:comment>Cybersecurity context definitions for Grid-STIX 2.1</rdfs:comment>
+  </owl:Ontology>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#cybersecurity-posture">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data"/>
+    <rdfs:label>cybersecurity_posture</rdfs:label>
+    <rdfs:comment>
+      Cybersecurity Posture &#x2013; represents the current cybersecurity stance.
+    </rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#electronic-security-perimeter">
+    <rdfs:subClassOf rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#security-zone"/>
+    <rdfs:comment>A logical border surrounding a network where critical cyber assets are located, per NERC CIP standards.</rdfs:comment>
+    <rdfs:label>electronic_security_perimeter</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#trust-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#cybersecurity-posture"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#trust_level_ov"/>
+    <rdfs:comment>Specifies the trust level of a cybersecurity posture</rdfs:comment>
+    <rdfs:label>trust_level</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#alert-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#cybersecurity-posture"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#alert_level_ov"/>
+    <rdfs:comment>The current alert level for cybersecurity operations.</rdfs:comment>
+    <rdfs:label>alert_level</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#intelligence-sources">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#cybersecurity-posture"/>
+    <rdfs:range rdf:resource="http://docs.oasis-open.org/ns/cti/stix/indicator"/>
+    <rdfs:comment>References to intelligence indicators informing the posture.</rdfs:comment>
+    <rdfs:label>intelligence_sources</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#defensive-posture">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#cybersecurity-posture"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#defensive_posture_ov"/>
+    <rdfs:comment>The current defensive posture being maintained.</rdfs:comment>
+    <rdfs:label>defensive_posture</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#authentication-requirements">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#cybersecurity-posture"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#authentication_requirement_ov"/>
+    <rdfs:comment>Authentication requirements currently in place.</rdfs:comment>
+    <rdfs:label>authentication_requirements</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#monitoring-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#cybersecurity-posture"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#monitoring_level_ov"/>
+    <rdfs:comment>The level of monitoring currently in effect.</rdfs:comment>
+    <rdfs:label>monitoring_level</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#authorized-by">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#cybersecurity-posture"/>
+    <rdfs:range rdf:resource="http://docs.oasis-open.org/ns/cti/stix/identity"/>
+    <rdfs:comment>Identity of the authority who authorized the posture.</rdfs:comment>
+    <rdfs:label>authorized_by</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#incident-response-status">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#cybersecurity-posture"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl#incident_response_status_ov"/>
+    <rdfs:comment>Current status of incident response team.</rdfs:comment>
+    <rdfs:label>incident_response_status</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#has-context-cybersecurity-posture">
+    <rdfs:domain rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data"/>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#cybersecurity-posture"/>
+    <rdfs:comment>Links an observed data record to a cybersecurity posture context.</rdfs:comment>
+    <rdfs:label>has_context_cybersecurity_posture</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#reason-for-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#cybersecurity-posture"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Explanation for the current alert level.</rdfs:comment>
+    <rdfs:label>reason_for_level</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#review-time">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#cybersecurity-posture"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Time when the posture was last reviewed.</rdfs:comment>
+    <rdfs:label>review_time</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#special-access-controls">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#cybersecurity-posture"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Description of any special access controls in place.</rdfs:comment>
+    <rdfs:label>special_access_controls</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- =============================================== -->
+  <!-- ZERO TRUST COMMUNICATION ENTITIES -->
+  <!-- =============================================== -->
+
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#communication-session">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data"/>
+    <rdfs:comment>Real-time communication session between grid devices for zero trust monitoring and policy enforcement.</rdfs:comment>
+    <rdfs:label>communication_session</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#api-endpoint">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/infrastructure"/>
+    <rdfs:comment>API endpoint providing access to grid services and data with specific security requirements.</rdfs:comment>
+    <rdfs:label>api_endpoint</rdfs:label>
+  </owl:Class>
+
+  <!-- Communication Session Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#session-id">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#communication-session"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Unique identifier for the communication session.</rdfs:comment>
+    <rdfs:label>session_id</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#protocol-type">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#communication-session"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Communication protocol used (DNP3, IEC 61850, MQTT, HTTPS, etc.).</rdfs:comment>
+    <rdfs:label>protocol_type</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#encryption-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#communication-session"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Encryption level (none, TLS1.2, TLS1.3, AES256, etc.).</rdfs:comment>
+    <rdfs:label>encryption_level</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#authentication-method">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#communication-session"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Authentication method used (certificate, token, shared-key, multi-factor).</rdfs:comment>
+    <rdfs:label>authentication_method</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#session-start-time">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#communication-session"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Timestamp when the communication session was initiated.</rdfs:comment>
+    <rdfs:label>session_start_time</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#last-heartbeat">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#communication-session"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Timestamp of last heartbeat or keepalive message.</rdfs:comment>
+    <rdfs:label>last_heartbeat</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#session-trust-score">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#communication-session"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Current trust score for this communication session (0.0-1.0).</rdfs:comment>
+    <rdfs:label>session_trust_score</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- API Endpoint Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#endpoint-url">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#api-endpoint"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>URL or URI of the API endpoint.</rdfs:comment>
+    <rdfs:label>endpoint_url</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#rate-limits">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#api-endpoint"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Rate limiting configuration (requests per minute/hour).</rdfs:comment>
+    <rdfs:label>rate_limits</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#authentication-required">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#api-endpoint"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether authentication is required to access this endpoint.</rdfs:comment>
+    <rdfs:label>authentication_required</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#authorization-scopes">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#api-endpoint"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Required authorization scopes or permissions for endpoint access.</rdfs:comment>
+    <rdfs:label>authorization_scopes</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- =============================================== -->
+  <!-- DER AGGREGATION AND MARKET ENTITIES -->
+  <!-- =============================================== -->
+
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#der-aggregator">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/identity"/>
+    <rdfs:comment>Entity that manages multiple DER resources for market participation and grid services.</rdfs:comment>
+    <rdfs:label>der_aggregator</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#grid-service-contract">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data"/>
+    <rdfs:comment>Agreement for grid services between aggregators, DER owners, and grid operators.</rdfs:comment>
+    <rdfs:label>grid_service_contract</rdfs:label>
+  </owl:Class>
+
+  <!-- DER Aggregator Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#aggregator-id">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#der-aggregator"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Unique identifier for the DER aggregator in the market system.</rdfs:comment>
+    <rdfs:label>aggregator_id</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#managed-der-count">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#der-aggregator"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>Number of DER resources currently managed by this aggregator.</rdfs:comment>
+    <rdfs:label>managed_der_count</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#total-capacity-managed">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#der-aggregator"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Total capacity (in MW) of all DER resources under management.</rdfs:comment>
+    <rdfs:label>total_capacity_managed</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#service-types-offered">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#der-aggregator"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Types of grid services offered (frequency regulation, voltage support, load following, etc.).</rdfs:comment>
+    <rdfs:label>service_types_offered</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#market-participation-status">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#der-aggregator"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Current status in energy markets (active, suspended, qualified, pending).</rdfs:comment>
+    <rdfs:label>market_participation_status</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#aggregation-trust-score">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#der-aggregator"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Trust score for this aggregator based on performance history (0.0-1.0).</rdfs:comment>
+    <rdfs:label>aggregation_trust_score</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#certification-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#der-aggregator"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Level of certification (basic, advanced, premium) for grid service provision.</rdfs:comment>
+    <rdfs:label>certification_level</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#last-bid-timestamp">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#der-aggregator"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Timestamp of the last bid submission to energy markets.</rdfs:comment>
+    <rdfs:label>last_bid_timestamp</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#performance-score">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#der-aggregator"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Performance score based on service delivery accuracy (0.0-1.0).</rdfs:comment>
+    <rdfs:label>performance_score</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- Grid Service Contract Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#contract-id">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#grid-service-contract"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Unique identifier for the grid service contract.</rdfs:comment>
+    <rdfs:label>contract_id</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#service-type">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#grid-service-contract"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Type of grid service (frequency regulation, voltage support, load following, reserves).</rdfs:comment>
+    <rdfs:label>service_type</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#contract-duration">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#grid-service-contract"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+    <rdfs:comment>Duration of the service contract.</rdfs:comment>
+    <rdfs:label>contract_duration</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#performance-requirements">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#grid-service-contract"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Technical performance requirements and metrics for service delivery.</rdfs:comment>
+    <rdfs:label>performance_requirements</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#payment-terms">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#grid-service-contract"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Payment structure and terms for service provision.</rdfs:comment>
+    <rdfs:label>payment_terms</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#compliance-status">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#grid-service-contract"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Current compliance status (compliant, non-compliant, under-review).</rdfs:comment>
+    <rdfs:label>compliance_status</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#last-performance-check">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#grid-service-contract"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Timestamp of last performance evaluation.</rdfs:comment>
+    <rdfs:label>last_performance_check</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#breach-count">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#grid-service-contract"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>Number of contract breaches or performance failures.</rdfs:comment>
+    <rdfs:label>breach_count</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#contract-trust-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#grid-service-contract"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Trust level for this contract based on performance history (0.0-1.0).</rdfs:comment>
+    <rdfs:label>contract_trust_level</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- =============================================== -->
+  <!-- REAL-TIME TRUST AND RISK ASSESSMENT -->
+  <!-- =============================================== -->
+
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#real-time-trust-assessment">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data"/>
+    <rdfs:comment>Real-time trust evaluation of grid entities for zero trust decision-making.</rdfs:comment>
+    <rdfs:label>real_time_trust_assessment</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#risk-assessment">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data"/>
+    <rdfs:comment>Current risk assessment for grid entities and operations.</rdfs:comment>
+    <rdfs:label>risk_assessment</rdfs:label>
+  </owl:Class>
+
+  <!-- Real-Time Trust Assessment Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#assessment-id">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#real-time-trust-assessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Unique identifier for the trust assessment instance.</rdfs:comment>
+    <rdfs:label>assessment_id</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#entity-being-assessed">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#real-time-trust-assessment"/>
+    <rdfs:range rdf:resource="http://docs.oasis-open.org/ns/cti/stix/sdo"/>
+    <rdfs:comment>Reference to the entity being assessed for trust.</rdfs:comment>
+    <rdfs:label>entity_being_assessed</rdfs:label>
+  </owl:ObjectProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#current-trust-score">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#real-time-trust-assessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Current trust score for the entity (0.0-1.0).</rdfs:comment>
+    <rdfs:label>current_trust_score</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#trust-factors">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#real-time-trust-assessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Factors contributing to trust score (behavioral patterns, communication patterns, etc.).</rdfs:comment>
+    <rdfs:label>trust_factors</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#assessment-timestamp">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#real-time-trust-assessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Timestamp when this trust assessment was performed.</rdfs:comment>
+    <rdfs:label>assessment_timestamp</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#assessment-validity-period">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#real-time-trust-assessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+    <rdfs:comment>How long this assessment remains valid for decision-making.</rdfs:comment>
+    <rdfs:label>assessment_validity_period</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#confidence-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#real-time-trust-assessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Confidence level in the trust assessment (0.0-1.0).</rdfs:comment>
+    <rdfs:label>confidence_level</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#anomaly-indicators">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#real-time-trust-assessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Detected anomalies affecting trust (unusual communication patterns, behavior changes, etc.).</rdfs:comment>
+    <rdfs:label>anomaly_indicators</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#behavioral-baseline-deviation">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#real-time-trust-assessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Deviation from established behavioral baseline (0.0-1.0).</rdfs:comment>
+    <rdfs:label>behavioral_baseline_deviation</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- Risk Assessment Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#risk-assessment-id">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#risk-assessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Unique identifier for the risk assessment instance.</rdfs:comment>
+    <rdfs:label>risk_assessment_id</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#risk-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#risk-assessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Current risk level (low, medium, high, critical).</rdfs:comment>
+    <rdfs:label>risk_level</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#risk-factors">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#risk-assessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Factors contributing to current risk assessment.</rdfs:comment>
+    <rdfs:label>risk_factors</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#threat-indicators">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#risk-assessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Active threat indicators affecting risk level.</rdfs:comment>
+    <rdfs:label>threat_indicators</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#impact-assessment">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#risk-assessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Potential impact if risk materializes.</rdfs:comment>
+    <rdfs:label>impact_assessment</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#likelihood-score">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#risk-assessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Likelihood of risk materializing (0.0-1.0).</rdfs:comment>
+    <rdfs:label>likelihood_score</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#risk-timestamp">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#risk-assessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Timestamp when this risk assessment was performed.</rdfs:comment>
+    <rdfs:label>risk_timestamp</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#mitigation-status">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#risk-assessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Status of risk mitigation efforts (none, in-progress, completed).</rdfs:comment>
+    <rdfs:label>mitigation_status</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#escalation-required">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#risk-assessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether this risk requires escalation to higher authority.</rdfs:comment>
+    <rdfs:label>escalation_required</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- =============================================== -->
+  <!-- NETWORK SEGMENTATION AND ISOLATION -->
+  <!-- =============================================== -->
+
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#network-segment">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/infrastructure"/>
+    <rdfs:comment>Network segment with specific security and access control policies.</rdfs:comment>
+    <rdfs:label>network_segment</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#isolation-policy">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data"/>
+    <rdfs:comment>Policy defining isolation requirements and procedures for network entities.</rdfs:comment>
+    <rdfs:label>isolation_policy</rdfs:label>
+  </owl:Class>
+
+  <!-- Network Segment Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#segment-id">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#network-segment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Unique identifier for the network segment.</rdfs:comment>
+    <rdfs:label>segment_id</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#segment-type">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#network-segment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Type of network segment (OT, IT, DMZ, management, guest, etc.).</rdfs:comment>
+    <rdfs:label>segment_type</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#trust-zone">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#network-segment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Trust zone classification (trusted, untrusted, restricted, quarantine).</rdfs:comment>
+    <rdfs:label>trust_zone</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#security-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#network-segment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Security classification level (public, internal, confidential, restricted).</rdfs:comment>
+    <rdfs:label>security_level</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#allowed-protocols">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#network-segment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>List of allowed communication protocols for this segment.</rdfs:comment>
+    <rdfs:label>allowed_protocols</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#access-control-rules">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#network-segment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Access control rules and restrictions for this segment.</rdfs:comment>
+    <rdfs:label>access_control_rules</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#segment-monitoring-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#network-segment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Level of monitoring applied to this segment (none, basic, enhanced, full).</rdfs:comment>
+    <rdfs:label>segment_monitoring_level</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#inter-segment-communication-allowed">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#network-segment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether communication with other segments is allowed.</rdfs:comment>
+    <rdfs:label>inter_segment_communication_allowed</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- Isolation Policy Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#isolation-policy-id">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#isolation-policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Unique identifier for the isolation policy.</rdfs:comment>
+    <rdfs:label>isolation_policy_id</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#isolation-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#isolation-policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Level of isolation (none, partial, full, quarantine).</rdfs:comment>
+    <rdfs:label>isolation_level</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#quarantine-status">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#isolation-policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether the entity is currently in quarantine.</rdfs:comment>
+    <rdfs:label>quarantine_status</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#isolation-reason">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#isolation-policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Reason for isolation (security threat, policy violation, maintenance, etc.).</rdfs:comment>
+    <rdfs:label>isolation_reason</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#isolation-start-time">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#isolation-policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Timestamp when isolation was initiated.</rdfs:comment>
+    <rdfs:label>isolation_start_time</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#isolation-duration">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#isolation-policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+    <rdfs:comment>Expected or maximum duration of isolation.</rdfs:comment>
+    <rdfs:label>isolation_duration</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#bypass-conditions">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#isolation-policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Conditions under which isolation can be bypassed or lifted.</rdfs:comment>
+    <rdfs:label>bypass_conditions</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#isolation-escalation-required">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#isolation-policy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether this isolation requires management escalation.</rdfs:comment>
+    <rdfs:label>isolation_escalation_required</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- =============================================== -->
+  <!-- CERTIFICATE AND CREDENTIAL MANAGEMENT -->
+  <!-- =============================================== -->
+
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#certificate-context">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data"/>
+    <rdfs:comment>Context information about digital certificates for zero trust validation.</rdfs:comment>
+    <rdfs:label>certificate_context</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#credential-context">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data"/>
+    <rdfs:comment>Context information about user and device credentials for authentication decisions.</rdfs:comment>
+    <rdfs:label>credential_context</rdfs:label>
+  </owl:Class>
+
+  <!-- Certificate Context Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#certificate-id">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#certificate-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Unique identifier or serial number of the certificate.</rdfs:comment>
+    <rdfs:label>certificate_id</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#certificate-type">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#certificate-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Type of certificate (X.509, IEC 62351, device certificate, user certificate, etc.).</rdfs:comment>
+    <rdfs:label>certificate_type</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#issuer-authority">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#certificate-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Certificate authority that issued this certificate.</rdfs:comment>
+    <rdfs:label>issuer_authority</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#validity-period-start">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#certificate-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Start date of certificate validity period.</rdfs:comment>
+    <rdfs:label>validity_period_start</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#validity-period-end">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#certificate-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>End date of certificate validity period.</rdfs:comment>
+    <rdfs:label>validity_period_end</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#certificate-status">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#certificate-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Current status (valid, expired, revoked, suspended, pending).</rdfs:comment>
+    <rdfs:label>certificate_status</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#revocation-reason">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#certificate-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Reason for certificate revocation if applicable.</rdfs:comment>
+    <rdfs:label>revocation_reason</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#trust-chain-valid">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#certificate-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether the certificate trust chain is valid.</rdfs:comment>
+    <rdfs:label>trust_chain_valid</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#certificate-purpose">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#certificate-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Purpose of certificate (authentication, encryption, digital signature, etc.).</rdfs:comment>
+    <rdfs:label>certificate_purpose</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#last-validation-check">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#certificate-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Timestamp of last certificate validation check.</rdfs:comment>
+    <rdfs:label>last_validation_check</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- Credential Context Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#credential-id">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#credential-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Unique identifier for the credential.</rdfs:comment>
+    <rdfs:label>credential_id</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#credential-type">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#credential-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Type of credential (password, token, certificate, biometric, API key, etc.).</rdfs:comment>
+    <rdfs:label>credential_type</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#authentication-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#credential-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Authentication assurance level (basic, medium, high, very-high).</rdfs:comment>
+    <rdfs:label>authentication_level</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#last-authentication-time">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#credential-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Timestamp of last successful authentication using this credential.</rdfs:comment>
+    <rdfs:label>last_authentication_time</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#credential-strength-score">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#credential-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Strength score of the credential (0.0-1.0).</rdfs:comment>
+    <rdfs:label>credential_strength_score</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#multi-factor-enabled">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#credential-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether multi-factor authentication is enabled for this credential.</rdfs:comment>
+    <rdfs:label>multi_factor_enabled</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#credential-age">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#credential-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+    <rdfs:comment>Age of the credential since creation or last rotation.</rdfs:comment>
+    <rdfs:label>credential_age</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#rotation-required">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#credential-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether credential rotation is required.</rdfs:comment>
+    <rdfs:label>rotation_required</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#privilege-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#credential-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Privilege level associated with this credential (user, admin, operator, emergency).</rdfs:comment>
+    <rdfs:label>privilege_level</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#access-scope">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#credential-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Scope of access granted by this credential (system, application, resource specific).</rdfs:comment>
+    <rdfs:label>access_scope</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- =============================================== -->
+  <!-- POLICY-RELEVANT OPERATIONAL STATE -->
+  <!-- =============================================== -->
+
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-context">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data"/>
+    <rdfs:comment>Current operational state relevant for zero trust policy decisions by OPA.</rdfs:comment>
+    <rdfs:label>policy_decision_context</rdfs:label>
+  </owl:Class>
+
+  <!-- Policy Decision Context Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#decision-context-id">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Unique identifier for this policy decision context.</rdfs:comment>
+    <rdfs:label>decision_context_id</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#current-grid-state">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Current operational state of the grid (normal, emergency, peak-load, maintenance, islanded).</rdfs:comment>
+    <rdfs:label>current_grid_state</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#security-posture-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Current security posture level (green, yellow, orange, red, critical).</rdfs:comment>
+    <rdfs:label>security_posture_level</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#active-threats-count">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>Number of active threats detected in the system.</rdfs:comment>
+    <rdfs:label>active_threats_count</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#emergency-mode-active">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether emergency operating mode is currently active.</rdfs:comment>
+    <rdfs:label>emergency_mode_active</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#maintenance-window-active">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether a scheduled maintenance window is currently active.</rdfs:comment>
+    <rdfs:label>maintenance_window_active</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#peak-demand-period">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether the grid is currently in a peak demand period.</rdfs:comment>
+    <rdfs:label>peak_demand_period</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#critical-asset-offline-count">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>Number of critical assets currently offline or unavailable.</rdfs:comment>
+    <rdfs:label>critical_asset_offline_count</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#der-participation-rate">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Current rate of DER participation in grid services (0.0-1.0).</rdfs:comment>
+    <rdfs:label>der_participation_rate</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#system-load-factor">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Current system load factor as percentage of capacity (0.0-1.0).</rdfs:comment>
+    <rdfs:label>system_load_factor</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#frequency-deviation">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Current frequency deviation from nominal (in Hz).</rdfs:comment>
+    <rdfs:label>frequency_deviation</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#voltage-stability-margin">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Current voltage stability margin (percentage).</rdfs:comment>
+    <rdfs:label>voltage_stability_margin</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#weather-impact-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Current weather impact level on grid operations (none, low, moderate, high, severe).</rdfs:comment>
+    <rdfs:label>weather_impact_level</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#regulatory-compliance-status">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Current regulatory compliance status (compliant, warning, violation, under-review).</rdfs:comment>
+    <rdfs:label>regulatory_compliance_status</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#cyber-incident-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Current cyber incident severity level (none, low, medium, high, critical).</rdfs:comment>
+    <rdfs:label>cyber_incident_level</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#market-conditions">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Current energy market conditions affecting operations (normal, volatile, constrained, emergency).</rdfs:comment>
+    <rdfs:label>market_conditions</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#operator-alert-level">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Current operator alert level (green, yellow, orange, red).</rdfs:comment>
+    <rdfs:label>operator_alert_level</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#automated-response-enabled">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether automated emergency response systems are currently enabled.</rdfs:comment>
+    <rdfs:label>automated_response_enabled</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#decision-timestamp">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Timestamp when this policy decision context was captured.</rdfs:comment>
+    <rdfs:label>decision_timestamp</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#context-validity-duration">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-context"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+    <rdfs:comment>How long this context remains valid for policy decisions.</rdfs:comment>
+    <rdfs:label>context_validity_duration</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- =============================================== -->
+  <!-- ZERO TRUST ARCHITECTURE COMPONENTS -->
+  <!-- =============================================== -->
+
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-point">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/infrastructure"/>
+    <rdfs:comment>Policy Decision Point (PDP) that evaluates access requests against policies for zero trust authorization.</rdfs:comment>
+    <rdfs:label>policy_decision_point</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-enforcement-point">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/infrastructure"/>
+    <rdfs:comment>Policy Enforcement Point (PEP) that enforces access control decisions from the PDP.</rdfs:comment>
+    <rdfs:label>policy_enforcement_point</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#trust-broker">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/infrastructure"/>
+    <rdfs:comment>Central trust broker that manages trust relationships and scoring for zero trust decisions.</rdfs:comment>
+    <rdfs:label>trust_broker</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#identity-verification-service">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/infrastructure"/>
+    <rdfs:comment>Service that verifies and validates identities for zero trust authentication.</rdfs:comment>
+    <rdfs:label>identity_verification_service</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#continuous-monitoring-agent">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/infrastructure"/>
+    <rdfs:comment>Agent that continuously monitors devices and users for behavioral changes and anomalies.</rdfs:comment>
+    <rdfs:label>continuous_monitoring_agent</rdfs:label>
+  </owl:Class>
+
+  <!-- Policy Decision Point Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#pdp-instance-id">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-point"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Unique identifier for this PDP instance.</rdfs:comment>
+    <rdfs:label>pdp_instance_id</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-evaluation-time-ms">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-point"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>Average time to evaluate policies in milliseconds.</rdfs:comment>
+    <rdfs:label>policy_evaluation_time_ms</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policies-loaded-count">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-point"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>Number of policies currently loaded in the PDP.</rdfs:comment>
+    <rdfs:label>policies_loaded_count</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#decision-cache-enabled">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-decision-point"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment>Whether decision caching is enabled for performance.</rdfs:comment>
+    <rdfs:label>decision_cache_enabled</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- Policy Enforcement Point Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#pep-instance-id">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-enforcement-point"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Unique identifier for this PEP instance.</rdfs:comment>
+    <rdfs:label>pep_instance_id</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#enforcement-mode">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-enforcement-point"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Enforcement mode (block, allow, monitor, log-only).</rdfs:comment>
+    <rdfs:label>enforcement_mode</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#requests-per-second">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-enforcement-point"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Current request rate being processed by this PEP.</rdfs:comment>
+    <rdfs:label>requests_per_second</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#blocked-requests-count">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#policy-enforcement-point"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>Number of requests blocked by this PEP in the current period.</rdfs:comment>
+    <rdfs:label>blocked_requests_count</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- Trust Broker Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#trust-broker-id">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#trust-broker"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Unique identifier for this trust broker instance.</rdfs:comment>
+    <rdfs:label>trust_broker_id</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#managed-entities-count">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#trust-broker"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>Number of entities currently managed by this trust broker.</rdfs:comment>
+    <rdfs:label>managed_entities_count</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#trust-score-algorithm">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#trust-broker"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Algorithm used for trust score calculation.</rdfs:comment>
+    <rdfs:label>trust_score_algorithm</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#trust-score-update-frequency">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#trust-broker"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+    <rdfs:comment>Frequency of trust score updates.</rdfs:comment>
+    <rdfs:label>trust_score_update_frequency</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- Identity Verification Service Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#verification-methods-supported">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#identity-verification-service"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Identity verification methods supported (PKI, biometric, MFA, etc.).</rdfs:comment>
+    <rdfs:label>verification_methods_supported</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#verification-success-rate">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#identity-verification-service"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Success rate of identity verification attempts (0.0-1.0).</rdfs:comment>
+    <rdfs:label>verification_success_rate</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#average-verification-time">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#identity-verification-service"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+    <rdfs:comment>Average time required for identity verification.</rdfs:comment>
+    <rdfs:label>average_verification_time</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- Continuous Monitoring Agent Properties -->
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#monitoring-scope">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#continuous-monitoring-agent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Scope of monitoring (device, user, network, application).</rdfs:comment>
+    <rdfs:label>monitoring_scope</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#anomaly-detection-algorithms">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#continuous-monitoring-agent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Anomaly detection algorithms employed by this agent.</rdfs:comment>
+    <rdfs:label>anomaly_detection_algorithms</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#monitoring-frequency">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#continuous-monitoring-agent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+    <rdfs:comment>Frequency of monitoring data collection.</rdfs:comment>
+    <rdfs:label>monitoring_frequency</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#baseline-learning-period">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl#continuous-monitoring-agent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+    <rdfs:comment>Time period required to establish behavioral baselines.</rdfs:comment>
+    <rdfs:label>baseline_learning_period</rdfs:label>
+  </owl:DatatypeProperty>
+
+</rdf:RDF>

@@ -1,0 +1,46 @@
+stages:
+  - lint
+  - security
+  - check
+
+default:
+  image: ubuntu:jammy
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - ~/.cache/pip
+      - ~/micromamba
+      - .pytest_cache/
+
+workflow:
+  rules:
+    - if: $CI_MERGE_REQUEST_ID
+      when: always
+    - when: never
+
+.base_setup: &base_setup
+  before_script:
+    - apt-get update 
+    - apt-get -y install curl make bzip2
+    - curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba 
+    - bin/micromamba shell init --shell bash --root-prefix=~/micromamba
+    - exec "$BASH"
+    - make init
+
+lint:
+  stage: lint
+  <<: *base_setup
+  script:
+    - make lint
+
+security:
+  stage: security
+  <<: *base_setup
+  script:
+    - make security
+
+check:
+  stage: check 
+  <<: *base_setup
+  script:
+    - make check 

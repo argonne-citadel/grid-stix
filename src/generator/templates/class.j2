@@ -1,0 +1,75 @@
+"""
+{{ class_def.description or "Generated class from Grid-STIX ontology." }}
+
+This class was automatically generated from the Grid-STIX ontology.
+{% if class_def.namespace_iri %}
+Namespace: {{ class_def.namespace_iri }}
+{% endif %}
+"""
+
+from __future__ import annotations
+
+from typing import Optional, Any, List, Dict
+from collections import OrderedDict
+
+from stix2.properties import (  # type: ignore[import-untyped]
+    StringProperty, IntegerProperty, BooleanProperty, FloatProperty,
+    ListProperty, DictionaryProperty, TimestampProperty, IDProperty, TypeProperty
+)
+from stix2.utils import NOW  # type: ignore[import-untyped]
+
+{% if imports %}
+# External imports
+{% for import_line in imports %}
+{{ import_line }}
+{% endfor %}
+
+{% endif %}
+{% if forward_ref_classes %}
+# Forward references will be resolved after all classes are defined
+{% endif %}
+
+class {{ class_def.name }}({{ class_def.bases | join(', ') }}):
+    """
+    {{ class_def.description or "Grid-STIX class: " + class_def.name }}
+    {% if class_def.is_abstract %}
+    
+    This is an abstract class - it should not be instantiated directly.
+    {% endif %}
+    """
+    
+    # STIX type identifier for this Grid-STIX object
+    _type = 'x-grid-{{ class_def.name.lower().replace("_", "-") }}'
+    
+    # STIX properties definition following official STIX patterns
+    _properties = OrderedDict([
+        ('type', TypeProperty(_type, spec_version='2.1')),
+        ('spec_version', StringProperty(fixed='2.1')),
+        ('id', IDProperty(_type, spec_version='2.1')),
+        ('created', TimestampProperty(default=lambda: NOW, precision='millisecond', precision_constraint='min')),
+        ('modified', TimestampProperty(default=lambda: NOW, precision='millisecond', precision_constraint='min')),
+        ('name', StringProperty()),
+        ('description', StringProperty()),
+        # Grid-STIX base properties
+        ('x_grid_context', DictionaryProperty()),
+        ('x_operational_status', StringProperty()),
+        ('x_compliance_framework', ListProperty(StringProperty)),
+        ('x_grid_component_type', StringProperty()),
+        ('x_criticality_level', IntegerProperty()),
+{% for attr in class_def.attrs %}
+        ('x_{{ attr.name }}', {% if attr.mult in ["+", "*"] %}ListProperty({% endif %}{% if attr.range == "str" %}StringProperty(){% elif attr.range == "int" %}IntegerProperty(){% elif attr.range == "float" %}FloatProperty(){% elif attr.range == "bool" %}BooleanProperty(){% else %}StringProperty(){% endif %}{% if attr.mult in ["+", "*"] %}){% endif %}),
+{% endfor %}
+    ])
+    
+    def __init__(self, **kwargs: Any) -> None:
+        """Initialize {{ class_def.name }} with Grid-STIX properties."""
+        # Set STIX type if not provided
+        if 'type' not in kwargs:
+            kwargs['type'] = self._type
+            
+        # Generate ID if not provided
+        if 'id' not in kwargs:
+            from uuid import uuid4
+            kwargs['id'] = f"{self._type}--{uuid4()}"
+        
+        super().__init__(**kwargs)

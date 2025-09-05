@@ -1,0 +1,3 @@
+[submodule "tac-ontology"]
+	path = tac-ontology
+	url = https://github.com/oasis-tcs/tac-ontology.git
