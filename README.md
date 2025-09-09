@@ -57,7 +57,7 @@ grid-stix/
 ### Prerequisites
 
 - **Micromamba** for environment management
-- **Robot Framework** (OWL toolkit) for ontology operations
+- **Robot Framework** (OWL toolkit) for ontology operations from https://robot.obolibrary.org/ (and in your PATH)
 - **xmllint** for XML validation and formatting
 
 ### Environment Setup

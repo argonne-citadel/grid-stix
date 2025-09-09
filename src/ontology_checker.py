@@ -25,36 +25,41 @@ LABEL_PATTERN = r"^[a-z][a-z0-9]*(?:_[a-z0-9]+)*$"
 # Legacy technical pattern for backwards compatibility
 TECHNICAL_NAMING_PATTERN = r"^[A-Za-z][A-Za-z0-9]*(?:_[A-Za-z0-9]+)*$"
 
+
 # ---- ARGUMENT PARSING ----
-parser = argparse.ArgumentParser(
-    description="Validate an OWL ontology for common issues."
-)
-parser.add_argument(
-    "--owl-file",
-    default="root/grid-stix-2.1-root.owl",
-    help="Path to the main OWL file",
-)
-parser.add_argument(
-    "--base-namespace",
-    default="http://www.anl.gov/sss/",
-    help="Base namespace for the ontology",
-)
-parser.add_argument(
-    "--catalog", default="catalog.xml", help="Path to catalog.xml for imports"
-)
-parser.add_argument(
-    "--skip-checks",
-    nargs="+",
-    default=[],
-    help='List of check types to skip (e.g., "missing_inverses unreachable uri_naming label_naming")',
-)
-args = parser.parse_args()
+def parse_arguments():
+    """Parse command line arguments."""
+    parser = argparse.ArgumentParser(
+        description="Validate an OWL ontology for common issues."
+    )
+    parser.add_argument(
+        "--owl-file",
+        default="root/grid-stix-2.1-root.owl",
+        help="Path to the main OWL file",
+    )
+    parser.add_argument(
+        "--base-namespace",
+        default="http://www.anl.gov/sss/",
+        help="Base namespace for the ontology",
+    )
+    parser.add_argument(
+        "--catalog", default="catalog.xml", help="Path to catalog.xml for imports"
+    )
+    parser.add_argument(
+        "--skip-checks",
+        nargs="+",
+        default=[],
+        help='List of check types to skip (e.g., "missing_inverses unreachable uri_naming label_naming")',
+    )
+    return parser.parse_args()
+
 
 # ---- CONFIGURATION ----
-OWL_FILE = args.owl_file
-BASE_NAMESPACE = args.base_namespace
-CATALOG_FILE = args.catalog
-SKIP_CHECKS = args.skip_checks
+# Default values for when imported as module
+OWL_FILE = "root/grid-stix-2.1-root.owl"
+BASE_NAMESPACE = "http://www.anl.gov/sss/"
+CATALOG_FILE = "catalog.xml"
+SKIP_CHECKS = []
 
 # Define common STIX namespaces
 STIX_NAMESPACES = [
@@ -320,8 +325,8 @@ def check_stix_inheritance_compliance(graph: Graph) -> List[str]:
     custom_classes = set(
         s
         for s in graph.subjects(RDF.type, OWL.Class)
-        if in_namespace(s) 
-        and not str(s).endswith("_ov") 
+        if in_namespace(s)
+        and not str(s).endswith("_ov")
         and "Union_" not in str(s)  # Legacy Union_ classes
         and "union-" not in str(s)  # Grid-STIX union- classes (kebab-case)
     )
@@ -510,19 +515,19 @@ def check_stix_required_properties(graph: Graph) -> List[str]:
 def check_unresolved_type_references(graph: Graph) -> List[str]:
     """Check that all domain/range references point to actual defined classes or valid types."""
     unresolved_references = []
-    
+
     # Collect all defined classes in our namespace and standard XML Schema types
     defined_classes = set()
     standard_types = {
         # XML Schema data types
         "http://www.w3.org/2001/XMLSchema#string",
-        "http://www.w3.org/2001/XMLSchema#int", 
+        "http://www.w3.org/2001/XMLSchema#int",
         "http://www.w3.org/2001/XMLSchema#integer",
         "http://www.w3.org/2001/XMLSchema#decimal",
         "http://www.w3.org/2001/XMLSchema#float",
         "http://www.w3.org/2001/XMLSchema#double",
         "http://www.w3.org/2001/XMLSchema#boolean",
-        "http://www.w3.org/2001/XMLSchema#date", 
+        "http://www.w3.org/2001/XMLSchema#date",
         "http://www.w3.org/2001/XMLSchema#dateTime",
         "http://www.w3.org/2001/XMLSchema#time",
         "http://www.w3.org/2001/XMLSchema#duration",
@@ -534,7 +539,7 @@ def check_unresolved_type_references(graph: Graph) -> List[str]:
         "http://www.w3.org/2000/01/rdf-schema#Literal",
         # STIX 2.1 standard types that are external references
         "http://docs.oasis-open.org/ns/cti/stix/vulnerability",
-        "http://docs.oasis-open.org/ns/cti/stix/threat-actor", 
+        "http://docs.oasis-open.org/ns/cti/stix/threat-actor",
         "http://docs.oasis-open.org/ns/cti/stix/kill-chain-phase",
         "http://docs.oasis-open.org/ns/cti/stix/indicator",
         "http://docs.oasis-open.org/ns/cti/stix/sdo",
@@ -547,50 +552,58 @@ def check_unresolved_type_references(graph: Graph) -> List[str]:
         # STIX data marking
         "http://docs.oasis-open.org/ns/cti/data-marking/marking-definition",
     }
-    
+
     # Collect all class definitions
     for cls in graph.subjects(RDF.type, OWL.Class):
         defined_classes.add(str(cls))
-    
+
     # Also include common STIX classes that might be referenced
     stix_classes = set()
     for cls in graph.subjects(RDF.type, OWL.Class):
         cls_str = str(cls)
         if any(stix_ns in cls_str for stix_ns in STIX_NAMESPACES):
             stix_classes.add(cls_str)
-    
+
     all_valid_types = defined_classes.union(standard_types).union(stix_classes)
-    
+
     # Check domain references
     for prop in graph.subjects(RDF.type, OWL.ObjectProperty):
         if in_namespace(prop):
             for domain_ref in graph.objects(prop, RDFS.domain):
                 domain_str = str(domain_ref)
                 if domain_str not in all_valid_types:
-                    unresolved_references.append(f"Property {prop} has unresolved domain: {domain_str}")
-    
+                    unresolved_references.append(
+                        f"Property {prop} has unresolved domain: {domain_str}"
+                    )
+
     for prop in graph.subjects(RDF.type, OWL.DatatypeProperty):
         if in_namespace(prop):
             for domain_ref in graph.objects(prop, RDFS.domain):
                 domain_str = str(domain_ref)
                 if domain_str not in all_valid_types:
-                    unresolved_references.append(f"Property {prop} has unresolved domain: {domain_str}")
-    
+                    unresolved_references.append(
+                        f"Property {prop} has unresolved domain: {domain_str}"
+                    )
+
     # Check range references
     for prop in graph.subjects(RDF.type, OWL.ObjectProperty):
         if in_namespace(prop):
             for range_ref in graph.objects(prop, RDFS.range):
                 range_str = str(range_ref)
                 if range_str not in all_valid_types:
-                    unresolved_references.append(f"Property {prop} has unresolved range: {range_str}")
-    
+                    unresolved_references.append(
+                        f"Property {prop} has unresolved range: {range_str}"
+                    )
+
     for prop in graph.subjects(RDF.type, OWL.DatatypeProperty):
         if in_namespace(prop):
             for range_ref in graph.objects(prop, RDFS.range):
                 range_str = str(range_ref)
                 if range_str not in all_valid_types:
-                    unresolved_references.append(f"Property {prop} has unresolved range: {range_str}")
-    
+                    unresolved_references.append(
+                        f"Property {prop} has unresolved range: {range_str}"
+                    )
+
     return unresolved_references
 
 
@@ -845,77 +858,78 @@ def check_invalid_technical_names(graph: Graph) -> List[str]:
 
 def check_uri_naming_conventions(graph: Graph) -> Dict[str, List[str]]:
     """Check that URI names follow strict naming conventions
-    
+
     Returns:
         Dict with 'class_uri_violations' and 'property_uri_violations' keys
     """
-    violations = {
-        'class_uri_violations': [],
-        'property_uri_violations': []
-    }
-    
+    violations = {"class_uri_violations": [], "property_uri_violations": []}
+
     # Check class URI naming (should use hyphens)
     for cls in graph.subjects(RDF.type, OWL.Class):
         if in_namespace(cls):
             cls_str = str(cls)
             # Extract the local name from URI
-            if '#' in cls_str:
-                local_name = cls_str.split('#')[-1]
-            elif '/' in cls_str:
-                local_name = cls_str.split('/')[-1]
+            if "#" in cls_str:
+                local_name = cls_str.split("#")[-1]
+            elif "/" in cls_str:
+                local_name = cls_str.split("/")[-1]
             else:
                 continue
-                
+
             # Skip special cases like vocabulary classes and union classes
-            if local_name.endswith('_ov') or local_name.startswith('union-') or local_name.startswith('Union_'):
+            if (
+                local_name.endswith("_ov")
+                or local_name.startswith("union-")
+                or local_name.startswith("Union_")
+            ):
                 continue
-                
+
             if not re.fullmatch(CLASS_URI_PATTERN, local_name):
-                violations['class_uri_violations'].append(
+                violations["class_uri_violations"].append(
                     f"{cls_str} -> '{local_name}' (should use hyphens: {to_kebab_case(local_name)})"
                 )
-    
+
     # Check property URI naming (should use hyphens)
     for prop_type in [OWL.ObjectProperty, OWL.DatatypeProperty]:
         for prop in graph.subjects(RDF.type, prop_type):
             if in_namespace(prop):
                 prop_str = str(prop)
                 # Extract the local name from URI
-                if '#' in prop_str:
-                    local_name = prop_str.split('#')[-1]
-                elif '/' in prop_str:
-                    local_name = prop_str.split('/')[-1]
+                if "#" in prop_str:
+                    local_name = prop_str.split("#")[-1]
+                elif "/" in prop_str:
+                    local_name = prop_str.split("/")[-1]
                 else:
                     continue
-                    
+
                 if not re.fullmatch(PROPERTY_URI_PATTERN, local_name):
-                    violations['property_uri_violations'].append(
+                    violations["property_uri_violations"].append(
                         f"{prop_str} -> '{local_name}' (should use hyphens: {to_kebab_case(local_name)})"
                     )
-    
+
     return violations
 
 
 def check_label_naming_conventions(graph: Graph) -> List[str]:
     """Check that labels follow strict snake_case conventions"""
     violations = []
-    
+
     for s, label in graph.subject_objects(RDFS.label):
         if in_namespace(s):
             if isinstance(label, str):
                 label_str = label
             else:
                 label_str = str(label)
-                
+
             # Skip special cases
-            if label_str.endswith('_ov'):
+            if label_str.endswith("_ov"):
                 continue
-                
+
             if not re.fullmatch(LABEL_PATTERN, label_str):
                 violations.append(
                     f"{s} -> '{label_str}' (should use snake_case: {to_snake_case(label_str)})"
                 )
-    
+
     return violations
 
 
@@ -923,13 +937,13 @@ def to_kebab_case(text: str) -> str:
     """Convert text to kebab-case (hyphens)"""
     # Handle various patterns
     # PascalCase -> kebab-case
-    text = re.sub(r'([a-z0-9])([A-Z])', r'\1-\2', text)
+    text = re.sub(r"([a-z0-9])([A-Z])", r"\1-\2", text)
     # snake_case -> kebab-case
-    text = text.replace('_', '-')
+    text = text.replace("_", "-")
     # Multiple hyphens -> single hyphen
-    text = re.sub(r'-+', '-', text)
+    text = re.sub(r"-+", "-", text)
     # Remove leading/trailing hyphens
-    text = text.strip('-')
+    text = text.strip("-")
     return text.lower()
 
 
@@ -937,13 +951,13 @@ def to_snake_case(text: str) -> str:
     """Convert text to snake_case (underscores)"""
     # Handle various patterns
     # PascalCase -> snake_case
-    text = re.sub(r'([a-z0-9])([A-Z])', r'\1_\2', text)
+    text = re.sub(r"([a-z0-9])([A-Z])", r"\1_\2", text)
     # kebab-case -> snake_case
-    text = text.replace('-', '_')
+    text = text.replace("-", "_")
     # Multiple underscores -> single underscore
-    text = re.sub(r'_+', '_', text)
+    text = re.sub(r"_+", "_", text)
     # Remove leading/trailing underscores
-    text = text.strip('_')
+    text = text.strip("_")
     return text.lower()
 
 
@@ -1006,8 +1020,8 @@ else:
 # New strict naming convention checks
 if "uri_naming" not in SKIP_CHECKS:
     uri_violations = check_uri_naming_conventions(g)
-    check_results["class_uri_violations"] = uri_violations['class_uri_violations']
-    check_results["property_uri_violations"] = uri_violations['property_uri_violations']
+    check_results["class_uri_violations"] = uri_violations["class_uri_violations"]
+    check_results["property_uri_violations"] = uri_violations["property_uri_violations"]
 else:
     check_results["class_uri_violations"] = []
     check_results["property_uri_violations"] = []
@@ -1234,5 +1248,15 @@ if not issues_found:
 else:
     logging.error("Issues were found in the ontology. Please review and fix them.")
 
-# Set exit code based on whether issues were found
-sys.exit(1 if issues_found else 0)
+if __name__ == "__main__":
+    # Parse command line arguments when run as script
+    args = parse_arguments()
+
+    # Update configuration with parsed arguments
+    OWL_FILE = args.owl_file
+    BASE_NAMESPACE = args.base_namespace
+    CATALOG_FILE = args.catalog
+    SKIP_CHECKS = args.skip_checks
+
+    # Set exit code based on whether issues were found
+    sys.exit(1 if issues_found else 0)
