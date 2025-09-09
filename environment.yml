@@ -6,7 +6,7 @@ dependencies:
   - python=3.12
   - bandit=1.8
   - black=25.1
-  - cachecontrol-with-filecache=0.14
+  - cachecontrol-with-filecache=0.14  # For pip-audit
   - jinja2=3.1
   - mypy=1.17
   - networkx=3.4
@@ -16,6 +16,10 @@ dependencies:
   - plotly=6.1
   - pydantic=2.11
   - pygraphviz=1.14
+  - pytest=8.4
+  - pytest-asyncio=1.0
+  - pytest-cov=6.1
+  - pytest-mock=3.14
   - rdflib=7.1
   - scipy=1.15
   - pip=25.0

@@ -605,10 +605,13 @@ class IRBuilder:
 
     def _get_class_name_from_entity(self, entity) -> str:
         """Get Python class name from OWL entity."""
-        if hasattr(entity, "name"):
-            name = entity.name
-        elif hasattr(entity, "__name__"):
-            name = entity.__name__
+        name = None
+
+        # Try to get name from entity
+        if hasattr(entity, "name") and entity.name is not None:
+            name = str(entity.name)
+        elif hasattr(entity, "__name__") and entity.__name__ is not None:
+            name = str(entity.__name__)
         else:
             return "Any"
 

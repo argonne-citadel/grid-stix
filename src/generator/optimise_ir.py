@@ -379,6 +379,7 @@ class IROptimizer:
     def _topological_sort_modules(self, module_deps: dict[str, set[str]]) -> list[str]:
         """Topologically sort modules by dependencies."""
         # Kahn's algorithm for topological sorting
+        # We want dependencies to come before dependents
         in_degree = defaultdict(int)
         all_modules = set(module_deps.keys())
 
@@ -386,15 +387,15 @@ class IROptimizer:
         for deps in module_deps.values():
             all_modules.update(deps)
 
-        # Calculate in-degrees
+        # Calculate in-degrees - how many modules this module depends on
         for module in all_modules:
             in_degree[module] = 0
 
-        for deps in module_deps.values():
-            for dep in deps:
-                in_degree[dep] += 1
+        # Count incoming edges (dependencies)
+        for module, deps in module_deps.items():
+            in_degree[module] = len(deps)
 
-        # Queue of modules with no incoming edges
+        # Queue of modules with no dependencies (in-degree 0)
         queue = deque([module for module in all_modules if in_degree[module] == 0])
         result = []
 
@@ -402,11 +403,12 @@ class IROptimizer:
             current = queue.popleft()
             result.append(current)
 
-            # Remove edges from current module
-            for dep in module_deps.get(current, set()):
-                in_degree[dep] -= 1
-                if in_degree[dep] == 0:
-                    queue.append(dep)
+            # For each module that depends on current, reduce its in-degree
+            for module, deps in module_deps.items():
+                if current in deps:
+                    in_degree[module] -= 1
+                    if in_degree[module] == 0:
+                        queue.append(module)
 
         # Check for cycles in module dependencies
         if len(result) != len(all_modules):
