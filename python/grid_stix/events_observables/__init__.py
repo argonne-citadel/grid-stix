@@ -47,7 +47,9 @@ from .StateChangeEvent import StateChangeEvent
 # Resolve forward references
 
 
-GridEvent.model_rebuild()
+# Only call model_rebuild() if the class has this method (Pydantic models)
+if hasattr(GridEvent, "model_rebuild"):
+    GridEvent.model_rebuild()
 
 
 # Public API

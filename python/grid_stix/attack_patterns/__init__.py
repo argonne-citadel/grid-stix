@@ -35,10 +35,14 @@ from .SocialEngineeringAttackPattern import SocialEngineeringAttackPattern
 # Resolve forward references
 
 
-GridAttackPattern.model_rebuild()
+# Only call model_rebuild() if the class has this method (Pydantic models)
+if hasattr(GridAttackPattern, "model_rebuild"):
+    GridAttackPattern.model_rebuild()
 
 
-GridMitigation.model_rebuild()
+# Only call model_rebuild() if the class has this method (Pydantic models)
+if hasattr(GridMitigation, "model_rebuild"):
+    GridMitigation.model_rebuild()
 
 
 # Public API

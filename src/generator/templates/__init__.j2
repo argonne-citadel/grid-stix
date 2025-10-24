@@ -16,7 +16,9 @@ from .{{ class_name }} import {{ class_name }}
 # Resolve forward references
 {% for class_name in forward_ref_classes %}
 {% if class_name and class_name.strip() %}
-{{ class_name }}.model_rebuild()
+# Only call model_rebuild() if the class has this method (Pydantic models)
+if hasattr({{ class_name }}, 'model_rebuild'):
+    {{ class_name }}.model_rebuild()
 {% endif %}
 {% endfor %}
 {% endif %}

@@ -164,13 +164,19 @@ from .WindTurbine import WindTurbine
 # Resolve forward references
 
 
-DerDevice.model_rebuild()
+# Only call model_rebuild() if the class has this method (Pydantic models)
+if hasattr(DerDevice, "model_rebuild"):
+    DerDevice.model_rebuild()
 
 
-DerCommunicationInterface.model_rebuild()
+# Only call model_rebuild() if the class has this method (Pydantic models)
+if hasattr(DerCommunicationInterface, "model_rebuild"):
+    DerCommunicationInterface.model_rebuild()
 
 
-DerOwner.model_rebuild()
+# Only call model_rebuild() if the class has this method (Pydantic models)
+if hasattr(DerOwner, "model_rebuild"):
+    DerOwner.model_rebuild()
 
 
 # Public API

@@ -132,10 +132,14 @@ from .WithinSecurityZoneRelationship import WithinSecurityZoneRelationship
 # Resolve forward references
 
 
-UnionAllAssets.model_rebuild()
+# Only call model_rebuild() if the class has this method (Pydantic models)
+if hasattr(UnionAllAssets, "model_rebuild"):
+    UnionAllAssets.model_rebuild()
 
 
-UnionPhysicalAssetGridComponent.model_rebuild()
+# Only call model_rebuild() if the class has this method (Pydantic models)
+if hasattr(UnionPhysicalAssetGridComponent, "model_rebuild"):
+    UnionPhysicalAssetGridComponent.model_rebuild()
 
 
 # Public API
