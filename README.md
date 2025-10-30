@@ -57,6 +57,7 @@ grid-stix/
 ### Prerequisites
 
 - **Micromamba** for environment management
+- **Java runtime** for Robot (sudo apt install default-jre in Ubuntu)
 - **Robot Framework** (OWL toolkit) for ontology operations from https://robot.obolibrary.org/ (and in your PATH)
 - **xmllint** for XML validation and formatting
 

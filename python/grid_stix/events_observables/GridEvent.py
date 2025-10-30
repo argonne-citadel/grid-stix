@@ -103,7 +103,6 @@ class GridEvent(GridSTIXObservableObject):
             ("x_description", ListProperty(StringProperty())),
             ("x_event_id", ListProperty(StringProperty())),
             ("x_severity", ListProperty(IntegerProperty())),
-            ("x_timestamp", ListProperty(StringProperty())),
         ]
     )
 
@@ -113,10 +112,11 @@ class GridEvent(GridSTIXObservableObject):
         if "type" not in kwargs:
             kwargs["type"] = self._type
 
-        # Generate ID if not provided
+        # Generate deterministic ID if not provided
         if "id" not in kwargs:
-            from uuid import uuid4
+            from ..base import DeterministicUUIDGenerator
 
-            kwargs["id"] = f"{self._type}--{uuid4()}"
+            # Generate deterministic UUID - will raise ValueError if required properties missing
+            kwargs["id"] = DeterministicUUIDGenerator.generate_uuid(self._type, kwargs)
 
         super().__init__(**kwargs)

@@ -693,6 +693,108 @@
     <rdfs:label>tracking_system_type</rdfs:label>
   </owl:DatatypeProperty>
 
+  <owl:DatatypeProperty rdf:about="#system-id">
+    <rdfs:domain rdf:resource="#photovoltaic-system"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Unique identifier for the photovoltaic system, used for asset tracking and deterministic UUID generation.</rdfs:comment>
+    <rdfs:label>system_id</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#capacity-kw">
+    <rdfs:domain rdf:resource="#photovoltaic-system"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Rated capacity of the photovoltaic system in kilowatts (kW), used for capacity planning and deterministic UUID generation.</rdfs:comment>
+    <rdfs:label>capacity_kw</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- ================================================================== -->
+  <!-- WIND TURBINE PROPERTIES                                           -->
+  <!-- ================================================================== -->
+
+  <owl:DatatypeProperty rdf:about="#turbine-id">
+    <rdfs:domain rdf:resource="#wind-turbine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Unique identifier for the wind turbine, used for asset tracking and deterministic UUID generation.</rdfs:comment>
+    <rdfs:label>turbine_id</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#wind-capacity-kw">
+    <rdfs:domain rdf:resource="#wind-turbine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Rated capacity of the wind turbine in kilowatts (kW).</rdfs:comment>
+    <rdfs:label>capacity_kw</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#hub-height-m">
+    <rdfs:domain rdf:resource="#wind-turbine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Height of the wind turbine hub above ground in meters, affects wind capture and performance.</rdfs:comment>
+    <rdfs:label>hub_height_m</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#current-wind-speed">
+    <rdfs:domain rdf:resource="#wind-turbine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Current wind speed in meters per second (m/s) at turbine location, affects power output and operational control decisions.</rdfs:comment>
+    <rdfs:label>current_wind_speed</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- ================================================================== -->
+  <!-- BATTERY ENERGY STORAGE SYSTEM PROPERTIES                          -->
+  <!-- ================================================================== -->
+
+  <owl:DatatypeProperty rdf:about="#bess-system-id">
+    <rdfs:domain rdf:resource="#battery-energy-storage-system"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Unique identifier for the battery energy storage system, used for asset tracking and deterministic UUID generation.</rdfs:comment>
+    <rdfs:label>system_id</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#capacity-kwh">
+    <rdfs:domain rdf:resource="#battery-energy-storage-system"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Energy storage capacity of the battery system in kilowatt-hours (kWh).</rdfs:comment>
+    <rdfs:label>capacity_kwh</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#bess-power-rating-kw">
+    <rdfs:domain rdf:resource="#battery-energy-storage-system"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Power rating of the battery energy storage system in kilowatts (kW), the maximum charge/discharge rate.</rdfs:comment>
+    <rdfs:label>power_rating_kw</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- ================================================================== -->
+
+  <!-- Nuclear Power Plant Properties -->
+  <owl:DatatypeProperty rdf:about="#reactor-core-temperature">
+    <rdfs:domain rdf:resource="#nuclear-power-plant"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Current reactor core temperature in degrees Celsius, critical safety parameter for SMR monitoring and zero-trust access control.</rdfs:comment>
+    <rdfs:label>reactor_core_temperature</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#plant-id">
+    <rdfs:domain rdf:resource="#nuclear-power-plant"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Unique identifier for the nuclear power plant, used for asset tracking and deterministic UUID generation.</rdfs:comment>
+    <rdfs:label>plant_id</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#reactor-type">
+    <rdfs:domain rdf:resource="#nuclear-power-plant"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Type of nuclear reactor (e.g., SMR, PWR, BWR), used for classification and deterministic UUID generation.</rdfs:comment>
+    <rdfs:label>reactor_type</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="#capacity-mw">
+    <rdfs:domain rdf:resource="#nuclear-power-plant"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Rated capacity of the nuclear power plant in megawatts (MW), used for capacity planning and deterministic UUID generation.</rdfs:comment>
+    <rdfs:label>capacity_mw</rdfs:label>
+  </owl:DatatypeProperty>
+
   <!-- ================================================================== -->
   <!-- ELECTRIC VEHICLE SUPPLY EQUIPMENT PROPERTIES                     -->
   <!-- ================================================================== -->
