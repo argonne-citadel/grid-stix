@@ -73,6 +73,9 @@ class BatteryEnergyStorageSystem(GridSTIXDomainObject):
             ("x_battery_capacity_kwh", ListProperty(FloatProperty())),
             ("x_battery_chemistry", ListProperty(StringProperty())),
             ("x_battery_temperature", ListProperty(FloatProperty())),
+            ("x_bess_power_rating_kw", ListProperty(FloatProperty())),
+            ("x_bess_system_id", ListProperty(StringProperty())),
+            ("x_capacity_kwh", ListProperty(FloatProperty())),
             ("x_charge_discharge_rate", ListProperty(FloatProperty())),
             ("x_state_of_charge", ListProperty(FloatProperty())),
             ("x_thermal_management_active", ListProperty(BooleanProperty())),
@@ -85,10 +88,11 @@ class BatteryEnergyStorageSystem(GridSTIXDomainObject):
         if "type" not in kwargs:
             kwargs["type"] = self._type
 
-        # Generate ID if not provided
+        # Generate deterministic ID if not provided
         if "id" not in kwargs:
-            from uuid import uuid4
+            from ..base import DeterministicUUIDGenerator
 
-            kwargs["id"] = f"{self._type}--{uuid4()}"
+            # Generate deterministic UUID - will raise ValueError if required properties missing
+            kwargs["id"] = DeterministicUUIDGenerator.generate_uuid(self._type, kwargs)
 
         super().__init__(**kwargs)

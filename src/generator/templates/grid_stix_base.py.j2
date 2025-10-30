@@ -50,7 +50,11 @@ class DeterministicUUIDGenerator:
         elif isinstance(value, str):
             return value.lower().strip()
         elif isinstance(value, list):
-            # Sort list items and normalize each
+            # Handle single-element lists by extracting the scalar value
+            # This is common with OWL-generated properties that use ListProperty
+            if len(value) == 1:
+                return DeterministicUUIDGenerator.normalize_value(value[0])
+            # For multi-element lists, sort and normalize each item
             normalized_items = [DeterministicUUIDGenerator.normalize_value(item) for item in value]
             return json.dumps(sorted(normalized_items), sort_keys=True)
         elif isinstance(value, dict):
@@ -73,13 +77,18 @@ class DeterministicUUIDGenerator:
             Deterministic UUID string in STIX format
             
         Raises:
-            ValueError: If required identity properties are missing
+            ValueError: If required identity properties are missing or if no identity 
+                       properties are configured for the object type
         """
         # Get identity properties for this object type
         identity_props = IDENTITY_PROPERTY_CONFIG.get(object_type, [])
         
         if not identity_props:
-            raise ValueError(f"No identity properties configured for object type: {object_type}")
+            raise ValueError(
+                f"CRITICAL: No identity properties configured for object type '{object_type}'. "
+                f"Cannot generate deterministic UUID. This object type must be added to "
+                f"IDENTITY_PROPERTY_CONFIG in base.py"
+            )
         
         # Extract and validate identity property values
         identity_values = {}
@@ -92,7 +101,12 @@ class DeterministicUUIDGenerator:
                 missing_props.append(prop)
         
         if missing_props:
-            raise ValueError(f"Missing required identity properties for {object_type}: {missing_props}")
+            raise ValueError(
+                f"CRITICAL: Missing required identity properties for '{object_type}': {missing_props}. "
+                f"Required properties: {identity_props}. "
+                f"Provided properties: {list(properties.keys())}. "
+                f"Deterministic UUID generation FAILED - object creation must be aborted."
+            )
         
         # Create deterministic string from identity properties
         normalized_values = {}
@@ -134,7 +148,7 @@ class DeterministicUUIDGenerator:
 IDENTITY_PROPERTY_CONFIG = {
     # Assets
     "x-grid-generator": ["name", "x_asset_id", "x_power_rating_mw", "x_fuel_type", "x_owner_organization"],
-    "x-grid-transformer": ["name", "x_asset_id", "x_voltage_primary_kv", "x_voltage_secondary_kv", "x_power_rating_mva"],
+    "x-grid-transformer": ["name", "x_voltage_primary_kv", "x_voltage_secondary_kv", "x_power_rating_mva"],
     "x-grid-substation": ["name", "x_asset_id", "x_high_voltage_level_kv", "x_substation_type", "x_gps_coordinates"],
     "x-grid-transmission-line": ["name", "x_asset_id", "x_voltage_level_kv", "x_length_km", "x_conductor_type"],
     "x-grid-distribution-line": ["name", "x_asset_id", "x_voltage_level_kv", "x_length_km", "x_service_area"],
@@ -142,20 +156,27 @@ IDENTITY_PROPERTY_CONFIG = {
     "x-grid-physical-asset": ["name", "x_asset_id", "x_asset_type", "x_location"],
     "x-grid-physical-grid-asset": ["name", "x_asset_id", "x_grid_function", "x_voltage_level_kv"],
     "x-grid-grid-component": ["name", "x_asset_id", "x_component_type", "x_manufacturer"],
+    # Add entries without hyphens to match actual _type values from OWL
+    # Use only properties that actually exist in the generated classes
+    "x-grid-gridcomponent": ["name", "x_grid_component_type", "x_manufacturer"],
+    "x-grid-distributionline": ["name", "x_grid_component_type", "x_voltage_level_kv", "x_length_km"],
+    "x-grid-transmissionline": ["name", "x_grid_component_type", "x_voltage_level_kv", "x_length_km", "x_conductor_type"],
     "x-grid-operational-grid-entity": ["name", "x_entity_id", "x_operational_role", "x_jurisdiction"],
     "x-grid-ot-device": ["name", "x_device_id", "x_device_type", "x_ip_address"],
+    "x-grid-otdevice": ["name", "x_device_id", "x_device_type", "x_ip_address"],
     "x-grid-electronic-security-perimeter": ["name", "x_perimeter_id", "x_security_level", "x_protected_assets"],
     "x-grid-physical-security-perimeter": ["name", "x_perimeter_id", "x_physical_barriers", "x_access_controls"],
     "x-grid-security-zone": ["name", "x_zone_id", "x_security_classification", "x_contained_assets"],
     "x-grid-supplier": ["name", "x_supplier_id", "x_supplier_type", "x_products_services"],
     "x-grid-supply-chain-risk": ["name", "x_risk_id", "x_risk_category", "x_affected_suppliers"],
     
-    # Components
+    # Components (unhyphenated versions match generator output)
     "x-grid-smartmeter": ["name", "x_asset_id", "x_ip_address", "x_mac_address"],
     "x-grid-inverter": ["name", "x_device_id", "x_power_rating_kw", "x_inverter_type"],
-    "x-grid-photovoltaic-system": ["name", "x_system_id", "x_capacity_kw", "x_panel_type"],
-    "x-grid-wind-turbine": ["name", "x_turbine_id", "x_capacity_kw", "x_hub_height_m"],
-    "x-grid-battery-energy-storage-system": ["name", "x_system_id", "x_capacity_kwh", "x_power_rating_kw"],
+    "x-grid-photovoltaicsystem": ["name", "x_system_id", "x_capacity_kw", "x_panel_type"],
+    "x-grid-windturbine": ["name", "x_turbine_id", "x_wind_capacity_kw", "x_hub_height_m"],
+    "x-grid-batteryenergystoragesystem": ["name", "x_bess_system_id", "x_capacity_kwh", "x_bess_power_rating_kw"],
+    "x-grid-nuclearpowerplant": ["name", "x_plant_id", "x_reactor_type", "x_capacity_mw"],
     "x-grid-electric-vehicle": ["name", "x_vehicle_id", "x_battery_capacity_kwh", "x_charging_standard"],
     "x-grid-electric-vehicle-supply-equipment": ["name", "x_equipment_id", "x_power_level", "x_connector_type"],
     "x-grid-distributed-energy-resource": ["name", "x_resource_id", "x_resource_type", "x_capacity_kw"],
@@ -208,13 +229,14 @@ IDENTITY_PROPERTY_CONFIG = {
     # Events/Observables
     "x-grid-grid-event": ["x_event_type", "x_timestamp", "x_source_component"],
     "x-grid-alarm-event": ["x_alarm_type", "x_timestamp", "x_source_component", "x_severity"],
-    "x-grid-telemetry-data": ["x_measurement_type", "x_timestamp", "x_source_device", "x_value"],
+    "x-grid-gridtelemetry": ["x_measurement_type", "x_measurement_timestamp", "x_source_device", "x_value"],
     "x-grid-operational-event": ["x_event_type", "x_timestamp", "x_operational_context"],
     "x-grid-maintenance-event": ["x_maintenance_type", "x_timestamp", "x_target_asset"],
     "x-grid-security-event": ["x_event_type", "x_timestamp", "x_security_context"],
     
     # Relationships
     "x-grid-gridrelationship": ["source_ref", "target_ref", "relationship_type"],
+    "x-grid-connectstorelationship": ["x_source_ref", "x_target_ref", "x_relationship_type"],
     "x-grid-physical-connection": ["source_ref", "target_ref", "x_connection_type"],
     "x-grid-logical-connection": ["source_ref", "target_ref", "x_protocol_type"],
     "x-grid-power-flow": ["source_ref", "target_ref", "x_flow_direction"],

@@ -70,6 +70,10 @@ class WindTurbine(GridSTIXDomainObject):
             ("x_compliance_framework", ListProperty(StringProperty)),
             ("x_grid_component_type", StringProperty()),
             ("x_criticality_level", IntegerProperty()),
+            ("x_current_wind_speed", ListProperty(FloatProperty())),
+            ("x_hub_height_m", ListProperty(FloatProperty())),
+            ("x_turbine_id", ListProperty(StringProperty())),
+            ("x_wind_capacity_kw", ListProperty(FloatProperty())),
         ]
     )
 
@@ -79,10 +83,11 @@ class WindTurbine(GridSTIXDomainObject):
         if "type" not in kwargs:
             kwargs["type"] = self._type
 
-        # Generate ID if not provided
+        # Generate deterministic ID if not provided
         if "id" not in kwargs:
-            from uuid import uuid4
+            from ..base import DeterministicUUIDGenerator
 
-            kwargs["id"] = f"{self._type}--{uuid4()}"
+            # Generate deterministic UUID - will raise ValueError if required properties missing
+            kwargs["id"] = DeterministicUUIDGenerator.generate_uuid(self._type, kwargs)
 
         super().__init__(**kwargs)
