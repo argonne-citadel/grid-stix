@@ -6,6 +6,7 @@
     <owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/software"/>
     <owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/identity"/>
     <owl:imports rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl"/>
+    <owl:imports rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl"/>
     <rdfs:label>grid_stix_2_1_assets</rdfs:label>
     <rdfs:comment>Grid-STIX 2.1: Asset classes extending STIX Infrastructure, Location, Software, and Identity SDOs</rdfs:comment>
   </owl:Ontology>

@@ -98,6 +98,10 @@
       uri="file:vocabularies/grid-stix-2.1-vocab.owl"
   />
   <uri
+      name="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl"
+      uri="file:core/grid-stix-2.1-asset-types.owl"
+  />
+  <uri
       name="http://www.anl.gov/sss/grid-stix-2.1-assets.owl"
       uri="file:core/grid-stix-2.1-assets.owl"
   />
