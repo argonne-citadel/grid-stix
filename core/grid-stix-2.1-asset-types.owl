@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xml:base="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl">
+
+  <owl:Ontology rdf:about="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl">
+    <dc:title>Grid-STIX 2.1 Asset Type Taxonomy</dc:title>
+    <dc:description>Abstract asset type definitions for mapping MITRE ATT&amp;CK techniques to grid infrastructure categories. These types serve as targets for attack patterns and provide semantic grouping for asset instances.</dc:description>
+    <dc:creator>ZTCard Project</dc:creator>
+    <owl:versionInfo>2.1.0</owl:versionInfo>
+    <owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core"/>
+  </owl:Ontology>
+
+  <!-- Base Asset Type Class -->
+  <owl:Class rdf:about="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#asset-type">
+    <rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/cti/ns/stix/infrastructure"/>
+    <rdfs:comment>Abstract base class for grid infrastructure asset types. Asset types represent categories of assets that share common attack surfaces and operational characteristics.</rdfs:comment>
+    <rdfs:label>asset_type</rdfs:label>
+  </owl:Class>
+
+  <!-- OT Device Types -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#rtu-type">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#asset-type"/>
+    <rdfs:label>Remote Terminal Unit</rdfs:label>
+    <rdfs:comment>Remote Terminal Unit - Field device that monitors and controls physical grid equipment</rdfs:comment>
+    <type-identifier>x-grid-rtu</type-identifier>
+    <asset-category>ot-device</asset-category>
+    <criticality>high</criticality>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#plc-type">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#asset-type"/>
+    <rdfs:label>Programmable Logic Controller</rdfs:label>
+    <rdfs:comment>PLC - Industrial controller for automation and control logic</rdfs:comment>
+    <type-identifier>x-grid-plc</type-identifier>
+    <asset-category>ot-device</asset-category>
+    <criticality>high</criticality>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#mtu-type">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#asset-type"/>
+    <rdfs:label>Master Terminal Unit</rdfs:label>
+    <rdfs:comment>MTU - Central control unit that aggregates data from RTUs</rdfs:comment>
+    <type-identifier>x-grid-mtu</type-identifier>
+    <asset-category>ot-device</asset-category>
+    <criticality>critical</criticality>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#ied-type">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#asset-type"/>
+    <rdfs:label>Intelligent Electronic Device</rdfs:label>
+    <rdfs:comment>IED - Smart device with processing capabilities for monitoring and control</rdfs:comment>
+    <type-identifier>x-grid-ied</type-identifier>
+    <asset-category>ot-device</asset-category>
+    <criticality>high</criticality>
+  </owl:NamedIndividual>
+
+  <!-- Control System Types -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#scada-type">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#asset-type"/>
+    <rdfs:label>SCADA System</rdfs:label>
+    <rdfs:comment>Supervisory Control and Data Acquisition system</rdfs:comment>
+    <type-identifier>x-grid-scada</type-identifier>
+    <asset-category>control-system</asset-category>
+    <criticality>critical</criticality>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#hmi-type">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#asset-type"/>
+    <rdfs:label>Human-Machine Interface</rdfs:label>
+    <rdfs:comment>HMI - Operator interface for monitoring and controlling systems</rdfs:comment>
+    <type-identifier>x-grid-hmi</type-identifier>
+    <asset-category>control-system</asset-category>
+    <criticality>high</criticality>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#historian-type">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#asset-type"/>
+    <rdfs:label>Historian</rdfs:label>
+    <rdfs:comment>Historical data storage and trending system</rdfs:comment>
+    <type-identifier>x-grid-historian</type-identifier>
+    <asset-category>control-system</asset-category>
+    <criticality>medium</criticality>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#ems-type">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#asset-type"/>
+    <rdfs:label>Energy Management System</rdfs:label>
+    <rdfs:comment>EMS - System for managing and optimizing grid operations</rdfs:comment>
+    <type-identifier>x-grid-ems</type-identifier>
+    <asset-category>control-system</asset-category>
+    <criticality>critical</criticality>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#dms-type">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#asset-type"/>
+    <rdfs:label>Distribution Management System</rdfs:label>
+    <rdfs:comment>DMS - System for managing distribution grid operations</rdfs:comment>
+    <type-identifier>x-grid-dms</type-identifier>
+    <asset-category>control-system</asset-category>
+    <criticality>critical</criticality>
+  </owl:NamedIndividual>
+
+  <!-- Grid Component Types -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#transformer-type">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#asset-type"/>
+    <rdfs:label>Transformer</rdfs:label>
+    <rdfs:comment>Power transformer for voltage conversion</rdfs:comment>
+    <type-identifier>x-grid-transformer</type-identifier>
+    <asset-category>grid-component</asset-category>
+    <criticality>high</criticality>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#breaker-type">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#asset-type"/>
+    <rdfs:label>Circuit Breaker</rdfs:label>
+    <rdfs:comment>Circuit breaker for protection and isolation</rdfs:comment>
+    <type-identifier>x-grid-breaker</type-identifier>
+    <asset-category>grid-component</asset-category>
+    <criticality>high</criticality>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#generator-type">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#asset-type"/>
+    <rdfs:label>Generator</rdfs:label>
+    <rdfs:comment>Electric power generation unit</rdfs:comment>
+    <type-identifier>x-grid-generator</type-identifier>
+    <asset-category>grid-component</asset-category>
+    <criticality>critical</criticality>
+  </owl:NamedIndividual>
+
+  <!-- Network Infrastructure Types -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#gateway-type">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#asset-type"/>
+    <rdfs:label>Communication Gateway</rdfs:label>
+    <rdfs:comment>Network gateway bridging IT/OT networks</rdfs:comment>
+    <type-identifier>x-grid-gateway</type-identifier>
+    <asset-category>network-device</asset-category>
+    <criticality>high</criticality>
+  </owl:NamedIndividual>
+
+  <!-- Protection and Safety Types -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#protection-relay-type">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#asset-type"/>
+    <rdfs:label>Protection Relay</rdfs:label>
+    <rdfs:comment>Protective relay for detecting and responding to fault conditions</rdfs:comment>
+    <type-identifier>x-grid-protection-relay</type-identifier>
+    <asset-category>protection-device</asset-category>
+    <criticality>critical</criticality>
+  </owl:NamedIndividual>
+
+  <!-- Monitoring and Sensing Types -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#sensor-type">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#asset-type"/>
+    <rdfs:label>Sensor</rdfs:label>
+    <rdfs:comment>Measurement sensor for monitoring grid conditions</rdfs:comment>
+    <type-identifier>x-grid-sensor</type-identifier>
+    <asset-category>monitoring-device</asset-category>
+    <criticality>medium</criticality>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#pmu-type">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#asset-type"/>
+    <rdfs:label>Phasor Measurement Unit</rdfs:label>
+    <rdfs:comment>PMU - High-speed synchronized measurement device</rdfs:comment>
+    <type-identifier>x-grid-pmu</type-identifier>
+    <asset-category>monitoring-device</asset-category>
+    <criticality>high</criticality>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#smart-meter-type">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#asset-type"/>
+    <rdfs:label>Smart Meter</rdfs:label>
+    <rdfs:comment>Advanced metering device for consumption monitoring</rdfs:comment>
+    <type-identifier>x-grid-smart-meter</type-identifier>
+    <asset-category>monitoring-device</asset-category>
+    <criticality>medium</criticality>
+  </owl:NamedIndividual>
+
+  <!-- DER Types -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#inverter-type">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#asset-type"/>
+    <rdfs:label>Smart Inverter</rdfs:label>
+    <rdfs:comment>Power electronic inverter for DER integration</rdfs:comment>
+    <type-identifier>x-grid-smart-inverter</type-identifier>
+    <asset-category>der-device</asset-category>
+    <criticality>medium</criticality>
+  </owl:NamedIndividual>
+
+  <!-- Protocol Types -->
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#modbus-protocol-type">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#asset-type"/>
+    <rdfs:label>Modbus Protocol</rdfs:label>
+    <rdfs:comment>Modbus communication protocol</rdfs:comment>
+    <type-identifier>x-grid-sunspec-modbus-tcp</type-identifier>
+    <asset-category>protocol</asset-category>
+    <criticality>high</criticality>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#dnp3-protocol-type">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#asset-type"/>
+    <rdfs:label>DNP3 Protocol</rdfs:label>
+    <rdfs:comment>Distributed Network Protocol 3</rdfs:comment>
+    <type-identifier>x-grid-ieee1815-dnp3</type-identifier>
+    <asset-category>protocol</asset-category>
+    <criticality>high</criticality>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#iec61850-protocol-type">
+    <rdf:type rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#asset-type"/>
+    <rdfs:label>IEC 61850 Protocol</rdfs:label>
+    <rdfs:comment>IEC 61850 substation automation protocol</rdfs:comment>
+    <type-identifier>x-grid-iec61850</type-identifier>
+    <asset-category>protocol</asset-category>
+    <criticality>high</criticality>
+  </owl:NamedIndividual>
+
+</rdf:RDF>
