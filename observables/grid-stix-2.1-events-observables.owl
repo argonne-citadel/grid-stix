@@ -85,23 +85,29 @@
     <rdfs:comment>Destination IP address of the traffic.</rdfs:comment>
     <rdfs:label>destination_ip</rdfs:label>
   </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#metric-type">
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#measurement-type">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#grid-telemetry"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment>Type of metric, e.g., voltage, current, temperature.</rdfs:comment>
-    <rdfs:label>metric_type</rdfs:label>
+    <rdfs:comment>Type of measurement, e.g., voltage, current, temperature.</rdfs:comment>
+    <rdfs:label>measurement_type</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#source-device">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#grid-telemetry"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Source device or component that generated the measurement.</rdfs:comment>
+    <rdfs:label>source_device</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#value">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#grid-telemetry"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Numeric value of the measurement.</rdfs:comment>
+    <rdfs:label>value</rdfs:label>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#metric-unit">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#grid-telemetry"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:comment>Unit of measurement, e.g., V, A, &#xB0;C.</rdfs:comment>
     <rdfs:label>metric_unit</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#metric-value">
-    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#grid-telemetry"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-    <rdfs:comment>Numeric value of the metric.</rdfs:comment>
-    <rdfs:label>metric_value</rdfs:label>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#packet-count">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#grid-protocol-traffic"/>
@@ -115,11 +121,11 @@
     <rdfs:comment>Source IP address of the traffic.</rdfs:comment>
     <rdfs:label>source_ip</rdfs:label>
   </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#timestamp">
-    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#grid-event"/>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#measurement-timestamp">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#grid-telemetry"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
-    <rdfs:comment>Timestamp when the event occurred or was observed.</rdfs:comment>
-    <rdfs:label>timestamp</rdfs:label>
+    <rdfs:comment>Timestamp when the telemetry measurement was taken.</rdfs:comment>
+    <rdfs:label>measurement_timestamp</rdfs:label>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#event-id">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl#grid-event"/>

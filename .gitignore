@@ -7,4 +7,5 @@
 .DS_Store
 .claude
 __pycache__
+presentations/
 test-results/

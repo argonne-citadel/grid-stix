@@ -56,6 +56,7 @@ merge:
 		--input vocabularies/grid-stix-2.1-vocab.owl \
 		--input contexts/grid-stix-2.1-operational-contexts.owl \
 		--input contexts/grid-stix-2.1-environmental-contexts.owl \
+		--input core/grid-stix-2.1-asset-types.owl \
 		--input core/grid-stix-2.1-assets.owl \
 		--input core/grid-stix-2.1-components.owl \
 		--input core/grid-stix-2.1-relationships.owl \

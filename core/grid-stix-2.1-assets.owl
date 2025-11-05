@@ -6,6 +6,7 @@
     <owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/software"/>
     <owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/identity"/>
     <owl:imports rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl"/>
+    <owl:imports rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl"/>
     <rdfs:label>grid_stix_2_1_assets</rdfs:label>
     <rdfs:comment>Grid-STIX 2.1: Asset classes extending STIX Infrastructure, Location, Software, and Identity SDOs</rdfs:comment>
   </owl:Ontology>
@@ -1297,5 +1298,21 @@
     <rdfs:comment>Number of large wall displays for grid visualization.</rdfs:comment>
     <rdfs:label>wall_display_count</rdfs:label>
   </owl:DatatypeProperty>
+
+  <!-- Asset Type Taxonomy Integration -->
+  <owl:ObjectProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#instance-of-type">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
+          <rdf:Description rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#grid-component"/>
+          <rdf:Description rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-asset"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl#asset-type"/>
+    <rdfs:comment>Links an asset instance to its abstract type category for ATT&amp;CK technique mapping and threat intelligence analysis.</rdfs:comment>
+    <rdfs:label>instance_of_type</rdfs:label>
+  </owl:ObjectProperty>
 
 </rdf:RDF>

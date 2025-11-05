@@ -59,7 +59,9 @@ from .TransmissionLine import TransmissionLine
 # Resolve forward references
 
 
-GridComponent.model_rebuild()
+# Only call model_rebuild() if the class has this method (Pydantic models)
+if hasattr(GridComponent, "model_rebuild"):
+    GridComponent.model_rebuild()
 
 
 # Public API

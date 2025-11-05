@@ -223,13 +223,15 @@ class TestPathResolution:
         ) as mock_tempfile:
 
             mock_temp = Mock()
-            mock_temp.name = "/tmp/downloaded.owl"
+            mock_temp.name = "/tmp/downloaded.owl"  # nosec B101 - test code
             mock_tempfile.return_value = mock_temp
 
             result = _resolve_ontology_path(test_url)
 
-            assert result == "/tmp/downloaded.owl"
-            mock_urlretrieve.assert_called_once_with(test_url, "/tmp/downloaded.owl")
+            assert result == "/tmp/downloaded.owl"  # nosec B101 - test code
+            mock_urlretrieve.assert_called_once_with(
+                test_url, "/tmp/downloaded.owl"
+            )  # nosec B101 - test code
 
     def test_resolve_https_url(self):
         """Test resolving HTTPS URL."""
@@ -240,13 +242,15 @@ class TestPathResolution:
         ) as mock_tempfile:
 
             mock_temp = Mock()
-            mock_temp.name = "/tmp/downloaded.owl"
+            mock_temp.name = "/tmp/downloaded.owl"  # nosec B101 - test code
             mock_tempfile.return_value = mock_temp
 
             result = _resolve_ontology_path(test_url)
 
-            assert result == "/tmp/downloaded.owl"
-            mock_urlretrieve.assert_called_once_with(test_url, "/tmp/downloaded.owl")
+            assert result == "/tmp/downloaded.owl"  # nosec B101 - test code
+            mock_urlretrieve.assert_called_once_with(
+                test_url, "/tmp/downloaded.owl"
+            )  # nosec B101 - test code
 
     def test_resolve_url_download_failure(self):
         """Test handling URL download failure."""

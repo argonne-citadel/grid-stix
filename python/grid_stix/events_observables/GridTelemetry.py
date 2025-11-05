@@ -71,12 +71,14 @@ class GridTelemetry(GridSTIXObservableObject):
             ("x_grid_component_type", StringProperty()),
             ("x_criticality_level", IntegerProperty()),
             ("x_measurement_accuracy", ListProperty(FloatProperty())),
-            ("x_metric_type", ListProperty(StringProperty())),
+            ("x_measurement_timestamp", ListProperty(StringProperty())),
+            ("x_measurement_type", ListProperty(StringProperty())),
             ("x_metric_unit", ListProperty(StringProperty())),
-            ("x_metric_value", ListProperty(FloatProperty())),
             ("x_quality_indicator", ListProperty(StringProperty())),
             ("x_sampling_rate", ListProperty(FloatProperty())),
+            ("x_source_device", ListProperty(StringProperty())),
             ("x_threshold_exceeded", ListProperty(BooleanProperty())),
+            ("x_value", ListProperty(FloatProperty())),
         ]
     )
 
@@ -86,10 +88,11 @@ class GridTelemetry(GridSTIXObservableObject):
         if "type" not in kwargs:
             kwargs["type"] = self._type
 
-        # Generate ID if not provided
+        # Generate deterministic ID if not provided
         if "id" not in kwargs:
-            from uuid import uuid4
+            from ..base import DeterministicUUIDGenerator
 
-            kwargs["id"] = f"{self._type}--{uuid4()}"
+            # Generate deterministic UUID - will raise ValueError if required properties missing
+            kwargs["id"] = DeterministicUUIDGenerator.generate_uuid(self._type, kwargs)
 
         super().__init__(**kwargs)
