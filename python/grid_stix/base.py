@@ -277,6 +277,12 @@ IDENTITY_PROPERTY_CONFIG = {
         "x_capacity_kw",
         "x_panel_type",
     ],
+    "x-grid-photovoltaic-system": [
+        "name",
+        "x_system_id",
+        "x_capacity_kw",
+        "x_panel_type",
+    ],
     "x-grid-windturbine": [
         "name",
         "x_turbine_id",
