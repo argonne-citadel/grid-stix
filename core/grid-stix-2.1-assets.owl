@@ -243,6 +243,12 @@
     <rdfs:comment>IP address of the OT device on the network.</rdfs:comment>
     <rdfs:label>ip_address</rdfs:label>
   </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#device-id">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Unique identifier for the OT device.</rdfs:comment>
+    <rdfs:label>device_id</rdfs:label>
+  </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#installation-date">
     <rdfs:domain>
       <owl:Class>
@@ -360,6 +366,12 @@
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     <rdfs:comment>Indicates whether authentication is required to access the device.</rdfs:comment>
     <rdfs:label>authentication_required</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#authentication-methods">
+    <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#ot-device"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Comma-separated list of authentication methods supported by the device (e.g., password, certificate, biometric).</rdfs:comment>
+    <rdfs:label>authentication_methods</rdfs:label>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#physical-access-controls">
     <rdfs:domain rdf:resource="http://www.anl.gov/sss/grid-stix-2.1-assets.owl#security-zone"/>

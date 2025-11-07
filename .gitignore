@@ -1,9 +1,11 @@
 *-full.owl
 *.dot
 *.html
+*.log
 *.pdf
 *.pyc
 *.swp
+*.txt
 .DS_Store
 .claude
 __pycache__

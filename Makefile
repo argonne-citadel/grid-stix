@@ -46,7 +46,7 @@ security:
 	@echo "$(COLOR_GREEN)Security checks complete$(COLOR_RESET)"
 
 test:
-	@PYTHONPATH=python:src ${MICROMAMBA_DEV} pytest -v --durations=10 --junitxml=../$(REPORTS_DIR)/tests.xml tests/
+	@PYTHONPATH=python:src ${MICROMAMBA_DEV} pytest -v --durations=10 --junitxml=$(REPORTS_DIR)/tests.xml tests/
 	@echo "$(COLOR_GREEN)Tests complete$(COLOR_RESET)"
 
 merge:
