@@ -26,7 +26,9 @@ workflow:
     - apt-get -y install curl make bzip2
     - curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba 
     - bin/micromamba shell init --shell bash --root-prefix=~/micromamba
-    - source ~/.bashrc
+    - export MAMBA_EXE="$PWD/bin/micromamba"
+    - export MAMBA_ROOT_PREFIX="$HOME/micromamba"
+    - eval "$($MAMBA_EXE shell hook --shell bash --root-prefix $MAMBA_ROOT_PREFIX)"
     - make init
 
 build:
