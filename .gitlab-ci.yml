@@ -1,8 +1,8 @@
 stages:
+  - build
   - lint
   - security
   - test
-  - check
 
 default:
   image: ubuntu:jammy
@@ -25,23 +25,38 @@ workflow:
     - apt-get -y install curl make bzip2
     - curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba 
     - bin/micromamba shell init --shell bash --root-prefix=~/micromamba
-    - exec "$BASH"
+    - export MAMBA_EXE="$PWD/bin/micromamba"
+    - export MAMBA_ROOT_PREFIX="$HOME/micromamba"
+    - eval "$($MAMBA_EXE shell hook --shell bash --root-prefix $MAMBA_ROOT_PREFIX)"
     - make init
+
+build:
+  stage: build
+  <<: *base_setup
+  script:
+    - echo "Environment built successfully"
+  artifacts:
+    paths:
+      - bin/micromamba
+    expire_in: 1 hour
 
 lint:
   stage: lint
+  needs: [build]
   <<: *base_setup
   script:
     - make lint
 
 security:
   stage: security
+  needs: [build]
   <<: *base_setup
   script:
     - make security
 
 test:
   stage: test
+  needs: [build]
   <<: *base_setup
   script:
     - make test
@@ -53,9 +68,3 @@ test:
         coverage_format: cobertura
         path: test-results/coverage.xml
     expire_in: 1 week
-
-check:
-  stage: check 
-  <<: *base_setup
-  script:
-    - make check 
