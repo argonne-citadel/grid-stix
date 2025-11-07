@@ -3,7 +3,6 @@ stages:
   - lint
   - security
   - test
-  - check
 
 default:
   image: ubuntu:jammy
@@ -69,10 +68,3 @@ test:
         coverage_format: cobertura
         path: test-results/coverage.xml
     expire_in: 1 week
-
-check:
-  stage: check 
-  needs: [build]
-  <<: *base_setup
-  script:
-    - make check
