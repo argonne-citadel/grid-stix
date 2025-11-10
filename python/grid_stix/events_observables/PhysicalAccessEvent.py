@@ -38,7 +38,7 @@ class PhysicalAccessEvent(GridSTIXObservableObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-physicalaccessevent"
+    _type = "x-grid-physical-access-event"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

@@ -38,7 +38,7 @@ class DistributionAsset(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-distributionasset"
+    _type = "x-grid-distribution-asset"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

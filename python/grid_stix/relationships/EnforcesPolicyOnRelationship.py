@@ -38,7 +38,7 @@ class EnforcesPolicyOnRelationship(GridSTIXRelationshipObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-enforcespolicyonrelationship"
+    _type = "x-grid-enforces-policy-on-relationship"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

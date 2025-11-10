@@ -38,7 +38,7 @@ class ElectronicSecurityPerimeter(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-electronicsecurityperimeter"
+    _type = "x-grid-electronic-security-perimeter"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

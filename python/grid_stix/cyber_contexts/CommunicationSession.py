@@ -38,7 +38,7 @@ class CommunicationSession(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-communicationsession"
+    _type = "x-grid-communication-session"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

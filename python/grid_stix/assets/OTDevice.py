@@ -45,7 +45,7 @@ class OTDevice(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-otdevice"
+    _type = "x-grid-ot-device"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(
@@ -80,10 +80,12 @@ class OTDevice(GridSTIXDomainObject):
             ("x_device_type", ListProperty(StringProperty())),
             ("x_monitors", ListProperty(StringProperty())),
             ("x_access_control_list", ListProperty(StringProperty())),
+            ("x_authentication_methods", ListProperty(StringProperty())),
             ("x_authentication_required", ListProperty(BooleanProperty())),
             ("x_certificate_expiry_date", ListProperty(StringProperty())),
             ("x_communication_heartbeat_interval", ListProperty(IntegerProperty())),
             ("x_control_logic_checksum", ListProperty(StringProperty())),
+            ("x_device_id", ListProperty(StringProperty())),
             ("x_encryption_enabled", ListProperty(BooleanProperty())),
             ("x_endpoint_protection_status", ListProperty(StringProperty())),
             ("x_engineering_workstation_access", ListProperty(BooleanProperty())),

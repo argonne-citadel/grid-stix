@@ -38,7 +38,7 @@ class ProtocolAttackPattern(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-protocolattackpattern"
+    _type = "x-grid-protocol-attack-pattern"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

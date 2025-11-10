@@ -38,7 +38,7 @@ class DenyAction(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-denyaction"
+    _type = "x-grid-deny-action"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

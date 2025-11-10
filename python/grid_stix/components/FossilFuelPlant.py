@@ -38,7 +38,7 @@ class FossilFuelPlant(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-fossilfuelplant"
+    _type = "x-grid-fossil-fuel-plant"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

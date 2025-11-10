@@ -38,7 +38,7 @@ class FuelTypeOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-fueltypeov"
+    _type = "x-grid-fuel_type_ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

@@ -41,7 +41,7 @@ class PhysicalAsset(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-physicalasset"
+    _type = "x-grid-physical-asset"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

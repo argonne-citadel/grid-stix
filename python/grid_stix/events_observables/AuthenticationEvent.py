@@ -44,7 +44,7 @@ class AuthenticationEvent(GridSTIXObservableObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-authenticationevent"
+    _type = "x-grid-authentication-event"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

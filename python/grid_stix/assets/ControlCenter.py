@@ -38,7 +38,7 @@ class ControlCenter(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-controlcenter"
+    _type = "x-grid-control-center"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

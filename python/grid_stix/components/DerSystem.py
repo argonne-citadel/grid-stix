@@ -41,7 +41,7 @@ class DerSystem(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-dersystem"
+    _type = "x-grid-der-system"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

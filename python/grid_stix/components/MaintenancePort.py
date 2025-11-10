@@ -38,7 +38,7 @@ class MaintenancePort(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-maintenanceport"
+    _type = "x-grid-maintenance-port"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

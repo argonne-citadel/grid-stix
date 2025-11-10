@@ -38,7 +38,7 @@ class RenewableGenerationFacility(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-renewablegenerationfacility"
+    _type = "x-grid-renewable-generation-facility"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

@@ -268,10 +268,27 @@ IDENTITY_PROPERTY_CONFIG = {
         "x_risk_category",
         "x_affected_suppliers",
     ],
+    "x-grid-physicalasset": ["name"],  # Abstract class with minimal properties
+    "x-grid-securityzone": ["name"],  # Unhyphenated version
+    "x-grid-gridattackpattern": ["name"],  # Unhyphenated version
+    # Context types (unhyphenated versions) - use semantic properties
+    "x-grid-weathercontext": ["first_observed", "x_weather_type"],
+    "x-grid-naturaldisastercontext": ["first_observed", "x_disaster_type"],
+    "x-grid-maintenancecontext": ["first_observed", "x_maintenance_type"],
+    "x-grid-outagecontext": ["first_observed", "x_outage_type"],
+    "x-grid-gridoperatingconditioncontext": [
+        "first_observed",
+        "x_grid_operating_condition",
+    ],
+    "x-grid-emergencyresponsecontext": ["first_observed", "x_emergency_type"],
+    "x-grid-physicalsecuritycontext": ["first_observed", "x_security_event_type"],
+    "x-grid-cybersecurityposture": ["first_observed", "x_alert_level"],
+    "x-grid-operationalcontext": ["first_observed", "x_operational_mode"],
+    "x-grid-deroperationalcontext": ["first_observed", "x_der_resource_id"],
     # Components (unhyphenated versions match generator output)
     "x-grid-smartmeter": ["name", "x_asset_id", "x_ip_address", "x_mac_address"],
     "x-grid-inverter": ["name", "x_device_id", "x_power_rating_kw", "x_inverter_type"],
-    "x-grid-photovoltaicsystem": [
+    "x-grid-photovoltaic-system": [
         "name",
         "x_system_id",
         "x_capacity_kw",
@@ -517,8 +534,34 @@ IDENTITY_PROPERTY_CONFIG = {
     "x-grid-maintenance-event": ["x_maintenance_type", "x_timestamp", "x_target_asset"],
     "x-grid-security-event": ["x_event_type", "x_timestamp", "x_security_context"],
     # Relationships
-    "x-grid-gridrelationship": ["source_ref", "target_ref", "relationship_type"],
+    "x-grid-gridrelationship": ["x_source_ref", "x_target_ref", "x_relationship_type"],
     "x-grid-connectstorelationship": [
+        "x_source_ref",
+        "x_target_ref",
+        "x_relationship_type",
+    ],
+    "x-grid-affectsoperationofrelationship": [
+        "x_source_ref",
+        "x_target_ref",
+        "x_relationship_type",
+    ],
+    "x-grid-controlsrelationship": [
+        "x_source_ref",
+        "x_target_ref",
+        "x_relationship_type",
+    ],
+    "x-grid-feedsrelationship": ["x_source_ref", "x_target_ref", "x_relationship_type"],
+    "x-grid-locatedatrelationship": [
+        "x_source_ref",
+        "x_target_ref",
+        "x_relationship_type",
+    ],
+    "x-grid-monitorsrelationship": [
+        "x_source_ref",
+        "x_target_ref",
+        "x_relationship_type",
+    ],
+    "x-grid-suppliedbyrelationship": [
         "x_source_ref",
         "x_target_ref",
         "x_relationship_type",

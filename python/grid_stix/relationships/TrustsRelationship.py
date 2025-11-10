@@ -38,7 +38,7 @@ class TrustsRelationship(GridSTIXRelationshipObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-trustsrelationship"
+    _type = "x-grid-trusts-relationship"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

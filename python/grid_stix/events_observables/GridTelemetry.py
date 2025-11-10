@@ -38,7 +38,7 @@ class GridTelemetry(GridSTIXObservableObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-gridtelemetry"
+    _type = "x-grid-grid-telemetry"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

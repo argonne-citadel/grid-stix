@@ -38,7 +38,7 @@ class Iso15118Protocol(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-iso15118protocol"
+    _type = "x-grid-iso-15118-protocol"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

@@ -38,7 +38,7 @@ class OperationalGridEntity(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-operationalgridentity"
+    _type = "x-grid-operational-grid-entity"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

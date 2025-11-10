@@ -38,7 +38,7 @@ class ChargingConnector(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-chargingconnector"
+    _type = "x-grid-charging-connector"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

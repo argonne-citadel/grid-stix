@@ -38,7 +38,7 @@ class EnergyMeterEvse(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-energymeterevse"
+    _type = "x-grid-energy-meter-evse"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

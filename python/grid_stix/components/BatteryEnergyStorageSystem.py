@@ -38,7 +38,7 @@ class BatteryEnergyStorageSystem(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-batteryenergystoragesystem"
+    _type = "x-grid-battery-energy-storage-system"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

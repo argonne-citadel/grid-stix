@@ -38,7 +38,7 @@ class Ieee1815Dnp3(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-ieee1815dnp3"
+    _type = "x-grid-ieee-1815-dnp3"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

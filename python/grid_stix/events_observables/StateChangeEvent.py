@@ -38,7 +38,7 @@ class StateChangeEvent(GridSTIXObservableObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-statechangeevent"
+    _type = "x-grid-state-change-event"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

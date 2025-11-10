@@ -38,7 +38,7 @@ class VoltageStatusOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-voltagestatusov"
+    _type = "x-grid-voltage_status_ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

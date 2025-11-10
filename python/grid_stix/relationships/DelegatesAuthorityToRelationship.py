@@ -38,7 +38,7 @@ class DelegatesAuthorityToRelationship(GridSTIXRelationshipObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-delegatesauthoritytorelationship"
+    _type = "x-grid-delegates-authority-to-relationship"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

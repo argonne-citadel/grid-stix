@@ -38,7 +38,7 @@ class UnionPhysicalAssetOTDevice(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-unionphysicalassetotdevice"
+    _type = "x-grid-union-physical-asset-ot-device"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

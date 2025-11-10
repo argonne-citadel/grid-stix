@@ -40,7 +40,7 @@ class DerController(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-dercontroller"
+    _type = "x-grid-der-controller"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

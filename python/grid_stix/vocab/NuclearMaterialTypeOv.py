@@ -38,7 +38,7 @@ class NuclearMaterialTypeOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-nuclearmaterialtypeov"
+    _type = "x-grid-nuclear_material_type_ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

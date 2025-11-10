@@ -38,7 +38,7 @@ class CertifiedByRelationship(GridSTIXRelationshipObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-certifiedbyrelationship"
+    _type = "x-grid-certified-by-relationship"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

@@ -52,7 +52,7 @@ class GridComponent(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-gridcomponent"
+    _type = "x-grid-grid-component"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

@@ -38,7 +38,7 @@ class ControlActionEvent(GridSTIXObservableObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-controlactionevent"
+    _type = "x-grid-control-action-event"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

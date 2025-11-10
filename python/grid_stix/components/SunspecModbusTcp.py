@@ -38,7 +38,7 @@ class SunspecModbusTcp(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-sunspecmodbustcp"
+    _type = "x-grid-sunspec-modbus-tcp"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

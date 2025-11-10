@@ -38,7 +38,7 @@ class InterconnectionDevice(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-interconnectiondevice"
+    _type = "x-grid-interconnection-device"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

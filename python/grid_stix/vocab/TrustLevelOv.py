@@ -38,7 +38,7 @@ class TrustLevelOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-trustlevelov"
+    _type = "x-grid-trust_level_ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

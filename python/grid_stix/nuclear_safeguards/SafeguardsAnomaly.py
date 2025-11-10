@@ -40,7 +40,7 @@ class SafeguardsAnomaly(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-safeguardsanomaly"
+    _type = "x-grid-safeguards-anomaly"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

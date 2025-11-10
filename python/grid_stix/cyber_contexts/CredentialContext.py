@@ -38,7 +38,7 @@ class CredentialContext(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-credentialcontext"
+    _type = "x-grid-credential-context"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

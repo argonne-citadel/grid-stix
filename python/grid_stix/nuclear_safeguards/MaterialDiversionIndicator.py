@@ -38,7 +38,7 @@ class MaterialDiversionIndicator(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-materialdiversionindicator"
+    _type = "x-grid-material-diversion-indicator"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

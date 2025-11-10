@@ -38,7 +38,7 @@ class AlarmEvent(GridSTIXObservableObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-alarmevent"
+    _type = "x-grid-alarm-event"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

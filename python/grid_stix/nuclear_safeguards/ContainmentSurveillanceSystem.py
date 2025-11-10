@@ -40,7 +40,7 @@ class ContainmentSurveillanceSystem(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-containmentsurveillancesystem"
+    _type = "x-grid-containment-surveillance-system"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(
