@@ -38,7 +38,7 @@ class SafeguardsAgreementTypeOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-safeguards_agreement_type_ov"
+    _type = "x-grid-safeguards-agreement-type-ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

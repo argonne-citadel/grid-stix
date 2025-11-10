@@ -39,7 +39,7 @@ class {{ class_def.name }}({{ class_def.bases | join(', ') }}):
     """
     
     # STIX type identifier for this Grid-STIX object
-    _type = 'x-grid-{{ class_def.owl_fragment if class_def.owl_fragment else class_def.name.lower().replace("_", "-") }}'
+    _type = 'x-grid-{{ (class_def.owl_fragment if class_def.owl_fragment else class_def.name.lower()).replace("_", "-") }}'
     
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict([

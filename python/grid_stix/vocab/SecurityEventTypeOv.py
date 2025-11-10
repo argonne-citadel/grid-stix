@@ -38,7 +38,7 @@ class SecurityEventTypeOv(GridSTIXObservableObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-security_event_type_ov"
+    _type = "x-grid-security-event-type-ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(
