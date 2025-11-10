@@ -38,7 +38,7 @@ class UnionOTDeviceIdentity(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-unionotdeviceidentity"
+    _type = "x-grid-union-ot-device-identity"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

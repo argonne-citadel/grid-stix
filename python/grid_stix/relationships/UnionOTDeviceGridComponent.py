@@ -38,7 +38,7 @@ class UnionOTDeviceGridComponent(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-unionotdevicegridcomponent"
+    _type = "x-grid-union-ot-device-grid-component"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

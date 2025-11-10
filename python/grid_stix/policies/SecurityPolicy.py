@@ -38,7 +38,7 @@ class SecurityPolicy(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-securitypolicy"
+    _type = "x-grid-security-policy"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

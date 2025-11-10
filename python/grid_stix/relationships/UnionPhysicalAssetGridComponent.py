@@ -41,7 +41,7 @@ class UnionPhysicalAssetGridComponent(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-unionphysicalassetgridcomponent"
+    _type = "x-grid-union-physical-asset-grid-component"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

@@ -38,7 +38,7 @@ class ProtectsAssetRelationship(GridSTIXRelationshipObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-protectsassetrelationship"
+    _type = "x-grid-protects-asset-relationship"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

@@ -40,7 +40,7 @@ class AuthenticatesToRelationship(GridSTIXRelationshipObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-authenticatestorelationship"
+    _type = "x-grid-authenticates-to-relationship"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

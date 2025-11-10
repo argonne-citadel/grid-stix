@@ -38,7 +38,7 @@ class Ieee20305(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-ieee20305"
+    _type = "x-grid-ieee-2030-5"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

@@ -38,7 +38,7 @@ class ConfigurationEvent(GridSTIXObservableObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-configurationevent"
+    _type = "x-grid-configuration-event"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

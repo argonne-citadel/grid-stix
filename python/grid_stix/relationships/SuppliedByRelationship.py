@@ -38,7 +38,7 @@ class SuppliedByRelationship(GridSTIXRelationshipObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-suppliedbyrelationship"
+    _type = "x-grid-supplied-by-relationship"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

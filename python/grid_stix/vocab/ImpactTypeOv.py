@@ -38,7 +38,7 @@ class ImpactTypeOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-impacttypeov"
+    _type = "x-grid-impact_type_ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

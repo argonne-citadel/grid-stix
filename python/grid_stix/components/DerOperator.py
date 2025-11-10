@@ -40,7 +40,7 @@ class DerOperator(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-deroperator"
+    _type = "x-grid-der-operator"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

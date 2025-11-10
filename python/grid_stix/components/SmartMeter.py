@@ -38,7 +38,7 @@ class SmartMeter(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-smartmeter"
+    _type = "x-grid-smart-meter"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

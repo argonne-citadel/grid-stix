@@ -38,7 +38,7 @@ class WindTurbine(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-windturbine"
+    _type = "x-grid-wind-turbine"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

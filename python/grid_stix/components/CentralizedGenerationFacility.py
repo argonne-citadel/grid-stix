@@ -41,7 +41,7 @@ class CentralizedGenerationFacility(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-centralizedgenerationfacility"
+    _type = "x-grid-centralized-generation-facility"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

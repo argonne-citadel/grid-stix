@@ -40,7 +40,7 @@ class MonitorsRelationship(GridSTIXRelationshipObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-monitorsrelationship"
+    _type = "x-grid-monitors-relationship"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

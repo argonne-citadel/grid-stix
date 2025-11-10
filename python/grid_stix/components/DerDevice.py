@@ -52,7 +52,7 @@ class DerDevice(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-derdevice"
+    _type = "x-grid-der-device"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

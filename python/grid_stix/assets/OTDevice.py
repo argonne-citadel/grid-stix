@@ -45,7 +45,7 @@ class OTDevice(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-otdevice"
+    _type = "x-grid-ot-device"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

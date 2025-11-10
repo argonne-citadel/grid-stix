@@ -38,7 +38,7 @@ class LogAction(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-logaction"
+    _type = "x-grid-log-action"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

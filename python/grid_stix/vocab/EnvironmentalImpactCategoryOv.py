@@ -38,7 +38,7 @@ class EnvironmentalImpactCategoryOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-environmentalimpactcategoryov"
+    _type = "x-grid-environmental_impact_category_ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

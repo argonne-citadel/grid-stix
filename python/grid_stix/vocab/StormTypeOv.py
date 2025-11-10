@@ -38,7 +38,7 @@ class StormTypeOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-stormtypeov"
+    _type = "x-grid-storm_type_ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

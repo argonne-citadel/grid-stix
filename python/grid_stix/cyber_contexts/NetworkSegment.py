@@ -38,7 +38,7 @@ class NetworkSegment(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-networksegment"
+    _type = "x-grid-network-segment"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

@@ -44,7 +44,7 @@ class EmergencyResponseContext(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-emergencyresponsecontext"
+    _type = "x-grid-emergency-response-context"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

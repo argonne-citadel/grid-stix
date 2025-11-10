@@ -38,7 +38,7 @@ class ContinuousMonitoringAgent(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-continuousmonitoringagent"
+    _type = "x-grid-continuous-monitoring-agent"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

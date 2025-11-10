@@ -38,7 +38,7 @@ class WithinSecurityZoneRelationship(GridSTIXRelationshipObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-withinsecurityzonerelationship"
+    _type = "x-grid-within-security-zone-relationship"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

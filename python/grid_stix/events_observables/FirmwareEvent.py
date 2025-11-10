@@ -38,7 +38,7 @@ class FirmwareEvent(GridSTIXObservableObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-firmwareevent"
+    _type = "x-grid-firmware-event"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

@@ -38,7 +38,7 @@ class ResponseStatusOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-responsestatusov"
+    _type = "x-grid-response_status_ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

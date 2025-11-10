@@ -38,7 +38,7 @@ class FuelCell(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-fuelcell"
+    _type = "x-grid-fuel-cell"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

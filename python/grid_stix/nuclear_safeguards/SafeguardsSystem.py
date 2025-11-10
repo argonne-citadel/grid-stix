@@ -43,7 +43,7 @@ class SafeguardsSystem(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-safeguardssystem"
+    _type = "x-grid-safeguards-system"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

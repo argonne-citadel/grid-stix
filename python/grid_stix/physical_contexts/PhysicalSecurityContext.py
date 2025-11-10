@@ -48,7 +48,7 @@ class PhysicalSecurityContext(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-physicalsecuritycontext"
+    _type = "x-grid-physical-security-context"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

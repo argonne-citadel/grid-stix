@@ -40,7 +40,7 @@ class ElectricVehicle(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-electricvehicle"
+    _type = "x-grid-electric-vehicle"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

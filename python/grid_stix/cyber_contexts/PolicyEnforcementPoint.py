@@ -38,7 +38,7 @@ class PolicyEnforcementPoint(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-policyenforcementpoint"
+    _type = "x-grid-policy-enforcement-point"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

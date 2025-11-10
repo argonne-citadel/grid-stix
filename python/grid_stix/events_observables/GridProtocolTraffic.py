@@ -40,7 +40,7 @@ class GridProtocolTraffic(GridSTIXObservableObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-gridprotocoltraffic"
+    _type = "x-grid-grid-protocol-traffic"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

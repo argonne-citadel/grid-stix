@@ -38,7 +38,7 @@ class NuclearFacilityTypeOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-nuclearfacilitytypeov"
+    _type = "x-grid-nuclear_facility_type_ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

@@ -46,7 +46,7 @@ class WeatherContext(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-weathercontext"
+    _type = "x-grid-weather-context"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

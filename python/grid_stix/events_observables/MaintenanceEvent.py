@@ -38,7 +38,7 @@ class MaintenanceEvent(GridSTIXObservableObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-maintenanceevent"
+    _type = "x-grid-maintenance-event"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

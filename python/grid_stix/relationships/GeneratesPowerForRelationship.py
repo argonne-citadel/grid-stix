@@ -38,7 +38,7 @@ class GeneratesPowerForRelationship(GridSTIXRelationshipObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-generatespowerforrelationship"
+    _type = "x-grid-generates-power-for-relationship"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

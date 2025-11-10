@@ -38,7 +38,7 @@ class ElectricVehicleSupplyEquipment(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-electricvehiclesupplyequipment"
+    _type = "x-grid-electric-vehicle-supply-equipment"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

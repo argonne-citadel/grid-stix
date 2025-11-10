@@ -38,7 +38,7 @@ class PolicyDecisionPoint(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-policydecisionpoint"
+    _type = "x-grid-policy-decision-point"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

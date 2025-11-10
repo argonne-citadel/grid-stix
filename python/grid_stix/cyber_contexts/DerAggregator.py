@@ -38,7 +38,7 @@ class DerAggregator(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-deraggregator"
+    _type = "x-grid-der-aggregator"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

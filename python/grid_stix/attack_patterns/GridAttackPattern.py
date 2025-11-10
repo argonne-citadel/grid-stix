@@ -55,7 +55,7 @@ class GridAttackPattern(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-gridattackpattern"
+    _type = "x-grid-grid-attack-pattern"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

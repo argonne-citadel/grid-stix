@@ -38,7 +38,7 @@ class OutageCauseOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-outagecauseov"
+    _type = "x-grid-outage_cause_ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(
