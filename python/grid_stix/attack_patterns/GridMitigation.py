@@ -41,7 +41,7 @@ class GridMitigation(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-gridmitigation"
+    _type = "x-grid-grid-mitigation"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

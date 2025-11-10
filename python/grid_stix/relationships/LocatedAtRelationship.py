@@ -38,7 +38,7 @@ class LocatedAtRelationship(GridSTIXRelationshipObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-locatedatrelationship"
+    _type = "x-grid-located-at-relationship"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

@@ -38,7 +38,7 @@ class ResearchReactor(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-researchreactor"
+    _type = "x-grid-research-reactor"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

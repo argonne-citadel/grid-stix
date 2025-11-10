@@ -40,7 +40,7 @@ class MaterialAccountingSystem(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-materialaccountingsystem"
+    _type = "x-grid-material-accounting-system"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

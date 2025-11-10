@@ -43,7 +43,7 @@ class DistributionManagementSystem(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-distributionmanagementsystem"
+    _type = "x-grid-distribution-management-system"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

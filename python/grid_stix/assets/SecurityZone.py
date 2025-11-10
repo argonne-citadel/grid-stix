@@ -43,7 +43,7 @@ class SecurityZone(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-securityzone"
+    _type = "x-grid-security-zone"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

@@ -38,7 +38,7 @@ class DefensivePostureOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-defensivepostureov"
+    _type = "x-grid-defensive_posture_ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

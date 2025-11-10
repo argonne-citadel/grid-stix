@@ -38,7 +38,7 @@ class SensorTypeOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-sensortypeov"
+    _type = "x-grid-sensor_type_ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

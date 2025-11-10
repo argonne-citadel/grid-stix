@@ -38,7 +38,7 @@ class TrustBroker(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-trustbroker"
+    _type = "x-grid-trust-broker"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

@@ -38,7 +38,7 @@ class RealTimeTrustAssessment(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-realtimetrustassessment"
+    _type = "x-grid-real-time-trust-assessment"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

@@ -38,7 +38,7 @@ class DerOperationalContext(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-deroperationalcontext"
+    _type = "x-grid-der-operational-context"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

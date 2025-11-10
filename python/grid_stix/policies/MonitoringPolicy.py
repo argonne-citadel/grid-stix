@@ -38,7 +38,7 @@ class MonitoringPolicy(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-monitoringpolicy"
+    _type = "x-grid-monitoring-policy"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

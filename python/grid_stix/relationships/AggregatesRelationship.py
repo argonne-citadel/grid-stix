@@ -38,7 +38,7 @@ class AggregatesRelationship(GridSTIXRelationshipObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-aggregatesrelationship"
+    _type = "x-grid-aggregates-relationship"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

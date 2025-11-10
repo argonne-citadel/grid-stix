@@ -38,7 +38,7 @@ class RiskAssessment(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-riskassessment"
+    _type = "x-grid-risk-assessment"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

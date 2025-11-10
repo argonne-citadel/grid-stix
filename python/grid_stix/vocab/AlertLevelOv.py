@@ -38,7 +38,7 @@ class AlertLevelOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-alertlevelov"
+    _type = "x-grid-alert_level_ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

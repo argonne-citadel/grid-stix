@@ -38,7 +38,7 @@ class CertificateContext(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-certificatecontext"
+    _type = "x-grid-certificate-context"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

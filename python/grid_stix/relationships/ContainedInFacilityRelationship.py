@@ -38,7 +38,7 @@ class ContainedInFacilityRelationship(GridSTIXRelationshipObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-containedinfacilityrelationship"
+    _type = "x-grid-contained-in-facility-relationship"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

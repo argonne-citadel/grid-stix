@@ -38,7 +38,7 @@ class EnrichmentFacility(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-enrichmentfacility"
+    _type = "x-grid-enrichment-facility"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

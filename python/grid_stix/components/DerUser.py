@@ -41,7 +41,7 @@ class DerUser(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-deruser"
+    _type = "x-grid-der-user"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

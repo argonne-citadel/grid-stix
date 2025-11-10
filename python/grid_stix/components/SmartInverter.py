@@ -38,7 +38,7 @@ class SmartInverter(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-smartinverter"
+    _type = "x-grid-smart-inverter"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

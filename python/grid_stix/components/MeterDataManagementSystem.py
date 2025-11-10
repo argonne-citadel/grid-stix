@@ -38,7 +38,7 @@ class MeterDataManagementSystem(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-meterdatamanagementsystem"
+    _type = "x-grid-meter-data-management-system"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

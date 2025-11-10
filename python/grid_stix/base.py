@@ -288,7 +288,7 @@ IDENTITY_PROPERTY_CONFIG = {
     # Components (unhyphenated versions match generator output)
     "x-grid-smartmeter": ["name", "x_asset_id", "x_ip_address", "x_mac_address"],
     "x-grid-inverter": ["name", "x_device_id", "x_power_rating_kw", "x_inverter_type"],
-    "x-grid-photovoltaicsystem": [
+    "x-grid-photovoltaic-system": [
         "name",
         "x_system_id",
         "x_capacity_kw",
@@ -526,18 +526,6 @@ IDENTITY_PROPERTY_CONFIG = {
         "x_source_device",
         "x_value",
     ],
-    "x-grid-authenticationevent": [
-        "subject_ref",
-        "resource_ref",
-        "timestamp",
-        "authentication_type",
-    ],
-    "x-grid-gridprotocoltraffic": [
-        "src_ref",
-        "dst_ref",
-        "protocol_type",
-        "first_observed",
-    ],
     "x-grid-operational-event": [
         "x_event_type",
         "x_timestamp",
@@ -578,10 +566,6 @@ IDENTITY_PROPERTY_CONFIG = {
         "x_target_ref",
         "x_relationship_type",
     ],
-    "x-grid-controlsrelationship": [
-        "x_source_ref",
-        "x_target_ref",
-    ],
     "x-grid-physical-connection": ["source_ref", "target_ref", "x_connection_type"],
     "x-grid-logical-connection": ["source_ref", "target_ref", "x_protocol_type"],
     "x-grid-power-flow": ["source_ref", "target_ref", "x_flow_direction"],
@@ -616,9 +600,6 @@ IDENTITY_PROPERTY_CONFIG = {
         "x_detection_methods",
     ],
     # Policies
-    "x-grid-accesspolicy": [
-        "name",
-    ],
     "x-grid-security-policy": [
         "name",
         "x_policy_id",

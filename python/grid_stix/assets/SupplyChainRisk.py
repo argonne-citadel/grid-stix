@@ -38,7 +38,7 @@ class SupplyChainRisk(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-supplychainrisk"
+    _type = "x-grid-supply-chain-risk"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

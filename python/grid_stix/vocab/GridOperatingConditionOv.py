@@ -38,7 +38,7 @@ class GridOperatingConditionOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-gridoperatingconditionov"
+    _type = "x-grid-grid_operating_condition_ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

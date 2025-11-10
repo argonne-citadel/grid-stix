@@ -38,7 +38,7 @@ class FeedsRelationship(GridSTIXRelationshipObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-feedsrelationship"
+    _type = "x-grid-feeds-relationship"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

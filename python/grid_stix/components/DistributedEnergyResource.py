@@ -41,7 +41,7 @@ class DistributedEnergyResource(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-distributedenergyresource"
+    _type = "x-grid-distributed-energy-resource"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

@@ -38,7 +38,7 @@ class DerFirmware(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-derfirmware"
+    _type = "x-grid-der-firmware"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

@@ -42,7 +42,7 @@ class OutageContext(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-outagecontext"
+    _type = "x-grid-outage-context"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

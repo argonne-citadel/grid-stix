@@ -40,7 +40,7 @@ class PointOfCommonCoupling(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-pointofcommoncoupling"
+    _type = "x-grid-point-of-common-coupling"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

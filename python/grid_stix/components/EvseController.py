@@ -40,7 +40,7 @@ class EvseController(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-evsecontroller"
+    _type = "x-grid-evse-controller"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

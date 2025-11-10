@@ -38,7 +38,7 @@ class AdvancedMeteringNetwork(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-advancedmeteringnetwork"
+    _type = "x-grid-advanced-metering-network"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

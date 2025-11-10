@@ -38,7 +38,7 @@ class SafeguardsAnomalyTypeOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-safeguardsanomalytypeov"
+    _type = "x-grid-safeguards_anomaly_type_ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

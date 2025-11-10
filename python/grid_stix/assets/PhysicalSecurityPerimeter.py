@@ -38,7 +38,7 @@ class PhysicalSecurityPerimeter(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-physicalsecurityperimeter"
+    _type = "x-grid-physical-security-perimeter"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

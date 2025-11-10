@@ -41,7 +41,7 @@ class GridRelationship(GridSTIXRelationshipObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-gridrelationship"
+    _type = "x-grid-grid-relationship"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

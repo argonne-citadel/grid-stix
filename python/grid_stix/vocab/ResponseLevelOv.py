@@ -38,7 +38,7 @@ class ResponseLevelOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-responselevelov"
+    _type = "x-grid-response_level_ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

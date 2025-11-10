@@ -38,7 +38,7 @@ class AuthorizesAccessToRelationship(GridSTIXRelationshipObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-authorizesaccesstorelationship"
+    _type = "x-grid-authorizes-access-to-relationship"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

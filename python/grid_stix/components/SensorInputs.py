@@ -38,7 +38,7 @@ class SensorInputs(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-sensorinputs"
+    _type = "x-grid-sensor-inputs"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

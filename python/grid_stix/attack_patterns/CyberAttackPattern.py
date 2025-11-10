@@ -38,7 +38,7 @@ class CyberAttackPattern(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-cyberattackpattern"
+    _type = "x-grid-cyber-attack-pattern"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

@@ -41,7 +41,7 @@ class PolicyAction(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-policyaction"
+    _type = "x-grid-policy-action"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

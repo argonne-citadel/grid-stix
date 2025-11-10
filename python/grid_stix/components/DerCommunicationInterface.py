@@ -44,7 +44,7 @@ class DerCommunicationInterface(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-dercommunicationinterface"
+    _type = "x-grid-der-communication-interface"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

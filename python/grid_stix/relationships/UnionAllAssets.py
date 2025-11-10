@@ -41,7 +41,7 @@ class UnionAllAssets(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-unionallassets"
+    _type = "x-grid-union-all-assets"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

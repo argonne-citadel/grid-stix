@@ -38,7 +38,7 @@ class FirmwareAttackPattern(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-firmwareattackpattern"
+    _type = "x-grid-firmware-attack-pattern"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

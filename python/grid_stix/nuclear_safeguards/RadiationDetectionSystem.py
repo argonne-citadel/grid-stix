@@ -40,7 +40,7 @@ class RadiationDetectionSystem(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-radiationdetectionsystem"
+    _type = "x-grid-radiation-detection-system"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

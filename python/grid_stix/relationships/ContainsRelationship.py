@@ -38,7 +38,7 @@ class ContainsRelationship(GridSTIXRelationshipObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-containsrelationship"
+    _type = "x-grid-contains-relationship"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

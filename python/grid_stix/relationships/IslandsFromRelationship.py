@@ -38,7 +38,7 @@ class IslandsFromRelationship(GridSTIXRelationshipObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-islandsfromrelationship"
+    _type = "x-grid-islands-from-relationship"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

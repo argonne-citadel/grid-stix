@@ -347,6 +347,7 @@ class IROptimizer:
                 is_abstract=class_def.is_abstract,
                 description=class_def.description,
                 namespace_iri=class_def.namespace_iri,
+                owl_fragment=class_def.owl_fragment,
             )
 
             updated_classes[class_name] = updated_class

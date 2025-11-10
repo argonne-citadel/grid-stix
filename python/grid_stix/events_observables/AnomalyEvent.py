@@ -40,7 +40,7 @@ class AnomalyEvent(GridSTIXObservableObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-anomalyevent"
+    _type = "x-grid-anomaly-event"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

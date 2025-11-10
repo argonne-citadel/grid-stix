@@ -38,7 +38,7 @@ class SocialEngineeringAttackPattern(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-socialengineeringattackpattern"
+    _type = "x-grid-social-engineering-attack-pattern"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

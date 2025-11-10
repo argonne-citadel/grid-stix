@@ -58,7 +58,7 @@ class CybersecurityPosture(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-cybersecurityposture"
+    _type = "x-grid-cybersecurity-posture"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

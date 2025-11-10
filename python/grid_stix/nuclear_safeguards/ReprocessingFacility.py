@@ -38,7 +38,7 @@ class ReprocessingFacility(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-reprocessingfacility"
+    _type = "x-grid-reprocessing-facility"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

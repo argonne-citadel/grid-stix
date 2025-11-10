@@ -38,7 +38,7 @@ class KeyMeasurementPoint(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-keymeasurementpoint"
+    _type = "x-grid-key-measurement-point"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

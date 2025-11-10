@@ -38,7 +38,7 @@ class UnionSecurityZoneOTDeviceCourseOfAction(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-unionsecurityzoneotdevicecourseofaction"
+    _type = "x-grid-union-security-zone-ot-device-course-of-action"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

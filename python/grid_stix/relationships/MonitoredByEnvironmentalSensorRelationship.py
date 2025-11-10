@@ -38,7 +38,7 @@ class MonitoredByEnvironmentalSensorRelationship(GridSTIXRelationshipObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-monitoredbyenvironmentalsensorrelationship"
+    _type = "x-grid-monitored-by-environmental-sensor-relationship"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

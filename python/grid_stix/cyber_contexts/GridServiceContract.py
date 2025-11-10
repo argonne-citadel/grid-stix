@@ -38,7 +38,7 @@ class GridServiceContract(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-gridservicecontract"
+    _type = "x-grid-grid-service-contract"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

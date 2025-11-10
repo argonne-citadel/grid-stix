@@ -38,7 +38,7 @@ class V2gCommunicationModule(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-v2gcommunicationmodule"
+    _type = "x-grid-v2g-communication-module"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

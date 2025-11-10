@@ -38,7 +38,7 @@ class TransmissionLine(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-transmissionline"
+    _type = "x-grid-transmission-line"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

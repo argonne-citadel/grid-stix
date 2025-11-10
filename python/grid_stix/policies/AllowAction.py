@@ -38,7 +38,7 @@ class AllowAction(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-allowaction"
+    _type = "x-grid-allow-action"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

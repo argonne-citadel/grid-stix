@@ -38,7 +38,7 @@ class MonitorsTrustOfRelationship(GridSTIXRelationshipObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-monitorstrustofrelationship"
+    _type = "x-grid-monitors-trust-of-relationship"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

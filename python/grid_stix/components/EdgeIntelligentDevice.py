@@ -40,7 +40,7 @@ class EdgeIntelligentDevice(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-edgeintelligentdevice"
+    _type = "x-grid-edge-intelligent-device"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(
