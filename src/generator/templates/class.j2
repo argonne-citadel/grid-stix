@@ -59,6 +59,9 @@ class {{ class_def.name }}({{ class_def.bases | join(', ') }}):
 {% for attr in class_def.attrs %}
         ('x_{{ attr.name }}', {% if attr.mult in ["+", "*"] %}ListProperty({% endif %}{% if attr.range == "str" %}StringProperty(){% elif attr.range == "int" %}IntegerProperty(){% elif attr.range == "float" %}FloatProperty(){% elif attr.range == "bool" %}BooleanProperty(){% else %}StringProperty(){% endif %}{% if attr.mult in ["+", "*"] %}){% endif %}),
 {% endfor %}
+{% if class_def.name == "GridRelationship" %}
+        ('x_relationship_type', StringProperty()),
+{% endif %}
     ])
     
     def __init__(self, **kwargs: Any) -> None:
@@ -66,14 +69,14 @@ class {{ class_def.name }}({{ class_def.bases | join(', ') }}):
         # Set STIX type if not provided
         if 'type' not in kwargs:
             kwargs['type'] = self._type
-            
+
         # Generate deterministic ID if not provided
         if 'id' not in kwargs:
             from ..base import DeterministicUUIDGenerator
-            
+
             # Generate deterministic UUID - will raise ValueError if required properties missing
             kwargs['id'] = DeterministicUUIDGenerator.generate_uuid(
                 self._type, kwargs
             )
-        
+
         super().__init__(**kwargs)
