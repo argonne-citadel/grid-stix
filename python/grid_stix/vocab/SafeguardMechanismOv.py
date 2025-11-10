@@ -38,7 +38,7 @@ class SafeguardMechanismOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-safeguard_mechanism_ov"
+    _type = "x-grid-safeguard-mechanism-ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

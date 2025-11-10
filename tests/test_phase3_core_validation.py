@@ -290,7 +290,7 @@ class TestConfigurationCoverage:
             "x-grid-cyber-attack-pattern",
             "x-grid-grid-event",
             "x-grid-nuclear-facility",
-            "x-grid-gridrelationship",
+            "x-grid-grid-relationship",
         ]
 
         missing_types = []

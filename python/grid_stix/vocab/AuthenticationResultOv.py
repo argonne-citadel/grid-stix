@@ -38,7 +38,7 @@ class AuthenticationResultOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-authentication_result_ov"
+    _type = "x-grid-authentication-result-ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(
