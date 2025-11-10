@@ -71,7 +71,9 @@ class ClassDef:
     is_abstract: bool = False
     description: Optional[str] = None
     namespace_iri: Optional[str] = None
-    owl_fragment: Optional[str] = None  # Original OWL fragment name (e.g., "photovoltaic-system")
+    owl_fragment: Optional[str] = (
+        None  # Original OWL fragment name (e.g., "photovoltaic-system")
+    )
 
 
 @dataclass
@@ -296,9 +298,13 @@ class IRBuilder:
             logger.debug(f"Attempting to extract OWL fragment from IRI: {class_iri}")
             if "#" in class_iri:
                 owl_fragment = class_iri.split("#")[-1]
-                logger.info(f"Extracted OWL fragment '{owl_fragment}' for class {class_name} from IRI {class_iri}")
+                logger.info(
+                    f"Extracted OWL fragment '{owl_fragment}' for class {class_name} from IRI {class_iri}"
+                )
             else:
-                logger.warning(f"No '#' found in IRI for class {class_name}: {class_iri}")
+                logger.warning(
+                    f"No '#' found in IRI for class {class_name}: {class_iri}"
+                )
 
             return ClassDef(
                 name=class_name,
