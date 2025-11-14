@@ -1,5 +1,7 @@
 Process to export to Github with squashed snapshot:
 
+origin: git@github.com:argonne-citadel/grid-stix.git
+
 git switch main
 # move to internal branch you want to export from
 

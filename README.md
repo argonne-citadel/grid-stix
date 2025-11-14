@@ -1,6 +1,7 @@
 # Grid-STIX 2.1 Electrical Grid Cybersecurity Ontology
+## The Foundational CITADEL Ontology based on STIX 2.1
 
-Grid-STIX is a comprehensive extension of the STIX (Structured Threat Information Expression) 2.1 ontology specifically designed for electrical grid cybersecurity applications. This ontology provides a standardized, machine-readable framework for modeling grid assets, operational technology devices, threats, vulnerabilities, supply chain risks, and security relationships in electrical power systems.
+Grid-STIX is a comprehensive extension of the STIX (Structured Threat Information Expression) 2.1 ontology specifically designed for electrical grid cybersecurity applications. As the foundational ontology for CITADEL (Critical Infrastructure Trustworthy AI Defense and Evaluation Laboratory), Grid-STIX provides a standardized, machine-readable framework for modeling grid assets, operational technology devices, threats, vulnerabilities, supply chain risks, and security relationships in electrical power systems.
 
 ## Key Features
 
@@ -204,3 +205,13 @@ When contributing to Grid-STIX:
 - **Validation Reports**: Run `make check` for detailed consistency analysis
 - **Grid-STIX Specification**: See inline comments and class definitions
 - **STIX 2.1 Reference**: [OASIS STIX 2.1 Specification](https://docs.oasis-open.org/cti/stix/v2.1/)
+
+## About CITADEL
+
+Grid-STIX serves as the foundational ontology for **CITADEL** (Critical Infrastructure Trustworthy AI Defense and Evaluation Laboratory), a comprehensive framework for modeling and analyzing security threats to critical infrastructure. By extending STIX 2.1 with domain-specific concepts for power grid operations, distributed energy resources, and operational technology security, Grid-STIX enables advanced threat intelligence sharing and analysis for critical infrastructure protection.
+
+CITADEL leverages Grid-STIX to provide:
+- **Unified threat modeling** across critical infrastructure domains
+- **AI-driven defense** capabilities for infrastructure protection
+- **Trustworthy evaluation** frameworks for security assessments
+- **Standardized data exchange** for threat intelligence sharing
