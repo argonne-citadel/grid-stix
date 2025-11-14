@@ -38,7 +38,7 @@ class ComplianceFrameworkOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-compliance_framework_ov"
+    _type = "x-grid-compliance-framework-ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

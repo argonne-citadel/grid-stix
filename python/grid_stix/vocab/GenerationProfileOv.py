@@ -38,7 +38,7 @@ class GenerationProfileOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-generation_profile_ov"
+    _type = "x-grid-generation-profile-ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

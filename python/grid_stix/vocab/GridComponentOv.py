@@ -38,7 +38,7 @@ class GridComponentOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-grid_component_ov"
+    _type = "x-grid-grid-component-ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

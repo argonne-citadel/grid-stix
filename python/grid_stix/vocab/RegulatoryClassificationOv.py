@@ -38,7 +38,7 @@ class RegulatoryClassificationOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-regulatory_classification_ov"
+    _type = "x-grid-regulatory-classification-ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

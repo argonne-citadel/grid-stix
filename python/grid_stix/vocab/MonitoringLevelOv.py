@@ -38,7 +38,7 @@ class MonitoringLevelOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-monitoring_level_ov"
+    _type = "x-grid-monitoring-level-ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

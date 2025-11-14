@@ -38,7 +38,7 @@ class EmergencyTypeOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-emergency_type_ov"
+    _type = "x-grid-emergency-type-ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(

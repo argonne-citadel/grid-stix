@@ -1,5 +1,5 @@
 ---
-name: grid-stix 
+name: grid-stix
 channels:
   - conda-forge
 dependencies:

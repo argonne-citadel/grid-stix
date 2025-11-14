@@ -38,7 +38,7 @@ class MaintenanceTypeOv(GridSTIXDomainObject):
     """
 
     # STIX type identifier for this Grid-STIX object
-    _type = "x-grid-maintenance_type_ov"
+    _type = "x-grid-maintenance-type-ov"
 
     # STIX properties definition following official STIX patterns
     _properties = OrderedDict(
