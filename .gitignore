@@ -6,8 +6,12 @@
 *.pyc
 *.swp
 *.txt
+*cache*
 .DS_Store
 .claude
 __pycache__
+build/
+dist/
+grid_stix.egg-info
 presentations/
 test-results/

@@ -49,6 +49,12 @@ test:
 	@PYTHONPATH=python:src ${MICROMAMBA_DEV} pytest -v --durations=10 --junitxml=$(REPORTS_DIR)/tests.xml tests/
 	@echo "$(COLOR_GREEN)Tests complete$(COLOR_RESET)"
 
+pipbuild:
+	@echo "$(COLOR_BOLD)Building distributable packages...$(COLOR_RESET)"
+	@rm -rf build/ dist/ python/grid_stix.egg-info/
+	@${MICROMAMBA_DEV} python -m build --wheel --sdist
+	@echo "$(COLOR_GREEN)Build complete!$(COLOR_RESET)"
+
 merge:
 	@echo "$(COLOR_BOLD)Merging ontologies...$(COLOR_RESET)"
 	@robot merge \
