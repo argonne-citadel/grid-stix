@@ -22,6 +22,7 @@ dependencies:
   - pytest-mock=3.14
   - rdflib=7.1
   - scipy=1.15
+  - twine=6.2
   - pip=25.3
   - pip:
     - stix2~=3.0.1
