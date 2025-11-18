@@ -101,6 +101,7 @@ class GridAttackPattern(GridSTIXDomainObject):
             ("x_access_level_required", ListProperty(StringProperty())),
             ("x_actor_motivation", ListProperty(StringProperty())),
             ("x_attack_id", ListProperty(StringProperty())),
+            ("x_attack_objective", ListProperty(StringProperty())),
             ("x_business_continuity_impact", ListProperty(StringProperty())),
             ("x_campaign_association", ListProperty(StringProperty())),
             ("x_capec_id", ListProperty(StringProperty())),
@@ -110,7 +111,6 @@ class GridAttackPattern(GridSTIXDomainObject):
             ("x_customers_affected", ListProperty(IntegerProperty())),
             ("x_cwe_id", ListProperty(StringProperty())),
             ("x_d3fend_id", ListProperty(StringProperty())),
-            ("x_description", ListProperty(StringProperty())),
             ("x_detection_difficulty", ListProperty(IntegerProperty())),
             ("x_detection_signatures", ListProperty(StringProperty())),
             ("x_detection_time", ListProperty(IntegerProperty())),
@@ -120,11 +120,11 @@ class GridAttackPattern(GridSTIXDomainObject):
             ("x_exploitability_score", ListProperty(FloatProperty())),
             ("x_forensic_artifacts", ListProperty(StringProperty())),
             ("x_frequency_impact", ListProperty(BooleanProperty())),
+            ("x_grid_target", ListProperty(StringProperty())),
             ("x_impact_scope", ListProperty(StringProperty())),
             ("x_impact_score", ListProperty(FloatProperty())),
             ("x_likelihood_of_success", ListProperty(FloatProperty())),
             ("x_load_shedding_risk", ListProperty(BooleanProperty())),
-            ("x_name", ListProperty(StringProperty())),
             ("x_network_requirements", ListProperty(StringProperty())),
             ("x_overall_risk_score", ListProperty(FloatProperty())),
             ("x_persistence_capability", ListProperty(BooleanProperty())),
@@ -146,7 +146,6 @@ class GridAttackPattern(GridSTIXDomainObject):
             ("x_threat_actor_sophistication", ListProperty(StringProperty())),
             ("x_ttp_signature", ListProperty(StringProperty())),
             ("x_voltage_impact", ListProperty(BooleanProperty())),
-            ("x_name", StringProperty()),
         ]
     )
 

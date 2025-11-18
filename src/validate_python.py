@@ -11,7 +11,7 @@ import importlib.util
 from pathlib import Path
 from typing import List, Dict, Any
 import tempfile
-import subprocess
+import subprocess  # nosec B404 - needed for validation, uses safe subprocess.run() patterns
 
 
 def find_python_files(directory: Path) -> List[Path]:

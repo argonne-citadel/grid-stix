@@ -39,11 +39,11 @@ class TestOntologyLoader:
 </rdf:RDF>"""
                 )
 
-            with patch("generator.loader.World") as mock_world_class, patch(
-                "generator.loader.get_ontology"
-            ) as mock_get_ontology, patch(
-                "generator.loader.owlready2.sync_reasoner"
-            ) as mock_sync_reasoner:
+            with (
+                patch("generator.loader.World") as mock_world_class,
+                patch("generator.loader.get_ontology") as mock_get_ontology,
+                patch("generator.loader.owlready2.sync_reasoner") as mock_sync_reasoner,
+            ):
 
                 # Setup mocks
                 mock_world = Mock(spec=World)
@@ -81,11 +81,11 @@ class TestOntologyLoader:
             with open(ontology_path, "w") as f:
                 f.write('<?xml version="1.0"?><rdf:RDF></rdf:RDF>')
 
-            with patch("generator.loader.World") as mock_world_class, patch(
-                "generator.loader.get_ontology"
-            ) as mock_get_ontology, patch(
-                "generator.loader.owlready2.sync_reasoner"
-            ) as mock_sync_reasoner:
+            with (
+                patch("generator.loader.World") as mock_world_class,
+                patch("generator.loader.get_ontology") as mock_get_ontology,
+                patch("generator.loader.owlready2.sync_reasoner") as mock_sync_reasoner,
+            ):
 
                 mock_world = Mock(spec=World)
                 mock_world.__enter__ = Mock(return_value=mock_world)
@@ -115,11 +115,11 @@ class TestOntologyLoader:
             with open(ontology_path, "w") as f:
                 f.write('<?xml version="1.0"?><rdf:RDF></rdf:RDF>')
 
-            with patch("generator.loader.World") as mock_world_class, patch(
-                "generator.loader.get_ontology"
-            ) as mock_get_ontology, patch(
-                "generator.loader.owlready2.sync_reasoner"
-            ) as mock_sync_reasoner:
+            with (
+                patch("generator.loader.World") as mock_world_class,
+                patch("generator.loader.get_ontology") as mock_get_ontology,
+                patch("generator.loader.owlready2.sync_reasoner") as mock_sync_reasoner,
+            ):
 
                 mock_world = Mock(spec=World)
                 mock_world.__enter__ = Mock(return_value=mock_world)
@@ -154,11 +154,11 @@ class TestOntologyLoader:
             with open(ontology_path, "w") as f:
                 f.write('<?xml version="1.0"?><rdf:RDF></rdf:RDF>')
 
-            with patch("generator.loader.World") as mock_world_class, patch(
-                "generator.loader.get_ontology"
-            ) as mock_get_ontology, patch(
-                "generator.loader.owlready2.sync_reasoner"
-            ) as mock_sync_reasoner:
+            with (
+                patch("generator.loader.World") as mock_world_class,
+                patch("generator.loader.get_ontology") as mock_get_ontology,
+                patch("generator.loader.owlready2.sync_reasoner") as mock_sync_reasoner,
+            ):
 
                 mock_world = Mock(spec=World)
                 mock_world.__enter__ = Mock(return_value=mock_world)
@@ -186,9 +186,10 @@ class TestOntologyLoader:
             with open(ontology_path, "w") as f:
                 f.write("This is not valid XML or OWL")
 
-            with patch("generator.loader.World") as mock_world_class, patch(
-                "generator.loader.get_ontology"
-            ) as mock_get_ontology:
+            with (
+                patch("generator.loader.World") as mock_world_class,
+                patch("generator.loader.get_ontology") as mock_get_ontology,
+            ):
 
                 mock_world = Mock(spec=World)
                 mock_world_class.return_value = mock_world
@@ -218,9 +219,10 @@ class TestPathResolution:
         """Test resolving HTTP URL."""
         test_url = "http://example.com/ontology.owl"
 
-        with patch("generator.loader.urlretrieve") as mock_urlretrieve, patch(
-            "generator.loader.tempfile.NamedTemporaryFile"
-        ) as mock_tempfile:
+        with (
+            patch("generator.loader.urlretrieve") as mock_urlretrieve,
+            patch("generator.loader.tempfile.NamedTemporaryFile") as mock_tempfile,
+        ):
 
             mock_temp = Mock()
             mock_temp.name = "/tmp/downloaded.owl"  # nosec B101 - test code
@@ -237,9 +239,10 @@ class TestPathResolution:
         """Test resolving HTTPS URL."""
         test_url = "https://example.com/ontology.owl"
 
-        with patch("generator.loader.urlretrieve") as mock_urlretrieve, patch(
-            "generator.loader.tempfile.NamedTemporaryFile"
-        ) as mock_tempfile:
+        with (
+            patch("generator.loader.urlretrieve") as mock_urlretrieve,
+            patch("generator.loader.tempfile.NamedTemporaryFile") as mock_tempfile,
+        ):
 
             mock_temp = Mock()
             mock_temp.name = "/tmp/downloaded.owl"  # nosec B101 - test code
@@ -396,11 +399,11 @@ class TestLoaderIntegration:
             with open(ontology_path, "w") as f:
                 f.write('<?xml version="1.0"?><rdf:RDF></rdf:RDF>')
 
-            with patch("generator.loader.World") as mock_world_class, patch(
-                "generator.loader.get_ontology"
-            ) as mock_get_ontology, patch(
-                "generator.loader.owlready2.sync_reasoner"
-            ) as mock_sync_reasoner:
+            with (
+                patch("generator.loader.World") as mock_world_class,
+                patch("generator.loader.get_ontology") as mock_get_ontology,
+                patch("generator.loader.owlready2.sync_reasoner") as mock_sync_reasoner,
+            ):
 
                 mock_world = Mock(spec=World)
                 mock_world.__enter__ = Mock(return_value=mock_world)
@@ -430,9 +433,11 @@ class TestLoaderIntegration:
             with open(ontology_path, "w") as f:
                 f.write('<?xml version="1.0"?><rdf:RDF></rdf:RDF>')
 
-            with patch("generator.loader.World") as mock_world_class, patch(
-                "generator.loader.get_ontology"
-            ) as mock_get_ontology, patch("generator.loader.logger") as mock_logger:
+            with (
+                patch("generator.loader.World") as mock_world_class,
+                patch("generator.loader.get_ontology") as mock_get_ontology,
+                patch("generator.loader.logger") as mock_logger,
+            ):
 
                 mock_world = Mock(spec=World)
                 mock_world.__enter__ = Mock(return_value=mock_world)

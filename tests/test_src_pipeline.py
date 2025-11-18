@@ -36,13 +36,12 @@ class TestGenerationPipeline:
 </rdf:RDF>"""
                 )
 
-            with patch("generator.pipeline.load_ontology") as mock_load, patch(
-                "generator.pipeline.IRBuilder"
-            ) as mock_ir_builder, patch(
-                "generator.pipeline.IROptimizer"
-            ) as mock_optimizer, patch(
-                "generator.pipeline.generate_python_code"
-            ) as mock_gen_code:
+            with (
+                patch("generator.pipeline.load_ontology") as mock_load,
+                patch("generator.pipeline.IRBuilder") as mock_ir_builder,
+                patch("generator.pipeline.IROptimizer") as mock_optimizer,
+                patch("generator.pipeline.generate_python_code") as mock_gen_code,
+            ):
 
                 # Setup mocks
                 mock_world = Mock(spec=World)
@@ -86,13 +85,12 @@ class TestGenerationPipeline:
 
             Path(templates_dir).mkdir()
 
-            with patch("generator.pipeline.load_ontology") as mock_load, patch(
-                "generator.pipeline.IRBuilder"
-            ) as mock_ir_builder, patch(
-                "generator.pipeline.IROptimizer"
-            ) as mock_optimizer, patch(
-                "generator.pipeline.generate_python_code"
-            ) as mock_gen_code:
+            with (
+                patch("generator.pipeline.load_ontology") as mock_load,
+                patch("generator.pipeline.IRBuilder") as mock_ir_builder,
+                patch("generator.pipeline.IROptimizer") as mock_optimizer,
+                patch("generator.pipeline.generate_python_code") as mock_gen_code,
+            ):
 
                 mock_load.return_value = Mock(spec=World)
                 mock_ir_builder.return_value.build_ir.return_value = Mock()
@@ -134,9 +132,10 @@ class TestGenerationPipeline:
             ontology_path = str(Path(temp_dir) / "test.owl")
             output_dir = str(Path(temp_dir) / "output")
 
-            with patch("generator.pipeline.load_ontology") as mock_load, patch(
-                "generator.pipeline.IRBuilder"
-            ) as mock_ir_builder:
+            with (
+                patch("generator.pipeline.load_ontology") as mock_load,
+                patch("generator.pipeline.IRBuilder") as mock_ir_builder,
+            ):
 
                 mock_load.return_value = Mock(spec=World)
                 mock_ir_instance = Mock()
@@ -155,11 +154,11 @@ class TestGenerationPipeline:
             ontology_path = str(Path(temp_dir) / "test.owl")
             output_dir = str(Path(temp_dir) / "output")
 
-            with patch("generator.pipeline.load_ontology") as mock_load, patch(
-                "generator.pipeline.IRBuilder"
-            ) as mock_ir_builder, patch(
-                "generator.pipeline.IROptimizer"
-            ) as mock_optimizer:
+            with (
+                patch("generator.pipeline.load_ontology") as mock_load,
+                patch("generator.pipeline.IRBuilder") as mock_ir_builder,
+                patch("generator.pipeline.IROptimizer") as mock_optimizer,
+            ):
 
                 mock_load.return_value = Mock(spec=World)
                 mock_ir_builder.return_value.build_ir.return_value = Mock()
@@ -182,13 +181,12 @@ class TestGenerationPipeline:
             ontology_path = str(Path(temp_dir) / "test.owl")
             output_dir = str(Path(temp_dir) / "output")
 
-            with patch("generator.pipeline.load_ontology") as mock_load, patch(
-                "generator.pipeline.IRBuilder"
-            ) as mock_ir_builder, patch(
-                "generator.pipeline.IROptimizer"
-            ) as mock_optimizer, patch(
-                "generator.pipeline.generate_python_code"
-            ) as mock_gen_code:
+            with (
+                patch("generator.pipeline.load_ontology") as mock_load,
+                patch("generator.pipeline.IRBuilder") as mock_ir_builder,
+                patch("generator.pipeline.IROptimizer") as mock_optimizer,
+                patch("generator.pipeline.generate_python_code") as mock_gen_code,
+            ):
 
                 mock_load.return_value = Mock(spec=World)
                 mock_ir_builder.return_value.build_ir.return_value = Mock()
@@ -207,13 +205,12 @@ class TestGenerationPipeline:
             ontology_path = str(Path(temp_dir) / "test.owl")
             output_dir = str(Path(temp_dir) / "output")
 
-            with patch("generator.pipeline.load_ontology") as mock_load, patch(
-                "generator.pipeline.IRBuilder"
-            ) as mock_ir_builder, patch(
-                "generator.pipeline.IROptimizer"
-            ) as mock_optimizer, patch(
-                "generator.pipeline.generate_python_code"
-            ) as mock_gen_code:
+            with (
+                patch("generator.pipeline.load_ontology") as mock_load,
+                patch("generator.pipeline.IRBuilder") as mock_ir_builder,
+                patch("generator.pipeline.IROptimizer") as mock_optimizer,
+                patch("generator.pipeline.generate_python_code") as mock_gen_code,
+            ):
 
                 mock_load.return_value = Mock(spec=World)
                 mock_ir_builder.return_value.build_ir.return_value = Mock()
@@ -241,15 +238,13 @@ class TestPipelineIntegration:
             ontology_path = str(Path(temp_dir) / "test.owl")
             output_dir = str(Path(temp_dir) / "output")
 
-            with patch("generator.pipeline.load_ontology") as mock_load, patch(
-                "generator.pipeline.IRBuilder"
-            ) as mock_ir_builder, patch(
-                "generator.pipeline.IROptimizer"
-            ) as mock_optimizer, patch(
-                "generator.pipeline.generate_python_code"
-            ) as mock_gen_code, patch(
-                "generator.pipeline.logger"
-            ) as mock_logger:
+            with (
+                patch("generator.pipeline.load_ontology") as mock_load,
+                patch("generator.pipeline.IRBuilder") as mock_ir_builder,
+                patch("generator.pipeline.IROptimizer") as mock_optimizer,
+                patch("generator.pipeline.generate_python_code") as mock_gen_code,
+                patch("generator.pipeline.logger") as mock_logger,
+            ):
 
                 mock_load.return_value = Mock(spec=World)
                 mock_ir_builder.return_value.build_ir.return_value = Mock()
