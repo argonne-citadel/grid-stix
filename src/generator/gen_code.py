@@ -391,7 +391,7 @@ class CodeGenerator:
         try:
             # Run black formatter
             logger.info("Running black formatter...")
-            result = subprocess.run(
+            result = subprocess.run(  # nosec B603, B607 - uses list args (not shell=True) with controlled paths
                 ["black", str(self.output_dir)],
                 capture_output=True,
                 text=True,
@@ -402,7 +402,7 @@ class CodeGenerator:
 
             # Run mypy type checker
             logger.info("Running mypy type checker...")
-            result = subprocess.run(
+            result = subprocess.run(  # nosec B603, B607 - uses list args (not shell=True) with controlled paths
                 ["mypy", "--strict", str(self.output_dir)],
                 capture_output=True,
                 text=True,
