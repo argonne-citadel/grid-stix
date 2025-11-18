@@ -221,9 +221,10 @@ SOME_CONSTANT = 42
         try:
             from validate_python import main
 
-            with patch("validate_python.Path") as mock_path, patch(
-                "validate_python.find_python_files"
-            ) as mock_find:
+            with (
+                patch("validate_python.Path") as mock_path,
+                patch("validate_python.find_python_files") as mock_find,
+            ):
 
                 mock_python_dir = Mock()
                 mock_python_dir.exists.return_value = True
