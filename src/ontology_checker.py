@@ -34,7 +34,7 @@ def parse_arguments():
     )
     parser.add_argument(
         "--owl-file",
-        default="root/grid-stix-2.1-root.owl",
+        default="ontology/root/grid-stix-2.1-root.owl",
         help="Path to the main OWL file",
     )
     parser.add_argument(
@@ -43,7 +43,9 @@ def parse_arguments():
         help="Base namespace for the ontology",
     )
     parser.add_argument(
-        "--catalog", default="catalog.xml", help="Path to catalog.xml for imports"
+        "--catalog",
+        default="ontology/catalog.xml",
+        help="Path to catalog.xml for imports",
     )
     parser.add_argument(
         "--skip-checks",
@@ -56,9 +58,9 @@ def parse_arguments():
 
 # ---- CONFIGURATION ----
 # Default values for when imported as module
-OWL_FILE = "root/grid-stix-2.1-root.owl"
+OWL_FILE = "ontology/root/grid-stix-2.1-root.owl"
 BASE_NAMESPACE = "http://www.anl.gov/sss/"
-CATALOG_FILE = "catalog.xml"
+CATALOG_FILE = "ontology/catalog.xml"
 SKIP_CHECKS = []
 
 # Define common STIX namespaces

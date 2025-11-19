@@ -91,59 +91,59 @@
   <!-- Grid-STIX 2.1 modules -->
   <uri
       name="http://www.anl.gov/sss/grid-stix-2.1-root.owl"
-      uri="file:root/grid-stix-2.1-root.owl"
+      uri="file:ontology/root/grid-stix-2.1-root.owl"
   />
   <uri
       name="http://www.anl.gov/sss/grid-stix-2.1-vocab.owl"
-      uri="file:vocabularies/grid-stix-2.1-vocab.owl"
+      uri="file:ontology/vocabularies/grid-stix-2.1-vocab.owl"
   />
   <uri
       name="http://www.anl.gov/sss/grid-stix-2.1-asset-types.owl"
-      uri="file:core/grid-stix-2.1-asset-types.owl"
+      uri="file:ontology/core/grid-stix-2.1-asset-types.owl"
   />
   <uri
       name="http://www.anl.gov/sss/grid-stix-2.1-assets.owl"
-      uri="file:core/grid-stix-2.1-assets.owl"
+      uri="file:ontology/core/grid-stix-2.1-assets.owl"
   />
   <uri
       name="http://www.anl.gov/sss/grid-stix-2.1-components.owl"
-      uri="file:core/grid-stix-2.1-components.owl"
+      uri="file:ontology/core/grid-stix-2.1-components.owl"
   />
   <uri
       name="http://www.anl.gov/sss/grid-stix-2.1-relationships.owl"
-      uri="file:core/grid-stix-2.1-relationships.owl"
+      uri="file:ontology/core/grid-stix-2.1-relationships.owl"
   />
   <uri
       name="http://www.anl.gov/sss/grid-stix-2.1-attack-patterns.owl"
-      uri="file:threat/grid-stix-2.1-attack-patterns.owl"
+      uri="file:ontology/threat/grid-stix-2.1-attack-patterns.owl"
   />
   <uri
       name="http://www.anl.gov/sss/grid-stix-2.1-policies.owl"
-      uri="file:policy/grid-stix-2.1-policies.owl"
+      uri="file:ontology/policy/grid-stix-2.1-policies.owl"
   />
   <uri
       name="http://www.anl.gov/sss/grid-stix-2.1-environmental-contexts.owl"
-      uri="file:contexts/grid-stix-2.1-environmental-contexts.owl"
+      uri="file:ontology/contexts/grid-stix-2.1-environmental-contexts.owl"
   />
   <uri
       name="http://www.anl.gov/sss/grid-stix-2.1-operational-contexts.owl"
-      uri="file:contexts/grid-stix-2.1-operational-contexts.owl"
+      uri="file:ontology/contexts/grid-stix-2.1-operational-contexts.owl"
   />
   <uri
       name="http://www.anl.gov/sss/grid-stix-2.1-physical-contexts.owl"
-      uri="file:contexts/grid-stix-2.1-physical-contexts.owl"
+      uri="file:ontology/contexts/grid-stix-2.1-physical-contexts.owl"
   />
   <uri
       name="http://www.anl.gov/sss/grid-stix-2.1-cyber-contexts.owl"
-      uri="file:contexts/grid-stix-2.1-cyber-contexts.owl"
+      uri="file:ontology/contexts/grid-stix-2.1-cyber-contexts.owl"
   />
   <uri
       name="http://www.anl.gov/sss/grid-stix-2.1-events-observables.owl"
-      uri="file:observables/grid-stix-2.1-events-observables.owl"
+      uri="file:ontology/observables/grid-stix-2.1-events-observables.owl"
   />
   <uri
       name="http://www.anl.gov/sss/grid-stix-2.1-nuclear-safeguards.owl"
-      uri="file:nuclear/grid-stix-2.1-nuclear-safeguards.owl"
+      uri="file:ontology/nuclear/grid-stix-2.1-nuclear-safeguards.owl"
   />
 </catalog
 >
