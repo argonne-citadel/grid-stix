@@ -25,7 +25,7 @@ init: environment.yml
 format:
 	@echo "Formatting code..."
 	@${MAMBA_DEV} black -q src/ python/ tests/
-	@find . -type f -iname "*.owl" -not -path "./tac-ontology/*" -exec xmllint --format --output {} {} \;
+	@find . -type f -iname "*.owl" -not -path "./tac-ontology/*" -not -path "./ontology/tac-ontology/*" -exec xmllint --format --output {} {} \;
 	@echo "$(COLOR_GREEN)Code formatting complete$(COLOR_RESET)"
 
 black:
@@ -58,19 +58,19 @@ pipbuild:
 merge:
 	@echo "$(COLOR_BOLD)Merging ontologies...$(COLOR_RESET)"
 	@robot merge \
-		--catalog catalog.xml \
-		--input vocabularies/grid-stix-2.1-vocab.owl \
-		--input contexts/grid-stix-2.1-operational-contexts.owl \
-		--input contexts/grid-stix-2.1-environmental-contexts.owl \
-		--input core/grid-stix-2.1-asset-types.owl \
-		--input core/grid-stix-2.1-assets.owl \
-		--input core/grid-stix-2.1-components.owl \
-		--input core/grid-stix-2.1-relationships.owl \
-		--input observables/grid-stix-2.1-events-observables.owl \
-		--input threat/grid-stix-2.1-attack-patterns.owl \
-		--input policy/grid-stix-2.1-policies.owl \
-		--input nuclear/grid-stix-2.1-nuclear-safeguards.owl \
-		--input root/grid-stix-2.1-root.owl \
+		--catalog ontology/catalog.xml \
+		--input ontology/vocabularies/grid-stix-2.1-vocab.owl \
+		--input ontology/contexts/grid-stix-2.1-operational-contexts.owl \
+		--input ontology/contexts/grid-stix-2.1-environmental-contexts.owl \
+		--input ontology/core/grid-stix-2.1-asset-types.owl \
+		--input ontology/core/grid-stix-2.1-assets.owl \
+		--input ontology/core/grid-stix-2.1-components.owl \
+		--input ontology/core/grid-stix-2.1-relationships.owl \
+		--input ontology/observables/grid-stix-2.1-events-observables.owl \
+		--input ontology/threat/grid-stix-2.1-attack-patterns.owl \
+		--input ontology/policy/grid-stix-2.1-policies.owl \
+		--input ontology/nuclear/grid-stix-2.1-nuclear-safeguards.owl \
+		--input ontology/root/grid-stix-2.1-root.owl \
 		--output grid-stix-2.1-full.owl
 	@echo "$(COLOR_GREEN)Ontologies merged successfully!$(COLOR_RESET)"
 
