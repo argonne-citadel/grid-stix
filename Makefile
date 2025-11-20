@@ -54,6 +54,7 @@ pipbuild:
 	@rm -rf build/ dist/ python/grid_stix.egg-info/
 	@${MICROMAMBA_DEV} python -m build --wheel --sdist
 	@echo "$(COLOR_GREEN)Build complete!$(COLOR_RESET)"
+	@echo "Push to PyPI with: ${MICROMAMBA_DEV} python -m twine upload dist/*"
 
 merge:
 	@echo "$(COLOR_BOLD)Merging ontologies...$(COLOR_RESET)"
