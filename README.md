@@ -20,37 +20,38 @@ Grid-STIX is a comprehensive extension of the STIX (Structured Threat Informatio
 
 ```
 grid-stix/
-├── catalog.xml                               # XML catalog for import resolution
-├── contexts/                                 # Context-specific ontologies
-│   ├── grid-stix-2.1-cyber-contexts.owl      # Cybersecurity posture and contexts
-│   ├── grid-stix-2.1-environmental-contexts.owl # Weather, natural disasters
-│   ├── grid-stix-2.1-operational-contexts.owl   # Grid operating conditions
-│   └── grid-stix-2.1-physical-contexts.owl      # Physical security contexts
-├── core/                                     # Core ontology components
-│   ├── grid-stix-2.1-assets.owl              # Assets, suppliers, supply chain
-│   ├── grid-stix-2.1-components.owl          # Grid components, OT devices, sensors
-│   └── grid-stix-2.1-relationships.owl       # Power flow, protection, control
 ├── environment.yml                           # Conda/Mamba environment specification
 ├── Makefile                                  # Build automation and workflows
-├── nuclear/                                  # Nuclear safeguards and security
-│   └── grid-stix-2.1-nuclear-safeguards.owl  # Nuclear facility security
-├── observables/                              # Observable events and monitoring
-│   └── grid-stix-2.1-events-observables.owl  # Grid events, alarms, anomalies
-├── policy/                                   # Security policies and procedures
-│   └── grid-stix-2.1-policies.owl            # Grid security policies
+├── ontology/                                 # OWL ontology files
+│   ├── catalog.xml                           # XML catalog for import resolution
+│   ├── contexts/                             # Context-specific ontologies
+│   │   ├── grid-stix-2.1-cyber-contexts.owl      # Cybersecurity posture and contexts
+│   │   ├── grid-stix-2.1-environmental-contexts.owl # Weather, natural disasters
+│   │   ├── grid-stix-2.1-operational-contexts.owl   # Grid operating conditions
+│   │   └── grid-stix-2.1-physical-contexts.owl      # Physical security contexts
+│   ├── core/                                 # Core ontology components
+│   │   ├── grid-stix-2.1-assets.owl          # Assets, suppliers, supply chain
+│   │   ├── grid-stix-2.1-components.owl      # Grid components, OT devices, sensors
+│   │   └── grid-stix-2.1-relationships.owl   # Power flow, protection, control
+│   ├── nuclear/                              # Nuclear safeguards and security
+│   │   └── grid-stix-2.1-nuclear-safeguards.owl  # Nuclear facility security
+│   ├── observables/                          # Observable events and monitoring
+│   │   └── grid-stix-2.1-events-observables.owl  # Grid events, alarms, anomalies
+│   ├── policy/                               # Security policies and procedures
+│   │   └── grid-stix-2.1-policies.owl        # Grid security policies
+│   ├── root/                                 # Root ontology integration
+│   │   └── grid-stix-2.1-root.owl            # Master ontology file
+│   ├── threat/                               # Threat and attack modeling
+│   │   └── grid-stix-2.1-attack-patterns.owl # Grid-specific attack patterns
+│   └── vocabularies/                         # Controlled vocabularies
+│       └── grid-stix-2.1-vocab.owl           # Open vocabularies and protocols
 ├── python/                                   # Generated Python STIX classes
 │   └── grid_stix/                            # Python package structure
 ├── src/                                      # Source code and tools
 │   ├── generator/                            # Python code generation system
-│   ├── ontology_checker.py                  # Comprehensive validation script
-│   └── owl_to_html.py                       # Enhanced visualization generator
-├── root/                                     # Root ontology integration
-│   └── grid-stix-2.1-root.owl                # Master ontology file
-├── tac-ontology/                             # STIX 2.1 base ontologies
-├── threat/                                   # Threat and attack modeling
-│   └── grid-stix-2.1-attack-patterns.owl     # Grid-specific attack patterns
-└── vocabularies/                             # Controlled vocabularies
-    └── grid-stix-2.1-vocab.owl               # Open vocabularies and protocols
+│   ├── ontology_checker.py                   # Comprehensive validation script
+│   └── owl_to_html.py                        # Enhanced visualization generator
+└── tac-ontology/                             # STIX 2.1 base ontologies
 ```
 
 ## Quick Start
@@ -183,10 +184,10 @@ When contributing to Grid-STIX:
    - Run `make check` to ensure validation passes
 
 3. **File Organization:**
-   - Assets & infrastructure → `core/grid-stix-2.1-assets.owl`
-   - Grid equipment → `core/grid-stix-2.1-components.owl`
-   - Relationships → `core/grid-stix-2.1-relationships.owl`
-   - Vocabularies → `vocabularies/grid-stix-2.1-vocab.owl`
+   - Assets & infrastructure → `ontology/core/grid-stix-2.1-assets.owl`
+   - Grid equipment → `ontology/core/grid-stix-2.1-components.owl`
+   - Relationships → `ontology/core/grid-stix-2.1-relationships.owl`
+   - Vocabularies → `ontology/vocabularies/grid-stix-2.1-vocab.owl`
 
 ## Current Ontology Status
 
