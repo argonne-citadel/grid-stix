@@ -215,3 +215,7 @@ CITADEL leverages Grid-STIX to provide:
 - **AI-driven defense** capabilities for infrastructure protection
 - **Trustworthy evaluation** frameworks for security assessments
 - **Standardized data exchange** for threat intelligence sharing
+
+## Acknowledgments
+
+This software was developed under U.S. Department of Energy award DE-CR0000049, issued by the Office of Cybersecurity, Energy Security, and Emergency Response (CESER). The prime contractor on this work was Iowa State University, and the ideas herein are influenced by conversations with them. The submitted manuscript has been created by UChicago Argonne, LLC, operator of Argonne National Laboratory. Argonne, a DOE Office of Science laboratory, is operated under Contract No. DE-AC02-06CH11357. The U.S. Government retains for itself, and others acting on its behalf, a paid-up nonexclusive, irrevocable worldwide license in said article to reproduce, prepare derivative works, distribute copies to the public, and perform publicly and display publicly, by or on behalf of the Government.
