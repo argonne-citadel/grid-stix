@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "grid-stix"
-version = "2.6"
-description = "Grid-STIX 2.1 Electrical Grid Cybersecurity Ontology - STIX extension for critical infrastructure"
+version = "2.6.1"
+description = "Grid-STIX Electrical Grid Cybersecurity Ontology - STIX extension for critical infrastructure"
 readme = "README.md"
 requires-python = ">=3.12"
 license = "GPL-3.0-or-later"
