@@ -274,7 +274,6 @@ IDENTITY_PROPERTY_CONFIG = {
     ],
     "x-grid-emergency-response-context": ["first_observed", "x_emergency_type"],
     "x-grid-physical-security-context": ["first_observed", "x_security_event_type"],
-    "x-grid-cybersecurity-posture": ["first_observed", "x_alert_level"],
     "x-grid-operational-context": ["first_observed", "x_operational_mode"],
     "x-grid-der-operational-context": ["first_observed", "x_der_resource_id"],
     # Components (unhyphenated versions match generator output)
@@ -518,6 +517,19 @@ IDENTITY_PROPERTY_CONFIG = {
         "x_source_device",
         "x_value",
     ],
+    "x-grid-grid-protocol-traffic": [
+        "x_protocol",
+        "x_source_ip",
+        "x_destination_ip",
+        "x_source_port",
+        "x_destination_port",
+    ],
+    "x-grid-authentication-event": [
+        "x_user_ref",
+        "x_authentication_factor",
+        "x_authentication_result",
+        "x_session_id",
+    ],
     "x-grid-operational-event": [
         "x_event_type",
         "x_timestamp",
@@ -700,6 +712,7 @@ IDENTITY_PROPERTY_CONFIG = {
         "x_detection_methods",
     ],
     # Policies
+    "x-grid-access-policy": ["name"],
     "x-grid-security-policy": [
         "name",
         "x_policy_id",
