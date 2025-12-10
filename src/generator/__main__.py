@@ -49,7 +49,7 @@ Examples:
     parser.add_argument(
         "--log-level",
         choices=["DEBUG", "INFO", "WARNING", "ERROR"],
-        default="INFO",
+        default="WARNING",
         help="Set logging level",
     )
 

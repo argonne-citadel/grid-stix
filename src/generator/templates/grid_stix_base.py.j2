@@ -178,7 +178,6 @@ IDENTITY_PROPERTY_CONFIG = {
     "x-grid-grid-operating-condition-context": ["first_observed", "x_grid_operating_condition"],
     "x-grid-emergency-response-context": ["first_observed", "x_emergency_type"],
     "x-grid-physical-security-context": ["first_observed", "x_security_event_type"],
-    "x-grid-cybersecurity-posture": ["first_observed", "x_alert_level"],
     "x-grid-operational-context": ["first_observed", "x_operational_mode"],
     "x-grid-der-operational-context": ["first_observed", "x_der_resource_id"],
 
@@ -242,6 +241,8 @@ IDENTITY_PROPERTY_CONFIG = {
     "x-grid-grid-event": ["x_event_type", "x_timestamp", "x_source_component"],
     "x-grid-alarm-event": ["x_alarm_type", "x_timestamp", "x_source_component", "x_severity"],
     "x-grid-grid-telemetry": ["x_measurement_type", "x_measurement_timestamp", "x_source_device", "x_value"],
+    "x-grid-grid-protocol-traffic": ["x_protocol", "x_source_ip", "x_destination_ip", "x_source_port", "x_destination_port"],
+    "x-grid-authentication-event": ["x_user_ref", "x_authentication_factor", "x_authentication_result", "x_session_id"],
     "x-grid-operational-event": ["x_event_type", "x_timestamp", "x_operational_context"],
     "x-grid-maintenance-event": ["x_maintenance_type", "x_timestamp", "x_target_asset"],
     "x-grid-security-event": ["x_event_type", "x_timestamp", "x_security_context"],
@@ -286,6 +287,7 @@ IDENTITY_PROPERTY_CONFIG = {
     "x-grid-safeguards-system": ["x_system_id", "x_monitoring_capabilities", "x_detection_methods"],
     
     # Policies
+    "x-grid-access-policy": ["name"],
     "x-grid-security-policy": ["name", "x_policy_id", "x_policy_type", "x_enforcement_level"],
     "x-grid-operational-policy": ["name", "x_policy_id", "x_operational_domain", "x_compliance_requirements"],
     "x-grid-emergency-response-policy": ["name", "x_policy_id", "x_response_type", "x_activation_criteria"],
