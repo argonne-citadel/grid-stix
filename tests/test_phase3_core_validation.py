@@ -26,18 +26,16 @@ class TestGeneratorUUIDConsistency:
         """Test same properties generate same UUID for generators."""
         props1 = {
             "name": "Main Power Plant Generator",
-            "x_asset_id": "GEN-001",
+            "x_grid_component_type": "generator",
             "x_power_rating_mw": 500.0,
             "x_fuel_type": "natural_gas",
-            "x_owner_organization": "Test Utility Corp",
         }
 
         props2 = {
             "name": "Main Power Plant Generator",
-            "x_asset_id": "GEN-001",
+            "x_grid_component_type": "generator",
             "x_power_rating_mw": 500.0,
             "x_fuel_type": "natural_gas",
-            "x_owner_organization": "Test Utility Corp",
         }
 
         uuid1 = DeterministicUUIDGenerator.generate_uuid("x-grid-generator", props1)
@@ -50,18 +48,16 @@ class TestGeneratorUUIDConsistency:
         """Test different properties generate different UUIDs for generators."""
         props1 = {
             "name": "Main Power Plant Generator",
-            "x_asset_id": "GEN-001",
+            "x_grid_component_type": "generator",
             "x_power_rating_mw": 500.0,
             "x_fuel_type": "natural_gas",
-            "x_owner_organization": "Test Utility Corp",
         }
 
         props2 = {
             "name": "Different Generator",
-            "x_asset_id": "GEN-002",
+            "x_grid_component_type": "generator",
             "x_power_rating_mw": 300.0,
             "x_fuel_type": "coal",
-            "x_owner_organization": "Different Utility",
         }
 
         uuid1 = DeterministicUUIDGenerator.generate_uuid("x-grid-generator", props1)
@@ -77,7 +73,7 @@ class TestTransformerUUIDConsistency:
         """Test same properties generate same UUID for transformers."""
         props1 = {
             "name": "Main Substation Transformer",
-            "x_asset_id": "TRANS-001",
+            "x_grid_component_type": "generator",
             "x_voltage_primary_kv": 138.0,
             "x_voltage_secondary_kv": 13.8,
             "x_power_rating_mva": 100.0,
@@ -85,7 +81,7 @@ class TestTransformerUUIDConsistency:
 
         props2 = {
             "name": "Main Substation Transformer",
-            "x_asset_id": "TRANS-001",
+            "x_grid_component_type": "generator",
             "x_voltage_primary_kv": 138.0,
             "x_voltage_secondary_kv": 13.8,
             "x_power_rating_mva": 100.0,
@@ -105,16 +101,12 @@ class TestSmartMeterUUIDConsistency:
         """Test same properties generate same UUID for smart meters."""
         props1 = {
             "name": "Residential Smart Meter",
-            "x_asset_id": "METER-001",
-            "x_ip_address": "192.168.1.100",
-            "x_mac_address": "00:11:22:33:44:55",
+            "x_grid_component_type": "generator",
         }
 
         props2 = {
             "name": "Residential Smart Meter",
-            "x_asset_id": "METER-001",
-            "x_ip_address": "192.168.1.100",
-            "x_mac_address": "00:11:22:33:44:55",
+            "x_grid_component_type": "generator",
         }
 
         uuid1 = DeterministicUUIDGenerator.generate_uuid("x-grid-smartmeter", props1)
@@ -213,18 +205,16 @@ class TestPropertyNormalization:
         """Test case-insensitive normalization."""
         props1 = {
             "name": "Test Generator",
-            "x_asset_id": "GEN-001",
+            "x_grid_component_type": "generator",
             "x_fuel_type": "NATURAL_GAS",
             "x_power_rating_mw": 100.0,
-            "x_owner_organization": "Test Utility",
         }
 
         props2 = {
             "name": "test generator",
-            "x_asset_id": "gen-001",
+            "x_grid_component_type": "generator",
             "x_fuel_type": "natural_gas",
             "x_power_rating_mw": 100.0,
-            "x_owner_organization": "test utility",
         }
 
         uuid1 = DeterministicUUIDGenerator.generate_uuid("x-grid-generator", props1)
@@ -236,14 +226,14 @@ class TestPropertyNormalization:
         """Test list order normalization."""
         props1 = {
             "name": "Test Meter",
-            "x_asset_id": "METER-001",
+            "x_grid_component_type": "generator",
             "x_ip_address": ["192.168.1.100", "10.0.0.1"],
             "x_mac_address": "00:11:22:33:44:55",
         }
 
         props2 = {
             "name": "Test Meter",
-            "x_asset_id": "METER-001",
+            "x_grid_component_type": "generator",
             "x_ip_address": ["10.0.0.1", "192.168.1.100"],  # Different order
             "x_mac_address": "00:11:22:33:44:55",
         }
@@ -330,10 +320,9 @@ def generator_properties():
     """Fixture providing generator properties."""
     return {
         "name": "Test Generator",
-        "x_asset_id": "GEN-TEST",
+        "x_grid_component_type": "generator",
         "x_power_rating_mw": 100.0,
         "x_fuel_type": "natural_gas",
-        "x_owner_organization": "Test Utility",
     }
 
 
@@ -342,7 +331,7 @@ def transformer_properties():
     """Fixture providing transformer properties."""
     return {
         "name": "Test Transformer",
-        "x_asset_id": "TRANS-TEST",
+        "x_grid_component_type": "generator",
         "x_voltage_primary_kv": 138.0,
         "x_voltage_secondary_kv": 13.8,
         "x_power_rating_mva": 50.0,
@@ -354,9 +343,7 @@ def smart_meter_properties():
     """Fixture providing smart meter properties."""
     return {
         "name": "Test Smart Meter",
-        "x_asset_id": "METER-TEST",
-        "x_ip_address": "192.168.1.100",
-        "x_mac_address": "00:11:22:33:44:55",
+        "x_grid_component_type": "generator",
     }
 
 

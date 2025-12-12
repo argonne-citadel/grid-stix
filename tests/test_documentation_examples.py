@@ -21,10 +21,9 @@ class TestDeterministicUUIDGenerator:
         obj_type = "x-grid-generator"
         properties = {
             "name": "Main Power Plant Generator 1",
-            "x_asset_id": ["GEN-001"],
+            "x_grid_component_type": ["generator"],
             "x_power_rating_mw": [500.0],
             "x_fuel_type": ["natural_gas"],
-            "x_owner_organization": ["City Electric Utility"],
         }
 
         uuid1 = DeterministicUUIDGenerator.generate_uuid(obj_type, properties)
@@ -40,10 +39,9 @@ class TestDeterministicUUIDGenerator:
         obj_type = "x-grid-generator"
         properties = {
             "name": "Main Power Plant Generator 1",
-            "x_asset_id": ["GEN-001"],
+            "x_grid_component_type": ["generator"],
             "x_power_rating_mw": [500.0],
             "x_fuel_type": ["natural_gas"],
-            "x_owner_organization": ["City Electric Utility"],
         }
 
         uuid1 = DeterministicUUIDGenerator.generate_uuid(obj_type, properties)
@@ -57,18 +55,16 @@ class TestDeterministicUUIDGenerator:
 
         properties1 = {
             "name": "Main Power Plant Generator 1",
-            "x_asset_id": ["GEN-001"],
+            "x_grid_component_type": ["generator"],
             "x_power_rating_mw": [500.0],
             "x_fuel_type": ["natural_gas"],
-            "x_owner_organization": ["City Electric Utility"],
         }
 
         properties2 = {
             "name": "Different Generator",
-            "x_asset_id": ["GEN-002"],
+            "x_grid_component_type": ["generator"],
             "x_power_rating_mw": [750.0],
             "x_fuel_type": ["coal"],
-            "x_owner_organization": ["Different Utility"],
         }
 
         uuid1 = DeterministicUUIDGenerator.generate_uuid(obj_type, properties1)
@@ -82,17 +78,15 @@ class TestDeterministicUUIDGenerator:
 
         case_props1 = {
             "name": "Test Generator",
-            "x_asset_id": "GEN-001",
+            "x_grid_component_type": "GENERATOR",
             "x_power_rating_mw": 100.0,
             "x_fuel_type": "NATURAL_GAS",
-            "x_owner_organization": "TEST UTILITY",
         }
         case_props2 = {
             "name": "test generator",
-            "x_asset_id": "gen-001",
+            "x_grid_component_type": "generator",
             "x_power_rating_mw": 100.0,
             "x_fuel_type": "natural_gas",
-            "x_owner_organization": "test utility",
         }
 
         uuid1 = DeterministicUUIDGenerator.generate_uuid(obj_type, case_props1)
@@ -106,17 +100,15 @@ class TestDeterministicUUIDGenerator:
 
         list_props1 = {
             "name": "Test",
-            "x_asset_id": "GEN-001",
+            "x_grid_component_type": "generator",
             "x_power_rating_mw": 100.0,
             "x_fuel_type": ["coal", "natural_gas"],
-            "x_owner_organization": "Test Utility",
         }
         list_props2 = {
             "name": "Test",
-            "x_asset_id": "GEN-001",
+            "x_grid_component_type": "generator",
             "x_power_rating_mw": 100.0,
             "x_fuel_type": ["natural_gas", "coal"],
-            "x_owner_organization": "Test Utility",
         }
 
         uuid1 = DeterministicUUIDGenerator.generate_uuid(obj_type, list_props1)
@@ -129,7 +121,7 @@ class TestDeterministicUUIDGenerator:
         obj_type = "x-grid-generator"
         incomplete_properties = {
             "name": "Test Generator",
-            "x_asset_id": ["GEN-001"],
+            "x_grid_component_type": ["generator"],
             # Missing other required properties
         }
 
@@ -153,10 +145,9 @@ class TestDeterministicUUIDGenerator:
         """Test multiple object types generate different UUIDs."""
         generator_props = {
             "name": "Test Generator",
-            "x_asset_id": ["GEN-001"],
+            "x_grid_component_type": ["generator"],
             "x_power_rating_mw": [500.0],
             "x_fuel_type": ["natural_gas"],
-            "x_owner_organization": ["Test Utility"],
         }
 
         transformer_props = {
@@ -230,10 +221,9 @@ def sample_generator_properties():
     """Fixture providing sample generator properties for testing."""
     return {
         "name": "Test Generator",
-        "x_asset_id": ["GEN-TEST"],
+        "x_grid_component_type": ["generator"],
         "x_power_rating_mw": [100.0],
         "x_fuel_type": ["natural_gas"],
-        "x_owner_organization": ["Test Utility"],
     }
 
 

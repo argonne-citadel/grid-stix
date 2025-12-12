@@ -182,11 +182,13 @@ IDENTITY_PROPERTY_CONFIG = {
     "x-grid-der-operational-context": ["first_observed", "x_der_resource_id"],
 
     # Components (unhyphenated versions match generator output)
+    "x-grid-smart-meter": ["name", "x_asset_id", "x_ip_address", "x_mac_address"],
     "x-grid-smartmeter": ["name", "x_asset_id", "x_ip_address", "x_mac_address"],
+    "x-grid-battery-energy-storage-system": ["name", "x_bess_system_id", "x_capacity_kwh", "x_bess_power_rating_kw"],
+    "x-grid-batteryenergystoragesystem": ["name", "x_bess_system_id", "x_capacity_kwh", "x_bess_power_rating_kw"],
     "x-grid-inverter": ["name", "x_device_id", "x_power_rating_kw", "x_inverter_type"],
     "x-grid-photovoltaic-system": ["name", "x_system_id", "x_capacity_kw", "x_panel_type"],
     "x-grid-windturbine": ["name", "x_turbine_id", "x_wind_capacity_kw", "x_hub_height_m"],
-    "x-grid-batteryenergystoragesystem": ["name", "x_bess_system_id", "x_capacity_kwh", "x_bess_power_rating_kw"],
     "x-grid-nuclearpowerplant": ["name", "x_plant_id", "x_reactor_type", "x_capacity_mw"],
     "x-grid-electric-vehicle": ["name", "x_vehicle_id", "x_battery_capacity_kwh", "x_charging_standard"],
     "x-grid-electric-vehicle-supply-equipment": ["name", "x_equipment_id", "x_power_level", "x_connector_type"],

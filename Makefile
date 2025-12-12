@@ -61,6 +61,11 @@ pipbuild:
 	@echo "$(COLOR_GREEN)Build complete!$(COLOR_RESET)"
 	@echo "Push to PyPI with: ${MICROMAMBA_DEV} python -m twine upload dist/*"
 
+pippush:
+	@echo "$(COLOR_BOLD)Uploading to PyPI...$(COLOR_RESET)"
+	@${MICROMAMBA_DEV} python -m twine upload dist/*
+	@echo "$(COLOR_GREEN)Upload complete!$(COLOR_RESET)"
+
 merge:
 	@echo "$(COLOR_BOLD)Merging ontologies...$(COLOR_RESET)"
 	@robot merge \

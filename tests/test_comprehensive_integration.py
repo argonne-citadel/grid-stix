@@ -422,18 +422,16 @@ class TestPropertyNormalizationIntegration:
         # Test case-insensitive normalization
         props1 = {
             "name": "Test Generator",
-            "x_asset_id": ["GEN-001"],
+            "x_grid_component_type": "smart_meter",
             "x_fuel_type": ["NATURAL_GAS"],
             "x_power_rating_mw": [100.0],
-            "x_owner_organization": ["Test Utility"],
         }
 
         props2 = {
             "name": "test generator",
-            "x_asset_id": ["gen-001"],
+            "x_grid_component_type": "smart_meter",
             "x_fuel_type": ["natural_gas"],
             "x_power_rating_mw": [100.0],
-            "x_owner_organization": ["test utility"],
         }
 
         uuid1 = DeterministicUUIDGenerator.generate_uuid("x-grid-generator", props1)
@@ -446,16 +444,12 @@ class TestPropertyNormalizationIntegration:
         # Test list normalization (order shouldn't matter for sorted lists)
         props1 = {
             "name": "Test Meter",
-            "x_asset_id": ["METER-001"],
-            "x_ip_address": ["192.168.1.100", "10.0.0.1"],
-            "x_mac_address": ["00:11:22:33:44:55"],
+            "x_grid_component_type": ["smart_meter"],
         }
 
         props2 = {
             "name": "Test Meter",
-            "x_asset_id": ["METER-001"],
-            "x_ip_address": ["10.0.0.1", "192.168.1.100"],  # Different order
-            "x_mac_address": ["00:11:22:33:44:55"],
+            "x_grid_component_type": ["smart_meter"],
         }
 
         uuid1 = DeterministicUUIDGenerator.generate_uuid("x-grid-smartmeter", props1)
@@ -481,10 +475,9 @@ class TestFallbackBehaviorIntegration:
         # we test that the same properties always generate the same UUID
         explicit_props = {
             "name": "Generator with Consistent Properties",
-            "x_asset_id": ["GEN-EXPLICIT"],
+            "x_grid_component_type": "smart_meter",
             "x_power_rating_mw": [200.0],
             "x_fuel_type": ["coal"],
-            "x_owner_organization": ["Explicit Utility"],
         }
 
         uuid1 = DeterministicUUIDGenerator.generate_uuid(
@@ -504,18 +497,19 @@ class TestCrossObjectTypeConsistency:
     def test_different_object_types_different_uuids(self):
         """Test that different object types produce different UUIDs."""
         # Use same base properties but different object types
-        base_props = {"name": "Test Object", "x_asset_id": ["TEST-001"]}
+        base_props = {"name": "Test Object"}
 
         # Add type-specific properties
         generator_props = {
             **base_props,
+            "x_grid_component_type": ["generator"],
             "x_power_rating_mw": [100.0],
             "x_fuel_type": ["natural_gas"],
-            "x_owner_organization": ["Test Utility"],
         }
 
         transformer_props = {
             **base_props,
+            "x_asset_id": ["TEST-001"],
             "x_voltage_primary_kv": [138.0],
             "x_voltage_secondary_kv": [13.8],
             "x_power_rating_mva": [50.0],
@@ -523,7 +517,7 @@ class TestCrossObjectTypeConsistency:
 
         meter_props = {
             **base_props,
-            "x_ip_address": ["192.168.1.100"],
+            "x_grid_component_type": ["smart_meter"],
             "x_mac_address": ["00:11:22:33:44:55"],
         }
 
@@ -554,10 +548,9 @@ def sample_generator_properties():
     """Fixture providing sample generator properties for integration testing."""
     return {
         "name": "Integration Test Generator",
-        "x_asset_id": ["GEN-INTEGRATION"],
+        "x_grid_component_type": "smart_meter",
         "x_power_rating_mw": [250.0],
         "x_fuel_type": ["natural_gas"],
-        "x_owner_organization": ["Integration Test Utility"],
     }
 
 
@@ -566,7 +559,7 @@ def sample_transformer_properties():
     """Fixture providing sample transformer properties for integration testing."""
     return {
         "name": "Integration Test Transformer",
-        "x_asset_id": ["TRANS-INTEGRATION"],
+        "x_grid_component_type": "smart_meter",
         "x_voltage_primary_kv": [138.0],
         "x_voltage_secondary_kv": [13.8],
         "x_power_rating_mva": [75.0],
@@ -578,9 +571,7 @@ def sample_smart_meter_properties():
     """Fixture providing sample smart meter properties for integration testing."""
     return {
         "name": "Integration Test Smart Meter",
-        "x_asset_id": ["METER-INTEGRATION"],
-        "x_ip_address": ["192.168.100.1"],
-        "x_mac_address": ["AA:BB:CC:DD:EE:FF"],
+        "x_grid_component_type": "smart_meter",
     }
 
 
